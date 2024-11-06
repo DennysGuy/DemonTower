@@ -11,28 +11,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_encka")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 67.0
+offset_right = 142.0
+offset_bottom = 90.0
+text = "Name"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 91.0
+offset_right = 384.0
+offset_bottom = 122.0
+
 [node name="Host" type="Button" parent="."]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 75.0
-offset_right = 151.0
-offset_bottom = 106.0
+offset_left = 99.0
+offset_top = 132.0
+offset_right = 170.0
+offset_bottom = 163.0
 text = "Host"
 
 [node name="Join" type="Button" parent="."]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 76.0
-offset_right = 254.0
-offset_bottom = 107.0
+offset_left = 199.0
+offset_top = 133.0
+offset_right = 273.0
+offset_bottom = 164.0
 text = "Join"
 
 [node name="StartGame" type="Button" parent="."]
 layout_mode = 0
-offset_left = 283.0
-offset_top = 76.0
-offset_right = 379.0
-offset_bottom = 107.0
+offset_left = 302.0
+offset_top = 133.0
+offset_right = 398.0
+offset_bottom = 164.0
 text = "Start Game"
 
 [connection signal="button_down" from="Host" to="." method="_on_host_button_down"]

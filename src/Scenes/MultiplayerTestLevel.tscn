@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=9 format=4 uid="uid://chlev7pv7fi5q"]
 
-[ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
-[ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
-[ext_resource type="PackedScene" uid="uid://c3f22551sc137" path="res://src/Scenes/Player/Player.tscn" id="3_qwxlk"]
+[ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_k6y75"]
+[ext_resource type="Script" path="res://src/Scripts/SceneManager.gd" id="1_squu0"]
+[ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_fc7lo"]
+[ext_resource type="PackedScene" uid="uid://c8ddeqwwb0fit" path="res://src/Scenes/Player/MultiPlayerPlayer.tscn" id="2_t0y6y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jgn3k"]
-texture = ExtResource("1_m0vj0")
+texture = ExtResource("1_k6y75")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -433,7 +434,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_jgn3k")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awlcv"]
-texture = ExtResource("2_socv0")
+texture = ExtResource("2_fc7lo")
 margins = Vector2i(4, 0)
 0:0/0 = 0
 1:0/0 = 0
@@ -482,6 +483,8 @@ margins = Vector2i(4, 0)
 sources/0 = SubResource("TileSetAtlasSource_awlcv")
 
 [node name="TestLevel" type="Node2D"]
+script = ExtResource("1_squu0")
+player_scene = ExtResource("2_t0y6y")
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -493,8 +496,10 @@ tile_set = SubResource("TileSet_wygj1")
 tile_map_data = PackedByteArray("AAAPAAQAAAAAAAAAAAAPAAUAAAAAAAEAAAAPAAYAAAAAAAIAAAAPAAcAAAAAAAMAAAAPAAgAAAAAAAQAAAAPAAkAAAAAAAUAAAAQAAQAAAABAAAAAAAQAAUAAAABAAEAAAAQAAYAAAABAAIAAAAQAAcAAAABAAMAAAAQAAgAAAABAAQAAAAQAAkAAAABAAUAAAARAAQAAAACAAAAAAARAAUAAAACAAEAAAARAAYAAAACAAIAAAARAAcAAAACAAMAAAARAAgAAAACAAQAAAARAAkAAAACAAUAAAASAAQAAAADAAAAAAASAAUAAAADAAEAAAASAAYAAAADAAIAAAASAAcAAAADAAMAAAASAAgAAAADAAQAAAASAAkAAAADAAUAAAATAAQAAAAEAAAAAAATAAUAAAAEAAEAAAATAAYAAAAEAAIAAAATAAcAAAAEAAMAAAATAAgAAAAEAAQAAAATAAkAAAAEAAUAAAAUAAQAAAAFAAAAAAAUAAUAAAAFAAEAAAAUAAYAAAAFAAIAAAAUAAcAAAAFAAMAAAAUAAgAAAAFAAQAAAAUAAkAAAAFAAUAAAAVAAQAAAAGAAAAAAAVAAUAAAAGAAEAAAAVAAYAAAAGAAIAAAAVAAcAAAAGAAMAAAAVAAgAAAAGAAQAAAAVAAkAAAAGAAUAAAA=")
 tile_set = SubResource("TileSet_e2t1h")
 
-[node name="Player" parent="Environment" instance=ExtResource("3_qwxlk")]
-position = Vector2(55, 239)
+[node name="SpawnPoints" type="Node" parent="."]
 
-[node name="Camera2D2" type="Camera2D" parent="Environment/Player"]
-position = Vector2(11, -50)
+[node name="0" type="Node2D" parent="SpawnPoints" groups=["PlayerSpawnPoint"]]
+position = Vector2(51, 223)
+
+[node name="1" type="Node2D" parent="SpawnPoints" groups=["PlayerSpawnPoint"]]
+position = Vector2(293, 223)
