@@ -1037,7 +1037,7 @@ one_shot = true
 position = Vector2(1, -28)
 sprite_frames = SubResource("SpriteFrames_r0u3h")
 animation = &"Blue_Attack2"
-frame_progress = 0.0400689
+frame_progress = 0.139145
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
