@@ -40,7 +40,7 @@ func process_physics(_delta: float) -> State:
 	var movement = Input.get_axis("move_left","move_right")
 	#checks the input while idle state for being pressed; if pressed return to move state
 
-	if Input.is_action_just_pressed("move_up") and parent.in_ladder_area or Input.is_action_pressed("move_down") and ladder_detector.is_colliding():
+	if Input.is_action_pressed("move_up") and parent.in_ladder_area or Input.is_action_pressed("move_down") and ladder_detector.is_colliding():
 		return climb_state
 
 	if movement != 0 and parent.is_on_floor():
