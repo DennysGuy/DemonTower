@@ -14,8 +14,9 @@ var ladder_detector: RayCast2D
 var timer: Timer = $"../../Timer"
 
 func enter() -> void:
+	animation_name = GameManager.selected_color+"_Fall"
+	print_debug(animation_name)
 	super()
-	animation_name = "Green_Fall"
 	timer.start()
 
 func exit() -> void:

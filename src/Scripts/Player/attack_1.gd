@@ -9,7 +9,7 @@ var timer := $"../../Timer"
 @onready
 var animation : AnimatedSprite2D = $"../../animations"
 func enter() -> void:
-	animation_name = "Green_Attack1"
+	animation_name = GameManager.selected_color+"_Attack1"
 	timer.wait_time = 0.50
 	timer.start()
 	super()

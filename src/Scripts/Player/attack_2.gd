@@ -7,7 +7,7 @@ var attack3_state: State
 @onready
 var timer := $"../../Timer"
 func enter() -> void:
-	animation_name = "Green_Attack2"
+	animation_name = GameManager.selected_color+"_Attack2"
 	timer.wait_time = 0.2
 	timer.start()
 	super()
