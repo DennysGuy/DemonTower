@@ -12,6 +12,7 @@ var climb_state: State
 var prevInput
 
 func enter() -> void:
+	animation_name = "Green_Run"
 	super()
 	parent.jump_force = 300
 	parent.velocity.x = 0

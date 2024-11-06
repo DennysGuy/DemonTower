@@ -10,6 +10,7 @@ var idle_state: State
 var climb_state: State
 
 func enter() -> void:
+	animation_name = "Green_Jump"
 	super()
 	parent.has_jumped = true
 	parent.velocity.y -= 300

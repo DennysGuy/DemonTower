@@ -8,8 +8,10 @@ var jump_state: State
 var fall_state: State
 func enter() -> void:
 	super()
+	animation_name = "Green_Climb"
 	parent.velocity.x = 0
 	move_speed = 100
+	
 
 func exit() -> void:
 	pass

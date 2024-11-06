@@ -26,3 +26,5 @@ func process_frame(_delta: float) -> State:
 func process_physics(_delta: float) -> State:
 	return null
 		
+func set_animation_name(animation_name : String):
+	self.animation_name = animation_name

@@ -8,11 +8,14 @@ var fall_state: State
 var move_state: State
 @export
 var climb_state: State
+@export
+var attack_state: State
 
 @export
 var ladder_detector: RayCast2D
 
 func enter() -> void:
+	animation_name = "Green_Idle"
 	super()
 	parent.jump_force = 300
 
@@ -25,6 +28,9 @@ func process_input(_event: InputEvent) -> State:
 	
 	if Input.is_action_just_pressed("jump"):
 		return jump_state
+	
+	if Input.is_action_just_pressed("attack"):
+		return attack_state
 	
 	return null
 

@@ -15,6 +15,7 @@ var timer: Timer = $"../../Timer"
 
 func enter() -> void:
 	super()
+	animation_name = "Green_Fall"
 	timer.start()
 
 func exit() -> void:
