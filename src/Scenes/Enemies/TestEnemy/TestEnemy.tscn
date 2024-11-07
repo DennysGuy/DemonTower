@@ -370,7 +370,7 @@ height = 28.0
 
 [node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 2
 script = ExtResource("1_axdtp")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_v0wd5")]
