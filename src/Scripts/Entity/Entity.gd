@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready
 var animation_player = $animations
 @onready
-var state_machine = $Statemachine
+var state_machine = $StateMachine
 
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:

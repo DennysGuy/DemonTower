@@ -86,6 +86,7 @@ pause_menu={
 2d_physics/layer_2="Floor"
 2d_physics/layer_3="NPCs"
 2d_physics/layer_4="Ladders"
+2d_physics/layer_5="NoZoneAreas"
 
 [rendering]
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=14 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
+[ext_resource type="PackedScene" uid="uid://cr4mk0fffryp1" path="res://src/Scenes/Utilities/NoZoneArea.tscn" id="3_3je4i"]
 [ext_resource type="PackedScene" uid="uid://c3f22551sc137" path="res://src/Scenes/Player/Player.tscn" id="3_qwxlk"]
-[ext_resource type="PackedScene" uid="uid://rr3hqaxuipq6" path="res://src/Scenes/Enemies/TestEnemy.tscn" id="3_vlowr"]
+[ext_resource type="PackedScene" uid="uid://rr3hqaxuipq6" path="res://src/Scenes/Enemies/TestEnemy/TestEnemy.tscn" id="3_vlowr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
 texture = ExtResource("1_m0vj0")
@@ -839,8 +840,8 @@ texture = ExtResource("1_m0vj0")
 30:21/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_wygj1"]
-physics_layer_0/collision_layer = 3
-physics_layer_0/collision_mask = 3
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_jgn3k")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awlcv"]
@@ -892,6 +893,12 @@ margins = Vector2i(4, 0)
 [sub_resource type="TileSet" id="TileSet_e2t1h"]
 sources/0 = SubResource("TileSetAtlasSource_awlcv")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl4y2"]
+size = Vector2(14, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aka5t"]
+size = Vector2(12, 43.5)
+
 [node name="TestLevel" type="Node2D"]
 
 [node name="Environment" type="Node2D" parent="."]
@@ -908,11 +915,21 @@ tile_set = SubResource("TileSet_wygj1")
 tile_map_data = PackedByteArray("AAAPAAQAAAAAAAAAAAAPAAUAAAAAAAEAAAAPAAYAAAAAAAIAAAAPAAcAAAAAAAMAAAAPAAgAAAAAAAQAAAAPAAkAAAAAAAUAAAAQAAQAAAABAAAAAAAQAAUAAAABAAEAAAAQAAYAAAABAAIAAAAQAAcAAAABAAMAAAAQAAgAAAABAAQAAAAQAAkAAAABAAUAAAARAAQAAAACAAAAAAARAAUAAAACAAEAAAARAAYAAAACAAIAAAARAAcAAAACAAMAAAARAAgAAAACAAQAAAARAAkAAAACAAUAAAASAAQAAAADAAAAAAASAAUAAAADAAEAAAASAAYAAAADAAIAAAASAAcAAAADAAMAAAASAAgAAAADAAQAAAASAAkAAAADAAUAAAATAAQAAAAEAAAAAAATAAUAAAAEAAEAAAATAAYAAAAEAAIAAAATAAcAAAAEAAMAAAATAAgAAAAEAAQAAAATAAkAAAAEAAUAAAAUAAQAAAAFAAAAAAAUAAUAAAAFAAEAAAAUAAYAAAAFAAIAAAAUAAcAAAAFAAMAAAAUAAgAAAAFAAQAAAAUAAkAAAAFAAUAAAAVAAQAAAAGAAAAAAAVAAUAAAAGAAEAAAAVAAYAAAAGAAIAAAAVAAcAAAAGAAMAAAAVAAgAAAAGAAQAAAAVAAkAAAAGAAUAAAA=")
 tile_set = SubResource("TileSet_e2t1h")
 
+[node name="NoZoneArea" parent="." instance=ExtResource("3_3je4i")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea"]
+position = Vector2(-2, 487.5)
+shape = SubResource("RectangleShape2D_wl4y2")
+
+[node name="NoZoneArea2" parent="." instance=ExtResource("3_3je4i")]
+position = Vector2(510, 476)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea2"]
+position = Vector2(66, -10.25)
+shape = SubResource("RectangleShape2D_aka5t")
+
 [node name="TestEnemy" parent="." instance=ExtResource("3_vlowr")]
-position = Vector2(218, 511)
+position = Vector2(39, 507)
 
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
-position = Vector2(48, 505)
-
-[node name="Camera2D2" type="Camera2D" parent="Player"]
-position = Vector2(11, -50)
+position = Vector2(110, 502)
