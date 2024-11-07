@@ -6,12 +6,14 @@ var jump_force := 300
 var has_jumped := false
 
 var in_ladder_area := false
-
+@onready
+var player_name : Label = $PlayerName
 @onready
 var camera := $Camera2D
 
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:
+	player_name.text = GameManager.character_name
 	state_machine.init(self)
 
 func _unhandled_input(event: InputEvent) -> void:

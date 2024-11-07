@@ -16,7 +16,7 @@ func _process(delta):
 
 
 func _on_single_player_start_button_down():
-	get_tree().change_scene_to_file("res://src/Scenes/Rooms/TestLevel.tscn")
+	get_tree().change_scene_to_file("res://src/Scenes/Interfaces/CharacterCreator.tscn")
 
 
 func _on_multi_player_start_button_down():
