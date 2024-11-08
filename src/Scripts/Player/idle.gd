@@ -16,7 +16,6 @@ var ladder_detector: RayCast2D
 
 func enter() -> void:
 	animation_name = GameManager.selected_color+"_Idle"
-	print_debug(animation_name)
 	super()
 	parent.jump_force = 300
 

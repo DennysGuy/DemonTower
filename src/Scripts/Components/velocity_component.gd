@@ -10,14 +10,10 @@ var entity : Entity
 
 func apply_horizontal_movement(dir : int):
 	self.entity.velocity.x = dir * move_speed
-	self.entity.set_floor_snap_length(30)
-	self.entity.apply_floor_snap()
 	
-
 func apply_vertical_movement():
 	self.entity.velocity.y = -jump_strength
 	
-
 func set_move_speed(move_speed : float):
 	self.move_speed = move_speed
 	

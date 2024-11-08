@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=15 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
@@ -897,7 +897,10 @@ sources/0 = SubResource("TileSetAtlasSource_awlcv")
 size = Vector2(14, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aka5t"]
-size = Vector2(12, 43.5)
+size = Vector2(12, 110.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvb74"]
+size = Vector2(20, 57)
 
 [node name="TestLevel" type="Node2D"]
 
@@ -925,11 +928,18 @@ shape = SubResource("RectangleShape2D_wl4y2")
 position = Vector2(510, 476)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea2"]
-position = Vector2(66, -10.25)
+position = Vector2(66, -43.75)
 shape = SubResource("RectangleShape2D_aka5t")
 
 [node name="TestEnemy" parent="." instance=ExtResource("3_vlowr")]
-position = Vector2(39, 507)
+position = Vector2(246, 511)
 
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(110, 502)
+
+[node name="NoZoneArea3" parent="." instance=ExtResource("3_3je4i")]
+position = Vector2(-5, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea3"]
+position = Vector2(0, 18.5)
+shape = SubResource("RectangleShape2D_vvb74")

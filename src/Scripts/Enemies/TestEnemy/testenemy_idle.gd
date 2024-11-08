@@ -2,7 +2,8 @@ extends State
 
 @export
 var patrol_state : State
-
+@export
+var pursue_state : State
 @onready
 var timer = $"../../Timer"
 
@@ -31,6 +32,9 @@ func process_physics(_delta: float) -> State:
 	parent.set_floor_snap_length(30)
 	parent.apply_floor_snap()
 	self.parent.move_and_slide()
+	
+	if parent.player_seen:
+		return pursue_state
 	if timer.time_left == 0:
 		return patrol_state
 	

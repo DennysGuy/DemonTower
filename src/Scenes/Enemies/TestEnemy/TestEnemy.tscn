@@ -1,12 +1,14 @@
-[gd_scene load_steps=63 format=3 uid="uid://rr3hqaxuipq6"]
+[gd_scene load_steps=68 format=3 uid="uid://rr3hqaxuipq6"]
 
-[ext_resource type="Script" path="res://src/Scripts/Entity/Entity.gd" id="1_axdtp"]
+[ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/test_enemy.gd" id="1_qtaie"]
 [ext_resource type="PackedScene" uid="uid://c7hu37tywrkrv" path="res://src/Components/VelocityComponent.tscn" id="2_v0wd5"]
 [ext_resource type="Texture2D" uid="uid://dldtnspf8as6e" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-AttackWithStun.png" id="2_ydixj"]
 [ext_resource type="Texture2D" uid="uid://bgkiwlvrvvacf" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Die.png" id="3_gmnjf"]
 [ext_resource type="Texture2D" uid="uid://dq5ychxg288o6" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Hit.png" id="4_eota0"]
 [ext_resource type="Texture2D" uid="uid://b3v45l2gqt6th" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Idle.png" id="5_gfg00"]
 [ext_resource type="Texture2D" uid="uid://bhj0sqlxda6jk" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Run.png" id="6_mhqqa"]
+[ext_resource type="PackedScene" uid="uid://c2rkkjkm08tc6" path="res://src/Scenes/Utilities/NoZoneDetector.tscn" id="7_q6all"]
+[ext_resource type="PackedScene" uid="uid://c446fms4at0c3" path="res://src/Scenes/Utilities/DirectionComparator.tscn" id="7_yonne"]
 [ext_resource type="Script" path="res://src/Scripts/StateMachine/Statemachine.gd" id="9_0o3gy"]
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/testenemy_idle.gd" id="10_4hwhc"]
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/patrol.gd" id="11_rolkm"]
@@ -14,6 +16,7 @@
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/attack.gd" id="14_sggs4"]
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/hit.gd" id="15_b2dmt"]
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/die.gd" id="16_ladm1"]
+[ext_resource type="PackedScene" uid="uid://clcep1w1xkvns" path="res://src/Scenes/Utilities/PlayerDetector.tscn" id="17_xykqh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea6pq"]
 atlas = ExtResource("2_ydixj")
@@ -368,10 +371,16 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w70pl"]
 height = 28.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmlw1"]
+size = Vector2(150, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev3p1"]
+size = Vector2(42, 35)
+
 [node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_axdtp")
+script = ExtResource("1_qtaie")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_v0wd5")]
 entity = NodePath("..")
@@ -383,8 +392,8 @@ one_shot = true
 [node name="animations" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_a18xb")
-animation = &"Idle"
-frame_progress = 0.565015
+animation = &"Attack"
+frame_progress = 0.812493
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
@@ -394,23 +403,32 @@ shape = SubResource("CapsuleShape2D_w70pl")
 script = ExtResource("9_0o3gy")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("patrol_state")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("patrol_state", "pursue_state")]
 script = ExtResource("10_4hwhc")
 patrol_state = NodePath("../Patrol")
+pursue_state = NodePath("../Pursue")
 animation_name = "Idle"
 
-[node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "no_zone_detector", "direction_compartor")]
+[node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "pursue_state", "no_zone_detector", "direction_compartor")]
 script = ExtResource("11_rolkm")
 idle_state = NodePath("../Idle")
+pursue_state = NodePath("../Pursue")
 no_zone_detector = NodePath("../../NoZoneDetector")
 direction_compartor = NodePath("../../DirectionComparator")
+ray_cast_length = 25
 animation_name = "Run"
 
-[node name="Pursue" type="Node" parent="StateMachine"]
+[node name="Pursue" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack_state")]
 script = ExtResource("13_qxdnq")
+idle_state = NodePath("../Idle")
+attack_state = NodePath("../Attack")
+stop_distance = 20
+animation_name = "Run"
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("pursue_state")]
 script = ExtResource("14_sggs4")
+pursue_state = NodePath("../Pursue")
+animation_name = "Attack"
 
 [node name="Hit" type="Node" parent="StateMachine"]
 script = ExtResource("15_b2dmt")
@@ -418,16 +436,23 @@ script = ExtResource("15_b2dmt")
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource("16_ladm1")
 
-[node name="NoZoneDetector" type="RayCast2D" parent="."]
-position = Vector2(0, -15)
-target_position = Vector2(-25, 0)
-collision_mask = 16
-collide_with_areas = true
-collide_with_bodies = false
+[node name="NoZoneDetector" parent="." instance=ExtResource("7_q6all")]
 
-[node name="DirectionComparator" type="RayCast2D" parent="."]
-position = Vector2(0, -15)
-target_position = Vector2(-25, 0)
-collision_mask = 16
-collide_with_areas = true
-collide_with_bodies = false
+[node name="DirectionComparator" parent="." instance=ExtResource("7_yonne")]
+
+[node name="PlayerDetector" parent="." instance=ExtResource("17_xykqh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_qmlw1")
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(-1, -17.5)
+shape = SubResource("RectangleShape2D_ev3p1")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]

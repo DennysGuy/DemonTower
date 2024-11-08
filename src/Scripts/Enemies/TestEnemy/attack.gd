@@ -1,11 +1,23 @@
 extends State
 
+@export
+var pursue_state : State
+@onready
+var timer = $"../../Timer"
+@onready
+var velocity_component = $"../../VelocityComponent"
+@onready
+var direction_comparator = $"../../DirectionComparator"
+@onready
+var no_zone_detector = $"../../NoZoneDetector"
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+func enter() -> void:
+	print("I'm in attack state")
+	super()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func process_physics(_delta: float) -> State:
+	if !parent.can_attack:
+		return pursue_state
+
+	return null

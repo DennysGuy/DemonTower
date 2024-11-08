@@ -15,7 +15,6 @@ var timer: Timer = $"../../Timer"
 
 func enter() -> void:
 	animation_name = GameManager.selected_color+"_Fall"
-	print_debug(animation_name)
 	super()
 	timer.start()
 

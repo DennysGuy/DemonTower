@@ -11,7 +11,6 @@ var climb_state: State
 
 func enter() -> void:
 	animation_name = GameManager.selected_color+"_Jump"
-	print_debug(animation_name)
 	super()
 	parent.has_jumped = true
 	parent.velocity.y -= 300
