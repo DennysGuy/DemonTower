@@ -37,5 +37,4 @@ func _on_player_detector_body_exited(body):
 func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 	was_hit = true
 	enemy_hitbox_parent = hitbox.get_parent()
-	print("I WAS HIT!")
 	health_component.apply_damage(hitbox.min_damage, hitbox.max_damage)

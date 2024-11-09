@@ -22,7 +22,6 @@ var hitbox_collision : CollisionShape2D = $"../../HitBoxComponent/CollisionShape
 func enter() -> void:
 	parent.was_hit = false
 	parent.enable_gravity = true
-	print("I'm in idle state")
 	super()
 	hitbox_collision.disabled = true
 	var dir = direction_comparator.target_position.x

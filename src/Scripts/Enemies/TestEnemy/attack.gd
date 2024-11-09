@@ -20,7 +20,6 @@ var hitbox_collision : CollisionShape2D = $"../../HitBoxComponent/CollisionShape
 var hit_box : Area2D = $"../../HitBoxComponent"
 
 func enter() -> void:
-	print("I'm in attack state")
 	parent.enable_gravity = true
 	parent.was_hit = false
 	super()
@@ -36,8 +35,6 @@ func process_physics(_delta: float) -> State:
 		hitbox_collision.disabled = false
 	else:
 		hitbox_collision.disabled = true
-	
-
 	
 	if !parent.can_attack:
 		return pursue_state
