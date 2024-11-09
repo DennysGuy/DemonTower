@@ -3,9 +3,7 @@ extends State
 @export
 var idle_state: State
 @export
-var dead_state: State
-@export
-var pursue_state: State
+var dead_state : State
 @onready
 var timer := $"../../Timer"
 @onready
@@ -15,7 +13,7 @@ var health_component : HealthComponent = $"../../HealthComponent"
 @onready
 var player : Entity = $"../.."
 func enter() -> void:
-	parent.enable_gravity = true
+	animation_name = GameManager.selected_color+"_Hit"
 	timer.wait_time = 0.30
 	timer.start()
 	super()
@@ -35,6 +33,7 @@ func process_physics(_delta: float) -> State:
 	if health_component.cur_health <= 0:
 		return dead_state
 	if timer.time_left <= 0:
-		return pursue_state
-
+		return idle_state
+	
+		
 	return null

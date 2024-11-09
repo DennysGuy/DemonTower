@@ -1,8 +1,9 @@
-[gd_scene load_steps=68 format=3 uid="uid://rr3hqaxuipq6"]
+[gd_scene load_steps=76 format=3 uid="uid://rr3hqaxuipq6"]
 
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/test_enemy.gd" id="1_qtaie"]
 [ext_resource type="PackedScene" uid="uid://c7hu37tywrkrv" path="res://src/Components/VelocityComponent.tscn" id="2_v0wd5"]
 [ext_resource type="Texture2D" uid="uid://dldtnspf8as6e" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-AttackWithStun.png" id="2_ydixj"]
+[ext_resource type="PackedScene" uid="uid://d4enbktd412lh" path="res://src/Components/HealthComponent.tscn" id="3_fcwj7"]
 [ext_resource type="Texture2D" uid="uid://bgkiwlvrvvacf" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Die.png" id="3_gmnjf"]
 [ext_resource type="Texture2D" uid="uid://dq5ychxg288o6" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Hit.png" id="4_eota0"]
 [ext_resource type="Texture2D" uid="uid://b3v45l2gqt6th" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Idle.png" id="5_gfg00"]
@@ -17,6 +18,9 @@
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/hit.gd" id="15_b2dmt"]
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/die.gd" id="16_ladm1"]
 [ext_resource type="PackedScene" uid="uid://clcep1w1xkvns" path="res://src/Scenes/Utilities/PlayerDetector.tscn" id="17_xykqh"]
+[ext_resource type="PackedScene" uid="uid://dxalhjpunyll3" path="res://src/Components/HitBoxComponent.tscn" id="19_lu6og"]
+[ext_resource type="Script" path="res://src/Scripts/Components/hurt_box_component.gd" id="21_ja835"]
+[ext_resource type="PackedScene" uid="uid://wa4qfe8gp0xj" path="res://src/Components/AttackRangeComponent.tscn" id="21_okmwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea6pq"]
 atlas = ExtResource("2_ydixj")
@@ -288,7 +292,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hueaw")
 }],
-"loop": true,
+"loop": false,
 "name": &"Die",
 "speed": 12.0
 }, {
@@ -371,11 +375,48 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w70pl"]
 height = 28.0
 
+[sub_resource type="Animation" id="Animation_egrhh"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../animations:sprite_frames")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwebe"]
+_data = {
+"new_animation": SubResource("Animation_egrhh")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmlw1"]
 size = Vector2(150, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev3p1"]
-size = Vector2(42, 35)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip7vm"]
+size = Vector2(48, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmeic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oapef"]
+size = Vector2(28, 32)
 
 [node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -385,6 +426,9 @@ script = ExtResource("1_qtaie")
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_v0wd5")]
 entity = NodePath("..")
 
+[node name="HealthComponent" parent="." instance=ExtResource("3_fcwj7")]
+max_health = 25.0
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -392,53 +436,18 @@ one_shot = true
 [node name="animations" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_a18xb")
-animation = &"Attack"
-frame_progress = 0.812493
+animation = &"Die"
+frame_progress = 0.192894
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_w70pl")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("9_0o3gy")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("patrol_state", "pursue_state")]
-script = ExtResource("10_4hwhc")
-patrol_state = NodePath("../Patrol")
-pursue_state = NodePath("../Pursue")
-animation_name = "Idle"
-
-[node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "pursue_state", "no_zone_detector", "direction_compartor")]
-script = ExtResource("11_rolkm")
-idle_state = NodePath("../Idle")
-pursue_state = NodePath("../Pursue")
-no_zone_detector = NodePath("../../NoZoneDetector")
-direction_compartor = NodePath("../../DirectionComparator")
-ray_cast_length = 25
-animation_name = "Run"
-
-[node name="Pursue" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack_state")]
-script = ExtResource("13_qxdnq")
-idle_state = NodePath("../Idle")
-attack_state = NodePath("../Attack")
-stop_distance = 20
-animation_name = "Run"
-
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("pursue_state")]
-script = ExtResource("14_sggs4")
-pursue_state = NodePath("../Pursue")
-animation_name = "Attack"
-
-[node name="Hit" type="Node" parent="StateMachine"]
-script = ExtResource("15_b2dmt")
-
-[node name="Die" type="Node" parent="StateMachine"]
-script = ExtResource("16_ladm1")
-
-[node name="NoZoneDetector" parent="." instance=ExtResource("7_q6all")]
-
-[node name="DirectionComparator" parent="." instance=ExtResource("7_yonne")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../HitBoxComponent/CollisionShape2D")
+libraries = {
+"": SubResource("AnimationLibrary_uwebe")
+}
 
 [node name="PlayerDetector" parent="." instance=ExtResource("17_xykqh")]
 
@@ -446,13 +455,84 @@ script = ExtResource("16_ladm1")
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_qmlw1")
 
-[node name="AttackRange" type="Area2D" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("9_0o3gy")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("patrol_state", "pursue_state", "hit_state")]
+script = ExtResource("10_4hwhc")
+patrol_state = NodePath("../Patrol")
+pursue_state = NodePath("../Pursue")
+hit_state = NodePath("../Hit")
+animation_name = "Idle"
+
+[node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "pursue_state", "hit_state", "no_zone_detector", "direction_compartor")]
+script = ExtResource("11_rolkm")
+idle_state = NodePath("../Idle")
+pursue_state = NodePath("../Pursue")
+hit_state = NodePath("../Hit")
+no_zone_detector = NodePath("../../NoZoneDetector")
+direction_compartor = NodePath("../../DirectionComparator")
+ray_cast_length = 25
+animation_name = "Run"
+
+[node name="Pursue" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack_state", "hit_state")]
+script = ExtResource("13_qxdnq")
+idle_state = NodePath("../Idle")
+attack_state = NodePath("../Attack")
+hit_state = NodePath("../Hit")
+stop_distance = 20
+animation_name = "Run"
+move_speed = 100
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("pursue_state", "hit_state")]
+script = ExtResource("14_sggs4")
+pursue_state = NodePath("../Pursue")
+hit_state = NodePath("../Hit")
+animation_name = "Attack"
+
+[node name="Hit" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "dead_state", "pursue_state")]
+script = ExtResource("15_b2dmt")
+idle_state = NodePath("../Idle")
+dead_state = NodePath("../Die")
+pursue_state = NodePath("../Pursue")
+animation_name = "Hit"
+
+[node name="Die" type="Node" parent="StateMachine"]
+script = ExtResource("16_ladm1")
+animation_name = "Die"
+
+[node name="NoZoneDetector" parent="." instance=ExtResource("7_q6all")]
+
+[node name="DirectionComparator" parent="." instance=ExtResource("7_yonne")]
+
+[node name="AttackRange" parent="." instance=ExtResource("21_okmwy")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(-1, -17.5)
-shape = SubResource("RectangleShape2D_ev3p1")
+position = Vector2(-1, -16.5)
+shape = SubResource("RectangleShape2D_ip7vm")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("19_lu6og")]
+position = Vector2(-25, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+shape = SubResource("RectangleShape2D_vmeic")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -56.0
+offset_right = 19.0
+offset_bottom = -33.0
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("21_ja835")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_oapef")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

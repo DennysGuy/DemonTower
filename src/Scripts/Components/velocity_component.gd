@@ -8,9 +8,11 @@ var jump_strength : float
 @export
 var entity : Entity
 
-func apply_horizontal_movement(dir : int):
-	self.entity.velocity.x = dir * move_speed
-	
+func apply_horizontal_movement(dir : int, entity : Entity):
+	entity.velocity.x = dir * move_speed
+	entity.set_floor_snap_length(30)
+	entity.apply_floor_snap()
+
 func apply_vertical_movement():
 	self.entity.velocity.y = -jump_strength
 	
