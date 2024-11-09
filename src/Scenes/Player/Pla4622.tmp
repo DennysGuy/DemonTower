@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://c3f22551sc137"]
+[gd_scene load_steps=169 format=3 uid="uid://c3f22551sc137"]
 
 [ext_resource type="Script" path="res://src/Scripts/Player/player.gd" id="1_a8xjd"]
 [ext_resource type="Texture2D" uid="uid://dpoghdu45hbx6" path="res://Assets/Player/TempPlayerAssets/green/char_green_1.png" id="2_4c53k"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://src/Scripts/Player/climb.gd" id="6_srjda"]
 [ext_resource type="Texture2D" uid="uid://dxxjsibq5qdcr" path="res://Assets/Player/TempPlayerAssets/red/char_red_2.png" id="7_0svc0"]
 [ext_resource type="Script" path="res://src/Scripts/Player/move.gd" id="7_lvoon"]
-[ext_resource type="Script" path="res://src/Scripts/Components/hit_box_component.gd" id="8_75pm8"]
 [ext_resource type="Script" path="res://src/Scripts/Player/attack_1.gd" id="10_bnlu5"]
 [ext_resource type="Script" path="res://src/Scripts/Player/attack_2.gd" id="11_0ycbk"]
 [ext_resource type="Script" path="res://src/Scripts/Player/attack_3.gd" id="12_d5uju"]
@@ -1151,15 +1150,12 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i487o"]
 radius = 7.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpkan"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7fsx"]
 size = Vector2(13, 29)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_a8xjd")
-hit_box_x_pos = 23.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -1170,7 +1166,7 @@ one_shot = true
 [node name="animations" type="AnimatedSprite2D" parent="."]
 position = Vector2(-25, -57)
 sprite_frames = SubResource("SpriteFrames_r0u3h")
-animation = &"Green_Attack3"
+animation = &"Green_Die"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1191,12 +1187,11 @@ attack_state = NodePath("../Attack1")
 hit_state = NodePath("../Hit")
 ladder_detector = NodePath("../../LadderDetector")
 
-[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "hit_state", "climb_state")]
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "climb_state")]
 script = ExtResource("7_lvoon")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
-hit_state = NodePath("../Hit")
 climb_state = NodePath("../Climb")
 animation_name = "Run"
 move_speed = 150
@@ -1209,43 +1204,38 @@ idle_state = NodePath("../Idle")
 climb_state = NodePath("../Climb")
 animation_name = "Jump"
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "climb_state", "jump_state", "hit_state", "ladder_detector")]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "climb_state", "jump_state", "ladder_detector")]
 script = ExtResource("5_uaxus")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
 climb_state = NodePath("../Climb")
 jump_state = NodePath("../Jump")
-hit_state = NodePath("../Hit")
 ladder_detector = NodePath("../../LadderDetector")
 animation_name = "Fall"
 
-[node name="Climb" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "hit_state")]
+[node name="Climb" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
 script = ExtResource("6_srjda")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
-hit_state = NodePath("../Hit")
 animation_name = "Climb"
 
-[node name="Attack1" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack2_state", "hit_state")]
+[node name="Attack1" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack2_state")]
 script = ExtResource("10_bnlu5")
 idle_state = NodePath("../Idle")
 attack2_state = NodePath("../Attack2")
-hit_state = NodePath("../Hit")
 animation_name = "Attack1"
 
-[node name="Attack2" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack3_state", "hit_state")]
+[node name="Attack2" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack3_state")]
 script = ExtResource("11_0ycbk")
 idle_state = NodePath("../Idle")
 attack3_state = NodePath("../Attack3")
-hit_state = NodePath("../Hit")
 animation_name = "Attack2"
 
-[node name="Attack3" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack1_state", "hit_state")]
+[node name="Attack3" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack1_state")]
 script = ExtResource("12_d5uju")
 idle_state = NodePath("../Idle")
 attack1_state = NodePath("../Attack1")
-hit_state = NodePath("../Hit")
 animation_name = "Attack3"
 
 [node name="Hit" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "dead_state")]
@@ -1271,15 +1261,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 6
 horizontal_alignment = 1
 script = ExtResource("15_cb3mg")
-
-[node name="HitBox" type="Area2D" parent="."]
-position = Vector2(23, -17)
-script = ExtResource("8_75pm8")
-min_damage = 2
-max_damage = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("RectangleShape2D_rpkan")
 
 [node name="HurtBox" type="Area2D" parent="."]
 script = ExtResource("18_eh7ik")

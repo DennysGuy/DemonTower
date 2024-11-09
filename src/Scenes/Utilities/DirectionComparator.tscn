@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c446fms4at0c3"]
+
+[node name="DirectionComparator" type="RayCast2D"]
+position = Vector2(0, -15)
+target_position = Vector2(-25, 0)
+collision_mask = 16
+collide_with_areas = true
+collide_with_bodies = false

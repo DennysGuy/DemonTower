@@ -3,21 +3,20 @@ extends State
 @export
 var idle_state: State
 @export
-var attack2_state: State
+var dead_state: State
 @export
-var hit_state: State
-
+var pursue_state: State
 @onready
 var timer := $"../../Timer"
 @onready
 var animation : AnimatedSprite2D = $"../../animations"
 @onready
-var hitbox_collision : CollisionShape2D = $"../../HitBox/CollisionShape2D"
-
+var health_component : HealthComponent = $"../../HealthComponent"
+@onready
+var player : Entity = $"../.."
 func enter() -> void:
 	parent.enable_gravity = true
-	animation_name = GameManager.selected_color+"_Attack1"
-	timer.wait_time = 0.50
+	timer.wait_time = 0.30
 	timer.start()
 	super()
 
@@ -30,14 +29,12 @@ func process_input(_event: InputEvent) -> State:
 	return null
 
 func process_physics(_delta: float) -> State:
+	var direction_vector = (parent.global_position - parent.enemy_hitbox_parent.global_position).normalized()
+	var direction = GameManager.set_direction(direction_vector.x)
 	
-	if animation.frame == 3:
-		hitbox_collision.disabled = false
-	else:
-		hitbox_collision.disabled = true
-	
+	if health_component.cur_health <= 0:
+		return dead_state
 	if timer.time_left <= 0:
-		if Input.is_action_pressed("attack"):
-			return attack2_state
-		return idle_state
+		return pursue_state
+
 	return null
