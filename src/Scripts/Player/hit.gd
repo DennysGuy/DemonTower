@@ -13,7 +13,7 @@ var health_component : HealthComponent = $"../../HealthComponent"
 @onready
 var player : Entity = $"../.."
 func enter() -> void:
-	animation_name = GameManager.selected_color+"_Hit"
+	animation_name = GameManager.get_color()+"_Hit"
 	timer.wait_time = 0.30
 	timer.start()
 	super()

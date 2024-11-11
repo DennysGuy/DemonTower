@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=3 uid="uid://c3f22551sc137"]
+[gd_scene load_steps=172 format=3 uid="uid://c3f22551sc137"]
 
 [ext_resource type="Script" path="res://src/Scripts/Player/player.gd" id="1_a8xjd"]
 [ext_resource type="Texture2D" uid="uid://dpoghdu45hbx6" path="res://Assets/Player/TempPlayerAssets/green/char_green_1.png" id="2_4c53k"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://src/Scripts/Player/dead.gd" id="18_ssa6g"]
 [ext_resource type="Script" path="res://src/Scripts/Components/health_component.gd" id="19_ck53d"]
 [ext_resource type="Script" path="res://src/Scripts/Components/velocity_component.gd" id="22_uy8iy"]
+[ext_resource type="PackedScene" uid="uid://636u6us5vqin" path="res://PlayerHUD.tscn" id="24_fu278"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6bx3"]
 atlas = ExtResource("4_guqak")
@@ -1163,6 +1164,12 @@ hit_box_x_pos = 23.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="PlayerHUD" parent="Camera2D" instance=ExtResource("24_fu278")]
+offset_left = -240.0
+offset_top = -134.0
+offset_right = -240.0
+offset_bottom = -134.0
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.55
 one_shot = true
@@ -1302,3 +1309,5 @@ max_health = 25.0
 script = ExtResource("22_uy8iy")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+
+[editable path="Camera2D/PlayerHUD"]

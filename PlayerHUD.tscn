@@ -1,0 +1,226 @@
+[gd_scene load_steps=8 format=3 uid="uid://636u6us5vqin"]
+
+[ext_resource type="Script" path="res://src/Scripts/HUD/player_hud.gd" id="1_04w3r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5cli"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk677"]
+bg_color = Color(1, 0.344584, 0.264761, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfflw"]
+bg_color = Color(0.194349, 0.194349, 0.194349, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2aihr"]
+bg_color = Color(0.27662, 0.404663, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jppxf"]
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqrgp"]
+bg_color = Color(0.819569, 0.64066, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="PlayerHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_04w3r")
+
+[node name="HUD" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 241.0
+offset_right = 479.0
+offset_bottom = 269.0
+size_flags_vertical = 3
+color = Color(0.790587, 0.822444, 0.80937, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerDescriptionMargin" type="MarginContainer" parent="HUD/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 2
+
+[node name="PlayerDescriptionBox" type="ColorRect" parent="HUD/HBoxContainer/PlayerDescriptionMargin"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -10.0
+offset_right = 92.0
+offset_bottom = 10.0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="LevelLabel" type="Label" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer"]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Level 1"
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="PlayerNames" type="VBoxContainer" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="PlayerClass" type="Label" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer/MarginContainer/PlayerNames"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 5
+text = "Warrior"
+
+[node name="PlayerName" type="Label" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer/MarginContainer/PlayerNames"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "DennysGuy"
+
+[node name="StatBarsMargin" type="MarginContainer" parent="HUD/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="StatBars" type="ColorRect" parent="HUD/HBoxContainer/StatBarsMargin"]
+custom_minimum_size = Vector2(290, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="BarsMargin" type="MarginContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars"]
+layout_mode = 0
+offset_right = 312.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Bars" type="HBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin"]
+layout_mode = 2
+
+[node name="HPBar" type="VBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+
+[node name="HitPointsLabel" type="Label" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/HPBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+text = "HP"
+
+[node name="HPBar" type="ProgressBar" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/HPBar"]
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_k5cli")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bk677")
+show_percentage = false
+
+[node name="MPBar" type="VBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+
+[node name="MagicPointsLabel" type="Label" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/MPBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+text = "MP"
+
+[node name="MPBar" type="ProgressBar" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/MPBar"]
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_xfflw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2aihr")
+show_percentage = false
+
+[node name="XPBar" type="VBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+
+[node name="XPPointsLabel" type="Label" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/XPBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+text = "XP"
+
+[node name="XPBar" type="ProgressBar" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/XPBar"]
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_jppxf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xqrgp")
+
+[node name="MiscMargin" type="MarginContainer" parent="HUD/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="Misc" type="ColorRect" parent="HUD/HBoxContainer/MiscMargin"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="MenuButton" type="Button" parent="HUD/HBoxContainer/MiscMargin/Misc"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "Menu"

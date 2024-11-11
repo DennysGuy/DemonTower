@@ -20,7 +20,7 @@ var timer: Timer = $"../../Timer"
 
 func enter() -> void:
 	parent.enable_gravity = true
-	animation_name = GameManager.selected_color+"_Fall"
+	animation_name = GameManager.get_color()+"_Fall"
 	super()
 	timer.start()
 

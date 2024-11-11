@@ -16,10 +16,15 @@ func set_heath(health : float):
 	cur_health = health
 
 func apply_damage(min_damage : int, max_damage : int):
-	cur_health -= randi_range(min_damage, max_damage)
+	var applied_damage = randi_range(min_damage, max_damage)
+	self.cur_health -= applied_damage
+	if get_parent().name == "Player":
+		GameManager.set_current_health(self.cur_health)
 
 func apply_healing(health: float):
 	if self.cur_health + health > self.max_health:
 		self.cur_health = self.max_health
 	else:
 		self.cur_health += health
+	if get_parent().name == "Player":
+		GameManager.set_current_health(self.cur_health)
