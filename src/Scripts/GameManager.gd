@@ -5,8 +5,8 @@ var selected_player = {
 	"name": "",
 	"color": "",
 	"class": "Warrior",
-	"max_health": 25.0, #for setting initial health
-	"current_health": 25.0, #keeping track of current health
+	"max_health": 100.0, #for setting initial health
+	"current_health": 100.0, #keeping track of current health
 	"magic_points": 100,
 	"current_magic_points": 100,
 	"current_level": 1,
@@ -17,6 +17,8 @@ var selected_player = {
 	"intelligence": 10,
 	"luck": 10,
 	"attack_power": 15,
+	"min_attack": 0,
+	"max_attack": 0,
 	"magic_attack": 15,
 	"critical_rate": 0,
 	"critical_damage": 0,
@@ -26,29 +28,8 @@ var selected_player = {
 	"speed": 150,
 	"jump": 250
 }
-var selected_color : String = selected_player["color"]
-var character_name : String = selected_player["name"]
-var player_health : float = selected_player["max_health"]
-var player_current_health : float = selected_player["current_health"]
-var player_magic_points : float = selected_player["magic_points"]
-var player_current_magic_points : float = selected_player["current_magic_points"]
-var current_level : int = selected_player["current_level"]
-var xp_needed : int = selected_player["xp_needed"]
-var current_xp : int = selected_player["current_xp"]
-var strength : int = selected_player["strength"]
-var dexterity : int = selected_player["dexterity"]
-var intelligence : int = selected_player["intelligence"]
-var luck : int = selected_player["luck"]
-var attack_power : int = selected_player["attack_power"]
-var magic_power : int = selected_player["magic_attack"]
-var critical_rate : int = selected_player["critical_rate"]
-var critical_damage : int = selected_player["critical_damage"]
-var defense : int = selected_player["defense"]
-var speed : int = selected_player["speed"]
-var jump : int = selected_player["jump"]
-var drop_rate : int = selected_player["drop_rate"]
-var xp_rate : int = selected_player["xp_rate"]
-
+const BASE_JUMP_FORCE = 200
+const BASE_MOVEMENT_SPEED = 120
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -173,11 +154,11 @@ func get_luck() -> int:
 	return selected_player["luck"]
 
 # Attack Power
-func set_attack_power(attack_power: int) -> void:
-	selected_player["attack_power"] = attack_power
+func set_weapon_attack(weapon_attack: int) -> void:
+	selected_player["weapon_attack"] = weapon_attack
 
 func get_attack_power() -> int:
-	return selected_player["attack_power"]
+	return selected_player["weapon_attack"]
 
 # Magic Attack
 func set_magic_attack(magic_attack: int) -> void:
@@ -234,3 +215,19 @@ func set_jump(jump: int) -> void:
 
 func get_jump() -> int:
 	return selected_player["jump"]
+
+func calculate_player_minimum_physical_attack_damage():
+	var strength = selected_player["strength"]
+	var dexterity = selected_player["dexterity"]
+	selected_player["minimum_attack"] = int((((strength+dexterity)/100) * 1 * 10)*0.9)
+
+func calculate_player_maximum_physical_attack_damage(weapon_attack : int):
+	var strength = selected_player["strength"]
+	var dexterity = selected_player["dexterity"]
+	selected_player["maximum_attack"] = int((((strength+dexterity)/100) * 1 * 10))
+
+func calculate_player_minimum_magic_attack_damage(magic_attack : int) -> int:
+	return magic_attack
+
+func calculate_player_critical_damage(damage : int):
+	return damage
