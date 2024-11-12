@@ -20,6 +20,8 @@ var health_component : HealthComponent = $HealthComponent
 var health_tracker : Label = $HealthTracker
 @onready
 var stats_component : StatsComponent = $StatsComponent
+@onready
+var damage_taken_tracker : Label = $DamageTaken
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:
 	state_machine.init(self)

@@ -1309,6 +1309,12 @@ script = ExtResource("19_ck53d")
 [node name="VelocityComponent" type="Node" parent="."]
 script = ExtResource("22_uy8iy")
 
+[node name="DamageTaken" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -61.0
+offset_right = 8.0
+offset_bottom = -38.0
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 
 [editable path="Camera2D/PlayerHUD"]
