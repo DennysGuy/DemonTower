@@ -16,7 +16,7 @@ var hitbox_collision : CollisionShape2D = $"../../HitBox/CollisionShape2D"
 var timer := $"../../Timer"
 func enter() -> void:
 	parent.enable_gravity = true
-	animation_name = GameManager.get_color()+"_Attack3"
+	animation_name = GameManager.get_player_color()+"_Attack3"
 	move_speed = 10
 	timer.wait_time = 0.5
 	timer.start()

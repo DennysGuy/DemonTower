@@ -2,7 +2,7 @@ extends State
 
 
 func enter() -> void:
-	animation_name = GameManager.get_color()+"_Die"
+	animation_name = GameManager.get_player_color()+"_Die"
 	parent.enable_gravity = true
 	super()
 

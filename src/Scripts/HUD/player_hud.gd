@@ -30,21 +30,21 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#Player Description Displayers
-	level_label.text = "Level " + str(GameManager.get_current_level())
+	level_label.text = "Level " + str(GameManager.get_player_current_level())
 	player_class_label.text = GameManager.get_player_class()
 	player_name_label.text = GameManager.get_player_name()
 	#HP Displayers
-	hit_points_label.text = "HP " + "["+str(GameManager.get_current_health())+"/"+str(GameManager.get_max_health())+"]"
-	hp_bar.max_value = GameManager.get_max_health()
-	hp_bar.value = GameManager.get_current_health()
+	hit_points_label.text = "HP " + "["+str(GameManager.get_player_current_health())+"/"+str(GameManager.get_player_max_health())+"]"
+	hp_bar.max_value = GameManager.get_player_max_health()
+	hp_bar.value = GameManager.get_player_current_health()
 	#MP Displayers
-	magic_points_label.text = "MP " + "["+str(GameManager.get_current_magic_points())+"/"+str(GameManager.get_magic_points())+"]"
-	mp_bar.max_value = GameManager.get_magic_points()
-	mp_bar.value = GameManager.get_current_magic_points()
+	magic_points_label.text = "MP " + "["+str(GameManager.get_player_current_magic_points())+"/"+str(GameManager.get_player_magic_points())+"]"
+	mp_bar.max_value = GameManager.get_player_magic_points()
+	mp_bar.value = GameManager.get_player_current_magic_points()
 	
 	#XP Displayers
-	experience_points_label.text = "XP " + "["+str(GameManager.get_current_xp())+"/"+str(GameManager.get_xp_needed())+"]"
-	xp_bar.max_value = GameManager.get_xp_needed()
-	xp_bar.value = GameManager.get_current_xp()
+	experience_points_label.text = "XP " + "["+str(GameManager.get_player_current_xp())+"/"+str(GameManager.get_player_xp_needed())+"]"
+	xp_bar.max_value = GameManager.get_player_xp_needed()
+	xp_bar.value = GameManager.get_player_current_xp()
 	
 	

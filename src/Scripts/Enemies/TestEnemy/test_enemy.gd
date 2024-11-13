@@ -12,12 +12,19 @@ var health_component : HealthComponent = $HealthComponent
 var health_tracker : Label = $Label
 @onready
 var stats_component : StatsComponent = $StatsComponent
+@onready
+var health_bar : ProgressBar = $ProgressBar
 
 func _ready() -> void:
+	health_bar.max_value = stats_component.get_max_health()
+	
 	stats_component.calculate_minimum_attack(stats_component.get_strength(), stats_component.get_dexterity(), 1.2, 4)
 	stats_component.calculate_maximum_attack(stats_component.get_strength(), stats_component.get_dexterity(), 1.2, 4)
 	stats_component.calculate_weapon_defense(stats_component.get_weapon_defense())
 	state_machine.init(self)
+
+func _process(delta):
+	health_bar.value = stats_component.get_current_health()
 	
 func _on_player_detector_body_entered(body : CharacterBody2D):
 	if body.name == "Player":

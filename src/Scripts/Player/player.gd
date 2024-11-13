@@ -24,10 +24,17 @@ var stats_component : StatsComponent = $StatsComponent
 var damage_taken_tracker : Label = $DamageTaken
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:
+
+	_set_stats()
 	state_machine.init(self)
 
 func _process(delta):
-	_set_stats()
+	stats_component.set_player_str_current_xp()
+	stats_component.set_player_dex_current_xp()
+	stats_component.set_player_int_current_xp()
+	stats_component.set_player_luk_current_xp()
+	stats_component.set_current_health(GameManager.get_player_current_health())
+	stats_component.set_current_magic_points(GameManager.get_player_current_magic_points())
 
 func _on_area_2d_body_entered(body):
 	self.in_ladder_area = true
@@ -38,29 +45,41 @@ func _on_area_2d_body_exited(body):
 func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 	was_hit = true
 	enemy_hitbox_parent = hitbox.get_parent()
-	health_component.apply_damage(enemy_hitbox_parent.stats_component.get_minimum_attack(), enemy_hitbox_parent.stats_component.get_maximum_attack())
+	health_component.apply_damage(enemy_hitbox_parent.stats_component.get_minimum_physical_attack(), enemy_hitbox_parent.stats_component.get_maximum_physical_attack())
 
 func _set_stats() -> void:
 	#set player name, first off
 	player_name.text = GameManager.get_player_name()
 	#Level
-	stats_component.set_level(GameManager.get_current_level())
-	#HP
-	stats_component.set_max_health(GameManager.get_max_health())
-	stats_component.set_current_health(GameManager.get_current_health())
-	#MP
-	stats_component.set_magic_points(GameManager.get_magic_points())
-	stats_component.set_current_magic_points(GameManager.get_current_magic_points())
+	GameManager.set_player_total_level()
+	stats_component.set_total_level(GameManager.get_player_total_level())
 	#XP
-	stats_component.set_xp_needed(GameManager.get_xp_needed())
-	stats_component.set_current_xp(GameManager.get_current_xp())
+	#calculate all necessary stuff
+	GameManager.calculate_needed_stat_xp("str_level", "str_needed_xp")
+	GameManager.calculate_needed_stat_xp("dex_level", "dex_needed_xp")
+	GameManager.calculate_needed_stat_xp("int_level", "int_needed_xp")
+	GameManager.calculate_needed_stat_xp("luk_level", "luk_needed_xp")
+	
+	#set needed XP values -- current values are set in process
+	stats_component.set_player_str_xp_needed()
+	stats_component.set_player_dex_xp_needed()
+	stats_component.set_player_int_xp_needed()
+	stats_component.set_player_luk_xp_needed()
+	#HP
+	stats_component.set_max_health(GameManager.get_player_max_health())
+	stats_component.set_current_health(GameManager.get_player_current_health())
+	#MP
+	stats_component.set_magic_points(GameManager.get_player_magic_points())
+	stats_component.set_current_magic_points(GameManager.get_player_current_magic_points())
+
 	#Core Stats
-	stats_component.set_strength(GameManager.get_strength())
-	stats_component.set_dexterity(GameManager.get_dexterity())
-	stats_component.set_intelligence(GameManager.get_intelligence())
-	stats_component.set_luck(GameManager.get_luck())
+	stats_component.set_strength(GameManager.get_player_current_strength_level())
+	stats_component.set_dexterity(GameManager.get_player_current_dexterity_level())
+	stats_component.set_intelligence(GameManager.get_player_current_intelligence_level())
+	stats_component.set_luck(GameManager.get_player_current_luck_level())
 	#Calculate base min/max damage
-	stats_component.calculate_minimum_attack(GameManager.get_strength(), GameManager.get_dexterity(), 1.2, 4)
-	stats_component.calculate_maximum_attack(GameManager.get_strength(), GameManager.get_dexterity(), 1.2, 4)
+	stats_component.calculate_minimum_physical_attack(GameManager.get_player_strength(), GameManager.get_player_dexterity(), 2)
+	stats_component.calculate_maximum_physical_attack(GameManager.get_player_strength(), GameManager.get_player_dexterity(), 2)
 	#Calculate weapon defense
 	stats_component.calculate_weapon_defense(17)
+	

@@ -2,7 +2,7 @@ class_name StatsComponent extends Node
 
 # Private variables
 @export_group("Level")
-@export var _level : int
+@export var _total_level : int
 
 @export_group("HP")
 @export var _max_health : float
@@ -23,13 +23,16 @@ class_name StatsComponent extends Node
 @export var _luck : int
 
 @export_group("Secondary Stats")
-@export var _minimum_attack : int
-@export var _maximum_attack : int
-@export var _magic : int
+@export var _minimum_physical_attack : int
+@export var _maximum_physical_attack : int
+@export var _minimum_magic_attack : int
+@export var _maximum_magic_attack : int
 @export var _critical_rate : int
 @export var _critical_damage : int
 @export var _accuracy : int
+@export var _avoidability : int
 @export var _weapon_defense : float
+@export var _magic_defense : float
 @export var _defense : int
 @export var _speed : int
 @export var _jump : int
@@ -38,17 +41,28 @@ class_name StatsComponent extends Node
 @export var _drop_rate : int
 @export var _xp_rate : int
 
-#variable stats
+#xp stuff
+var _str_xp_needed : int
+var _dex_xp_needed : int
+var _int_xp_needed : int
+var _luk_xp_needed : int
+
+var _str_xp_current : int
+var _dex_xp_current : int
+var _int_xp_current : int
+var _luk_xp_current : int
+
+
 
 
 # Setter and getter functions
 
 # Level
-func set_level(value: int) -> void:
-	_level = value
+func set_total_level(value: int) -> void:
+	_total_level = value
 
-func get_level() -> int:
-	return _level
+func get_total_level() -> int:
+	return _total_level
 
 # Max Health
 func set_max_health(value: float) -> void:
@@ -78,18 +92,6 @@ func set_current_magic_points(value: float) -> void:
 func get_current_magic_points() -> float:
 	return _current_magic_points
 
-# EXP
-func set_xp_needed(value: int) -> void:
-	_xp_needed = value
-
-func get_xp_need() -> int:
-	return _xp_needed
-	
-func set_current_xp(value: int) -> void:
-	_current_xp = value
-
-func get_current_xp() -> int:
-	return _current_xp
 
 # Strength
 func set_strength(value: int) -> void:
@@ -118,13 +120,6 @@ func set_luck(value: int) -> void:
 
 func get_luck() -> int:
 	return _luck
-
-# Magic Power
-func set_magic_power(value: int) -> void:
-	_magic = value
-
-func get_magic_power() -> int:
-	return _magic
 
 # Critical Rate
 func set_critical_rate(value: int) -> void:
@@ -178,38 +173,99 @@ func set_xp_rate(value: int) -> void:
 func get_xp_rate() -> int:
 	return _xp_rate
 
-# Attack Range
-func get_minimum_attack() -> int:
-	return _minimum_attack
+#Stats XP Needed
+#Setters
+func set_player_str_xp_needed() -> void:
+	_str_xp_needed = GameManager.get_player_str_xp_needed()
 
-func get_maximum_attack() -> int:
-	return _maximum_attack
+func set_player_dex_xp_needed() -> void:
+	_dex_xp_needed = GameManager.get_player_dex_xp_needed()
+
+func set_player_int_xp_needed() -> void:
+	_int_xp_needed = GameManager.get_player_int_xp_needed()
+
+func set_player_luk_xp_needed() -> void:
+	_luk_xp_needed = GameManager.get_player_luk_xp_needed()
+#Getters
+func get_player_str_xp_needed() -> int:
+	return _str_xp_needed
+	
+func get_player_dex_xp_needed() -> int:
+	return _dex_xp_needed
+
+func get_player_int_xp_needed() -> int:
+	return _int_xp_needed
+
+func get_player_luk_xp_needed() -> int:
+	return _luk_xp_needed 
+
+#Stats Current XP
+#Setters
+func set_player_str_current_xp() -> void:
+	_str_xp_current = GameManager.get_player_str_current_xp()
+
+func set_player_dex_current_xp() -> void:
+	_dex_xp_current = GameManager.get_player_dex_current_xp()
+
+func set_player_int_current_xp() -> void:
+	_int_xp_current = GameManager.get_player_int_current_xp()
+
+func set_player_luk_current_xp() -> void:
+	_luk_xp_current = GameManager.get_player_luk_current_xp()
+#Getters
+func get_player_str_current_xp() -> int:
+	return _str_xp_current
+
+func get_player_dex_current_xp() -> int:
+	return _dex_xp_current
+
+func get_player_int_current_xp() -> int:
+	return _int_xp_current
+
+func get_player_luk_current_xp() -> int:
+	return _luk_xp_current
+
+#Physical Attack Range
+func get_minimum_physical_attack() -> int:
+	return _minimum_physical_attack
+
+func get_maximum_physical_attack() -> int:
+	return _maximum_physical_attack
+
+#Magical Attack Range
+func get_minimum_magic_attack() -> int:
+	return _minimum_physical_attack
+
+func get_maximum_magic_attack() -> int:
+	return _maximum_physical_attack
 
 # Calculations
 var _min_damage_modifer = 0.8 #we can adjust this as needed to balance things
-func calculate_attack_range(primary_stat : int, secondary_stat: int, weapon_multiplier: float, weapon_attack : int) -> int:
+func calculate_physical_attack_range(primary_stat : int, secondary_stat: int, weapon_attack : int) -> int:
 	#base formula for attack range is ((primary_stat + (secondary_stat/4)/100) x weapon_multiplier x weapon_attack
-	return int(((primary_stat + (secondary_stat/4)/100) * weapon_multiplier * weapon_attack))
+	return int(((primary_stat + (secondary_stat/4)/100) * weapon_attack))
 
-func calculate_minimum_attack(primary_stat : int, secondary_stat: int,  weapon_multiplier: float, weapon_attack : int) -> void:
-	self._minimum_attack = calculate_attack_range(primary_stat, secondary_stat, weapon_multiplier, weapon_attack) * _min_damage_modifer
+func calculate_magic_attack_range(magic_attack : int) -> int:
+	#base formula for attack range is ((primary_stat + (secondary_stat/4)/100) x weapon_multiplier x weapon_attack
+	return int(((get_intelligence()/100) * magic_attack))
 
-func calculate_maximum_attack(primary_stat : int, secondary_stat: int, weapon_multiplier: float, weapon_attack : int) -> void:
-	self._maximum_attack = calculate_attack_range(primary_stat, secondary_stat, weapon_multiplier, weapon_attack)
+func calculate_minimum_physical_attack(primary_stat : int, secondary_stat: int, weapon_attack : int) -> void:
+	self._minimum_physical_attack = calculate_physical_attack_range(primary_stat, secondary_stat, weapon_attack) * _min_damage_modifer
+
+func calculate_maximum_physical_attack(primary_stat : int, secondary_stat: int, weapon_attack : int) -> void:
+	self._maximum_physical_attack = calculate_physical_attack_range(primary_stat, secondary_stat, weapon_attack)
+
+func calculate_minimum_magic_attack(magic_attack : int) -> void:
+	self._minimum_magic_attack = calculate_magic_attack_range(magic_attack) * _min_damage_modifer
+
+func calculate_maximum_magic_attack(magic_attack : int) -> void:
+	self._minimum_magic_attack = calculate_magic_attack_range(magic_attack)
 
 func calculate_weapon_defense(temp_wdef_val : int) -> void:
-	self._weapon_defense = temp_wdef_val/(temp_wdef_val + (100 * get_level()))
+	self._weapon_defense = int(temp_wdef_val/(temp_wdef_val + (100 * get_strength())))
 
-func calculate_magic() -> void:
-	#we're going to take in all resources that give magic attack and add it to intellect level
-	pass
-
-func calculate_minimum_magic_attack() -> void:
-	#take base damage (base damage of specific magic skill
-	pass	
-
-func calculate_maximum_magic_attack() -> void:
-	pass
+func calculate_magic_defense(mdef_val : int) -> void:
+	self._magic_defense = int(mdef_val/(mdef_val + (100 * get_intelligence())))
 
 func calculate_critical_rate() -> void:
 	#add up base crit with bonuses from resources, active or passive skills, and buffs subtract enemy debuff if applicable

@@ -13,7 +13,7 @@ var hit_state: State
 
 func enter() -> void:
 	parent.enable_gravity = true
-	animation_name = GameManager.get_color()+"_Jump"
+	animation_name = GameManager.get_player_color()+"_Jump"
 	super()
 	parent.has_jumped = true
 	parent.velocity.y -= 300

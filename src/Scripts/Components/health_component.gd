@@ -15,14 +15,14 @@ func apply_damage(min_damage : int, max_damage : int):
 	if stats_component.get_current_health() <= 0:
 		stats_component.set_current_health(0)
 	if get_parent().name == "Player":
-		GameManager.set_current_health(stats_component.get_current_health())
+		GameManager.set_player_current_health(stats_component.get_current_health())
 
 func apply_healing(health: float):
 	if stats_component.get_current_health() + health > stats_component.get_max_health():
 		stats_component.set_current_health(stats_component.get_max_health())
 		if get_parent().name == "Player":
-			GameManager.set_current_health(stats_component.get_max_health())
+			GameManager.set_player_current_health(stats_component.get_max_health())
 	else:
 		stats_component.set_current_health(stats_component.get_current_health()+health)
 		if get_parent().name == "Player":
-			GameManager.set_current_health(stats_component.get_current_health()+health)
+			GameManager.set_player_current_health(stats_component.get_current_health()+health)
