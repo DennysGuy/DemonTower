@@ -426,15 +426,14 @@ script = ExtResource("1_qtaie")
 
 [node name="StatsComponent" type="Node" parent="."]
 script = ExtResource("22_b4d0e")
-_total_level = 1
-_exp_given = 8
-_max_health = 80.0
-_current_health = 80.0
-_strength = 2
-_dexterity = 1
+_level = 3
+_max_health = 15.0
+_current_health = 15.0
+_strength = 5
+_dexterity = 2
 _intelligence = 1
-_luck = 1
-_weapon_defense = 3.0
+_luck = 2
+_weapon_defense = 5.0
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_v0wd5")]
 entity = NodePath("..")
@@ -538,24 +537,10 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_oapef")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -23.0
-offset_top = -56.0
-offset_right = 22.0
-offset_bottom = -33.0
-
-[node name="DamageTaken" type="Label" parent="."]
-offset_left = -22.0
-offset_top = -69.0
-offset_right = 18.0
-offset_bottom = -46.0
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -21.0
-offset_top = -39.0
-offset_right = 23.0
-offset_bottom = -35.0
-theme_override_font_sizes/font_size = 4
-show_percentage = false
+offset_top = -56.0
+offset_right = 19.0
+offset_bottom = -33.0
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

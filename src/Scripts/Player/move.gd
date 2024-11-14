@@ -16,7 +16,7 @@ var prev_input
 func enter() -> void:
 	parent.was_hit = false
 	parent.enable_gravity = true
-	animation_name = GameManager.selected_color+"_Run"
+	animation_name = GameManager.get_player_color()+"_Run"
 	super()
 	parent.jump_force = 250
 	parent.velocity.x = 0
@@ -40,7 +40,6 @@ func process_physics(_delta: float) -> State:
 	var movement = input * move_speed
 
 	parent.hitbox.position.x = (parent.hit_box_x_pos * input)
-	print(parent.hitbox.position.x)
 	if movement != 0:
 		parent.animation_player.flip_h = movement < 0
 	

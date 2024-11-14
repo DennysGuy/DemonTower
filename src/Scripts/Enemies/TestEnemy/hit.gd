@@ -13,6 +13,8 @@ var animation : AnimatedSprite2D = $"../../animations"
 @onready
 var health_component : HealthComponent = $"../../HealthComponent"
 @onready
+var stats_component : StatsComponent = $"../../StatsComponent"
+@onready
 var player : Entity = $"../.."
 func enter() -> void:
 	parent.enable_gravity = true
@@ -32,7 +34,7 @@ func process_physics(_delta: float) -> State:
 	var direction_vector = (parent.global_position - parent.enemy_hitbox_parent.global_position).normalized()
 	var direction = GameManager.set_direction(direction_vector.x)
 	
-	if health_component.cur_health <= 0:
+	if stats_component.get_current_health() <= 0:
 		return dead_state
 	if timer.time_left <= 0:
 		return pursue_state

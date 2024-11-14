@@ -4,6 +4,8 @@ extends Control
 var sp_test_scene : PackedScene
 @export
 var multi_player_menu : PackedScene
+@export
+var player_hud : Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

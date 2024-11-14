@@ -1,8 +1,9 @@
 extends State
-
-
+@onready
+var stat_component : StatsComponent = $"../../StatsComponent"
 func enter() -> void:
 	parent.enable_gravity = true
+	GameManager.apply_received_xp(stat_component.get_xp_given())
 	super()
 
 func exit() -> void:

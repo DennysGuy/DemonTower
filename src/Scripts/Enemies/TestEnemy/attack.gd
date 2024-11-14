@@ -37,7 +37,6 @@ func process_physics(_delta: float) -> State:
 	else:
 		hitbox_collision.disabled = true
 	
-
 	
 	if !parent.can_attack:
 		return pursue_state

@@ -23,13 +23,14 @@ var animations : AnimatedSprite2D = $"../../animations"
 var stop_distance : int
 
 func enter() -> void:
-	print("I'm in pursue state")
 	parent.enable_gravity = true
 	parent.was_hit = false
 	velocity_component.move_speed = 100
 	super()
 
 func process_frame(_delta: float) -> State:
+
+	print_debug(parent.player_seen)
 	if !self.parent.player_seen and timer.time_left == 0:
 			return idle_state
 	return null
