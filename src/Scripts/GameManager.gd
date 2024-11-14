@@ -29,8 +29,8 @@ enum WeaponClass {
 var players = {}
 var equipped_weapon = {
 	"name": "Wooden Sword and Shield",
-	"archetype_class": ArchetypeClass.WARRIOR,
-	"weapon_class": WeaponClass.SWORDSHIELD,
+	"archetype_class": ArchetypeClass.ROGUE,
+	"weapon_class": WeaponClass.KNIVES,
 	"weapon_attack": 10,
 	"weapon_defense": 5,
 	"magic_attack": 0,
@@ -114,6 +114,30 @@ func set_player_max_health(max_health: float) -> void:
 
 func get_player_max_health() -> float:
 	return selected_player["max_health"]
+
+func set_player_minimum_weapon_attack(value : int) -> void:
+	selected_player["min_weapon_attack"] = value
+
+func get_player_minimum_weapon_attack() -> int:
+	return selected_player["min_weapon_attack"]
+
+func set_player_maximum_weapon_attack(value : int) -> void:
+	selected_player["max_weapon_attack"] = value
+
+func get_player_maximum_weapon_attack() -> int:
+	return selected_player["max_weapon_attack"]
+	
+func set_player_minimum_magic_attack(value : int) -> void:
+	selected_player["min_magic_attack"] = value
+
+func get_player_minimum_magic_attack() -> int:
+	return selected_player["min_magic_attack"]
+
+func set_player_maximum_magic_attack(value : int) -> void:
+	selected_player["max_magic_attack"] = value
+
+func get_player_maximum_magic_attack() -> int:
+	return selected_player["max_magic_attack"]
 
 # Current Health
 func set_player_current_health(current_health: float) -> void:
@@ -337,6 +361,17 @@ func set_movement_speed_bonus(new_movement_speed_bonus: int) -> void:
 func set_jump_bonus(new_jump_bonus: int) -> void:
 	equipped_weapon["jump_bonus"] = new_jump_bonus
 
+func get_archetype_name() -> String:
+	var archetype_name :String
+	match(equipped_weapon["archetype_class"]):
+		ArchetypeClass.WARRIOR:
+			archetype_name = "Warrior"
+		ArchetypeClass.MAGE:
+			archetype_name = "Mage"
+		ArchetypeClass.ROGUE:
+			archetype_name = "Rogue"
+	return archetype_name
+
 func get_relevant_attribute_stat() -> Array[int]:
 	var stats : Array[int] = []
 	match(equipped_weapon["archetype_class"]):
@@ -375,27 +410,32 @@ func calculate_needed_stat_xp(stat_level : String, stat_needed_xp : String) -> v
 	selected_player[stat_needed_xp] = required_xp
 
 func level_up_stat(stat : String, current_stat_xp : String, needed_stat_xp : String):
-		if selected_player[current_stat_xp] >= selected_player[current_stat_xp]: 
+		var roll_over_xp = selected_player[current_stat_xp] - selected_player[needed_stat_xp]
+		if selected_player[current_stat_xp] >= selected_player[needed_stat_xp]: 
 			selected_player[stat] += 1
-			selected_player[current_stat_xp] = 0
+			if roll_over_xp > 0:
+				selected_player[current_stat_xp] = roll_over_xp
+			else:
+				selected_player[current_stat_xp] = 0
 			calculate_needed_stat_xp(stat, needed_stat_xp)
 
 func apply_received_xp(value : int) -> void:
+	print_debug("I got " + str(value) + " XP")
 	match(get_weapon_archetype_class()):
 		ArchetypeClass.WARRIOR:
 			set_player_str_current_xp(get_player_str_current_xp()+value)
-			level_up_stat("strength_level", "str_current_xp","str_needed_xp")
+			level_up_stat("str_level", "str_current_xp","str_needed_xp")
 		ArchetypeClass.MAGE:
 			set_player_int_current_xp(get_player_int_current_xp()+value)
-			level_up_stat("intellect_level", "int_current_xp","int_needed_xp")
+			level_up_stat("int_level", "int_current_xp","int_needed_xp")
 		ArchetypeClass.ROGUE:
 			if get_weapon_class() == WeaponClass.KNIVES:
 				set_player_luk_current_xp(get_player_luk_current_xp()+value)
-				level_up_stat("luck_level", "luk_current_xp","luk_needed_xp")
+				level_up_stat("luk_level", "luk_current_xp","luk_needed_xp")
 				set_player_dex_current_xp(get_player_dex_current_xp()+int(value/4))
-				level_up_stat("dexterity_level", "dex_current_xp","dex_needed_xp")
+				level_up_stat("dex_level", "dex_current_xp","dex_needed_xp")
 			else:
 				set_player_dex_current_xp(get_player_dex_current_xp()+value)
-				level_up_stat("dexterity_level", "dex_current_xp","dex_needed_xp")
+				level_up_stat("dex_level", "dex_current_xp","dex_needed_xp")
 				set_player_luk_current_xp(get_player_luk_current_xp()+int(value/4))
-				level_up_stat("luck_level", "luk_current_xp","luk_needed_xp")
+				level_up_stat("luk_level", "luk_current_xp","luk_needed_xp")

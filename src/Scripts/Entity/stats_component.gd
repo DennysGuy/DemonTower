@@ -91,7 +91,11 @@ func set_current_magic_points(value: float) -> void:
 func get_current_magic_points() -> float:
 	return _current_magic_points
 
+func set_xp_given(value : int) -> void:
+	_exp_given = value
 
+func get_xp_given() -> int:
+	return _exp_given
 # Strength
 func set_strength(value: int) -> void:
 	_strength = value
@@ -202,15 +206,20 @@ func get_player_luk_xp_needed() -> int:
 #Setters
 func set_player_str_current_xp() -> void:
 	_str_xp_current = GameManager.get_player_str_current_xp()
+	GameManager.level_up_stat("str_level", "str_current_xp", "str_needed_xp")
+		
 
 func set_player_dex_current_xp() -> void:
 	_dex_xp_current = GameManager.get_player_dex_current_xp()
+	GameManager.level_up_stat("dex_level", "dex_current_xp", "dex_needed_xp")
 
 func set_player_int_current_xp() -> void:
 	_int_xp_current = GameManager.get_player_int_current_xp()
+	GameManager.level_up_stat("int_level", "int_current_xp", "int_needed_xp")
 
 func set_player_luk_current_xp() -> void:
 	_luk_xp_current = GameManager.get_player_luk_current_xp()
+	GameManager.level_up_stat("luk_level", "luk_current_xp", "luk_needed_xp")
 #Getters
 func get_player_str_current_xp() -> int:
 	return _str_xp_current
@@ -250,22 +259,21 @@ func calculate_magic_attack_range(magic_attack : int) -> int:
 
 func calculate_minimum_physical_attack(primary_stat : int, secondary_stat: int, weapon_attack : int) -> void:
 	self._minimum_physical_attack = calculate_physical_attack_range(primary_stat, secondary_stat, weapon_attack) * _min_damage_modifer
-
+	GameManager.set_player_minimum_weapon_attack(_minimum_physical_attack) 
 func calculate_maximum_physical_attack(primary_stat : int, secondary_stat: int, weapon_attack : int) -> void:
 	self._maximum_physical_attack = calculate_physical_attack_range(primary_stat, secondary_stat, weapon_attack)
-
+	GameManager.set_player_maximum_weapon_attack(_maximum_physical_attack) 
 func calculate_minimum_magic_attack(magic_attack : int) -> void:
 	self._minimum_magic_attack = calculate_magic_attack_range(magic_attack) * _min_damage_modifer
-
+	GameManager.set_player_minimum_magic_attack(_minimum_magic_attack) 
 func calculate_maximum_magic_attack(magic_attack : int) -> void:
 	self._minimum_magic_attack = calculate_magic_attack_range(magic_attack)
+	GameManager.set_player_maximum_magic_attack(_maximum_magic_attack) 
 
 func calculate_weapon_defense(temp_wdef_val : int) -> void:
 	self._weapon_defense = int(temp_wdef_val/(temp_wdef_val + (100 * get_strength())))
-
 func calculate_magic_defense(mdef_val : int) -> void:
 	self._magic_defense = int(mdef_val/(mdef_val + (100 * get_intelligence())))
-
 func calculate_critical_rate() -> void:
 	#add up base crit with bonuses from resources, active or passive skills, and buffs subtract enemy debuff if applicable
 	#calculating base crit rate won't take in enemy debuff for obvious reasons

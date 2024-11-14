@@ -14,10 +14,9 @@ var health_tracker : Label = $Label
 var stats_component : StatsComponent = $StatsComponent
 @onready
 var health_bar : ProgressBar = $ProgressBar
-
 func _ready() -> void:
 	health_bar.max_value = stats_component.get_max_health()
-	
+
 	stats_component.calculate_minimum_physical_attack(stats_component.get_strength(), 0, 4)
 	stats_component.calculate_maximum_physical_attack(stats_component.get_strength(), 0, 4)
 	stats_component.calculate_weapon_defense(stats_component.get_weapon_defense())

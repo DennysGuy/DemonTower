@@ -12,8 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xujhg")
 
-[node name="MainMenu" parent="." node_paths=PackedStringArray("player_hud") instance=ExtResource("1_d0sx8")]
+[node name="MainMenu" parent="." instance=ExtResource("1_d0sx8")]
 layout_mode = 1
-player_hud = NodePath("")
 
 [editable path="MainMenu"]
