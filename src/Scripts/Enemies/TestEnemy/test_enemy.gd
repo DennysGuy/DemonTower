@@ -16,7 +16,6 @@ var stats_component : StatsComponent = $StatsComponent
 var health_bar : ProgressBar = $ProgressBar
 func _ready() -> void:
 	health_bar.max_value = stats_component.get_max_health()
-
 	stats_component.calculate_minimum_physical_attack(stats_component.get_strength(), 0, 4)
 	stats_component.calculate_maximum_physical_attack(stats_component.get_strength(), 0, 4)
 	stats_component.calculate_weapon_defense(stats_component.get_weapon_defense())
@@ -44,4 +43,7 @@ func _on_player_detector_body_exited(body):
 func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 	was_hit = true
 	enemy_hitbox_parent = hitbox.get_parent()
-	health_component.apply_damage(enemy_hitbox_parent.stats_component.get_minimum_physical_attack(), enemy_hitbox_parent.stats_component.get_maximum_physical_attack())
+	if enemy_hitbox_parent.name == "Player":
+		health_component.apply_damage(PlayerManager.get_player_minimum_weapon_attack(), PlayerManager.get_player_maximum_weapon_attack())
+	else:
+		health_component.apply_damage(enemy_hitbox_parent.stats_component.get_minimum_physical_attack(), enemy_hitbox_parent.stats_component.get_maximum_physical_attack())

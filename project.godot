@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://src/Scripts/GameManager.gd"
 SignalBus="*res://src/Scripts/SignalBus.gd"
+PlayerManager="*res://src/Scripts/Player/PlayerManager.gd"
 
 [display]
 

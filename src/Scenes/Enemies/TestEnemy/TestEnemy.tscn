@@ -427,7 +427,7 @@ script = ExtResource("1_qtaie")
 [node name="StatsComponent" type="Node" parent="."]
 script = ExtResource("22_b4d0e")
 _total_level = 1
-_exp_given = 8
+_exp_given = 75000
 _max_health = 80.0
 _current_health = 80.0
 _strength = 2
