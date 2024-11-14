@@ -28,11 +28,16 @@ extends Control
 @onready var luk_xp_progressbar : ProgressBar = $SkillsXPMenu/VBoxContainer/LUKXP_ProgresBar
 #Pause Menu Button
 @onready var menu_button : Button = $HUD/HBoxContainer/MiscMargin/Misc/MenuButton
+#STATS Menu
+@onready var stats_panel : Panel = $StatsPanel
 
+@export var player : Entity
 var xp_menu_show
+var stats_panel_show
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	xp_menu_show = false
+	stats_panel_show = false
 	pass
 	
 
@@ -69,7 +74,15 @@ func _process(delta: float) -> void:
 	luk_xp_progressbar.max_value = GameManager.get_player_luk_xp_needed()
 	luk_xp_progressbar.value = GameManager.get_player_luk_current_xp()
 	
-	if xp_menu_show == true:
+	if Input.is_action_just_pressed("stats"):
+		stats_panel_show = !stats_panel_show
+	
+	if stats_panel_show:
+		stats_panel.show()
+	else:
+		stats_panel.hide()
+	
+	if xp_menu_show:
 		XP_menu.show()
 	else:
 		XP_menu.hide()

@@ -149,6 +149,236 @@ theme_override_font_sizes/font_size = 6
 theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
 
+[node name="StatsPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 34.0
+offset_right = 206.0
+offset_bottom = 210.0
+
+[node name="Label" type="Label" parent="StatsPanel"]
+layout_mode = 1
+offset_left = 6.0
+offset_right = 51.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 6
+text = "Character Stats"
+
+[node name="AbilityLevels" type="ColorRect" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = 2.0
+offset_right = 63.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.712487, 0.692503, 0.761319, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsPanel/AbilityLevels"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -34.0
+offset_right = 32.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="StrLvl" type="Label" parent="StatsPanel/AbilityLevels/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "STR LVL : 1"
+
+[node name="DexLvl" type="Label" parent="StatsPanel/AbilityLevels/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "DEX LVL : 1"
+
+[node name="IntLvl" type="Label" parent="StatsPanel/AbilityLevels/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "INT LVL : 1"
+
+[node name="LukLvl" type="Label" parent="StatsPanel/AbilityLevels/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "LUK LVL : 1"
+
+[node name="PlayerDetail" type="ColorRect" parent="StatsPanel"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -75.0
+offset_right = 63.5
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.35093, 0.361492, 0.52375, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsPanel/PlayerDetail"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = -31.0
+offset_right = 47.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="NameLabel" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Name: Dennysuy"
+
+[node name="EquippedArchetype" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Current Archetype: Warrior"
+
+[node name="TotalLevel" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Total Level: 4"
+
+[node name="HP" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "HP: 100/100"
+
+[node name="MP" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "MP: 100/100"
+
+[node name="Button" type="Button" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -13.0
+offset_right = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 3
+text = "Details >"
+
+[node name="SecondaryStats" type="Panel" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -106.0
+offset_right = 101.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="StatsPanel/SecondaryStats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -41.0
+offset_right = 45.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.351388, 0.520673, 0.694781, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsPanel/SecondaryStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -40.5
+offset_right = 39.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="PATK" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "PATK : 1-3"
+
+[node name="MATK" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "MATK: 0-1"
+
+[node name="WDEF" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "WDEF: 3"
+
+[node name="MDEF" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "MDEF: 0
+"
+
+[node name="ACC" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "ACC: 60
+"
+
+[node name="AVOID" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "AVOID: 90
+"
+
+[node name="SPEED" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "SPD: 100"
+
+[node name="JMP" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "JMP: 100"
+
+[node name="Label" type="Label" parent="StatsPanel/SecondaryStats"]
+layout_mode = 1
+offset_left = 5.0
+offset_right = 52.0
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 6
+text = "Secondary Stats"
+
 [node name="HUD" type="ColorRect" parent="."]
 layout_mode = 2
 offset_left = 1.0

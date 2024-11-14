@@ -33,7 +33,6 @@ func _process(delta):
 	stats_component.set_player_dex_current_xp()
 	stats_component.set_player_int_current_xp()
 	stats_component.set_player_luk_current_xp()
-	stats_component.set_current_health(GameManager.get_player_current_health())
 	stats_component.set_current_magic_points(GameManager.get_player_current_magic_points())
 
 func _on_area_2d_body_entered(body):
@@ -46,6 +45,7 @@ func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 	was_hit = true
 	enemy_hitbox_parent = hitbox.get_parent()
 	health_component.apply_damage(enemy_hitbox_parent.stats_component.get_minimum_physical_attack(), enemy_hitbox_parent.stats_component.get_maximum_physical_attack())
+	stats_component.set_current_health(GameManager.get_player_current_health())
 
 func _set_stats() -> void:
 	#set player name, first off

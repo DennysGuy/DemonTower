@@ -1166,14 +1166,6 @@ hit_box_x_pos = 23.0
 [node name="StatsComponent" type="Node" parent="."]
 script = ExtResource("25_u6lfx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="PlayerHUD" parent="Camera2D" instance=ExtResource("24_fu278")]
-offset_left = -240.0
-offset_top = -134.0
-offset_right = -240.0
-offset_bottom = -134.0
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.55
 one_shot = true
@@ -1321,6 +1313,14 @@ offset_left = -17.0
 offset_top = -61.0
 offset_right = 8.0
 offset_bottom = -38.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlayerHUD" parent="Camera2D" instance=ExtResource("24_fu278")]
+offset_left = -240.0
+offset_top = -134.0
+offset_right = -240.0
+offset_bottom = -134.0
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 
