@@ -1,6 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://636u6us5vqin"]
+[gd_scene load_steps=14 format=3 uid="uid://636u6us5vqin"]
 
 [ext_resource type="Script" path="res://src/Scripts/HUD/player_hud.gd" id="1_04w3r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_487di"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv18p"]
+bg_color = Color(0.756383, 0.268177, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w26u"]
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mfw5"]
+bg_color = Color(0.184428, 0.553115, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fml3t"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f05d1"]
+bg_color = Color(0.6, 0, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev2sq"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6jjo"]
+bg_color = Color(0.691381, 0.54534, 3.85046e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5cli"]
 bg_color = Color(0.187176, 0.187176, 0.187176, 1)
@@ -30,20 +70,6 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jppxf"]
-bg_color = Color(0.362829, 0.362829, 0.362829, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqrgp"]
-bg_color = Color(0.819569, 0.64066, 0, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -52,6 +78,76 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_04w3r")
+
+[node name="SkillsXPMenu" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 144.0
+offset_right = 475.0
+offset_bottom = 239.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SkillsXPMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.046875
+anchor_top = 0.0322581
+anchor_right = 0.953125
+anchor_bottom = 0.967742
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelLabel" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "Level 1"
+
+[node name="STRXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "STR XP"
+
+[node name="STRXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_487di")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fv18p")
+
+[node name="DEXXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "DEX XP"
+
+[node name="DEXXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_5w26u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8mfw5")
+
+[node name="INTXP_Lable" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "INT XP"
+
+[node name="INTXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_fml3t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f05d1")
+
+[node name="LUKXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "LUK XP"
+
+[node name="LUKXP_ProgresBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
 
 [node name="HUD" type="ColorRect" parent="."]
 layout_mode = 2
@@ -84,41 +180,19 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox"]
+[node name="PlayerName" type="Label" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox"]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 6.0
-offset_top = -10.0
-offset_right = 92.0
-offset_bottom = 10.0
+offset_left = -22.5
+offset_top = -5.5
+offset_right = 22.5
+offset_bottom = 5.5
+grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="LevelLabel" type="Label" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer"]
-custom_minimum_size = Vector2(34, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 11
-text = "Level 1"
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-
-[node name="PlayerNames" type="VBoxContainer" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 1
-
-[node name="PlayerClass" type="Label" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer/MarginContainer/PlayerNames"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 5
-text = "Warrior"
-
-[node name="PlayerName" type="Label" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox/HBoxContainer/MarginContainer/PlayerNames"]
-layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 7
 text = "DennysGuy"
@@ -147,7 +221,7 @@ theme_override_constants/margin_right = 4
 layout_mode = 2
 
 [node name="HPBar" type="VBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars"]
-custom_minimum_size = Vector2(90, 0)
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 
 [node name="HitPointsLabel" type="Label" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/HPBar"]
@@ -164,7 +238,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_bk677")
 show_percentage = false
 
 [node name="MPBar" type="VBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars"]
-custom_minimum_size = Vector2(90, 0)
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 
 [node name="MagicPointsLabel" type="Label" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/MPBar"]
@@ -179,23 +253,6 @@ layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_xfflw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2aihr")
 show_percentage = false
-
-[node name="XPBar" type="VBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-
-[node name="XPPointsLabel" type="Label" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/XPBar"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 6
-text = "XP"
-
-[node name="XPBar" type="ProgressBar" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/XPBar"]
-custom_minimum_size = Vector2(0, 9)
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-theme_override_styles/background = SubResource("StyleBoxFlat_jppxf")
-theme_override_styles/fill = SubResource("StyleBoxFlat_xqrgp")
 
 [node name="MiscMargin" type="MarginContainer" parent="HUD/HBoxContainer"]
 layout_mode = 2
@@ -224,3 +281,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 7
 text = "Menu"
+
+[connection signal="pressed" from="HUD/HBoxContainer/MiscMargin/Misc/MenuButton" to="." method="_on_menu_button_pressed"]

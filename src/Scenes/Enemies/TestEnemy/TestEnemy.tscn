@@ -426,14 +426,15 @@ script = ExtResource("1_qtaie")
 
 [node name="StatsComponent" type="Node" parent="."]
 script = ExtResource("22_b4d0e")
-_level = 3
-_max_health = 150.0
-_current_health = 150.0
+_total_level = 1
+_exp_given = 10
+_max_health = 80.0
+_current_health = 80.0
 _strength = 2
 _dexterity = 1
 _intelligence = 1
 _luck = 1
-_weapon_defense = 5.0
+_weapon_defense = 3.0
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_v0wd5")]
 entity = NodePath("..")

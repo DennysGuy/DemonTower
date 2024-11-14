@@ -1156,7 +1156,7 @@ radius = 7.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpkan"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7fsx"]
-size = Vector2(13, 29)
+size = Vector2(14, 29)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -1193,9 +1193,16 @@ scale = Vector2(4, 0.2)
 collision_mask = 4
 
 [node name="PlayerName" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
 offset_left = -6.0
 offset_right = 6.0
 offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 6
 horizontal_alignment = 1
@@ -1212,7 +1219,7 @@ shape = SubResource("RectangleShape2D_rpkan")
 script = ExtResource("18_eh7ik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-0.5, -14.5)
+position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_d7fsx")
 
 [node name="HealthTracker" type="Label" parent="."]

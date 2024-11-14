@@ -78,8 +78,11 @@ func _set_stats() -> void:
 	stats_component.set_intelligence(GameManager.get_player_current_intelligence_level())
 	stats_component.set_luck(GameManager.get_player_current_luck_level())
 	#Calculate base min/max damage
-	stats_component.calculate_minimum_physical_attack(GameManager.get_player_strength(), GameManager.get_player_dexterity(), 2)
-	stats_component.calculate_maximum_physical_attack(GameManager.get_player_strength(), GameManager.get_player_dexterity(), 2)
+	var relevant_attributes = GameManager.get_relevant_attribute_stat()
+	stats_component.calculate_minimum_physical_attack(relevant_attributes[0], relevant_attributes[1], GameManager.get_weapon_attack())
+	stats_component.calculate_maximum_physical_attack(relevant_attributes[0], relevant_attributes[1], GameManager.get_weapon_attack())
+	stats_component.calculate_minimum_magic_attack(GameManager.get_weapon_magic_attack())
+	stats_component.calculate_maximum_magic_attack(GameManager.get_weapon_magic_attack())
 	#Calculate weapon defense
 	stats_component.calculate_weapon_defense(17)
 	

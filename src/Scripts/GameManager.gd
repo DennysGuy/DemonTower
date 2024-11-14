@@ -11,8 +11,38 @@ const BASE_CRIT_RATE = 0
 const BASE_CRIT_DAMAGE = 5
 const BASE_ACCURACY = 10
 const BASE_AVOIDABILITY = 10
+enum ArchetypeClass {
+	WARRIOR,
+	MAGE,
+	ROGUE
+}
+enum WeaponClass {
+	SWORDSHIELD,
+	SPEAR,
+	TWOHANDED,
+	WAND,
+	STAFF,
+	KNIVES,
+	CLAW
+}
 
 var players = {}
+var equipped_weapon = {
+	"name": "Wooden Sword and Shield",
+	"archetype_class": ArchetypeClass.WARRIOR,
+	"weapon_class": WeaponClass.SWORDSHIELD,
+	"weapon_attack": 10,
+	"weapon_defense": 5,
+	"magic_attack": 0,
+	"magic_defense": 0,
+	"HP_Bonus": 0,
+	"MP_Bonus": 0,
+	"movement_speed_bonus": 0,
+	"jump_bonus": 0,
+	"animation_name": "",
+	"inventory_icon": "",
+	"drop_icon": "",
+}
 var selected_player = {
 	"name": "",
 	"color": "",
@@ -77,13 +107,6 @@ func set_player_color(color: String) -> void:
 
 func get_player_color() -> String:
 	return selected_player["color"]
-
-# Player Class
-func set_player_class(new_class: String) -> void:
-	selected_player["class"] = new_class
-
-func get_player_class() -> String:
-	return selected_player["class"]
 
 # Max Health
 func set_player_max_health(max_health: float) -> void:
@@ -178,31 +201,31 @@ func get_player_luk_current_xp() -> int:
 
 # Strength
 func set_player_strength(strength: int) -> void:
-	selected_player["strength_level"] = strength
+	selected_player["str_level"] = strength
 
 func get_player_current_strength_level() -> int:
-	return selected_player["strength_level"]
+	return selected_player["str_level"]
 
 # Dexterity
 func set_player_current_dexterity_level(dexterity: int) -> void:
-	selected_player["dexterity_level"] = dexterity
+	selected_player["dex_level"] = dexterity
 
 func get_player_current_dexterity_level() -> int:
-	return selected_player["dexterity_level"]
+	return selected_player["dex_level"]
 
 # Intelligence
 func set_player_current_intelligence_level(intelligence: int) -> void:
-	selected_player["intelligence_level"] = intelligence
+	selected_player["int_level"] = intelligence
 
 func get_player_current_intelligence_level() -> int:
-	return selected_player["intelligence_level"]
+	return selected_player["int_level"]
 
 # Luck
 func set_player_current_luck_level(luck: int) -> void:
-	selected_player["luck_level"] = luck
+	selected_player["luk_level"] = luck
 
 func get_player_current_luck_level() -> int:
-	return selected_player["luck_level"]
+	return selected_player["luk_level"]
 
 # Critical Rate
 func set_player_critical_rate(critical_rate: int) -> void:
@@ -246,6 +269,88 @@ func set_player_jump(jump: int) -> void:
 func get_player_jump() -> int:
 	return selected_player["jump"]
 
+# Getters
+func get_weapon_name() -> String:
+	return equipped_weapon["name"]
+
+func get_weapon_archetype_class() -> int:
+	return equipped_weapon["archetype_class"]
+
+func get_weapon_class() -> int:
+	return equipped_weapon["weapon_class"]
+
+func get_weapon_attack() -> int:
+	return equipped_weapon["weapon_attack"]
+
+func get_weapon_defense() -> int:
+	return equipped_weapon["weapon_defense"]
+
+func get_weapon_magic_attack() -> int:
+	return equipped_weapon["magic_attack"]
+
+func get_weapon_magic_defense() -> int:
+	return equipped_weapon["magic_defense"]
+
+func get_weapon_HP_bonus() -> int:
+	return equipped_weapon["HP_Bonus"]
+
+func get_weapon_MP_bonus() -> int:
+	return equipped_weapon["MP_Bonus"]
+
+func get_movement_speed_bonus() -> int:
+	return equipped_weapon["movement_speed_bonus"]
+
+func get_jump_bonus() -> int:
+	return equipped_weapon["jump_bonus"]
+
+# Setters
+func set_weapon_name(new_name: String) -> void:
+	equipped_weapon["name"] = new_name
+
+func set_weapon_archetype_class(new_archetype_class: ArchetypeClass) -> void:
+	equipped_weapon["archetype_class"] = new_archetype_class
+
+func set_weapon_class(new_weapon_class: WeaponClass) -> void:
+	equipped_weapon["weapon_class"] = new_weapon_class
+
+func set_weapon_attack(new_weapon_attack: int) -> void:
+	equipped_weapon["weapon_attack"] = new_weapon_attack
+
+func set_weapon_defense(new_weapon_defense: int) -> void:
+	equipped_weapon["weapon_defense"] = new_weapon_defense
+
+func set_weapon_magic_attack(new_magic_attack: int) -> void:
+	equipped_weapon["magic_attack"] = new_magic_attack
+
+func set_weapon_magic_defense(new_magic_defense: int) -> void:
+	equipped_weapon["magic_defense"] = new_magic_defense
+
+func set_weapon_HP_bonus(new_HP_bonus: int) -> void:
+	equipped_weapon["HP_Bonus"] = new_HP_bonus
+
+func set_weapon_MP_bonus(new_MP_bonus: int) -> void:
+	equipped_weapon["MP_Bonus"] = new_MP_bonus
+
+func set_movement_speed_bonus(new_movement_speed_bonus: int) -> void:
+	equipped_weapon["movement_speed_bonus"] = new_movement_speed_bonus
+
+func set_jump_bonus(new_jump_bonus: int) -> void:
+	equipped_weapon["jump_bonus"] = new_jump_bonus
+
+func get_relevant_attribute_stat() -> Array[int]:
+	var stats : Array[int] = []
+	match(equipped_weapon["archetype_class"]):
+		ArchetypeClass.WARRIOR:
+			stats = [get_player_current_strength_level(), 0]
+		ArchetypeClass.MAGE:
+			stats = [get_player_current_intelligence_level(), 0]
+		ArchetypeClass.ROGUE:
+			if equipped_weapon["weapon_class"] == WeaponClass.KNIVES:
+				stats = [get_player_current_luck_level(), get_player_current_dexterity_level()]
+			else:
+				stats = [get_player_current_luck_level(), get_player_current_dexterity_level()]
+	return stats
+
 func calculate_player_minimum_physical_attack_damage(primary_stat : String, secondary_stat : String, weapon_attack : int):
 	var primary = selected_player[primary_stat]
 	var secondary = selected_player[secondary_stat]
@@ -270,13 +375,27 @@ func calculate_needed_stat_xp(stat_level : String, stat_needed_xp : String) -> v
 	selected_player[stat_needed_xp] = required_xp
 
 func level_up_stat(stat : String, current_stat_xp : String, needed_stat_xp : String):
-	if selected_player[current_stat_xp] >= selected_player[needed_stat_xp]:
-		selected_player[stat] += 1
-		selected_player[current_stat_xp] = 0
-		calculate_needed_stat_xp(stat, needed_stat_xp)
+		if selected_player[current_stat_xp] >= selected_player[current_stat_xp]: 
+			selected_player[stat] += 1
+			selected_player[current_stat_xp] = 0
+			calculate_needed_stat_xp(stat, needed_stat_xp)
 
-enum WeaponClass {
-	WARRIOR,
-	MAGE,
-	ROGUE
-}
+func apply_received_xp(value : int) -> void:
+	match(get_weapon_archetype_class()):
+		ArchetypeClass.WARRIOR:
+			set_player_str_current_xp(get_player_str_current_xp()+value)
+			level_up_stat("strength_level", "str_current_xp","str_needed_xp")
+		ArchetypeClass.MAGE:
+			set_player_int_current_xp(get_player_int_current_xp()+value)
+			level_up_stat("intellect_level", "int_current_xp","int_needed_xp")
+		ArchetypeClass.ROGUE:
+			if get_weapon_class() == WeaponClass.KNIVES:
+				set_player_luk_current_xp(get_player_luk_current_xp()+value)
+				level_up_stat("luck_level", "luk_current_xp","luk_needed_xp")
+				set_player_dex_current_xp(get_player_dex_current_xp()+int(value/4))
+				level_up_stat("dexterity_level", "dex_current_xp","dex_needed_xp")
+			else:
+				set_player_dex_current_xp(get_player_dex_current_xp()+value)
+				level_up_stat("dexterity_level", "dex_current_xp","dex_needed_xp")
+				set_player_luk_current_xp(get_player_luk_current_xp()+int(value/4))
+				level_up_stat("luck_level", "luk_current_xp","luk_needed_xp")

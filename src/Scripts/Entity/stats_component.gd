@@ -3,6 +3,7 @@ class_name StatsComponent extends Node
 # Private variables
 @export_group("Level")
 @export var _total_level : int
+@export var _exp_given : int #for enemies only
 
 @export_group("HP")
 @export var _max_health : float
@@ -51,8 +52,6 @@ var _str_xp_current : int
 var _dex_xp_current : int
 var _int_xp_current : int
 var _luk_xp_current : int
-
-
 
 
 # Setter and getter functions
@@ -276,4 +275,7 @@ func calculate_accuracy() -> void:
 	pass
 	
 func calculate_avoidability() -> void:
-	pass	
+	pass
+
+func attain_exp() -> void:
+	pass
