@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://src/Scripts/Player/player.gd" id="1_a8xjd"]
 [ext_resource type="Texture2D" uid="uid://dpoghdu45hbx6" path="res://Assets/Player/TempPlayerAssets/green/char_green_1.png" id="2_4c53k"]
+[ext_resource type="Resource" uid="uid://dl7rmwsv5jx2h" path="res://src/Resources/Stats/PlayerStats.tres" id="2_j0aar"]
 [ext_resource type="Script" path="res://src/Scripts/StateMachine/Statemachine.gd" id="2_jmlgp"]
+[ext_resource type="Resource" uid="uid://dqxah5p2mnex2" path="res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres" id="3_aa7us"]
 [ext_resource type="Texture2D" uid="uid://pgabcbfk8qti" path="res://Assets/Player/TempPlayerAssets/blue/char_blue_2.png" id="3_egkpb"]
 [ext_resource type="Script" path="res://src/Scripts/Player/idle.gd" id="3_x8omn"]
 [ext_resource type="Texture2D" uid="uid://b2c5e2k876b6d" path="res://Assets/Player/TempPlayerAssets/green/char_green_2.png" id="3_xgbbd"]
@@ -23,8 +25,6 @@
 [ext_resource type="Script" path="res://src/Scripts/Player/dead.gd" id="18_ssa6g"]
 [ext_resource type="Script" path="res://src/Scripts/Components/health_component.gd" id="19_ck53d"]
 [ext_resource type="Script" path="res://src/Scripts/Components/velocity_component.gd" id="22_uy8iy"]
-[ext_resource type="PackedScene" uid="uid://636u6us5vqin" path="res://PlayerHUD.tscn" id="24_fu278"]
-[ext_resource type="Script" path="res://src/Scripts/Entity/stats_component.gd" id="25_u6lfx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6bx3"]
 atlas = ExtResource("4_guqak")
@@ -1161,10 +1161,9 @@ size = Vector2(14, 29)
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_a8xjd")
+stats_resource = ExtResource("2_j0aar")
+equipped_weapon = ExtResource("3_aa7us")
 hit_box_x_pos = 23.0
-
-[node name="StatsComponent" type="Node" parent="."]
-script = ExtResource("25_u6lfx")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.55
@@ -1182,7 +1181,7 @@ shape = SubResource("CapsuleShape2D_i487o")
 
 [node name="LadderDetector" type="RayCast2D" parent="."]
 scale = Vector2(4, 0.2)
-collision_mask = 4
+collision_mask = 8
 
 [node name="PlayerName" type="Label" parent="."]
 anchors_preset = 7
@@ -1302,9 +1301,6 @@ script = ExtResource("18_ssa6g")
 animation_name = "Die"
 move_speed = 0
 
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("19_ck53d")
-
 [node name="VelocityComponent" type="Node" parent="."]
 script = ExtResource("22_uy8iy")
 
@@ -1314,14 +1310,8 @@ offset_top = -61.0
 offset_right = 8.0
 offset_bottom = -38.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="PlayerHUD" parent="Camera2D" instance=ExtResource("24_fu278")]
-offset_left = -240.0
-offset_top = -134.0
-offset_right = -240.0
-offset_bottom = -134.0
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("parent")]
+script = ExtResource("19_ck53d")
+parent = NodePath("..")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-
-[editable path="Camera2D/PlayerHUD"]

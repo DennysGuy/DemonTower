@@ -1,10 +1,11 @@
-[gd_scene load_steps=77 format=3 uid="uid://rr3hqaxuipq6"]
+[gd_scene load_steps=79 format=3 uid="uid://rr3hqaxuipq6"]
 
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/test_enemy.gd" id="1_qtaie"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="2_ksgm4"]
 [ext_resource type="PackedScene" uid="uid://c7hu37tywrkrv" path="res://src/Components/VelocityComponent.tscn" id="2_v0wd5"]
 [ext_resource type="Texture2D" uid="uid://dldtnspf8as6e" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-AttackWithStun.png" id="2_ydixj"]
-[ext_resource type="PackedScene" uid="uid://d4enbktd412lh" path="res://src/Components/HealthComponent.tscn" id="3_fcwj7"]
 [ext_resource type="Texture2D" uid="uid://bgkiwlvrvvacf" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Die.png" id="3_gmnjf"]
+[ext_resource type="Resource" uid="uid://bau5ta8vc0m5n" path="res://src/Resources/Weapons/EnemyWeapons/BasicEnemyAttackWeapon.tres" id="3_nsfcn"]
 [ext_resource type="Texture2D" uid="uid://dq5ychxg288o6" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Hit.png" id="4_eota0"]
 [ext_resource type="Texture2D" uid="uid://b3v45l2gqt6th" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Idle.png" id="5_gfg00"]
 [ext_resource type="Texture2D" uid="uid://bhj0sqlxda6jk" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Run.png" id="6_mhqqa"]
@@ -21,7 +22,29 @@
 [ext_resource type="PackedScene" uid="uid://dxalhjpunyll3" path="res://src/Components/HitBoxComponent.tscn" id="19_lu6og"]
 [ext_resource type="Script" path="res://src/Scripts/Components/hurt_box_component.gd" id="21_ja835"]
 [ext_resource type="PackedScene" uid="uid://wa4qfe8gp0xj" path="res://src/Components/AttackRangeComponent.tscn" id="21_okmwy"]
-[ext_resource type="Script" path="res://src/Scripts/Entity/stats_component.gd" id="22_b4d0e"]
+[ext_resource type="Script" path="res://src/Scripts/Components/health_component.gd" id="23_2xsit"]
+
+[sub_resource type="Resource" id="Resource_omp2x"]
+resource_local_to_scene = true
+script = ExtResource("2_ksgm4")
+name = "Spore"
+color = ""
+max_health = 100.0
+current_health = 100.0
+magic_points = 100
+current_magic_points = 100
+equipped_archetype = 0
+str_level = 3
+dex_level = 1
+int_level = 1
+luk_level = 1
+critical_rate = 0
+critical_damage = 5
+avoidability = 10
+accuracy = 10
+speed = 120
+jump = 200
+xp_value = 700000
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea6pq"]
 atlas = ExtResource("2_ydixj")
@@ -423,23 +446,11 @@ size = Vector2(28, 32)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_qtaie")
-
-[node name="StatsComponent" type="Node" parent="."]
-script = ExtResource("22_b4d0e")
-_total_level = 1
-_exp_given = 8
-_max_health = 80.0
-_current_health = 80.0
-_strength = 2
-_dexterity = 1
-_intelligence = 1
-_luck = 1
-_weapon_defense = 3.0
+stats_resource = SubResource("Resource_omp2x")
+equipped_weapon = ExtResource("3_nsfcn")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_v0wd5")]
 entity = NodePath("..")
-
-[node name="HealthComponent" parent="." instance=ExtResource("3_fcwj7")]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -556,6 +567,10 @@ offset_right = 23.0
 offset_bottom = -35.0
 theme_override_font_sizes/font_size = 4
 show_percentage = false
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("parent")]
+script = ExtResource("23_2xsit")
+parent = NodePath("..")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

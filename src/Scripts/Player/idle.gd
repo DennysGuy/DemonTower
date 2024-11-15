@@ -22,9 +22,8 @@ func enter() -> void:
 	parent.was_hit = false
 	parent.enable_gravity = true
 	parent.hitbox_collision.disabled = true
-	animation_name = GameManager.get_player_color()+"_Idle"
+	animation_name = PlayerManager.get_player_color()+"_Idle"
 	super()
-	parent.jump_force = 300
 
 func process_input(_event: InputEvent) -> State:
 	

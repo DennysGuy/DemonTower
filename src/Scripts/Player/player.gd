@@ -1,7 +1,8 @@
-extends Entity
+class_name Player extends Entity
 
-@export
-var jump_force := 300
+@export var stats_resource : Stats
+@export var equipped_weapon : Weapon
+
 @export
 var hit_box_x_pos : float
 var has_jumped := false
@@ -19,21 +20,18 @@ var health_component : HealthComponent = $HealthComponent
 @onready
 var health_tracker : Label = $HealthTracker
 @onready
-var stats_component : StatsComponent = $StatsComponent
-@onready
 var damage_taken_tracker : Label = $DamageTaken
+
+var enemy : Entity
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:
-
+	StatCalculations.init_necessary_stat_calculations(stats_resource, equipped_weapon)
 	_set_stats()
 	state_machine.init(self)
 
 func _process(delta):
-	stats_component.set_player_str_current_xp()
-	stats_component.set_player_dex_current_xp()
-	stats_component.set_player_int_current_xp()
-	stats_component.set_player_luk_current_xp()
-	stats_component.set_current_magic_points(GameManager.get_player_current_magic_points())
+	#PlayerManager.track_for_excess_xp()
+	ExpHandlers.track_xp_for_roll_over(stats_resource)
 
 func _on_area_2d_body_entered(body):
 	self.in_ladder_area = true
@@ -43,46 +41,44 @@ func _on_area_2d_body_exited(body):
 
 func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 	was_hit = true
-	enemy_hitbox_parent = hitbox.get_parent()
-	health_component.apply_damage(enemy_hitbox_parent.stats_component.get_minimum_physical_attack(), enemy_hitbox_parent.stats_component.get_maximum_physical_attack())
-	stats_component.set_current_health(GameManager.get_player_current_health())
+	enemy = hitbox.get_parent()
+	if enemy is Player:
+		print("MY ENEMY IS ME!!!")
+	health_component.apply_damage(enemy.stats_resource, enemy.equipped_weapon)
 
-func _set_stats() -> void:
-	#set player name, first off
-	player_name.text = GameManager.get_player_name()
-	#Level
-	GameManager.set_player_total_level()
-	stats_component.set_total_level(GameManager.get_player_total_level())
-	#XP
-	#calculate all necessary stuff
-	GameManager.calculate_needed_stat_xp("str_level", "str_needed_xp")
-	GameManager.calculate_needed_stat_xp("dex_level", "dex_needed_xp")
-	GameManager.calculate_needed_stat_xp("int_level", "int_needed_xp")
-	GameManager.calculate_needed_stat_xp("luk_level", "luk_needed_xp")
-	
-	#set needed XP values -- current values are set in process
-	stats_component.set_player_str_xp_needed()
-	stats_component.set_player_dex_xp_needed()
-	stats_component.set_player_int_xp_needed()
-	stats_component.set_player_luk_xp_needed()
-	#HP
-	stats_component.set_max_health(GameManager.get_player_max_health())
-	stats_component.set_current_health(GameManager.get_player_current_health())
-	#MP
-	stats_component.set_magic_points(GameManager.get_player_magic_points())
-	stats_component.set_current_magic_points(GameManager.get_player_current_magic_points())
+func _set_stats():
+	player_name.text = stats_resource.name
+	ExpHandlers.calculate_total_level(stats_resource)
+	ExpHandlers.init_needed_xp_for_all_stats(stats_resource)
+	stats_resource.max_health = stats_resource.max_health + equipped_weapon.HP_bonus #this will need to be set whenever player changes weapon
+	stats_resource.current_health = stats_resource.max_health #will be removed during final setup
 
-	#Core Stats
-	stats_component.set_strength(GameManager.get_player_current_strength_level())
-	stats_component.set_dexterity(GameManager.get_player_current_dexterity_level())
-	stats_component.set_intelligence(GameManager.get_player_current_intelligence_level())
-	stats_component.set_luck(GameManager.get_player_current_luck_level())
-	#Calculate base min/max damage
-	var relevant_attributes = GameManager.get_relevant_attribute_stat()
-	stats_component.calculate_minimum_physical_attack(relevant_attributes[0], relevant_attributes[1], GameManager.get_weapon_attack())
-	stats_component.calculate_maximum_physical_attack(relevant_attributes[0], relevant_attributes[1], GameManager.get_weapon_attack())
-	stats_component.calculate_minimum_magic_attack(GameManager.get_weapon_magic_attack())
-	stats_component.calculate_maximum_magic_attack(GameManager.get_weapon_magic_attack())
-	#Calculate weapon defense
-	stats_component.calculate_weapon_defense(17)
-	
+func apply_received_xp(value : int) -> void:
+	print_debug("I got " + str(value) + " XP")
+	match(equipped_weapon.archetype_class):
+		equipped_weapon.ArchetypeClass.WARRIOR:
+			var str_level = stats_resource.str_level
+			var current_str_xp = stats_resource.get_str_current_xp()
+			var needed_str_xp = stats_resource.get_str_needed_xp()
+			stats_resource.set_str_current_xp(current_str_xp+value)
+		equipped_weapon.ArchetypeClass.MAGE:
+			var int_level = stats_resource.int_level
+			var current_int_xp = stats_resource.get_int_current_xp()
+			var needed_int_xp = stats_resource.get_int_needed_xp()
+			stats_resource.set_int_current_xp(current_int_xp+value)
+		equipped_weapon.ArchetypeClass.ROGUE:
+			var dex_level = stats_resource.dex_level
+			var current_dex_xp = stats_resource.get_dex_current_xp()
+			var needed_dex_xp = stats_resource.get_dex_needed_xp()
+			
+			var luk_level = stats_resource.luk_level
+			var current_luk_xp = stats_resource.get_luk_current_xp()
+			var needed_luk_xp = stats_resource.get_luk_needed_xp()
+			match(equipped_weapon.weapon_class):
+				equipped_weapon.WeaponClass.KNIVES:
+					stats_resource.set_luk_current_xp(current_luk_xp+value)
+					stats_resource.set_dex_current_xp(current_dex_xp+int(value/4))
+				equipped_weapon.WeaponClass.CLAW:
+					stats_resource.set_dex_current_xp(current_dex_xp+value)
+					stats_resource.set_luk_current_xp(current_luk_xp+int(value/4))
+	ExpHandlers.track_xp_for_roll_over(stats_resource)

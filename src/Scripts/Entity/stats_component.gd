@@ -42,18 +42,6 @@ class_name StatsComponent extends Node
 @export var _drop_rate : int
 @export var _xp_rate : int
 
-#xp stuff
-var _str_xp_needed : int
-var _dex_xp_needed : int
-var _int_xp_needed : int
-var _luk_xp_needed : int
-
-var _str_xp_current : int
-var _dex_xp_current : int
-var _int_xp_current : int
-var _luk_xp_current : int
-
-
 # Setter and getter functions
 
 # Level
@@ -176,62 +164,6 @@ func set_xp_rate(value: int) -> void:
 func get_xp_rate() -> int:
 	return _xp_rate
 
-#Stats XP Needed
-#Setters
-func set_player_str_xp_needed() -> void:
-	_str_xp_needed = GameManager.get_player_str_xp_needed()
-
-func set_player_dex_xp_needed() -> void:
-	_dex_xp_needed = GameManager.get_player_dex_xp_needed()
-
-func set_player_int_xp_needed() -> void:
-	_int_xp_needed = GameManager.get_player_int_xp_needed()
-
-func set_player_luk_xp_needed() -> void:
-	_luk_xp_needed = GameManager.get_player_luk_xp_needed()
-#Getters
-func get_player_str_xp_needed() -> int:
-	return _str_xp_needed
-	
-func get_player_dex_xp_needed() -> int:
-	return _dex_xp_needed
-
-func get_player_int_xp_needed() -> int:
-	return _int_xp_needed
-
-func get_player_luk_xp_needed() -> int:
-	return _luk_xp_needed 
-
-#Stats Current XP
-#Setters
-func set_player_str_current_xp() -> void:
-	_str_xp_current = GameManager.get_player_str_current_xp()
-	GameManager.level_up_stat("str_level", "str_current_xp", "str_needed_xp")
-		
-
-func set_player_dex_current_xp() -> void:
-	_dex_xp_current = GameManager.get_player_dex_current_xp()
-	GameManager.level_up_stat("dex_level", "dex_current_xp", "dex_needed_xp")
-
-func set_player_int_current_xp() -> void:
-	_int_xp_current = GameManager.get_player_int_current_xp()
-	GameManager.level_up_stat("int_level", "int_current_xp", "int_needed_xp")
-
-func set_player_luk_current_xp() -> void:
-	_luk_xp_current = GameManager.get_player_luk_current_xp()
-	GameManager.level_up_stat("luk_level", "luk_current_xp", "luk_needed_xp")
-#Getters
-func get_player_str_current_xp() -> int:
-	return _str_xp_current
-
-func get_player_dex_current_xp() -> int:
-	return _dex_xp_current
-
-func get_player_int_current_xp() -> int:
-	return _int_xp_current
-
-func get_player_luk_current_xp() -> int:
-	return _luk_xp_current
 
 #Physical Attack Range
 func get_minimum_physical_attack() -> int:
@@ -259,19 +191,19 @@ func calculate_magic_attack_range(magic_attack : int) -> int:
 
 func calculate_minimum_physical_attack(primary_stat : int, secondary_stat: int, weapon_attack : int) -> void:
 	self._minimum_physical_attack = calculate_physical_attack_range(primary_stat, secondary_stat, weapon_attack) * _min_damage_modifer
-	GameManager.set_player_minimum_weapon_attack(_minimum_physical_attack) 
+	 
 func calculate_maximum_physical_attack(primary_stat : int, secondary_stat: int, weapon_attack : int) -> void:
 	self._maximum_physical_attack = calculate_physical_attack_range(primary_stat, secondary_stat, weapon_attack)
-	GameManager.set_player_maximum_weapon_attack(_maximum_physical_attack) 
+	
 func calculate_minimum_magic_attack(magic_attack : int) -> void:
 	self._minimum_magic_attack = calculate_magic_attack_range(magic_attack) * _min_damage_modifer
-	GameManager.set_player_minimum_magic_attack(_minimum_magic_attack) 
+
 func calculate_maximum_magic_attack(magic_attack : int) -> void:
 	self._minimum_magic_attack = calculate_magic_attack_range(magic_attack)
-	GameManager.set_player_maximum_magic_attack(_maximum_magic_attack) 
 
 func calculate_weapon_defense(temp_wdef_val : int) -> void:
 	self._weapon_defense = int(temp_wdef_val/(temp_wdef_val + (100 * get_strength())))
+	
 func calculate_magic_defense(mdef_val : int) -> void:
 	self._magic_defense = int(mdef_val/(mdef_val + (100 * get_intelligence())))
 func calculate_critical_rate() -> void:
@@ -283,7 +215,4 @@ func calculate_accuracy() -> void:
 	pass
 	
 func calculate_avoidability() -> void:
-	pass
-
-func attain_exp() -> void:
 	pass

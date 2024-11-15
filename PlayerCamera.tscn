@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ro3xvkk1ioa"]
+
+[ext_resource type="PackedScene" uid="uid://636u6us5vqin" path="res://src/Scenes/Interfaces/PlayerHUD.tscn" id="1_1mwas"]
+
+[node name="Camera2D" type="Camera2D"]
+
+[node name="PlayerHUD" parent="." instance=ExtResource("1_1mwas")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -134.0
+offset_right = -240.0
+offset_bottom = -134.0

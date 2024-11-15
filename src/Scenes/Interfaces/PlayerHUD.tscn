@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://636u6us5vqin"]
 
-[ext_resource type="Script" path="res://src/Scripts/HUD/player_hud.gd" id="1_04w3r"]
+[ext_resource type="Script" path="res://src/Scripts/HUD/player_hud.gd" id="1_w27xc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_487di"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 1)
@@ -91,9 +91,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -239.0
+offset_top = -135.0
+offset_right = -239.0
+offset_bottom = -135.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_04w3r")
+script = ExtResource("1_w27xc")
 
 [node name="SkillsXPMenu" type="Panel" parent="."]
 layout_mode = 0
@@ -352,45 +356,56 @@ theme_override_constants/separation = 1
 
 [node name="PATK" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "PATK : 1-3"
 
 [node name="MATK" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "MATK: 0-1"
+
+[node name="SATK" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "SATK: 3-6
+"
 
 [node name="WDEF" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "WDEF: 3"
 
 [node name="MDEF" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "MDEF: 0
 "
 
+[node name="SDEF" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "SDEF: 0"
+
 [node name="ACC" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "ACC: 60
 "
 
 [node name="AVOID" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "AVOID: 90
 "
 
 [node name="SPEED" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "SPD: 100"
 
 [node name="JMP" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "JMP: 100"
 
 [node name="Label" type="Label" parent="StatsPanel/SecondaryStats"]
