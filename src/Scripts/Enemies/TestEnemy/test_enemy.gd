@@ -11,15 +11,20 @@ var timer : Timer = $Timer
 var health_component : HealthComponent = $HealthComponent
 @onready
 var health_tracker : Label = $Label
-@onready
-var stats_component : StatsComponent = $StatsComponent
+
+@export
+var stats_resource : Stats
+@export
+var equipped_weapon : Weapon
 @onready
 var health_bar : ProgressBar = $ProgressBar
 func _ready() -> void:
-	health_bar.max_value = stats_component.get_max_health()
-	stats_component.calculate_minimum_physical_attack(stats_component.get_strength(), 0, 4)
-	stats_component.calculate_maximum_physical_attack(stats_component.get_strength(), 0, 4)
-	stats_component.calculate_weapon_defense(stats_component.get_weapon_defense())
+	#health_bar.max_value = stats_component.get_max_health()
+	StatCalculations.init_necessary_stat_calculations(stats_resource, equipped_weapon)
+	print_debug(equipped_weapon.name)
+	#stats_component.calculate_minimum_physical_attack(stats_component.get_strength(), 0, 4)
+	#stats_component.calculate_maximum_physical_attack(stats_component.get_strength(), 0, 4)
+	#stats_component.calculate_weapon_defense(stats_component.get_weapon_defense())
 	state_machine.init(self)
 	
 func _on_player_detector_body_entered(body : CharacterBody2D):
@@ -43,8 +48,6 @@ func _on_player_detector_body_exited(body):
 
 func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 	was_hit = true
-	enemy_hitbox_parent = hitbox.get_parent()
-	if enemy_hitbox_parent.name == "Player":
-		health_component.apply_damage(PlayerManager.get_player_minimum_weapon_attack(), PlayerManager.get_player_maximum_weapon_attack())
-	else:
-		health_component.apply_damage(enemy_hitbox_parent.stats_component.get_minimum_physical_attack(), enemy_hitbox_parent.stats_component.get_maximum_physical_attack())
+	player = hitbox.get_parent()
+	health_component.apply_damage(player.stats_resource, player.equipped_weapon)
+	

@@ -69,47 +69,47 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#Player Description Displayers
-	level_label.text = "Total Level " + str(player.player_stats.get_total_level())
-	player_name_label.text = player.player_stats.name
+	level_label.text = "Total Level " + str(player.stats_resource.get_total_level())
+	player_name_label.text = player.stats_resource.name
 	#HP Displayers
-	hit_points_label.text = "HP " + "["+str(player.player_stats.current_health)+"/"+str(player.player_stats.max_health)+"]"
-	hp_bar.max_value = player.player_stats.max_health
-	hp_bar.value = player.player_stats.current_health
+	hit_points_label.text = "HP " + "["+str(player.stats_resource.current_health)+"/"+str(player.stats_resource.max_health)+"]"
+	hp_bar.max_value = player.stats_resource.max_health
+	hp_bar.value = player.stats_resource.current_health
 	#MP Displayers
-	magic_points_label.text = "MP " + "["+str(player.player_stats.current_magic_points)+"/"+str(player.player_stats.magic_points)+"]"
-	mp_bar.max_value = player.player_stats.magic_points
-	mp_bar.value = player.player_stats.current_magic_points
+	magic_points_label.text = "MP " + "["+str(player.stats_resource.current_magic_points)+"/"+str(player.stats_resource.magic_points)+"]"
+	mp_bar.max_value = player.stats_resource.magic_points
+	mp_bar.value = player.stats_resource.current_magic_points
 	
 	if Input.is_action_just_pressed("stats"):
 		stats_panel_show = !stats_panel_show
 	#Displays primary stats when toggled
 	if stats_panel_show:
-		name_label.text = "Name: " + player.player_stats.name
+		name_label.text = "Name: " + player.stats_resource.name
 		equipped_archetype.text = "Equipped Archetype: " + str(player.equipped_weapon.get_archetype_class_name())
-		total_level.text = "Total Level: " + str(player.player_stats.get_total_level())
+		total_level.text = "Total Level: " + str(player.stats_resource.get_total_level())
 		#total exp needed
-		HP.text = "HP: "+"["+str(player.player_stats.current_health)+"/"+str(player.player_stats.max_health)+"]"
-		MP.text = "MP: "+"["+str(player.player_stats.current_magic_points)+"/"+str(player.player_stats.magic_points)+"]"
-		str_lvl.text = "STR LVL: " + str(player.player_stats.str_level)
-		dex_lvl.text = "DEX LVL: " + str(player.player_stats.dex_level)
-		int_lvl.text = "INT LVL: " + str(player.player_stats.int_level)
-		luk_lvl.text = "LUK LVL: " + str(player.player_stats.luk_level)
+		HP.text = "HP: "+"["+str(player.stats_resource.current_health)+"/"+str(player.stats_resource.max_health)+"]"
+		MP.text = "MP: "+"["+str(player.stats_resource.current_magic_points)+"/"+str(player.stats_resource.magic_points)+"]"
+		str_lvl.text = "STR LVL: " + str(player.stats_resource.str_level)
+		dex_lvl.text = "DEX LVL: " + str(player.stats_resource.dex_level)
+		int_lvl.text = "INT LVL: " + str(player.stats_resource.int_level)
+		luk_lvl.text = "LUK LVL: " + str(player.stats_resource.luk_level)
 		stats_panel.show()
 	else:
 		stats_panel.hide()
 	
 	#Displays secondary stats when toggled
 	if secondary_stats_panel_show:
-		p_atk.text = "Weapon Attack: " + str(player.player_stats.get_min_weapon_attack()) +" ~ " + str(player.player_stats.get_max_weapon_attack())
-		m_atk.text = "Magic Attack: " + str(player.player_stats.get_min_magic_attack()) + " ~ " +str(player.player_stats.get_max_magic_attack())
-		s_atk.text = "Shadow Attack: " + str(player.player_stats.get_min_shadow_attack()) + " ~ " + str(player.player_stats.get_max_shadow_attack())
+		p_atk.text = "Weapon Attack: " + str(player.stats_resource.get_min_weapon_attack()) +" ~ " + str(player.stats_resource.get_max_weapon_attack())
+		m_atk.text = "Magic Attack: " + str(player.stats_resource.get_min_magic_attack()) + " ~ " +str(player.stats_resource.get_max_magic_attack())
+		s_atk.text = "Shadow Attack: " + str(player.stats_resource.get_min_shadow_attack()) + " ~ " + str(player.stats_resource.get_max_shadow_attack())
 		w_def.text = "Weapon Defense: " + str(player.equipped_weapon.get_weapon_defense())
 		m_def.text = "Magic Defense: " + str(player.equipped_weapon.get_weapon_magic_defense())
 		s_def.text = "Shadow Defense: " + str(player.equipped_weapon.get_weapon_shadow_defense())
-		acc.text = "Accuracy: " + str(player.player_stats.accuracy)
-		avoid.text = "Avoidability: " +str(player.player_stats.avoidability)
-		speed.text = "Speed: " + str(player.player_stats.speed)
-		jump.text = "Jump: " + str(player.player_stats.jump) 
+		acc.text = "Accuracy: " + str(player.stats_resource.accuracy)
+		avoid.text = "Avoidability: " +str(player.stats_resource.avoidability)
+		speed.text = "Speed: " + str(player.stats_resource.speed)
+		jump.text = "Jump: " + str(player.stats_resource.jump) 
 		secondary_stats_panel.show()
 	else:
 		secondary_stats_panel.hide()
@@ -117,21 +117,21 @@ func _process(delta: float) -> void:
 	if xp_menu_show:
 		#XP Displayers
 		#STR Display
-		str_xp_label.text = "STR XP" + "["+str(player.player_stats.get_str_current_xp())+"/"+str(player.player_stats.get_str_needed_xp())+"]"
-		str_xp_progressbar.max_value = player.player_stats.get_str_needed_xp()
-		str_xp_progressbar.value = player.player_stats.get_str_current_xp()
+		str_xp_label.text = "STR XP" + "["+str(player.stats_resource.get_str_current_xp())+"/"+str(player.stats_resource.get_str_needed_xp())+"]"
+		str_xp_progressbar.max_value = player.stats_resource.get_str_needed_xp()
+		str_xp_progressbar.value = player.stats_resource.get_str_current_xp()
 		#DEX Display
-		dex_xp_label.text = "DEX XP" + "["+str(player.player_stats.get_dex_current_xp())+"/"+str(player.player_stats.get_dex_needed_xp())+"]"
-		dex_xp_progressbar.max_value = player.player_stats.get_dex_needed_xp()
-		dex_xp_progressbar.value = player.player_stats.get_dex_current_xp()
+		dex_xp_label.text = "DEX XP" + "["+str(player.stats_resource.get_dex_current_xp())+"/"+str(player.stats_resource.get_dex_needed_xp())+"]"
+		dex_xp_progressbar.max_value = player.stats_resource.get_dex_needed_xp()
+		dex_xp_progressbar.value = player.stats_resource.get_dex_current_xp()
 		#INT Display
-		int_xp_label.text = "INT XP" + "["+str(player.player_stats.get_int_current_xp())+"/"+str(player.player_stats.get_int_needed_xp())+"]"
-		int_xp_progressbar.max_value = player.player_stats.get_int_needed_xp()
-		int_xp_progressbar.value = player.player_stats.get_int_current_xp()
+		int_xp_label.text = "INT XP" + "["+str(player.stats_resource.get_int_current_xp())+"/"+str(player.stats_resource.get_int_needed_xp())+"]"
+		int_xp_progressbar.max_value = player.stats_resource.get_int_needed_xp()
+		int_xp_progressbar.value = player.stats_resource.get_int_current_xp()
 		#LUK Display
-		luk_xp_label.text = "LUK XP" + "["+str(player.player_stats.get_luk_current_xp())+"/"+str(player.player_stats.get_luk_needed_xp())+"]"
-		luk_xp_progressbar.max_value = player.player_stats.get_luk_needed_xp()
-		luk_xp_progressbar.value = player.player_stats.get_luk_current_xp()
+		luk_xp_label.text = "LUK XP" + "["+str(player.stats_resource.get_luk_current_xp())+"/"+str(player.stats_resource.get_luk_needed_xp())+"]"
+		luk_xp_progressbar.max_value = player.stats_resource.get_luk_needed_xp()
+		luk_xp_progressbar.value = player.stats_resource.get_luk_current_xp()
 		XP_menu.show()
 	else:
 		XP_menu.hide()

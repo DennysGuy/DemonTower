@@ -7,6 +7,7 @@ resource_local_to_scene = true
 script = ExtResource("1_l1ch4")
 name = "Wood Sword and Shield"
 description = "The sword and shield is the shortest-range weapon in the Warrior class arsenal but provides the highest defense. This setup trades raw DPS for a balanced combination of defense and speed, making it the most reliable option among Warrior weapons. Ideal for new players, the sword and shield offers excellent physical defense along with solid mobility and respectable attack speed. While its damage output is moderate, it’s well-rounded and versatile, allowing players to withstand attacks while maintaining consistent, manageable damage in combat."
+level = 1
 archetype_class = 0
 weapon_class = 0
 weapon_speed = 60

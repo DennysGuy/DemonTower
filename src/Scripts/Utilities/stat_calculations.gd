@@ -58,11 +58,11 @@ func calculate_max_shadow_attack_damage(stats_resource : Stats, equipped_weapon 
 # Functions to calculate weapon and magic defenses
 func calculate_weapon_defense(stats_resource : Stats, equipped_weapon : Weapon) -> void:
 	var value = int(equipped_weapon.weapon_defense/ (equipped_weapon.weapon_defense + (100 * stats_resource.str_level)))
-	stats_resource.set_player_true_weapon_defense(value)
+	stats_resource.set_true_weapon_defense(value)
 
 func calculate_magic_defense(stats_resource : Stats, equipped_weapon : Weapon) -> void:
 	var value = int(equipped_weapon.magic_defense / (equipped_weapon.magic_defense + (100 * stats_resource.int_level)))
-	stats_resource.set_player_true_magic_defense(value)
+	stats_resource.set_true_magic_defense(value)
 
 func calculate_avoidability(shadow_defense: int, luck_level: int) -> int:
 	return 0

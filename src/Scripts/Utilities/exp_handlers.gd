@@ -4,13 +4,39 @@ func calculate_needed_stat_xp(stat_level: int) -> int:
 	var next_level = stat_level + 1
 	return int(pow(next_level, 2.5) + next_level * 4)
 # Function to level up a stat based on XP
-func level_up_stat(current_stat: int, current_xp: int, needed_xp: int, stats_resource : Stats) -> void:
-	var roll_over_xp = current_xp - needed_xp
-	if current_xp >= needed_xp:
-		current_stat += 1
-		current_xp = max(roll_over_xp, 0)
-		needed_xp = calculate_needed_stat_xp(current_stat)
+func level_up_str_stat(stats_resource: Stats) -> void:
+	var roll_over_xp = stats_resource.get_str_current_xp() - stats_resource.get_str_needed_xp()
+	if stats_resource.get_str_current_xp() >= stats_resource.get_str_needed_xp():
+		stats_resource.str_level += 1
+		stats_resource.set_str_current_xp(max(roll_over_xp, 0))
+		stats_resource.set_str_needed_xp(calculate_needed_stat_xp(stats_resource.str_level))
 		calculate_total_level(stats_resource)
+
+func level_up_dex_stat(stats_resource: Stats) -> void:
+	var roll_over_xp = stats_resource.get_dex_current_xp() - stats_resource.get_dex_needed_xp()
+	if stats_resource.get_dex_current_xp() >= stats_resource.get_dex_needed_xp():
+		stats_resource.dex_level += 1
+		stats_resource.set_dex_current_xp(max(roll_over_xp, 0))
+		stats_resource.set_dex_needed_xp(calculate_needed_stat_xp(stats_resource.dex_level))
+		calculate_total_level(stats_resource)
+
+func level_up_int_stat(stats_resource: Stats) -> void:
+	var roll_over_xp = stats_resource.get_int_current_xp() - stats_resource.get_int_needed_xp()
+	if stats_resource.get_int_current_xp() >= stats_resource.get_int_needed_xp():
+		stats_resource.int_level += 1
+		stats_resource.set_int_current_xp(max(roll_over_xp, 0))
+		stats_resource.set_int_needed_xp(calculate_needed_stat_xp(stats_resource.int_level))
+		calculate_total_level(stats_resource)
+
+func level_up_luk_stat(stats_resource: Stats) -> void:
+	var roll_over_xp = stats_resource.get_luk_current_xp() - stats_resource.get_luk_needed_xp()
+	if stats_resource.get_luk_current_xp() >= stats_resource.get_luk_needed_xp():
+		stats_resource.luk_level += 1
+		stats_resource.set_luk_current_xp(max(roll_over_xp, 0))
+		stats_resource.set_luk_needed_xp(calculate_needed_stat_xp(stats_resource.luk_level))
+		calculate_total_level(stats_resource)
+
+
 
 func init_needed_xp_for_all_stats(stats_resource : Stats):
 	stats_resource.set_str_needed_xp(calculate_needed_stat_xp(stats_resource.str_level)) 
@@ -18,11 +44,11 @@ func init_needed_xp_for_all_stats(stats_resource : Stats):
 	stats_resource.set_int_needed_xp(calculate_needed_stat_xp(stats_resource.int_level)) 
 	stats_resource.set_luk_needed_xp(calculate_needed_stat_xp(stats_resource.luk_level)) 
 
-func track_xp_for_roll_over(stats_resource):
-	level_up_stat(stats_resource.str_level, stats_resource.get_str_current_xp(), stats_resource.get_str_needed_xp(), stats_resource)
-	level_up_stat(stats_resource.int_level, stats_resource.get_int_current_xp(), stats_resource.get_int_needed_xp(), stats_resource)
-	level_up_stat(stats_resource.dex_level, stats_resource.get_dex_current_xp(), stats_resource.get_dex_needed_xp(), stats_resource)
-	level_up_stat(stats_resource.luk_level, stats_resource.get_luk_current_xp(), stats_resource.get_luk_needed_xp(), stats_resource)	
+func track_xp_for_roll_over(stats_resource : Stats):
+	level_up_str_stat(stats_resource)
+	level_up_dex_stat(stats_resource)
+	level_up_int_stat(stats_resource)
+	level_up_luk_stat(stats_resource)
 	
 func apply_received_xp(value : int, equipped_weapon : Weapon, stats_resource : Stats) -> void:
 	print_debug("I got " + str(value) + " XP")
@@ -35,7 +61,6 @@ func apply_received_xp(value : int, equipped_weapon : Weapon, stats_resource : S
 		equipped_weapon.XPType.INTELLIGENCE:
 			total_value = stats_resource.get_int_current_xp() + value
 			stats_resource.set_int_current_xp(total_value)
-			stats_resource.level_up_stat(stats_resource.int_level, stats_resource.get_int_current_xp(), stats_resource.get_int_needed_xp())
 		equipped_weapon.XPType.DEXLUCK:
 			match(equipped_weapon.weapon_class):
 				equipped_weapon.WeaponClass.KNIVES:

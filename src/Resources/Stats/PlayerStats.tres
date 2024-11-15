@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="1_k7i7e"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_k7i7e")
 name = "DennysGuy"
 color = "Green"
@@ -10,6 +11,7 @@ max_health = 100.0
 current_health = 100.0
 magic_points = 100
 current_magic_points = 100
+equipped_archetype = 0
 str_level = 1
 dex_level = 1
 int_level = 1
@@ -20,3 +22,4 @@ avoidability = 10
 accuracy = 10
 speed = 120
 jump = 200
+xp_value = 0

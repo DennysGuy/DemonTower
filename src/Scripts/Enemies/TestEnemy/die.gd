@@ -3,7 +3,7 @@ extends State
 var stat_component : StatsComponent = $"../../StatsComponent"
 func enter() -> void:
 	parent.enable_gravity = true
-	PlayerManager.apply_received_xp(stat_component.get_xp_given())
+	parent.player.apply_received_xp(parent.stats_resource.xp_value)
 	super()
 
 func exit() -> void:

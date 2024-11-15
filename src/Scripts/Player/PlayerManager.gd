@@ -431,28 +431,6 @@ func track_for_excess_xp():
 	level_up_stat("luk_level", "luk_current_xp", "luk_needed_xp")
 	set_player_total_level()
 	
-
-func apply_received_xp(value : int) -> void:
-	print_debug("I got " + str(value) + " XP")
-	match(get_weapon_archetype_class()):
-		ArchetypeClass.WARRIOR:
-			set_player_str_current_xp(get_player_str_current_xp()+value)
-			level_up_stat("str_level", "str_current_xp","str_needed_xp")
-		ArchetypeClass.MAGE:
-			set_player_int_current_xp(get_player_int_current_xp()+value)
-			level_up_stat("int_level", "int_current_xp","int_needed_xp")
-		ArchetypeClass.ROGUE:
-			if get_weapon_class() == WeaponClass.KNIVES:
-				set_player_luk_current_xp(get_player_luk_current_xp()+value)
-				level_up_stat("luk_level", "luk_current_xp","luk_needed_xp")
-				set_player_dex_current_xp(get_player_dex_current_xp()+int(value/4))
-				level_up_stat("dex_level", "dex_current_xp","dex_needed_xp")
-			else:
-				set_player_dex_current_xp(get_player_dex_current_xp()+value)
-				level_up_stat("dex_level", "dex_current_xp","dex_needed_xp")
-				set_player_luk_current_xp(get_player_luk_current_xp()+int(value/4))
-				level_up_stat("luk_level", "luk_current_xp","luk_needed_xp")
-
 func set_up_min_max_attack():
 	var relevant_attributes = get_relevant_attribute_stat()
 	match(get_weapon_archetype_class()):

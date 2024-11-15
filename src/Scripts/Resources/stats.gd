@@ -9,6 +9,8 @@ class_name Stats extends Resource
 @export var magic_points: int = 100
 @export var current_magic_points: int = 100
 
+@export_group("Equipped Archetype")
+@export_enum("Warrior", "Mage", "Rogue") var equipped_archetype : int
 # Cores Stats
 # Core Attributes 
 @export_group("Core Attributes")
@@ -43,6 +45,15 @@ var _max_magic_attack: int = 0
 # Thief Weapon Stats
 var _min_shadow_attack: int = 0
 var _max_shadow_attack: int = 0
+
+func set_equipped_archetype(weapon_archetype : int):
+	match(weapon_archetype):
+		0:
+			equipped_archetype = 0
+		1:
+			equipped_archetype = 1
+		2: 
+			equipped_archetype = 2
 
 # Getter and Setter for Warrior Weapon Stats
 func set_min_weapon_attack(value: int) -> void:
@@ -84,21 +95,23 @@ func get_max_shadow_attack() -> int:
 	return _max_shadow_attack
 
 # Setters and Getters for Weapon Defenses
-func set_player_true_weapon_defense(value: int) -> void:
+func set_true_weapon_defense(value: int) -> void:
 	_true_weapon_defense = value
 
-func get_player_true_weapon_defense() -> int:
+func get_true_weapon_defense() -> int:
 	return _true_weapon_defense
 
-func set_player_true_magic_defense(value: int) -> void:
+func set_true_magic_defense(value: int) -> void:
 	_true_magic_defense = value
 
-func get_player_true_magic_defense() -> int:
+func get_true_magic_defense() -> int:
 	return _true_magic_defense
 	
 #Private variables -- these are variables that need calculations
 var _total_level: int = 4
 var _total_xp_attained: int = 0
+@export_group("XP")
+@export var xp_value : int
 #Setting EXP values for all core stat
 #Needed XP for the Given Levels
 var _str_needed_xp: int = 0
