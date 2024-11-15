@@ -24,7 +24,6 @@ func enter() -> void:
 	parent.hitbox_collision.disabled = true
 	animation_name = PlayerManager.get_player_color()+"_Idle"
 	super()
-	parent.jump_force = 300
 
 func process_input(_event: InputEvent) -> State:
 	

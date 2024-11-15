@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="StatCalculations" load_steps=2 format=3 uid="uid://dly28dcnd8ahv"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/stat_calculations.gd" id="1_pcdt7"]
+
+[resource]
+script = ExtResource("1_pcdt7")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://dl7rmwsv5jx2h"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="1_k7i7e"]
+
+[resource]
+script = ExtResource("1_k7i7e")
+name = "DennysGuy"
+color = "Green"
+max_health = 100.0
+current_health = 100.0
+magic_points = 100
+current_magic_points = 100
+str_level = 1
+dex_level = 1
+int_level = 1
+luk_level = 1
+critical_rate = 0
+critical_damage = 5
+avoidability = 10
+accuracy = 10
+speed = 120
+jump = 200

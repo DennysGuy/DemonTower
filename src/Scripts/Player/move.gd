@@ -18,7 +18,6 @@ func enter() -> void:
 	parent.enable_gravity = true
 	animation_name = PlayerManager.get_player_color()+"_Run"
 	super()
-	parent.jump_force = 250
 	parent.velocity.x = 0
 
 func exit() -> void:

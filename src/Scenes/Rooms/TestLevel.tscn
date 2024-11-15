@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=17 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
 [ext_resource type="PackedScene" uid="uid://cr4mk0fffryp1" path="res://src/Scenes/Utilities/NoZoneArea.tscn" id="3_3je4i"]
 [ext_resource type="PackedScene" uid="uid://c3f22551sc137" path="res://src/Scenes/Player/Player.tscn" id="3_qwxlk"]
 [ext_resource type="PackedScene" uid="uid://rr3hqaxuipq6" path="res://src/Scenes/Enemies/TestEnemy/TestEnemy.tscn" id="3_vlowr"]
+[ext_resource type="PackedScene" uid="uid://636u6us5vqin" path="res://src/Scenes/Interfaces/PlayerHUD.tscn" id="6_2sq7a"]
+[ext_resource type="Resource" uid="uid://bcdtemidmw335" path="res://src/Resources/Weapons/01_Common/Wood_Weapons/ClothClaw.tres" id="6_65q04"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
 texture = ExtResource("1_m0vj0")
@@ -936,6 +938,12 @@ position = Vector2(246, 511)
 
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(190, 365)
+equipped_weapon = ExtResource("6_65q04")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="PlayerHUD" parent="Player/Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("6_2sq7a")]
+player = NodePath("../..")
 
 [node name="NoZoneArea3" parent="." instance=ExtResource("3_3je4i")]
 position = Vector2(-5, 305)

@@ -2,6 +2,7 @@ extends Entity
 
 var player_seen = false
 var player
+
 @export
 var hit_box_x_pos : float = 25
 @onready

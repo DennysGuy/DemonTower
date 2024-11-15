@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://dqxah5p2mnex2"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/weapon.gd" id="1_l1ch4"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_l1ch4")
+name = "Wood Sword and Shield"
+description = "The sword and shield is the shortest-range weapon in the Warrior class arsenal but provides the highest defense. This setup trades raw DPS for a balanced combination of defense and speed, making it the most reliable option among Warrior weapons. Ideal for new players, the sword and shield offers excellent physical defense along with solid mobility and respectable attack speed. While its damage output is moderate, it’s well-rounded and versatile, allowing players to withstand attacks while maintaining consistent, manageable damage in combat."
+archetype_class = 0
+weapon_class = 0
+weapon_speed = 60
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 0
+weapon_attack = 12
+weapon_defense = 5
+magic_attack = 0
+magic_defense = 0
+shadow_attack = 0
+shadow_defense = 0
+HP_bonus = 15
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
