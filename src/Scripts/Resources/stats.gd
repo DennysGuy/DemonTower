@@ -95,3 +95,82 @@ func set_player_true_magic_defense(value: int) -> void:
 
 func get_player_true_magic_defense() -> int:
 	return _true_magic_defense
+	
+#Private variables -- these are variables that need calculations
+var _total_level: int = 4
+var _total_xp_attained: int = 0
+#Setting EXP values for all core stat
+#Needed XP for the Given Levels
+var _str_needed_xp: int = 0
+var _dex_needed_xp: int = 0
+var _int_needed_xp: int = 0
+var _luk_needed_xp: int = 0
+#Current EXP Attained for that given level
+var _str_current_xp: int = 0
+var _dex_current_xp: int = 0
+var _int_current_xp: int = 0
+var _luk_current_xp: int = 0
+# Setters and Getters for total XP
+func get_total_level() -> int:
+	return _total_level
+
+func set_total_level(value : int ) -> void:
+	_total_level = value
+
+func set_total_xp_attained(value: int) -> void:
+	_total_xp_attained = value
+
+func get_total_xp_attained() -> int:
+	return _total_xp_attained
+
+# Setters and Getters for Strength XP
+func set_str_needed_xp(value: int) -> void:
+	_str_needed_xp = value
+
+func get_str_needed_xp() -> int:
+	return _str_needed_xp
+
+func set_str_current_xp(value: int) -> void:
+	_str_current_xp = value
+
+func get_str_current_xp() -> int:
+	return _str_current_xp
+
+# Setters and Getters for Dexterity XP
+func set_dex_needed_xp(value: int) -> void:
+	_dex_needed_xp = value
+
+func get_dex_needed_xp() -> int:
+	return _dex_needed_xp
+
+func set_dex_current_xp(value: int) -> void:
+	_dex_current_xp = value
+
+func get_dex_current_xp() -> int:
+	return _dex_current_xp
+
+# Setters and Getters for Intelligence XP
+func set_int_needed_xp(value: int) -> void:
+	_int_needed_xp = value
+
+func get_int_needed_xp() -> int:
+	return _int_needed_xp
+
+func set_int_current_xp(value: int) -> void:
+	_int_current_xp = value
+
+func get_int_current_xp() -> int:
+	return _int_current_xp
+
+# Setters and Getters for Luck XP
+func set_luk_needed_xp(value: int) -> void:
+	_luk_needed_xp = value
+
+func get_luk_needed_xp() -> int:
+	return _luk_needed_xp
+
+func set_luk_current_xp(value: int) -> void:
+	_luk_current_xp = value
+
+func get_luk_current_xp() -> int:
+	return _luk_current_xp

@@ -7,6 +7,7 @@ resource_local_to_scene = true
 script = ExtResource("1_yso32")
 name = "Cloth Claw"
 description = "Claws are the primary ranged weapon of the Rogue class, offering a unique advantage in long-distance combat. With claws, Rogues can safely wield throwing stars, giving them the ability to attack from a distance while maintaining the versatility of a melee weapon. Claws strike a balance between speed and power: they are moderately fast and deal high damage, but their mobility is not as high as that of knife-wielding Rogues. While claws excel in ranged attacks, they require more careful positioning and timing to make the most of their power, making them ideal for players who prefer a mix of ranged and close-quarters combat."
+level = 0
 archetype_class = 2
 weapon_class = 6
 weapon_speed = 80

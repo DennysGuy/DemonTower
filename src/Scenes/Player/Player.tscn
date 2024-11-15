@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=3 uid="uid://c3f22551sc137"]
+[gd_scene load_steps=173 format=3 uid="uid://c3f22551sc137"]
 
 [ext_resource type="Script" path="res://src/Scripts/Player/player.gd" id="1_a8xjd"]
 [ext_resource type="Texture2D" uid="uid://dpoghdu45hbx6" path="res://Assets/Player/TempPlayerAssets/green/char_green_1.png" id="2_4c53k"]
@@ -9,8 +9,6 @@
 [ext_resource type="Script" path="res://src/Scripts/Player/idle.gd" id="3_x8omn"]
 [ext_resource type="Texture2D" uid="uid://b2c5e2k876b6d" path="res://Assets/Player/TempPlayerAssets/green/char_green_2.png" id="3_xgbbd"]
 [ext_resource type="Texture2D" uid="uid://3eanncwckkre" path="res://Assets/Player/TempPlayerAssets/blue/char_blue_1.png" id="4_guqak"]
-[ext_resource type="Resource" uid="uid://dly28dcnd8ahv" path="res://src/Resources/Stats/StatsCalculations.tres" id="4_kbui2"]
-[ext_resource type="Resource" uid="uid://d2mm2q2hvv55k" path="res://src/Resources/Stats/PlayerEXPHandler.tres" id="4_oravd"]
 [ext_resource type="Script" path="res://src/Scripts/Player/jump.gd" id="4_wd7sb"]
 [ext_resource type="Texture2D" uid="uid://dm3cfj5fwj1hq" path="res://Assets/Player/TempPlayerAssets/red/char_red_1.png" id="5_djhns"]
 [ext_resource type="Script" path="res://src/Scripts/Player/fall.gd" id="5_uaxus"]
@@ -1165,8 +1163,6 @@ collision_mask = 2
 script = ExtResource("1_a8xjd")
 player_stats = ExtResource("2_j0aar")
 equipped_weapon = ExtResource("3_jb3yv")
-stat_calculations = ExtResource("4_kbui2")
-exp_handler = ExtResource("4_oravd")
 hit_box_x_pos = 23.0
 
 [node name="Timer" type="Timer" parent="."]

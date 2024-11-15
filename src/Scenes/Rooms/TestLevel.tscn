@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=18 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3f22551sc137" path="res://src/Scenes/Player/Player.tscn" id="3_qwxlk"]
 [ext_resource type="PackedScene" uid="uid://rr3hqaxuipq6" path="res://src/Scenes/Enemies/TestEnemy/TestEnemy.tscn" id="3_vlowr"]
 [ext_resource type="PackedScene" uid="uid://636u6us5vqin" path="res://src/Scenes/Interfaces/PlayerHUD.tscn" id="6_2sq7a"]
-[ext_resource type="Resource" uid="uid://bcdtemidmw335" path="res://src/Resources/Weapons/01_Common/Wood_Weapons/ClothClaw.tres" id="6_65q04"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/weapon.gd" id="6_h7fgs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
 texture = ExtResource("1_m0vj0")
@@ -901,6 +901,30 @@ size = Vector2(14, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aka5t"]
 size = Vector2(12, 110.5)
 
+[sub_resource type="Resource" id="Resource_apy8a"]
+resource_local_to_scene = true
+script = ExtResource("6_h7fgs")
+name = "Cloth Claw"
+description = "Claws are the primary ranged weapon of the Rogue class, offering a unique advantage in long-distance combat. With claws, Rogues can safely wield throwing stars, giving them the ability to attack from a distance while maintaining the versatility of a melee weapon. Claws strike a balance between speed and power: they are moderately fast and deal high damage, but their mobility is not as high as that of knife-wielding Rogues. While claws excel in ranged attacks, they require more careful positioning and timing to make the most of their power, making them ideal for players who prefer a mix of ranged and close-quarters combat."
+level = 0
+archetype_class = 2
+weapon_class = 6
+weapon_speed = 80
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 2
+weapon_attack = 0
+weapon_defense = 2
+magic_attack = 0
+magic_defense = 0
+shadow_attack = 8
+shadow_defense = 1
+HP_bonus = 10
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvb74"]
 size = Vector2(20, 57)
 
@@ -938,7 +962,7 @@ position = Vector2(246, 511)
 
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(190, 365)
-equipped_weapon = ExtResource("6_65q04")
+equipped_weapon = SubResource("Resource_apy8a")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

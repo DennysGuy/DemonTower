@@ -69,7 +69,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#Player Description Displayers
-	level_label.text = "Total Level " + str(player.exp_handler._total_level)
+	level_label.text = "Total Level " + str(player.player_stats.get_total_level())
 	player_name_label.text = player.player_stats.name
 	#HP Displayers
 	hit_points_label.text = "HP " + "["+str(player.player_stats.current_health)+"/"+str(player.player_stats.max_health)+"]"
@@ -85,8 +85,8 @@ func _process(delta: float) -> void:
 	#Displays primary stats when toggled
 	if stats_panel_show:
 		name_label.text = "Name: " + player.player_stats.name
-		equipped_archetype.text = "Equipped Archetype: " + str(player.equipped_weapon.archetype_class)
-		total_level.text = "Total Level: " + str(player.exp_handler._total_level)
+		equipped_archetype.text = "Equipped Archetype: " + str(player.equipped_weapon.get_archetype_class_name())
+		total_level.text = "Total Level: " + str(player.player_stats.get_total_level())
 		#total exp needed
 		HP.text = "HP: "+"["+str(player.player_stats.current_health)+"/"+str(player.player_stats.max_health)+"]"
 		MP.text = "MP: "+"["+str(player.player_stats.current_magic_points)+"/"+str(player.player_stats.magic_points)+"]"
@@ -105,6 +105,7 @@ func _process(delta: float) -> void:
 		s_atk.text = "Shadow Attack: " + str(player.player_stats.get_min_shadow_attack()) + " ~ " + str(player.player_stats.get_max_shadow_attack())
 		w_def.text = "Weapon Defense: " + str(player.equipped_weapon.get_weapon_defense())
 		m_def.text = "Magic Defense: " + str(player.equipped_weapon.get_weapon_magic_defense())
+		s_def.text = "Shadow Defense: " + str(player.equipped_weapon.get_weapon_shadow_defense())
 		acc.text = "Accuracy: " + str(player.player_stats.accuracy)
 		avoid.text = "Avoidability: " +str(player.player_stats.avoidability)
 		speed.text = "Speed: " + str(player.player_stats.speed)
@@ -116,21 +117,21 @@ func _process(delta: float) -> void:
 	if xp_menu_show:
 		#XP Displayers
 		#STR Display
-		str_xp_label.text = "STR XP" + "["+str(player.exp_handler.get_str_current_xp())+"/"+str(player.exp_handler.get_str_needed_xp())+"]"
-		str_xp_progressbar.max_value = player.exp_handler.get_str_needed_xp()
-		str_xp_progressbar.value = player.exp_handler.get_str_current_xp()
+		str_xp_label.text = "STR XP" + "["+str(player.player_stats.get_str_current_xp())+"/"+str(player.player_stats.get_str_needed_xp())+"]"
+		str_xp_progressbar.max_value = player.player_stats.get_str_needed_xp()
+		str_xp_progressbar.value = player.player_stats.get_str_current_xp()
 		#DEX Display
-		dex_xp_label.text = "DEX XP" + "["+str(player.exp_handler.get_dex_current_xp())+"/"+str(player.exp_handler.get_dex_needed_xp())+"]"
-		dex_xp_progressbar.max_value = player.exp_handler.get_dex_needed_xp()
-		dex_xp_progressbar.value = player.exp_handler.get_dex_current_xp()
+		dex_xp_label.text = "DEX XP" + "["+str(player.player_stats.get_dex_current_xp())+"/"+str(player.player_stats.get_dex_needed_xp())+"]"
+		dex_xp_progressbar.max_value = player.player_stats.get_dex_needed_xp()
+		dex_xp_progressbar.value = player.player_stats.get_dex_current_xp()
 		#INT Display
-		int_xp_label.text = "INT XP" + "["+str(player.exp_handler.get_int_current_xp())+"/"+str(player.exp_handler.get_int_needed_xp())+"]"
-		int_xp_progressbar.max_value = player.exp_handler.get_int_needed_xp()
-		int_xp_progressbar.value = player.exp_handler.get_int_current_xp()
+		int_xp_label.text = "INT XP" + "["+str(player.player_stats.get_int_current_xp())+"/"+str(player.player_stats.get_int_needed_xp())+"]"
+		int_xp_progressbar.max_value = player.player_stats.get_int_needed_xp()
+		int_xp_progressbar.value = player.player_stats.get_int_current_xp()
 		#LUK Display
-		luk_xp_label.text = "LUK XP" + "["+str(player.exp_handler.get_luk_current_xp())+"/"+str(player.exp_handler.get_luk_needed_xp())+"]"
-		luk_xp_progressbar.max_value = player.exp_handler.get_luk_needed_xp()
-		luk_xp_progressbar.value = player.exp_handler.get_luk_current_xp()
+		luk_xp_label.text = "LUK XP" + "["+str(player.player_stats.get_luk_current_xp())+"/"+str(player.player_stats.get_luk_needed_xp())+"]"
+		luk_xp_progressbar.max_value = player.player_stats.get_luk_needed_xp()
+		luk_xp_progressbar.value = player.player_stats.get_luk_current_xp()
 		XP_menu.show()
 	else:
 		XP_menu.hide()

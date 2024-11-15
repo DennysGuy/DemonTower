@@ -2,8 +2,6 @@ class_name Player extends Entity
 
 @export var player_stats : Stats
 @export var equipped_weapon : Weapon
-@export var stat_calculations : StatCalculations
-@export var exp_handler : EXPHandler
 
 @export
 var hit_box_x_pos : float
@@ -25,17 +23,13 @@ var health_tracker : Label = $HealthTracker
 var damage_taken_tracker : Label = $DamageTaken
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:
-	stat_calculations.stats_resource = player_stats
-	stat_calculations.equipped_weapon = equipped_weapon
-	stat_calculations.init_necessary_stat_calculations()
-	exp_handler.stats_resource = player_stats
-	exp_handler.equipped_weapon = equipped_weapon
+	StatCalculations.init_necessary_stat_calculations(player_stats, equipped_weapon)
 	_set_stats()
 	state_machine.init(self)
 
 func _process(delta):
 	#PlayerManager.track_for_excess_xp()
-	exp_handler.track_xp_for_roll_over()
+	ExpHandlers.track_xp_for_roll_over(player_stats)
 
 func _on_area_2d_body_entered(body):
 	self.in_ladder_area = true
@@ -50,7 +44,7 @@ func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 
 func _set_stats():
 	player_name.text = player_stats.name
-	exp_handler.calculate_total_level()
-	exp_handler.init_needed_xp_for_all_stats()
+	ExpHandlers.calculate_total_level(player_stats)
+	ExpHandlers.init_needed_xp_for_all_stats(player_stats)
 	player_stats.max_health = player_stats.max_health + equipped_weapon.HP_bonus #this will need to be set whenever player changes weapon
 	player_stats.current_health = player_stats.max_health #will be removed during final setup
