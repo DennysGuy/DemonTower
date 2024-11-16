@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=22 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
@@ -922,7 +922,7 @@ avoidability = 10
 accuracy = 10
 speed = 120
 jump = 200
-xp_value = 700000
+xp_value = 8
 
 [sub_resource type="Resource" id="Resource_g2j2s"]
 resource_local_to_scene = true
@@ -947,6 +947,28 @@ MP_bonus = 0
 movement_speed_bonus = 0
 jump_bonus = 0
 animation_name = ""
+
+[sub_resource type="Resource" id="Resource_23dqx"]
+resource_local_to_scene = true
+script = ExtResource("6_c8d2o")
+name = "DennysGuy"
+color = "Green"
+max_health = 100.0
+current_health = 100.0
+magic_points = 100
+current_magic_points = 100
+equipped_archetype = 0
+str_level = 1
+dex_level = 1
+int_level = 1
+luk_level = 1
+critical_rate = 0
+critical_damage = 5
+avoidability = 10
+accuracy = 10
+speed = 120
+jump = 200
+xp_value = 0
 
 [sub_resource type="Resource" id="Resource_q8yat"]
 resource_local_to_scene = true
@@ -1009,8 +1031,24 @@ position = Vector2(246, 511)
 stats_resource = SubResource("Resource_3vyta")
 equipped_weapon = SubResource("Resource_g2j2s")
 
+[node name="TestEnemy2" parent="." instance=ExtResource("3_vlowr")]
+position = Vector2(451, 447)
+stats_resource = SubResource("Resource_3vyta")
+equipped_weapon = SubResource("Resource_g2j2s")
+
+[node name="TestEnemy3" parent="." instance=ExtResource("3_vlowr")]
+position = Vector2(42, 511)
+stats_resource = SubResource("Resource_3vyta")
+equipped_weapon = SubResource("Resource_g2j2s")
+
+[node name="TestEnemy4" parent="." instance=ExtResource("3_vlowr")]
+position = Vector2(16, 353)
+stats_resource = SubResource("Resource_3vyta")
+equipped_weapon = SubResource("Resource_g2j2s")
+
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(190, 365)
+stats_resource = SubResource("Resource_23dqx")
 equipped_weapon = SubResource("Resource_q8yat")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

@@ -28,21 +28,21 @@ func _ready() -> void:
 	state_machine.init(self)
 	
 func _on_player_detector_body_entered(body : CharacterBody2D):
-	if body.name == "Player":
-		timer.wait_time = 5
+	if body is Player:
+		timer.wait_time = 4
 		player = body
 		player_seen = true
 
 func _on_attack_range_body_entered(body : CharacterBody2D):
-	if body.name == "Player":
+	if body is Player:
 		can_attack = true
 
 func _on_attack_range_body_exited(body : CharacterBody2D):
-	if body.name == "Player":
+	if body is Player:
 		can_attack = false
 
 func _on_player_detector_body_exited(body):
-	if body.name =="Player":
+	if body is Player:
 		timer.start()
 		player_seen = false
 
