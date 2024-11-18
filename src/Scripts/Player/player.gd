@@ -54,7 +54,6 @@ func _set_stats():
 	stats_resource.current_health = stats_resource.max_health #will be removed during final setup
 
 func apply_received_xp(value : int) -> void:
-	print_debug("I got " + str(value) + " XP")
 	match(equipped_weapon.archetype_class):
 		equipped_weapon.ArchetypeClass.WARRIOR:
 			var str_level = stats_resource.str_level

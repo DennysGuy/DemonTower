@@ -9,6 +9,7 @@ enum ElementalEffect {NORMAL, POISON, FIRE, ICE, LIGHTNING, WIND, SHADOW, HOLY}
 enum XPType {STRENGTH, INTELLIGENCE, DEXLUCK}
 # Exported variables for weapon attributes
 @export_group("Weapon Meta Data")
+@export var id : int
 @export var name: String = "New Weapon"
 @export var description: String
 @export var level: int
@@ -36,8 +37,7 @@ var _archetype_name : String
 
 @export_group("Visual Components")
 @export var animation_name: String = ""
-@export var inventory_icon: Texture2D
-@export var drop_icon: Texture2D
+@export var icon: Texture2D
 # Setter functions
 func set_archetype_name(name : String) -> void:
 	_archetype_name = name

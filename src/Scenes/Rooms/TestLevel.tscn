@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=28 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
@@ -927,6 +927,148 @@ xp_value = 8
 [sub_resource type="Resource" id="Resource_g2j2s"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
+id = 0
+name = "Basic Enemy Weapon"
+description = "This is a basic weapon for the mushroom enemy"
+level = 1
+archetype_class = 0
+weapon_class = 0
+weapon_speed = 60
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 0
+weapon_attack = 4
+weapon_defense = 2
+magic_attack = 0
+magic_defense = 2
+shadow_attack = 0
+shadow_defense = 2
+HP_bonus = 0
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
+
+[sub_resource type="Resource" id="Resource_ri63u"]
+resource_local_to_scene = true
+script = ExtResource("6_c8d2o")
+name = "Spore"
+color = ""
+max_health = 100.0
+current_health = 100.0
+magic_points = 100
+current_magic_points = 100
+equipped_archetype = 0
+str_level = 3
+dex_level = 1
+int_level = 1
+luk_level = 1
+critical_rate = 0
+critical_damage = 5
+avoidability = 10
+accuracy = 10
+speed = 120
+jump = 200
+xp_value = 8
+
+[sub_resource type="Resource" id="Resource_cvbti"]
+resource_local_to_scene = true
+script = ExtResource("6_h7fgs")
+id = 0
+name = "Basic Enemy Weapon"
+description = "This is a basic weapon for the mushroom enemy"
+level = 1
+archetype_class = 0
+weapon_class = 0
+weapon_speed = 60
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 0
+weapon_attack = 4
+weapon_defense = 2
+magic_attack = 0
+magic_defense = 2
+shadow_attack = 0
+shadow_defense = 2
+HP_bonus = 0
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
+
+[sub_resource type="Resource" id="Resource_dc2it"]
+resource_local_to_scene = true
+script = ExtResource("6_c8d2o")
+name = "Spore"
+color = ""
+max_health = 100.0
+current_health = 100.0
+magic_points = 100
+current_magic_points = 100
+equipped_archetype = 0
+str_level = 3
+dex_level = 1
+int_level = 1
+luk_level = 1
+critical_rate = 0
+critical_damage = 5
+avoidability = 10
+accuracy = 10
+speed = 120
+jump = 200
+xp_value = 8
+
+[sub_resource type="Resource" id="Resource_d1qdd"]
+resource_local_to_scene = true
+script = ExtResource("6_h7fgs")
+id = 0
+name = "Basic Enemy Weapon"
+description = "This is a basic weapon for the mushroom enemy"
+level = 1
+archetype_class = 0
+weapon_class = 0
+weapon_speed = 60
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 0
+weapon_attack = 4
+weapon_defense = 2
+magic_attack = 0
+magic_defense = 2
+shadow_attack = 0
+shadow_defense = 2
+HP_bonus = 0
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
+
+[sub_resource type="Resource" id="Resource_cqyqu"]
+resource_local_to_scene = true
+script = ExtResource("6_c8d2o")
+name = "Spore"
+color = ""
+max_health = 100.0
+current_health = 100.0
+magic_points = 100
+current_magic_points = 100
+equipped_archetype = 0
+str_level = 3
+dex_level = 1
+int_level = 1
+luk_level = 1
+critical_rate = 0
+critical_damage = 5
+avoidability = 10
+accuracy = 10
+speed = 120
+jump = 200
+xp_value = 8
+
+[sub_resource type="Resource" id="Resource_7qlan"]
+resource_local_to_scene = true
+script = ExtResource("6_h7fgs")
+id = 0
 name = "Basic Enemy Weapon"
 description = "This is a basic weapon for the mushroom enemy"
 level = 1
@@ -973,6 +1115,7 @@ xp_value = 0
 [sub_resource type="Resource" id="Resource_q8yat"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
+id = 0
 name = "Wood Knives"
 description = "Knives are the primary melee weapon of the Rogue class, designed for stealthy and agile combat. While they have the lowest damage output and range compared to all other weapons in the game, their speed and mobility more than make up for it. Knives allow players to execute quick, precise strikes, making them ideal for hit-and-run tactics. In addition, wielding a knife provides a notable boost to movement and jump abilities, enabling the player to fluidly dart in and out of combat. This high mobility, combined with the ability to deliver rapid attacks, makes the knife a versatile weapon for players who prefer swift, evasive playstyles. Using Knives will primarily provide LUK exp and secondarily, DEX exp"
 level = 1
@@ -1033,18 +1176,18 @@ equipped_weapon = SubResource("Resource_g2j2s")
 
 [node name="TestEnemy2" parent="." instance=ExtResource("3_vlowr")]
 position = Vector2(451, 447)
-stats_resource = SubResource("Resource_3vyta")
-equipped_weapon = SubResource("Resource_g2j2s")
+stats_resource = SubResource("Resource_ri63u")
+equipped_weapon = SubResource("Resource_cvbti")
 
 [node name="TestEnemy3" parent="." instance=ExtResource("3_vlowr")]
 position = Vector2(42, 511)
-stats_resource = SubResource("Resource_3vyta")
-equipped_weapon = SubResource("Resource_g2j2s")
+stats_resource = SubResource("Resource_dc2it")
+equipped_weapon = SubResource("Resource_d1qdd")
 
 [node name="TestEnemy4" parent="." instance=ExtResource("3_vlowr")]
 position = Vector2(16, 353)
-stats_resource = SubResource("Resource_3vyta")
-equipped_weapon = SubResource("Resource_g2j2s")
+stats_resource = SubResource("Resource_cqyqu")
+equipped_weapon = SubResource("Resource_7qlan")
 
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(190, 365)

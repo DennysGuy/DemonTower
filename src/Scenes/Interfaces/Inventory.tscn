@@ -1,0 +1,194 @@
+[gd_scene load_steps=3 format=3 uid="uid://bigiyu1id210e"]
+
+[ext_resource type="PackedScene" uid="uid://dk5rr3nngbcnj" path="res://src/Scenes/Interfaces/Slot.tscn" id="1_53b7q"]
+[ext_resource type="Script" path="res://src/Scenes/Interfaces/inventory.gd" id="1_dw4j4"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dw4j4")
+
+[node name="ListArea" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -120.0
+offset_right = 116.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabTitle" type="Label" parent="ListArea"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 1.0
+offset_right = 50.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 9
+text = "Weapons"
+
+[node name="CurrencyCounter" type="Label" parent="ListArea"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.5
+offset_top = -17.0
+offset_right = 104.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Currency: 100000"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ListArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 18.0
+offset_right = -3.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ListArea/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 5
+
+[node name="Slot" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot2" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot3" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot4" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot5" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot6" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot7" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot8" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot9" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot10" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot11" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot12" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot13" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot14" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot15" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot16" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot17" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot18" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot19" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot20" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot21" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot22" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot23" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot24" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="Slot25" parent="ListArea/ScrollContainer/GridContainer" instance=ExtResource("1_53b7q")]
+layout_mode = 2
+
+[node name="SideBar" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 16.0
+offset_right = 124.0
+offset_bottom = 163.0
+
+[node name="ButtonContainer" type="VBoxContainer" parent="SideBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 6.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WeaponsTabButton" type="Button" parent="SideBar/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Weap."
+
+[node name="RecipesTabButton" type="Button" parent="SideBar/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Recipes"
+
+[node name="AccessoriesTabButton" type="Button" parent="SideBar/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Access."
+
+[node name="DripTabButton" type="Button" parent="SideBar/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Drip"
+
+[node name="ConsumablesTabButton" type="Button" parent="SideBar/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Consume"
+
+[node name="MaterialsTabButton" type="Button" parent="SideBar/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Materials"

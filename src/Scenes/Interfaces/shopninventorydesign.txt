@@ -1,0 +1,67 @@
+Inventory Design
+
+The inventory system in Monster Grind is separated into distinct sub categoires. The player
+can then move to separate categories by pressing the tab label at the top of a given page.
+
+Tab Inventory 
+
+Category Tabs:
+	- Weapons : Tab dedicated to storing weapons
+		Weapons are equippable items designed for players to use in dealing damage to enemies. 
+		They are categorized into three primary archetypes: Warrior, Mage, and Rogue, each featuring 
+		unique weapon subcategories to suit different playstyles.
+
+		Weapons are non-stackable and treated as individual entities 
+		within the inventory. Each weapon is considered a distinct item, ensuring that specific attributes, enhancements, 
+		or unique characteristics are preserved for every instance.
+				
+	- Recipes : Tab dedicated to storing weapon recipes
+		Recipes are collectible documents that outline the required crafting materials to 
+		create specific weapons. They serve as a unique type of consumable; when consumed, 
+		they unlock access to a designated page within the player's recipe compendium. 
+		This page allows the player to view detailed information about the necessary materials 
+		for crafting the associated weapon.
+
+		To craft a weapon at the weaponsmith, the player must first obtain the corresponding recipe. 
+		Recipes not only guide the crafting process but also act as a progression system, encouraging 
+		exploration and resource management.
+		
+	- Accessories : Tab dedicated to storing accessories
+		Accessories are equippable items that provide bonuses to the player's stats, 
+		enhancing their performance and capabilities in various ways. They are divided 
+		into three distinct categories: Hats, Amulets, and Necklaces, each offering unique 
+		benefits tailored to different playstyles.
+
+		These accessories add a layer of customization, allowing players to optimize their character’s 
+		build and adapt to diverse challenges.
+				
+	- Drip : Tab decdicated to storing wear
+		Drip refers to equippable cosmetic items that allow players to customize their character's 
+		appearance without affecting gameplay. These items are purely aesthetic, enabling players to 
+		express their unique style and creativity. Drip items are categorized into four types: 
+		Shirts, Pants, Shoes, and Overalls, offering a wide range of combinations to achieve the perfect look.
+		
+	- Consumables : Tab dedicated for usable items such as potions, food , etc.
+		Consumables are items designed to restore or enhance the player's capabilities in various ways. 
+		They include potions that replenish vital resources such as HP or MP, as well as cures that remove 
+		negative effects. Additionally, consumables can take the form of food that grants special effects, 
+		including temporary buffs or, in some cases, debuffs, adding an element of strategic decision-making 
+		to their use.
+		
+	- Materials : Tab dedicated for storing materials.
+		Materials are items essential for crafting equipment, completing quests, 
+		or fulfilling specific objectives. While some materials serve as critical 
+		components in creating powerful gear or progressing in the story, others 
+		are categorized as valuables, which players can sell to shops or trade with others for currency. 
+		This dual-purpose functionality adds depth to the player's resource management and economic 
+		decisions.
+Other:
+	
+	- Currency counter display at bottom
+		Currency is the primary medium of exchange used to purchase items across all categories, 
+		with the exception of certain untradeable items. It plays a vital role in the economy, 
+		enabling players to acquire resources, equipment, and upgrades. Additionally, 
+		crafting weapons at the weaponsmith requires the player to pay a fee, adding a strategic 
+		layer to resource management.
+
+Shop Design
