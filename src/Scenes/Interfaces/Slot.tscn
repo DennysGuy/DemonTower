@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk5rr3nngbcnj"]
 
-[ext_resource type="Texture2D" uid="uid://c7lp5tp2iic1r" path="res://Assets/test_slot_empty_texture.png" id="1_cc8yq"]
+[ext_resource type="Texture2D" uid="uid://cylmtulin1rqd" path="res://Assets/wooden_knives_icon.png" id="2_f73xi"]
 [ext_resource type="Script" path="res://src/Scripts/Interfaces/item_button.gd" id="2_msnyf"]
 
-[node name="InventorySlot" type="Control"]
-custom_minimum_size = Vector2(32, 32)
+[node name="InventorySlot" type="Control" node_paths=PackedStringArray("slot_icon", "quantity_label")]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 3
 anchors_preset = 0
 offset_left = -16.0
@@ -12,26 +12,24 @@ offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
 script = ExtResource("2_msnyf")
+slot_icon = NodePath("Container/SlotIcon")
+quantity_label = NodePath("Container/Quantity")
 
-[node name="SlotIcon" type="TextureRect" parent="."]
+[node name="Container" type="Container" parent="."]
 layout_mode = 0
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 36.0
-offset_bottom = 36.0
-texture = ExtResource("1_cc8yq")
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Quantity" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = -12.0
-offset_bottom = 2.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 10
+[node name="ColorRect" type="ColorRect" parent="Container"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(0.587241, 0.649478, 0.684694, 1)
+
+[node name="SlotIcon" type="TextureRect" parent="Container"]
+layout_mode = 2
+texture = ExtResource("2_f73xi")
+
+[node name="Quantity" type="Label" parent="Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
 text = "0"

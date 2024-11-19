@@ -1,51 +1,66 @@
 extends Node
 
 var inventories : Dictionary = {
-	"weapons" : {},
-	"recipes" : {},
-	"accessories" : {},
-	"drip" : {},
-	"consumables" : {},
-	"materials" : {},
-	"slot_quantity" : 25,
-	"gold" : 125
+	"categories": {
+		"weapons": {},
+		"recipes": {},
+		"accessories": {},
+		"drip": {},
+		"consumables": {},
+		"materials": {}
+	},
+	"metadata": {
+		"slot_quantity": 25,
+		"gold": 125,
+		"key_ids": {  # For tracking auto-increment keys
+			"weapons": 0,
+			"recipes": 0,
+			"accessories": 0,
+			"drip": 0,
+			"consumables": 0,
+			"materials": 0
+		}
+	}
 }
 
 # Helper function to add items
-func add_item(category : String, item : Item, quantity : int = 1):
-	var inventory = inventories[category]
+func add_item(category: String, item: Item, quantity: int = 1):
+	var inventory = inventories["categories"][category]
 	var item_key = search_item(inventory, item.id)
 	
 	if item_key:
 		# Stackable items (like consumables)
 		inventory[item_key]["quantity"] += quantity
 	else:
-		if inventory[category].keys() < inventory["slot_quantity"]:
-			# Non-stackable items (like weapons or recipes)
-			inventory[category + "_key_id"] += 1
-			inventory[category + "_key_id"] = {
+		# Check if inventory is full
+		if inventory.keys().size() < inventories["metadata"]["slot_quantity"]:
+			# Add a new item
+			var next_key = inventories["metadata"]["key_ids"][category]
+			inventory[next_key] = {
 				"id": item.id,
 				"name": item.name,
-				"quantity": quantity
+				"quantity": quantity,
+				"item": item
 			}
+			# Increment key_id for this category
+			inventories["metadata"]["key_ids"][category] += 1
 		else:
 			print_debug("Inventory tab is full!")
 
-# Helper function to remove items
-func remove_item(category : String, item : Item):
-	var inventory = inventories[category]
+func remove_item(category: String, item: Item):
+	var inventory = inventories["categories"][category]
 	var item_key = search_item(inventory, item.id)
-	if item_key:
+	if item_key != null:
 		inventory.erase(item_key)
-		inventory[category + "_key_id"] -= 1
+	else:
+		print_debug("Item not found in inventory!")
 
-# Helper function for searching an item
-func search_item(inventory : Dictionary, item_id : int):
+# Helper function to search for an item by ID
+func search_item(inventory: Dictionary, item_id: int) -> int:
 	for key in inventory.keys():
-		var item = inventory[key]
-		if item["id"] == item_id:
+		if inventory[key]["id"] == item_id:
 			return key
-	return null
+	return 0
 
 func add_gold(value : int):
 	inventories["gold"] += value

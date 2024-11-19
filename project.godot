@@ -22,6 +22,7 @@ SignalBus="*res://src/Scripts/SignalBus.gd"
 PlayerManager="*res://src/Scripts/Player/PlayerManager.gd"
 ExpHandlers="*res://src/Scripts/Utilities/exp_handlers.gd"
 StatCalculations="*res://src/Scripts/Utilities/stat_calculations.gd"
+Inventory="*res://src/Scripts/Interfaces/inventory.gd"
 
 [display]
 

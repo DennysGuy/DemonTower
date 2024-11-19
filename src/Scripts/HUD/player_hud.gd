@@ -55,12 +55,14 @@ extends Control
 @onready var avoid : Label = $StatsPanel/SecondaryStats/ColorRect/VBoxContainer/AVOID
 @onready var speed : Label = $StatsPanel/SecondaryStats/ColorRect/VBoxContainer/SPEED
 @onready var jump : Label = $StatsPanel/SecondaryStats/ColorRect/VBoxContainer/JMP
-
+@onready var inventory : PlayerInventory = $Inventory
 var xp_menu_show
 var stats_panel_show
 var secondary_stats_panel_show
+var inventory_show
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	inventory_show = false
 	xp_menu_show = false
 	stats_panel_show = false
 	secondary_stats_panel_show = false
@@ -82,6 +84,15 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("stats"):
 		stats_panel_show = !stats_panel_show
+	
+	if Input.is_action_just_pressed("inventory"):
+		inventory_show = !inventory_show
+	
+	if inventory_show:
+		inventory.show()
+	else:
+		inventory.hide()
+	
 	#Displays primary stats when toggled
 	if stats_panel_show:
 		name_label.text = "Name: " + player.stats_resource.name

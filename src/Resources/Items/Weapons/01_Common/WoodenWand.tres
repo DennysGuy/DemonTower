@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bk28g2o87cd42"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/item.gd" id="1_7ejvp"]
+[ext_resource type="Texture2D" uid="uid://b28s3apmtakb7" path="res://Assets/wooden_wand_icon.png" id="1_tqmpi"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_7ejvp")
+id = 2
+name = "Wooden Wand"
+type = 0
+description = "Wands are efficient magic-casting weapons with a respectable casting speed, making them the faster option within the Mage’s arsenal. While they sacrifice a bit of range and raw magic attack power compared to staffs, wands excel in agility and quick casting. This makes them ideal for Mages who prefer faster spell execution and a more dynamic combat style, trading off a small amount of reach and power for speed and versatility."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_tqmpi")

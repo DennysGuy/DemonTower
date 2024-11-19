@@ -5,12 +5,13 @@ enum TYPE {
 	RECIPE,
 	ACCESSORY,
 	DRIP,
+	CONSUMABLE,
 	MATERIAL
 }
 
 @export var id : int
 @export var name : String
-@export_enum("Weapon", "Recipe", "Accessory", "Drip", "Material") var type : int
+@export_enum("Weapon", "Recipe", "Accessory", "Drip", "Consumable", "Material") var type : int
 @export var description : String
 @export var is_stackable : bool
 @export var max_stack : int

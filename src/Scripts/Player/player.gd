@@ -42,8 +42,6 @@ func _on_area_2d_body_exited(body):
 func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 	was_hit = true
 	enemy = hitbox.get_parent()
-	if enemy is Player:
-		print("MY ENEMY IS ME!!!")
 	health_component.apply_damage(enemy.stats_resource, enemy.equipped_weapon)
 
 func _set_stats():
