@@ -2,6 +2,7 @@ class_name Player extends Entity
 
 @export var stats_resource : Stats
 @export var equipped_weapon : Weapon
+@export var coin_purse : Area2D
 
 @export
 var hit_box_x_pos : float

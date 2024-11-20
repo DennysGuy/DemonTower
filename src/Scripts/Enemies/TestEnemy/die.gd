@@ -1,10 +1,18 @@
 extends State
 @onready
 var stat_component : StatsComponent = $"../../StatsComponent"
+@onready
+var item_holder : ItemHolder = $"../../ItemHolder"
+
 func enter() -> void:
 	parent.enable_gravity = true
-	parent.player.apply_received_xp(parent.stats_resource.xp_value)
 	super()
+	parent.player.apply_received_xp(parent.stats_resource.xp_value)
+	
+	parent.spawn_currency()
+	parent.spawn_item()
+	print("IM DEAD!")
+	parent.call_deferred("queue_free")
 
 func exit() -> void:
 	pass

@@ -1105,15 +1105,6 @@ equipped_weapon = SubResource("Resource_d1qdd")
 position = Vector2(461, 440)
 item_data = SubResource("Resource_0ck6b")
 
-[node name="CurrencyInteractable" parent="." instance=ExtResource("12_gbcdt")]
-position = Vector2(313, 407)
-
-[node name="CurrencyInteractable2" parent="." instance=ExtResource("12_gbcdt")]
-position = Vector2(114, 376)
-
-[node name="CurrencyInteractable3" parent="." instance=ExtResource("12_gbcdt")]
-position = Vector2(18, 343)
-
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(190, 365)
 stats_resource = SubResource("Resource_23dqx")
@@ -1130,3 +1121,12 @@ position = Vector2(-5, 305)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea3"]
 position = Vector2(0, 18.5)
 shape = SubResource("RectangleShape2D_vvb74")
+
+[node name="CurrencyInteractable" parent="." instance=ExtResource("12_gbcdt")]
+position = Vector2(313, 407)
+
+[node name="CurrencyInteractable2" parent="." instance=ExtResource("12_gbcdt")]
+position = Vector2(114, 376)
+
+[node name="CurrencyInteractable3" parent="." instance=ExtResource("12_gbcdt")]
+position = Vector2(18, 343)

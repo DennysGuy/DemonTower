@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bigiyu1id210e"]
+[gd_scene load_steps=4 format=3 uid="uid://bigiyu1id210e"]
 
 [ext_resource type="Script" path="res://src/Scripts/Interfaces/player_inventory.gd" id="1_82wuk"]
 [ext_resource type="PackedScene" uid="uid://dk5rr3nngbcnj" path="res://src/Scenes/Interfaces/Slot.tscn" id="2_wrp36"]
+[ext_resource type="Texture2D" uid="uid://cylmtulin1rqd" path="res://Assets/wooden_knives_icon.png" id="3_olmn1"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -14,9 +15,18 @@ script = ExtResource("1_82wuk")
 layout_mode = 0
 offset_left = -121.0
 offset_top = -95.0
-offset_right = 52.0
+offset_right = 128.0
 offset_bottom = 94.0
 color = Color(0.0629729, 0.419512, 0.514648, 1)
+
+[node name="Inventory" type="Label" parent="."]
+layout_mode = 0
+offset_left = -117.0
+offset_top = -94.0
+offset_right = -61.0
+offset_bottom = -77.0
+theme_override_font_sizes/font_size = 12
+text = "Inventory"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(180, 150)
@@ -28,7 +38,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -117.0
 offset_top = -75.0
-offset_right = 63.0
+offset_right = 122.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -160,14 +170,111 @@ layout_mode = 2
 [node name="InventorySlot4" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="InventorySlot5" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="Details" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Details" type="Label" parent="HBoxContainer/Details"]
 layout_mode = 0
-offset_left = -117.0
-offset_top = -94.0
-offset_right = -61.0
-offset_bottom = -77.0
-theme_override_font_sizes/font_size = 12
-text = "Inventory"
+offset_left = 4.0
+offset_right = 44.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 9
+text = "Details"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Details"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -61.0
+offset_right = 35.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Details/VBoxContainer"]
+custom_minimum_size = Vector2(16, 32)
+layout_mode = 2
+texture = ExtResource("3_olmn1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="HBoxContainer/Details/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Wooden Knives"
+
+[node name="Level" type="Label" parent="HBoxContainer/Details/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 5
+text = "Level: 1"
+
+[node name="Description" type="RichTextLabel" parent="HBoxContainer/Details/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 5
+text = "These are wooden knives okay???"
+fit_content = true
+
+[node name="Stats" type="RichTextLabel" parent="HBoxContainer/Details/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 5
+text = "Stat 1
+Stat 2
+Stat 3"
+fit_content = true
 
 [connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/WeaponsTabButton" to="." method="_on_weapons_tab_button_button_down"]
 [connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/RecipesTabButton" to="." method="_on_recipes_tab_button_button_down"]

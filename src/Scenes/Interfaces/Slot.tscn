@@ -9,8 +9,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = -16.0
 offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
 script = ExtResource("2_msnyf")
 slot_icon = NodePath("Container/SlotIcon")
 quantity_label = NodePath("Container/Quantity")
@@ -33,3 +31,5 @@ texture = ExtResource("2_f73xi")
 layout_mode = 2
 theme_override_font_sizes/font_size = 7
 text = "0"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

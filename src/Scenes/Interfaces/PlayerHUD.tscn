@@ -552,10 +552,10 @@ text = "Menu"
 
 [node name="Inventory" parent="." instance=ExtResource("2_71v43")]
 layout_mode = 1
-offset_left = 358.0
-offset_top = 99.0
-offset_right = 358.0
-offset_bottom = 99.0
+offset_left = 348.0
+offset_top = 104.0
+offset_right = 348.0
+offset_bottom = 104.0
 
 [connection signal="pressed" from="StatsPanel/SecondaryStatsButton" to="." method="_on_secondary_stats_button_pressed"]
 [connection signal="pressed" from="HUD/HBoxContainer/MiscMargin/Misc/MenuButton" to="." method="_on_menu_button_pressed"]

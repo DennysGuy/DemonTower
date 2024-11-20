@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://rr3hqaxuipq6"]
+[gd_scene load_steps=83 format=3 uid="uid://rr3hqaxuipq6"]
 
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/test_enemy.gd" id="1_qtaie"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="2_ksgm4"]
@@ -23,6 +23,9 @@
 [ext_resource type="Script" path="res://src/Scripts/Components/hurt_box_component.gd" id="21_ja835"]
 [ext_resource type="PackedScene" uid="uid://wa4qfe8gp0xj" path="res://src/Components/AttackRangeComponent.tscn" id="21_okmwy"]
 [ext_resource type="Script" path="res://src/Scripts/Components/health_component.gd" id="23_2xsit"]
+[ext_resource type="PackedScene" uid="uid://dq621bir04ut6" path="res://src/Scenes/Items/item_holder.tscn" id="24_gakb0"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/item.gd" id="25_8wpyo"]
+[ext_resource type="Texture2D" uid="uid://d4nc5j0pdivax" path="res://Assets/cloth_claw_icon.png" id="26_pxico"]
 
 [sub_resource type="Resource" id="Resource_omp2x"]
 resource_local_to_scene = true
@@ -442,6 +445,18 @@ size = Vector2(48, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oapef"]
 size = Vector2(28, 32)
 
+[sub_resource type="Resource" id="Resource_j0ui4"]
+resource_local_to_scene = true
+script = ExtResource("25_8wpyo")
+id = 4
+name = "Cloth Claw"
+level = 1
+type = 0
+description = "A couple of clothes wrapped together with some scraps of metal. Some how is protective."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("26_pxico")
+
 [node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 2
@@ -571,6 +586,11 @@ show_percentage = false
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("parent")]
 script = ExtResource("23_2xsit")
 parent = NodePath("..")
+
+[node name="ItemHolder" parent="." instance=ExtResource("24_gakb0")]
+items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_j0ui4"), null])
+min_currency_value = 5
+max_currency_value = 10
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
