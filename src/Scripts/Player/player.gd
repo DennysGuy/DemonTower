@@ -28,6 +28,8 @@ var enemy : Entity
 func _ready() -> void:
 	StatCalculations.init_necessary_stat_calculations(stats_resource, equipped_weapon)
 	_set_stats()
+	Inventory.equip_gear("weapon", load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres"))
+	equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
 	state_machine.init(self)
 
 func _process(delta):

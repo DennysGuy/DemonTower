@@ -20,6 +20,13 @@ var inventories : Dictionary = {
 			"consumables": 0,
 			"materials": 0
 		}
+	},
+	"equipped_gear": {
+		"weapon" : null,
+		"drip": null,
+		"hat": null,
+		"necklace": null,
+		"amulet": null
 	}
 }
 
@@ -74,3 +81,9 @@ func remove_gold(value :int):
 	
 	if inventories["gold"] < 0:
 		inventories["gold"] = 0
+
+func equip_gear(gear_name : String, gear):
+	inventories["equipped_gear"][gear_name] = gear
+
+func un_equip_gear(gear_name : String):
+	inventories["equipped_gear"][gear_name] = null

@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=3 uid="uid://jx44gbtqkd2k"]
+
+[ext_resource type="Script" path="res://src/Scripts/Interfaces/equipped_gear_pannel.gd" id="1_fbkue"]
+[ext_resource type="Texture2D" uid="uid://b28s3apmtakb7" path="res://Assets/wooden_wand_icon.png" id="1_gvlwg"]
+
+[node name="EquippedGearPanel" type="Control" node_paths=PackedStringArray("equipped_weapon_icon", "equipped_hat_icon", "equipped_gloves_icon", "equipped_amulet_icon", "equipped_shirt_icon", "equipped_pants_icont")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fbkue")
+equipped_weapon_icon = NodePath("Panel/VBoxContainer/WeaponIcon")
+equipped_hat_icon = NodePath("Panel/VBoxContainer/HatIcon")
+equipped_gloves_icon = NodePath("Panel/VBoxContainer/GlovesIcon")
+equipped_amulet_icon = NodePath("Panel/VBoxContainer/AmuletIcon")
+equipped_shirt_icon = NodePath("Panel/VBoxContainer/ShirtIcon")
+equipped_pants_icont = NodePath("Panel/VBoxContainer/PantsIcons")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 137.0
+offset_top = 22.0
+offset_right = 300.0
+offset_bottom = 244.0
+
+[node name="Hold" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 34.0
+offset_bottom = 19.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Equipped"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0797546
+anchor_top = 0.117117
+anchor_right = 0.91411
+anchor_bottom = 0.959459
+theme_override_constants/separation = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Weapon" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Weapon:"
+
+[node name="WeaponIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_gvlwg")
+stretch_mode = 5
+
+[node name="Hat" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Hat:"
+
+[node name="HatIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_gvlwg")
+stretch_mode = 5
+
+[node name="Gloves" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Gloves
+"
+
+[node name="GlovesIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_gvlwg")
+stretch_mode = 5
+
+[node name="Amulet" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Amulet:
+"
+
+[node name="AmuletIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_gvlwg")
+stretch_mode = 5
+
+[node name="Shirt" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Shirt
+"
+
+[node name="ShirtIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_gvlwg")
+stretch_mode = 5
+
+[node name="Pants" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Shirt
+"
+
+[node name="PantsIcons" type="TextureRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_gvlwg")
+stretch_mode = 5

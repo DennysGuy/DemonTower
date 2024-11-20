@@ -17,6 +17,7 @@ enum TYPE {
 @export var is_stackable : bool
 @export var max_stack : int
 @export var icon : Texture2D #needs to be 32x32
+@export var weapon_data : Weapon
 
 func get_item_inventory_name() -> String:
 	match(type):

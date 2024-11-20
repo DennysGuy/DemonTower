@@ -1,15 +1,18 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://comjyukb1en0j"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://comjyukb1en0j"]
 
 [ext_resource type="Texture2D" uid="uid://cylmtulin1rqd" path="res://Assets/wooden_knives_icon.png" id="1_6kakv"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/item.gd" id="1_ycrb0"]
+[ext_resource type="Resource" uid="uid://d3p87w5h6lwvo" path="res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodenKnives.tres" id="3_ic56h"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_ycrb0")
 id = 3
 name = "Wooden Knives"
+level = 1
 type = 0
 description = "Wood based knives suitable as an entry level melee weapon for Rogues."
 is_stackable = false
 max_stack = 0
 icon = ExtResource("1_6kakv")
+weapon_data = ExtResource("3_ic56h")

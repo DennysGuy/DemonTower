@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://by0ds1gshy7ys"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://by0ds1gshy7ys"]
 
 [ext_resource type="Script" path="res://src/Scripts/Resources/weapon.gd" id="1_7lujc"]
+[ext_resource type="Texture2D" uid="uid://b28s3apmtakb7" path="res://Assets/wooden_wand_icon.png" id="1_xwbdl"]
 
 [resource]
 resource_local_to_scene = true
@@ -26,3 +27,4 @@ MP_bonus = 25
 movement_speed_bonus = 0
 jump_bonus = 0
 animation_name = ""
+icon = ExtResource("1_xwbdl")
