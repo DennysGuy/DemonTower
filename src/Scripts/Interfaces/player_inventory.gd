@@ -12,6 +12,7 @@ class_name PlayerInventory extends Control
 
 #Details Nodes
 @onready var item_icon : TextureRect = $HBoxContainer/Details/VBoxContainer/Icon
+@onready var equip_button : Button = $HBoxContainer/Details/EquipButton
 @onready var item_name : Label = $HBoxContainer/Details/VBoxContainer/Name
 @onready var item_level : Label = $HBoxContainer/Details/VBoxContainer/Level
 @onready var item_description : RichTextLabel = $HBoxContainer/Details/VBoxContainer/Description
@@ -20,24 +21,25 @@ class_name PlayerInventory extends Control
 
 var inventory_name : String
 var is_stackable : bool
+var _item_data : Item
 
 signal update_inventory
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var wooden_sword_shield_item : Item = load("res://src/Resources/Items/Weapons/01_Common/WoodenSwordShield.tres")
+	equip_button.hide()
+	var wooden_sword_shield_item : Item = load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres")
 	Inventory.add_item("weapons", wooden_sword_shield_item,1)
-	var wand_item : Item = load("res://src/Resources/Items/Weapons/01_Common/WoodenWand.tres")
+	var wand_item : Item = load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodenWand.tres")
 	Inventory.add_item("weapons", wand_item,1)
-	var knives_item : Item = load("res://src/Resources/Items/Weapons/01_Common/WoodenKnives.tres")
+	var knives_item : Item = load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodenKnives.tres")
 	Inventory.add_item("weapons", knives_item,1)
-	var claw_item : Item = load("res://src/Resources/Items/Weapons/01_Common/ClothClaw.tres")
+	var claw_item : Item = load("res://src/Resources/Weapons/01_Common/Wood_Weapons/ClothClaw.tres")
 	Inventory.add_item("weapons", claw_item,1)
 	
 	#print_debug(Inventory.inventories["categories"]["weapons"])
 	inventory_name = "weapons"
 	is_stackable = false
 	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	display_inventory(inventory_name, is_stackable)
@@ -47,7 +49,6 @@ func _on_weapons_tab_button_button_down():
 	#display_inventory("weapons", false)
 	inventory_name = "weapons"
 	is_stackable = false
-
 
 func _on_recipes_tab_button_button_down():
 	#display_inventory("recipes", false)
@@ -59,18 +60,15 @@ func _on_accessories_tab_button_button_down():
 	inventory_name = "accessories"
 	is_stackable = false
 
-
 func _on_drip_tab_button_button_down():
 	#display_inventory("drip", false)
 	inventory_name = "drip"
 	is_stackable = false
 
-
 func _on_consumables_tab_button_button_down():
 	#display_inventory("consumables", true)
 	inventory_name = "consumables"
 	is_stackable = true
-
 
 func _on_materials_tab_button_button_down():
 	#display_inventory("materials", true)
@@ -104,11 +102,17 @@ func clear_slot_container():
 	for child in slot_container.get_children():
 		child.queue_free()
 
-func _on_slot_action(item_data : Item):
-	print("Item action recevied!", item_data)
+func _on_slot_action(item_data) -> void:
+	_item_data = item_data
 	item_icon.texture = item_data.icon
 	item_name.text = item_data.name
-	if item_data.type == item_data.TYPE.WEAPON:
-		item_level.text = "Level: " + str(item_data.level)
 	item_description.text = item_data.description
+	if item_data.type == item_data.TYPE.WEAPON:
+		equip_button.show()
+		item_level.text = "Level: " + str(item_data.level) + " Archetype: " + str(item_data.get_archetype_class_name())
 	
+func _on_equip_button_button_down():
+	#need to transfer item data from slot to equip
+	#first take item data from inventory
+	#store
+	pass

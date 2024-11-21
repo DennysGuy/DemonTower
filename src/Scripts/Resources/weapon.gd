@@ -1,5 +1,5 @@
 # weapon.gd
-class_name Weapon extends Resource
+class_name Weapon extends Item
 
 # Relavent enums
 enum ArchetypeClass { WARRIOR, MAGE, ROGUE }
@@ -9,10 +9,7 @@ enum ElementalEffect {NORMAL, POISON, FIRE, ICE, LIGHTNING, WIND, SHADOW, HOLY}
 enum XPType {STRENGTH, INTELLIGENCE, DEXLUCK}
 # Exported variables for weapon attributes
 @export_group("Weapon Meta Data")
-@export var id : int
-@export var name: String = "New Weapon"
-@export var description: String
-@export var level: int
+@export var level: int = 1
 @export_enum("Warrior", "Mage", "Rogue") var archetype_class: int
 @export_enum("Sword and Shield", "Spear", "Two-Handed", "Wand", "Staff", "Knives", "Claw") var weapon_class: int
 @export_enum("Slowest:20", "Slow:40", "Average:60" , "Fast:80", "Very Fast:100", "Fastest:150") var weapon_speed: int
@@ -37,7 +34,6 @@ var _archetype_name : String
 
 @export_group("Visual Components")
 @export var animation_name: String = ""
-@export var icon: Texture2D
 # Setter functions
 func set_archetype_name(name : String) -> void:
 	_archetype_name = name

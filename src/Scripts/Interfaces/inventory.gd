@@ -31,7 +31,7 @@ var inventories : Dictionary = {
 }
 
 # Helper function to add items
-func add_item(category: String, item: Item, quantity: int = 1):
+func add_item(category: String, item, quantity: int = 1):
 	var inventory = inventories["categories"][category]
 	var item_key = search_item(inventory, item.id)
 	

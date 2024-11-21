@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cljkolrryqasw" path="res://Assets/wooden_sword_shield_icon.png" id="1_ao2pg"]
 [ext_resource type="Script" path="res://src/Scripts/item_interactable.gd" id="1_idfgl"]
-[ext_resource type="Resource" uid="uid://cvjt43ue03vft" path="res://src/Resources/Items/Weapons/01_Common/WoodenSwordShield.tres" id="2_swoyj"]
+[ext_resource type="Resource" uid="uid://dqxah5p2mnex2" path="res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres" id="2_k6evu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vbb6"]
 size = Vector2(10, 10)
@@ -47,7 +47,7 @@ _data = {
 [node name="ItemInteractable" type="Node2D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_idfgl")
 animation_player = NodePath("AnimationPlayer")
-item_data = ExtResource("2_swoyj")
+item_data = ExtResource("2_k6evu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ao2pg")

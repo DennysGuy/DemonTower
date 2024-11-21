@@ -450,7 +450,6 @@ resource_local_to_scene = true
 script = ExtResource("25_8wpyo")
 id = 4
 name = "Cloth Claw"
-level = 1
 type = 0
 description = "A couple of clothes wrapped together with some scraps of metal. Some how is protective."
 is_stackable = false

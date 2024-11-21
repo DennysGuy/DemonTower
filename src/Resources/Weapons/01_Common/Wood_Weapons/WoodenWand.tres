@@ -6,9 +6,6 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_7lujc")
-id = 2
-name = "New Weapon"
-description = "Wands are efficient magic-casting weapons with a respectable casting speed, making them the faster option within the Mage’s arsenal. While they sacrifice a bit of range and raw magic attack power compared to staffs, wands excel in agility and quick casting. This makes them ideal for Mages who prefer faster spell execution and a more dynamic combat style, trading off a small amount of reach and power for speed and versatility."
 level = 1
 archetype_class = 1
 weapon_class = 3
@@ -27,4 +24,10 @@ MP_bonus = 25
 movement_speed_bonus = 0
 jump_bonus = 0
 animation_name = ""
+id = 2
+name = ""
+type = 0
+description = "A tool developed for the beginner wand. Carved by craftsmen from the academy, this wand is perfect for casting basic skillsan cast basic spells."
+is_stackable = false
+max_stack = 0
 icon = ExtResource("1_xwbdl")
