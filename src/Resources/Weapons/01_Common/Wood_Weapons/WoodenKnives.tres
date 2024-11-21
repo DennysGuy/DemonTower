@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://d3p87w5h6lwvo"]
 
-[ext_resource type="Script" path="res://src/Scripts/Resources/weapon.gd" id="1_14x6r"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="1_14x6r"]
 [ext_resource type="Texture2D" uid="uid://cylmtulin1rqd" path="res://Assets/wooden_knives_icon.png" id="1_g4sww"]
 
 [resource]

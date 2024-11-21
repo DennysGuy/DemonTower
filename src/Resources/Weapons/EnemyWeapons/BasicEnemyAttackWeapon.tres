@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://bau5ta8vc0m5n"]
 
-[ext_resource type="Script" path="res://src/Scripts/Resources/weapon.gd" id="1_uxvcf"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="1_uxvcf"]
 
 [resource]
 resource_local_to_scene = true

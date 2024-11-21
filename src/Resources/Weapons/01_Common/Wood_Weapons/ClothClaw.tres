@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bcdtemidmw335"]
 
 [ext_resource type="Texture2D" uid="uid://d4nc5j0pdivax" path="res://Assets/cloth_claw_icon.png" id="1_78gqn"]
-[ext_resource type="Script" path="res://src/Scripts/Resources/weapon.gd" id="1_yso32"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="1_yso32"]
 
 [resource]
 resource_local_to_scene = true

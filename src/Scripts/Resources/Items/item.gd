@@ -11,11 +11,12 @@ enum TYPE {
 
 @export var id : int
 @export var name : String
+@export var value : int
 @export_enum("Weapon", "Recipe", "Accessory", "Drip", "Consumable", "Material") var type : int
 @export var description : String
 @export var is_stackable : bool
 @export var max_stack : int
-@export var icon : Texture2D #needs to be 32x32
+@export var icon : Texture2D #needs to be 16x16
 
 func generate_unique_id() -> void:
 	var uuID = ResourceUID.create_id()

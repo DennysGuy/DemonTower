@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://wa4qfe8gp0xj" path="res://src/Components/AttackRangeComponent.tscn" id="21_okmwy"]
 [ext_resource type="Script" path="res://src/Scripts/Components/health_component.gd" id="23_2xsit"]
 [ext_resource type="PackedScene" uid="uid://dq621bir04ut6" path="res://src/Scenes/Items/item_holder.tscn" id="24_gakb0"]
-[ext_resource type="Script" path="res://src/Scripts/Resources/item.gd" id="25_8wpyo"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/item.gd" id="25_8wpyo"]
 [ext_resource type="Texture2D" uid="uid://d4nc5j0pdivax" path="res://Assets/cloth_claw_icon.png" id="26_pxico"]
 
 [sub_resource type="Resource" id="Resource_omp2x"]
@@ -445,7 +445,7 @@ size = Vector2(48, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oapef"]
 size = Vector2(28, 32)
 
-[sub_resource type="Resource" id="Resource_bjx8d"]
+[sub_resource type="Resource" id="Resource_q7sr0"]
 resource_local_to_scene = true
 script = ExtResource("25_8wpyo")
 id = 4
@@ -587,7 +587,7 @@ script = ExtResource("23_2xsit")
 parent = NodePath("..")
 
 [node name="ItemHolder" parent="." instance=ExtResource("24_gakb0")]
-items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_bjx8d"), null])
+items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_q7sr0"), null])
 min_currency_value = 5
 max_currency_value = 10
 
