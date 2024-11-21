@@ -17,7 +17,7 @@ class_name PlayerInventory extends Control
 @onready var item_level : Label = $HBoxContainer/Details/VBoxContainer/Level
 @onready var item_description : RichTextLabel = $HBoxContainer/Details/VBoxContainer/Description
 @onready var stats : RichTextLabel = $HBoxContainer/Details/VBoxContainer/Stats
-
+@onready var discard_button : Button = $HBoxContainer/Details/DiscardButton
 
 var inventory_name : String
 var is_stackable : bool
@@ -26,6 +26,7 @@ var _item_data : Item
 signal update_inventory
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	clear_details()
 	equip_button.hide()
 	var wooden_sword_shield_item : Item = load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres")
 	Inventory.add_item("weapons", wooden_sword_shield_item,1)
@@ -44,6 +45,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	display_inventory(inventory_name, is_stackable)
 	currency_display.text = "Currency: " + str(Inventory.inventories["metadata"]["gold"])
+	if _item_data:
+		discard_button.show()
+	else:
+		discard_button.hide()
 
 func _on_weapons_tab_button_button_down():
 	#display_inventory("weapons", false)
@@ -120,7 +125,18 @@ func _on_equip_button_button_down():
 		Inventory.add_item(_item_data.get_item_inventory_name(), equipped_weapon_slot, 1)
 	Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
 	Inventory.equip_gear(_item_data.get_item_category(), _item_data)
-	#we also need to check if there's a weapon already equiped. 
-	#if there is, that weapon should be added back to inventory
-	
+	clear_details()
 	_item_data = null
+
+
+func _on_discard_button_button_down() -> void:
+	clear_details()
+	Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
+	_item_data = null
+	
+func clear_details() -> void:
+	equip_button.hide()
+	item_icon.texture = null
+	item_level.text = "N/A"
+	item_name.text = "N/A"
+	item_description.text = "N/A"

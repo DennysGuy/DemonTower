@@ -12,18 +12,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fbkue")
 equipped_weapon_icon = NodePath("Panel/VBoxContainer/HBoxContainer/WeaponIcon")
-equipped_hat_icon = NodePath("Panel/VBoxContainer/HatIcon")
-equipped_gloves_icon = NodePath("Panel/VBoxContainer/GlovesIcon")
-equipped_amulet_icon = NodePath("Panel/VBoxContainer/AmuletIcon")
-equipped_shirt_icon = NodePath("Panel/VBoxContainer/ShirtIcon")
-equipped_pants_icont = NodePath("Panel/VBoxContainer/PantsIcons")
+equipped_hat_icon = NodePath("Panel/VBoxContainer/HBoxContainer2/HatIcon")
+equipped_gloves_icon = NodePath("Panel/VBoxContainer/HBoxContainer3/GlovesIcon")
+equipped_amulet_icon = NodePath("Panel/VBoxContainer/HBoxContainer4/AmuletIcon")
+equipped_shirt_icon = NodePath("Panel/VBoxContainer/HBoxContainer5/ShirtIcon")
+equipped_pants_icont = NodePath("Panel/VBoxContainer/HBoxContainer6/PantsIcons")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
 offset_left = 137.0
-offset_top = 22.0
+offset_top = 7.0
 offset_right = 300.0
-offset_bottom = 244.0
+offset_bottom = 248.0
 
 [node name="Hold" type="Label" parent="Panel"]
 layout_mode = 2
@@ -39,10 +39,10 @@ text = "Equipped"
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0797546
-anchor_top = 0.117117
-anchor_right = 0.91411
-anchor_bottom = 0.959459
+anchor_left = 0.0736196
+anchor_top = 0.100519
+anchor_right = 0.920245
+anchor_bottom = 0.967739
 theme_override_constants/separation = 1
 metadata/_edit_use_anchors_ = true
 
@@ -71,11 +71,20 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 7
 text = "Hat:"
 
-[node name="HatIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="HatIcon" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_gvlwg")
 stretch_mode = 5
+
+[node name="UnequipHatButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Remove"
 
 [node name="Gloves" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -83,11 +92,20 @@ theme_override_font_sizes/font_size = 7
 text = "Gloves
 "
 
-[node name="GlovesIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="GlovesIcon" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_gvlwg")
 stretch_mode = 5
+
+[node name="UnequipGlovesButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Remove"
 
 [node name="Amulet" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -95,11 +113,20 @@ theme_override_font_sizes/font_size = 7
 text = "Amulet:
 "
 
-[node name="AmuletIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="AmuletIcon" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_gvlwg")
 stretch_mode = 5
+
+[node name="UnequipAmuletButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Remove"
 
 [node name="Shirt" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -107,22 +134,61 @@ theme_override_font_sizes/font_size = 7
 text = "Shirt
 "
 
-[node name="ShirtIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="ShirtIcon" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer5"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_gvlwg")
 stretch_mode = 5
+
+[node name="UnequipShirtButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Remove"
 
 [node name="Pants" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 7
-text = "Shirt
+text = "Pants
 "
 
-[node name="PantsIcons" type="TextureRect" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="PantsIcons" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer6"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_gvlwg")
 stretch_mode = 5
+
+[node name="UnequipPantsButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Remove"
+
+[node name="Shoes" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Shoes
+"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="ShoesIcons" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_gvlwg")
+stretch_mode = 5
+
+[node name="UnequipShoesButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Remove"
 
 [connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer/UnequipWeapon" to="." method="_on_unequip_weapon_button_down"]

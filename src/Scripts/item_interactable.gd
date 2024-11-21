@@ -7,8 +7,7 @@ var can_be_picked_up : bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	can_be_picked_up = false
-	
-	#animation_player.play("Hover")
+	animation_player.play("Hover")
 
 func _process(delta):
 	if can_be_picked_up:
