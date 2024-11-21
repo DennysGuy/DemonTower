@@ -31,17 +31,18 @@ var inventories : Dictionary = {
 }
 
 # Helper function to add items
-func add_item(category: String, item, quantity: int = 1):
+func add_item(category: String, item : Item, quantity: int = 1):
 	var inventory = inventories["categories"][category]
 	var item_key = search_item(inventory, item.id)
 	
-	if item_key:
+	if item_key and item.is_stackable:
 		# Stackable items (like consumables)
 		inventory[item_key]["quantity"] += quantity
 	else:
 		# Check if inventory is full
 		if inventory.keys().size() < inventories["metadata"]["slot_quantity"]:
 			# Add a new item
+			item.generate_unique_id()	
 			var next_key = inventories["metadata"]["key_ids"][category]
 			inventory[next_key] = {
 				"id": item.id,
@@ -54,7 +55,7 @@ func add_item(category: String, item, quantity: int = 1):
 		else:
 			print_debug("Inventory tab is full!")
 
-func remove_item(category: String, item: Item):
+func remove_item(category: String, item):
 	var inventory = inventories["categories"][category]
 	var item_key = search_item(inventory, item.id)
 	if item_key != null:
@@ -82,8 +83,8 @@ func remove_gold(value :int):
 	if inventories["gold"] < 0:
 		inventories["gold"] = 0
 
-func equip_gear(gear_name : String, gear):
-	inventories["equipped_gear"][gear_name] = gear
+func equip_gear(category: String, gear):
+	inventories["equipped_gear"][category] = gear
 
-func un_equip_gear(gear_name : String):
-	inventories["equipped_gear"][gear_name] = null
+func un_equip_gear(category: String):
+	inventories["equipped_gear"][category] = null

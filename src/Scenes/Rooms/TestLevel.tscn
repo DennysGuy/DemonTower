@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=28 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://src/Scripts/Resources/weapon.gd" id="6_h7fgs"]
 [ext_resource type="PackedScene" uid="uid://bcpd44ry7bhvp" path="res://src/Scenes/Items/ItemInteractable.tscn" id="9_dg0v2"]
 [ext_resource type="Texture2D" uid="uid://cljkolrryqasw" path="res://Assets/wooden_sword_shield_icon.png" id="9_mdwcj"]
-[ext_resource type="Script" path="res://src/Scripts/Resources/item.gd" id="11_fo30p"]
 [ext_resource type="PackedScene" uid="uid://dwhn2o87iljgu" path="res://src/Scenes/Items/CurrencyInteractable.tscn" id="12_gbcdt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
@@ -1006,13 +1005,31 @@ description = "This is a basic weapon for the mushroom enemy"
 is_stackable = false
 max_stack = 0
 
-[sub_resource type="Resource" id="Resource_0ck6b"]
+[sub_resource type="Resource" id="Resource_8bvt6"]
 resource_local_to_scene = true
-script = ExtResource("11_fo30p")
+script = ExtResource("6_h7fgs")
+level = 4
+archetype_class = 0
+weapon_class = 0
+weapon_speed = 60
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 0
+weapon_attack = 12
+weapon_defense = 5
+magic_attack = 0
+magic_defense = 0
+shadow_attack = 0
+shadow_defense = 0
+HP_bonus = 15
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
 id = 1
-name = "Wooden Sword and Shield"
+name = "Wood Sword and Shield"
 type = 0
-description = "The sword and shield is the shortest-range weapon in the Warrior class arsenal but provides the highest defense. This setup trades raw DPS for a balanced combination of defense and speed, making it the most reliable option among Warrior weapons. Ideal for new players, the sword and shield offers excellent physical defense along with solid mobility and respectable attack speed. While its damage output is moderate, it’s well-rounded and versatile, allowing players to withstand attacks while maintaining consistent, manageable damage in combat."
+description = "A dull wood based sword and a fence. Offers some protection and little damage"
 is_stackable = false
 max_stack = 0
 icon = ExtResource("9_mdwcj")
@@ -1111,7 +1128,7 @@ equipped_weapon = SubResource("Resource_d1qdd")
 
 [node name="Item2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(461, 440)
-item_data = SubResource("Resource_0ck6b")
+item_data = SubResource("Resource_8bvt6")
 
 [node name="CurrencyInteractable" parent="." instance=ExtResource("12_gbcdt")]
 position = Vector2(313, 407)

@@ -26,14 +26,16 @@ var damage_taken_tracker : Label = $DamageTaken
 var enemy : Entity
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:
-	StatCalculations.init_necessary_stat_calculations(stats_resource, equipped_weapon)
+	
 	_set_stats()
 	Inventory.equip_gear("weapon", load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres"))
-	equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
+	
 	state_machine.init(self)
 
 func _process(delta):
 	#PlayerManager.track_for_excess_xp()
+	equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
+	StatCalculations.init_necessary_stat_calculations(stats_resource, equipped_weapon)
 	ExpHandlers.track_xp_for_roll_over(stats_resource)
 
 func _on_area_2d_body_entered(body):

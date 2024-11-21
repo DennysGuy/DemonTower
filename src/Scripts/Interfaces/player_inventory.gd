@@ -115,4 +115,12 @@ func _on_equip_button_button_down():
 	#need to transfer item data from slot to equip
 	#first take item data from inventory
 	#store
-	pass
+	var equipped_weapon_slot = Inventory.inventories["equipped_gear"][_item_data.get_item_category()]
+	if equipped_weapon_slot:
+		Inventory.add_item(_item_data.get_item_inventory_name(), equipped_weapon_slot, 1)
+	Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
+	Inventory.equip_gear(_item_data.get_item_category(), _item_data)
+	#we also need to check if there's a weapon already equiped. 
+	#if there is, that weapon should be added back to inventory
+	
+	_item_data = null

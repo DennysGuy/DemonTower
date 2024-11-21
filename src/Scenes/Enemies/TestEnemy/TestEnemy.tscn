@@ -445,7 +445,7 @@ size = Vector2(48, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oapef"]
 size = Vector2(28, 32)
 
-[sub_resource type="Resource" id="Resource_3o4tp"]
+[sub_resource type="Resource" id="Resource_g2hrx"]
 resource_local_to_scene = true
 script = ExtResource("25_8wpyo")
 id = 4
@@ -587,7 +587,7 @@ script = ExtResource("23_2xsit")
 parent = NodePath("..")
 
 [node name="ItemHolder" parent="." instance=ExtResource("24_gakb0")]
-items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_3o4tp"), null])
+items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_g2hrx"), null])
 min_currency_value = 5
 max_currency_value = 10
 

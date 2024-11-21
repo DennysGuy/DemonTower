@@ -10,7 +10,7 @@ var description : String
 
 var quantity : int
 
-signal slot_action(item_data : Item)
+signal slot_action(item_data)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +27,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_item_data(item_data : Item):
+func set_item_data(item_data):
 		self.item_data = item_data
 
 func set_quantity_label(value : int):
@@ -36,7 +36,7 @@ func set_quantity_label(value : int):
 		else:
 			print_debug("quantity label ain't here fam.")
 
-func set_item_icon(item_data : Item):
+func set_item_icon(item_data):
 	slot_icon.texture = item_data.icon
 
 func set_item_description(description: String):

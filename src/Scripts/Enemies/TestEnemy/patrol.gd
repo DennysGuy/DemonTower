@@ -37,8 +37,6 @@ func enter() -> void:
 	else:
 		dir = directions.pick_random()
 	timer.start()
-	print("I'm in patrol state")
-	print_debug(velocity_component.move_speed)
 
 func process_physics(_delta: float) -> State:
 	self.parent.velocity.y += gravity * _delta

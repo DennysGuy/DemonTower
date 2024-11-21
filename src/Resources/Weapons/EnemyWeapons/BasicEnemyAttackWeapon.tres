@@ -5,8 +5,6 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_uxvcf")
-name = "Basic Enemy Weapon"
-description = "This is a basic weapon for the mushroom enemy"
 level = 1
 archetype_class = 0
 weapon_class = 0
@@ -25,3 +23,9 @@ MP_bonus = 0
 movement_speed_bonus = 0
 jump_bonus = 0
 animation_name = ""
+id = 0
+name = "Basic Enemy Weapon"
+type = 0
+description = "This is a basic weapon for the mushroom enemy"
+is_stackable = false
+max_stack = 0

@@ -17,6 +17,11 @@ enum TYPE {
 @export var max_stack : int
 @export var icon : Texture2D #needs to be 32x32
 
+func generate_unique_id() -> void:
+	var uuID = ResourceUID.create_id()
+	id = uuID
+
+
 func get_item_inventory_name() -> String:
 	match(type):
 		TYPE.WEAPON:
@@ -31,5 +36,22 @@ func get_item_inventory_name() -> String:
 			return "consumables"
 		TYPE.MATERIAL:
 			return "materials"
+		_:
+			return ""
+
+func get_item_category() -> String:
+	match(type):
+		TYPE.WEAPON:
+			return "weapon"
+		TYPE.RECIPE:
+			return "recipe"
+		TYPE.ACCESSORY:
+			return "accessory"
+		TYPE.DRIP:
+			return "drip"
+		TYPE.CONSUMABLE:
+			return "consumable"
+		TYPE.MATERIAL:
+			return "material"
 		_:
 			return ""
