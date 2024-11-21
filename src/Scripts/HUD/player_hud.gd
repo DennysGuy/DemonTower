@@ -107,7 +107,10 @@ func _process(delta: float) -> void:
 	#Displays primary stats when toggled
 	if stats_panel_show:
 		name_label.text = "Name: " + player.stats_resource.name
-		equipped_archetype.text = "Equipped Archetype: " + str(player.equipped_weapon.get_archetype_class_name())
+		if player.equipped_weapon:
+			equipped_archetype.text = "Equipped Archetype: " + str(player.equipped_weapon.get_archetype_class_name())
+		else:
+			equipped_archetype.text = "No Weapon Equipped"
 		total_level.text = "Total Level: " + str(player.stats_resource.get_total_level())
 		#total exp needed
 		HP.text = "HP: "+"["+str(player.stats_resource.current_health)+"/"+str(player.stats_resource.max_health)+"]"
@@ -122,12 +125,20 @@ func _process(delta: float) -> void:
 	
 	#Displays secondary stats when toggled
 	if secondary_stats_panel_show:
-		p_atk.text = "Weapon Attack: " + str(player.stats_resource.get_min_weapon_attack()) +" ~ " + str(player.stats_resource.get_max_weapon_attack())
-		m_atk.text = "Magic Attack: " + str(player.stats_resource.get_min_magic_attack()) + " ~ " +str(player.stats_resource.get_max_magic_attack())
-		s_atk.text = "Shadow Attack: " + str(player.stats_resource.get_min_shadow_attack()) + " ~ " + str(player.stats_resource.get_max_shadow_attack())
-		w_def.text = "Weapon Defense: " + str(player.equipped_weapon.get_weapon_defense())
-		m_def.text = "Magic Defense: " + str(player.equipped_weapon.get_weapon_magic_defense())
-		s_def.text = "Shadow Defense: " + str(player.equipped_weapon.get_weapon_shadow_defense())
+		if player.equipped_weapon:
+			p_atk.text = "Weapon Attack: " + str(player.stats_resource.get_min_weapon_attack()) +" ~ " + str(player.stats_resource.get_max_weapon_attack())
+			m_atk.text = "Magic Attack: " + str(player.stats_resource.get_min_magic_attack()) + " ~ " +str(player.stats_resource.get_max_magic_attack())
+			s_atk.text = "Shadow Attack: " + str(player.stats_resource.get_min_shadow_attack()) + " ~ " + str(player.stats_resource.get_max_shadow_attack())
+			w_def.text = "Weapon Defense: " + str(player.equipped_weapon.get_weapon_defense())
+			m_def.text = "Magic Defense: " + str(player.equipped_weapon.get_weapon_magic_defense())
+			s_def.text = "Shadow Defense: " + str(player.equipped_weapon.get_weapon_shadow_defense())
+		else:
+			p_atk.text = "Weapon Attack: 0" 
+			m_atk.text = "Magic Attack: 0" 
+			s_atk.text = "Shadow Attack: 0" 
+			w_def.text = "Weapon Defense: 0" 
+			m_def.text = "Magic Defense: 0"
+			s_def.text = "Shadow Defense: 0"
 		acc.text = "Accuracy: " + str(player.stats_resource.accuracy)
 		avoid.text = "Avoidability: " +str(player.stats_resource.avoidability)
 		speed.text = "Speed: " + str(player.stats_resource.speed)

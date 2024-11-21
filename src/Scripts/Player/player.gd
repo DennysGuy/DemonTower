@@ -35,7 +35,8 @@ func _ready() -> void:
 func _process(delta):
 	#PlayerManager.track_for_excess_xp()
 	equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
-	StatCalculations.init_necessary_stat_calculations(stats_resource, equipped_weapon)
+	if equipped_weapon:
+		StatCalculations.init_necessary_stat_calculations(stats_resource, equipped_weapon)
 	ExpHandlers.track_xp_for_roll_over(stats_resource)
 
 func _on_area_2d_body_entered(body):
@@ -52,7 +53,8 @@ func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 func _set_stats():
 	player_name.text = stats_resource.name
 	ExpHandlers.calculate_total_level(stats_resource)
-	ExpHandlers.init_needed_xp_for_all_stats(stats_resource)
+	if equipped_weapon:
+		ExpHandlers.init_needed_xp_for_all_stats(stats_resource)
 	stats_resource.max_health = stats_resource.max_health + equipped_weapon.HP_bonus #this will need to be set whenever player changes weapon
 	stats_resource.current_health = stats_resource.max_health #will be removed during final setup
 

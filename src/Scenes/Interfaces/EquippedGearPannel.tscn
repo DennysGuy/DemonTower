@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fbkue")
-equipped_weapon_icon = NodePath("Panel/VBoxContainer/WeaponIcon")
+equipped_weapon_icon = NodePath("Panel/VBoxContainer/HBoxContainer/WeaponIcon")
 equipped_hat_icon = NodePath("Panel/VBoxContainer/HatIcon")
 equipped_gloves_icon = NodePath("Panel/VBoxContainer/GlovesIcon")
 equipped_amulet_icon = NodePath("Panel/VBoxContainer/AmuletIcon")
@@ -51,11 +51,20 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 7
 text = "Weapon:"
 
-[node name="WeaponIcon" type="TextureRect" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="WeaponIcon" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_gvlwg")
 stretch_mode = 5
+
+[node name="UnequipWeapon" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Remove"
 
 [node name="Hat" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -115,3 +124,5 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("1_gvlwg")
 stretch_mode = 5
+
+[connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer/UnequipWeapon" to="." method="_on_unequip_weapon_button_down"]
