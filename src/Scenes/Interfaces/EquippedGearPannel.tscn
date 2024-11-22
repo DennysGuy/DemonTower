@@ -192,3 +192,9 @@ theme_override_font_sizes/font_size = 6
 text = "Remove"
 
 [connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer/UnequipWeapon" to="." method="_on_unequip_weapon_button_down"]
+[connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer2/UnequipHatButton" to="." method="_on_unequip_hat_button_button_down"]
+[connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer3/UnequipGlovesButton" to="." method="_on_unequip_gloves_button_button_down"]
+[connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer4/UnequipAmuletButton" to="." method="_on_unequip_amulet_button_button_down"]
+[connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer5/UnequipShirtButton" to="." method="_on_unequip_shirt_button_button_down"]
+[connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer6/UnequipPantsButton" to="." method="_on_unequip_pants_button_button_down"]
+[connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer7/UnequipShoesButton" to="." method="_on_unequip_shoes_button_button_down"]

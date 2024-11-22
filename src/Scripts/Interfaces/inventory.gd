@@ -23,10 +23,12 @@ var inventories : Dictionary = {
 	},
 	"equipped_gear": {
 		"weapon" : null,
-		"drip": null,
 		"hat": null,
-		"necklace": null,
-		"amulet": null
+		"gloves": null,
+		"amulet": null,
+		"shirt": null,
+		"pants": null,
+		"shoes": null
 	}
 }
 
