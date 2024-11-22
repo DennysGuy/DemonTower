@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://jx44gbtqkd2k"]
+[gd_scene load_steps=4 format=3 uid="uid://jx44gbtqkd2k"]
 
 [ext_resource type="Script" path="res://src/Scripts/Interfaces/equipped_gear_pannel.gd" id="1_fbkue"]
 [ext_resource type="Texture2D" uid="uid://b28s3apmtakb7" path="res://Assets/wooden_wand_icon.png" id="1_gvlwg"]
+[ext_resource type="Texture2D" uid="uid://8dyuinn35age" path="res://Assets/NotAvailable.png" id="2_0sh6l"]
 
-[node name="EquippedGearPanel" type="Control" node_paths=PackedStringArray("equipped_weapon_icon", "equipped_hat_icon", "equipped_gloves_icon", "equipped_amulet_icon", "equipped_shirt_icon", "equipped_pants_icont")]
+[node name="EquippedGearPanel" type="Control" node_paths=PackedStringArray("equipped_weapon_icon", "equipped_hat_icon", "equipped_gloves_icon", "equipped_amulet_icon", "equipped_shirt_icon", "equipped_pants_icon", "equipped_shoes_icon")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +17,9 @@ equipped_hat_icon = NodePath("Panel/VBoxContainer/HBoxContainer2/HatIcon")
 equipped_gloves_icon = NodePath("Panel/VBoxContainer/HBoxContainer3/GlovesIcon")
 equipped_amulet_icon = NodePath("Panel/VBoxContainer/HBoxContainer4/AmuletIcon")
 equipped_shirt_icon = NodePath("Panel/VBoxContainer/HBoxContainer5/ShirtIcon")
-equipped_pants_icont = NodePath("Panel/VBoxContainer/HBoxContainer6/PantsIcons")
+equipped_pants_icon = NodePath("Panel/VBoxContainer/HBoxContainer6/PantsIcons")
+equipped_shoes_icon = NodePath("Panel/VBoxContainer/HBoxContainer7/ShoesIcons")
+not_available_icon = ExtResource("2_0sh6l")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2

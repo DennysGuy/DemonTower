@@ -22,22 +22,17 @@ class_name PlayerInventory extends Control
 var inventory_name : String
 var is_stackable : bool
 var _item_data : Item
-
+var player : Player
 signal update_inventory
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var players = get_tree().get_nodes_in_group("players")
+	if players.size() > 0:
+		player = players[0]
+		print("Player found:",player)
 	clear_details()
 	equip_button.hide()
-	var wooden_sword_shield_item : Item = load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres")
-	Inventory.add_item("weapons", wooden_sword_shield_item,1)
-	var wand_item : Item = load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodenWand.tres")
-	Inventory.add_item("weapons", wand_item,1)
-	var knives_item : Item = load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodenKnives.tres")
-	Inventory.add_item("weapons", knives_item,1)
-	var claw_item : Item = load("res://src/Resources/Weapons/01_Common/Wood_Weapons/ClothClaw.tres")
-	Inventory.add_item("weapons", claw_item,1)
-	
-	#print_debug(Inventory.inventories["categories"]["weapons"])
+
 	inventory_name = "weapons"
 	is_stackable = false
 	
@@ -107,27 +102,38 @@ func clear_slot_container():
 	for child in slot_container.get_children():
 		child.queue_free()
 
-func _on_slot_action(item_data) -> void:
+func _on_slot_action(item_data : Item) -> void:
 	_item_data = item_data
 	item_icon.texture = item_data.icon
 	item_name.text = item_data.name
 	item_description.text = item_data.description
-	if item_data.type == item_data.TYPE.WEAPON:
+	
+	if not(item_data.type == item_data.TYPE.CONSUMABLE or item_data.type == item_data.TYPE.RECIPE or item_data.type == item_data.TYPE.MATERIAL):
 		equip_button.show()
+	if item_data.type == item_data.TYPE.WEAPON:
 		item_level.text = "Level: " + str(item_data.level) + " Archetype: " + str(item_data.get_archetype_class_name())
 	
 func _on_equip_button_button_down():
 	#need to transfer item data from slot to equip
 	#first take item data from inventory
 	#store
-	var equipped_weapon_slot = Inventory.inventories["equipped_gear"][_item_data.get_item_category()]
-	if equipped_weapon_slot:
-		Inventory.add_item(_item_data.get_item_inventory_name(), equipped_weapon_slot, 1)
+	var equipped_gear_slot
+	if _item_data.type == _item_data.TYPE.ACCESSORY:
+		equipped_gear_slot = Inventory.inventories["equipped_gear"][_item_data.get_accessory_type()]
+		Inventory.equip_gear(_item_data.get_accessory_type(), _item_data)
+	elif _item_data.type == _item_data.TYPE.DRIP:
+		equipped_gear_slot =  Inventory.inventories["equipped_gear"][_item_data.get_drip_type_name()]
+		Inventory.equip_gear(_item_data.get_drip_type_name(), _item_data)
+	else:
+		equipped_gear_slot = Inventory.inventories["equipped_gear"][_item_data.get_item_category()]
+		Inventory.equip_gear(_item_data.get_item_category(), _item_data)
+	
+	if equipped_gear_slot:
+		Inventory.add_item(_item_data.get_item_inventory_name(), equipped_gear_slot, 1)
 	Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
-	Inventory.equip_gear(_item_data.get_item_category(), _item_data)
+	
 	clear_details()
 	_item_data = null
-
 
 func _on_discard_button_button_down() -> void:
 	clear_details()

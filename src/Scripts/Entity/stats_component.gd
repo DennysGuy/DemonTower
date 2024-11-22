@@ -216,3 +216,8 @@ func calculate_accuracy() -> void:
 	
 func calculate_avoidability() -> void:
 	pass
+
+func set_health(value : int):
+	_current_health += value
+	if _current_health > _max_health:
+		_current_health

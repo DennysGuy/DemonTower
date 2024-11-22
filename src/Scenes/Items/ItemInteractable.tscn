@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cljkolrryqasw" path="res://Assets/wooden_sword_shield_icon.png" id="1_ao2pg"]
 [ext_resource type="Script" path="res://src/Scripts/item_interactable.gd" id="1_idfgl"]
-[ext_resource type="Resource" uid="uid://dqxah5p2mnex2" path="res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres" id="2_k6evu"]
+[ext_resource type="Resource" path="res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres" id="2_k6evu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vbb6"]
 size = Vector2(10, 10)

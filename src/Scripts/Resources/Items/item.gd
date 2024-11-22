@@ -9,10 +9,20 @@ enum TYPE {
 	MATERIAL
 }
 
+enum RARITY {
+	COMMON,
+	UNCOMMON,
+	RARE,
+	VERY_RARE,
+	ULTRA_RARE,
+	LEGENDARY
+}
+
 @export var id : int
 @export var name : String
 @export var value : int
 @export_enum("Weapon", "Recipe", "Accessory", "Drip", "Consumable", "Material") var type : int
+@export_enum("Common", "Uncommon", "Rare", "Very Rare", "Ultra Rare", "Legendary") var rarity : int
 @export var description : String
 @export var is_stackable : bool
 @export var max_stack : int
@@ -54,5 +64,22 @@ func get_item_category() -> String:
 			return "consumable"
 		TYPE.MATERIAL:
 			return "material"
+		_:
+			return ""
+
+func get_rarity_name() -> String:
+	match(rarity):
+		RARITY.COMMON:
+			return "Common"
+		RARITY.UNCOMMON:
+			return "Uncommon"
+		RARITY.RARE:
+			return "Rare"
+		RARITY.VERY_RARE:
+			return "Very Rare"
+		RARITY.ULTRA_RARE:
+			return "Ultra Rare"
+		RARITY.LEGENDARY:
+			return "Legendary"
 		_:
 			return ""

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://bb8p8v461vr3b"]
+
+[ext_resource type="Texture2D" uid="uid://c55opoajpkjfp" path="res://Assets/accessory_recipe_icon.png" id="1_qtull"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="1_vamvo"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="2_axhmx"]
+
+[resource]
+script = ExtResource("2_axhmx")
+recipe_type = 1
+materials_list = Array[ExtResource("1_vamvo")]([])
+id = 2324
+name = "Recipe for Neckless of Fierceness"
+value = 234
+type = 1
+rarity = 0
+description = "A recipe for a common necklace that gives a small defense buff"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_qtull")

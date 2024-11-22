@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=3 format=3 uid="uid://yhp301rp25he"]
+
+[ext_resource type="Texture2D" uid="uid://hpk6afqtc2qs" path="res://Assets/red_head_band_icon.png" id="1_as6le"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/accessory.gd" id="1_nd3ku"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_nd3ku")
+accessory_type = 0
+level = 1
+crit_damage_bonus = 0
+crit_rate_bonus = 0
+speed_bonus = 0
+jump_bonus = 0
+avoidability_bonus = 0
+accuracy_bonus = 0
+hp_bonus = 0
+mp_bonus = 0
+weapon_defense_bonus = 2
+magic_defense_bonus = 0
+id = 21
+name = "Red Headband"
+value = 52
+type = 2
+rarity = 0
+description = "A piece of cloth meant to be wrapped around the head. Provides minimal defense."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_as6le")

@@ -37,14 +37,14 @@ func add_item(category: String, item : Item, quantity: int = 1):
 	var inventory = inventories["categories"][category]
 	var item_key = search_item(inventory, item.id)
 	
-	if item_key and item.is_stackable:
+	if item.is_stackable and item_in_inventory(inventory,item.id):
 		# Stackable items (like consumables)
 		inventory[item_key]["quantity"] += quantity
 	else:
 		# Check if inventory is full
 		if inventory.keys().size() < inventories["metadata"]["slot_quantity"]:
 			# Add a new item
-			item.generate_unique_id()	
+			#item.generate_unique_id()	
 			var next_key = inventories["metadata"]["key_ids"][category]
 			inventory[next_key] = {
 				"id": item.id,
@@ -56,7 +56,8 @@ func add_item(category: String, item : Item, quantity: int = 1):
 			inventories["metadata"]["key_ids"][category] += 1
 		else:
 			print_debug("Inventory tab is full!")
-
+	print(inventory)
+		
 func remove_item(category: String, item):
 	var inventory = inventories["categories"][category]
 	var item_key = search_item(inventory, item.id)
@@ -71,6 +72,12 @@ func search_item(inventory: Dictionary, item_id: int) -> int:
 		if inventory[key]["id"] == item_id:
 			return key
 	return 0
+
+func item_in_inventory(inventory: Dictionary, item_id: int) -> bool:
+	for key in inventory.keys():
+		if inventory[key]["id"] == item_id:
+			return true
+	return false
 
 func add_gold(value : int):
 	inventories["gold"] += value

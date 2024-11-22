@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Drip" load_steps=3 format=3 uid="uid://1iiob02hk5pt"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/drip.gd" id="1_28d53"]
+[ext_resource type="Texture2D" uid="uid://daqff6s73hv2e" path="res://Assets/sneakers_icon.png" id="1_cd43k"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_28d53")
+drip_type = 2
+animation_name = ""
+id = 32434
+name = "Sneakers"
+value = 14
+type = 3
+rarity = 0
+description = "Basic Sneakers. Doesn't look great, but protects your feet."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_cd43k")

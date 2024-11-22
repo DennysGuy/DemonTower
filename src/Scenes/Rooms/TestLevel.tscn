@@ -1,16 +1,29 @@
-[gd_scene load_steps=28 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=46 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
 [ext_resource type="PackedScene" uid="uid://cr4mk0fffryp1" path="res://src/Scenes/Utilities/NoZoneArea.tscn" id="3_3je4i"]
 [ext_resource type="PackedScene" uid="uid://c3f22551sc137" path="res://src/Scenes/Player/Player.tscn" id="3_qwxlk"]
-[ext_resource type="PackedScene" uid="uid://rr3hqaxuipq6" path="res://src/Scenes/Enemies/TestEnemy/TestEnemy.tscn" id="3_vlowr"]
+[ext_resource type="Texture2D" uid="uid://g3mr6tn7jpc1" path="res://Assets/mana_pot_icon.png" id="5_4uc2u"]
 [ext_resource type="PackedScene" uid="uid://636u6us5vqin" path="res://src/Scenes/Interfaces/PlayerHUD.tscn" id="6_2sq7a"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="6_c8d2o"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="6_h7fgs"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/consumable.gd" id="6_ohc3r"]
 [ext_resource type="PackedScene" uid="uid://bcpd44ry7bhvp" path="res://src/Scenes/Items/ItemInteractable.tscn" id="9_dg0v2"]
-[ext_resource type="Texture2D" uid="uid://cljkolrryqasw" path="res://Assets/wooden_sword_shield_icon.png" id="9_mdwcj"]
+[ext_resource type="Texture2D" uid="uid://ums2wwig75fx" path="res://Assets/amulet_of_novice_icon.png" id="11_35kxx"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/accessory.gd" id="12_e8h5l"]
 [ext_resource type="PackedScene" uid="uid://dwhn2o87iljgu" path="res://src/Scenes/Items/CurrencyInteractable.tscn" id="12_gbcdt"]
+[ext_resource type="Texture2D" uid="uid://hqjsgujptn24" path="res://Assets/work_glove_icon.png" id="13_7hip1"]
+[ext_resource type="Texture2D" uid="uid://hpk6afqtc2qs" path="res://Assets/red_head_band_icon.png" id="14_vnj33"]
+[ext_resource type="Texture2D" uid="uid://cp0j1enswieth" path="res://Assets/copper_ore_icon.png" id="15_iu41e"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="16_5j80m"]
+[ext_resource type="Resource" uid="uid://x77xci8tsx7b" path="res://src/Resources/Items/Drip/Pants/01_Common/CargoPants.tres" id="16_rlig1"]
+[ext_resource type="Texture2D" uid="uid://bc261fyjtmj8k" path="res://Assets/tshirt_icon.png" id="18_jqelg"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/drip.gd" id="19_hw7qw"]
+[ext_resource type="Texture2D" uid="uid://daqff6s73hv2e" path="res://Assets/sneakers_icon.png" id="20_v4a58"]
+[ext_resource type="Texture2D" uid="uid://du3jmm4yyjxm5" path="res://Assets/health_pot_icon.png" id="22_g3ct5"]
+[ext_resource type="Resource" uid="uid://bb8p8v461vr3b" path="res://src/Resources/Items/Recipes/Accessories/01_Common/necklace_of_fierceness.tres" id="22_lj7ux"]
+[ext_resource type="Resource" uid="uid://dokgrab5jiq3v" path="res://src/Resources/Items/Recipes/Weapons/01_Common/copper_spear.tres" id="23_vx5b8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
 texture = ExtResource("1_m0vj0")
@@ -905,134 +918,33 @@ size = Vector2(14, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aka5t"]
 size = Vector2(12, 110.5)
 
-[sub_resource type="Resource" id="Resource_3vyta"]
+[sub_resource type="Resource" id="Resource_faui2"]
 resource_local_to_scene = true
-script = ExtResource("6_c8d2o")
-name = "Spore"
-color = ""
-max_health = 100.0
-current_health = 100.0
-magic_points = 100
-current_magic_points = 100
-equipped_archetype = 0
-str_level = 3
-dex_level = 1
-int_level = 1
-luk_level = 1
-critical_rate = 0
-critical_damage = 5
-avoidability = 10
-accuracy = 10
-speed = 120
-jump = 200
-xp_value = 8
-
-[sub_resource type="Resource" id="Resource_g2j2s"]
-resource_local_to_scene = true
-script = ExtResource("6_h7fgs")
-level = 1
-archetype_class = 0
-weapon_class = 0
-weapon_speed = 60
-weapon_rarity = 0
-elemental_effect = 0
-xp_type = 0
-weapon_attack = 4
-weapon_defense = 2
-magic_attack = 0
-magic_defense = 2
-shadow_attack = 0
-shadow_defense = 2
-HP_bonus = 0
-MP_bonus = 0
-movement_speed_bonus = 0
-jump_bonus = 0
-animation_name = ""
-id = 0
-name = "Basic Enemy Weapon"
-type = 0
-description = "This is a basic weapon for the mushroom enemy"
-is_stackable = false
-max_stack = 0
-
-[sub_resource type="Resource" id="Resource_dc2it"]
-resource_local_to_scene = true
-script = ExtResource("6_c8d2o")
-name = "Spore"
-color = ""
-max_health = 100.0
-current_health = 100.0
-magic_points = 100
-current_magic_points = 100
-equipped_archetype = 0
-str_level = 3
-dex_level = 1
-int_level = 1
-luk_level = 1
-critical_rate = 0
-critical_damage = 5
-avoidability = 10
-accuracy = 10
-speed = 120
-jump = 200
-xp_value = 8
-
-[sub_resource type="Resource" id="Resource_d1qdd"]
-resource_local_to_scene = true
-script = ExtResource("6_h7fgs")
-level = 1
-archetype_class = 0
-weapon_class = 0
-weapon_speed = 60
-weapon_rarity = 0
-elemental_effect = 0
-xp_type = 0
-weapon_attack = 4
-weapon_defense = 2
-magic_attack = 0
-magic_defense = 2
-shadow_attack = 0
-shadow_defense = 2
-HP_bonus = 0
-MP_bonus = 0
-movement_speed_bonus = 0
-jump_bonus = 0
-animation_name = ""
-id = 0
-name = "Basic Enemy Weapon"
-type = 0
-description = "This is a basic weapon for the mushroom enemy"
-is_stackable = false
-max_stack = 0
-
-[sub_resource type="Resource" id="Resource_8bvt6"]
-resource_local_to_scene = true
-script = ExtResource("6_h7fgs")
-level = 4
-archetype_class = 0
-weapon_class = 0
-weapon_speed = 60
-weapon_rarity = 0
-elemental_effect = 0
-xp_type = 0
-weapon_attack = 12
-weapon_defense = 5
-magic_attack = 0
-magic_defense = 0
-shadow_attack = 0
-shadow_defense = 0
-HP_bonus = 15
-MP_bonus = 0
-movement_speed_bonus = 0
-jump_bonus = 0
-animation_name = ""
-id = 1
-name = "Wood Sword and Shield"
-type = 0
-description = "A dull wood based sword and a fence. Offers some protection and little damage"
-is_stackable = false
-max_stack = 0
-icon = ExtResource("9_mdwcj")
+script = ExtResource("6_ohc3r")
+consumable_type = 0
+provided_hp = 0
+provided_mp = 75
+buff_duration = 0
+speed_buff_amount = 0.0
+jump_buff_amount = 0.0
+accuracy_buff_amount = 0.0
+avoidability_buff_amount = 0.0
+crit_rate_buff_amount = 0.0
+crit_damage_buff_amount = 0.0
+weapon_attack_buff_amount = 0.0
+weapon_defense_buff_amount = 0.0
+magic_attack_buff_amount = 0.0
+magic_defense_buff_amount = 0.0
+shadow_attack_buff_amount = 0.0
+id = 11
+name = "Basic MP Potion"
+value = 30
+type = 4
+rarity = 0
+description = "A Basic Potion that heals 75 MP"
+is_stackable = true
+max_stack = 999
+icon = ExtResource("5_4uc2u")
 
 [sub_resource type="Resource" id="Resource_23dqx"]
 resource_local_to_scene = true
@@ -1079,13 +991,204 @@ jump_bonus = 0
 animation_name = ""
 id = 0
 name = "Wood Knives"
+value = 0
 type = 0
+rarity = 0
 description = "Knives are the primary melee weapon of the Rogue class, designed for stealthy and agile combat. While they have the lowest damage output and range compared to all other weapons in the game, their speed and mobility more than make up for it. Knives allow players to execute quick, precise strikes, making them ideal for hit-and-run tactics. In addition, wielding a knife provides a notable boost to movement and jump abilities, enabling the player to fluidly dart in and out of combat. This high mobility, combined with the ability to deliver rapid attacks, makes the knife a versatile weapon for players who prefer swift, evasive playstyles. Using Knives will primarily provide LUK exp and secondarily, DEX exp"
 is_stackable = false
 max_stack = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvb74"]
 size = Vector2(20, 57)
+
+[sub_resource type="Resource" id="Resource_krpnx"]
+resource_local_to_scene = true
+script = ExtResource("12_e8h5l")
+accessory_type = 2
+level = 1
+crit_damage_bonus = 0
+crit_rate_bonus = 0
+speed_bonus = 0
+jump_bonus = 0
+avoidability_bonus = 0
+accuracy_bonus = 0
+hp_bonus = 25
+mp_bonus = 25
+weapon_defense_bonus = 1
+magic_defense_bonus = 1
+id = 0
+name = ""
+value = 0
+type = 2
+rarity = 0
+description = ""
+is_stackable = false
+max_stack = 0
+icon = ExtResource("11_35kxx")
+
+[sub_resource type="Resource" id="Resource_bdx47"]
+resource_local_to_scene = true
+script = ExtResource("12_e8h5l")
+accessory_type = 1
+level = 1
+crit_damage_bonus = 0
+crit_rate_bonus = 0
+speed_bonus = 0
+jump_bonus = 0
+avoidability_bonus = 0
+accuracy_bonus = 2
+hp_bonus = 10
+mp_bonus = 0
+weapon_defense_bonus = 2
+magic_defense_bonus = 0
+id = 0
+name = "Work Gloves"
+value = 100
+type = 2
+rarity = 0
+description = "Gloves designed to protect ones hands while working"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("13_7hip1")
+
+[sub_resource type="Resource" id="Resource_c6qpf"]
+resource_local_to_scene = true
+script = ExtResource("12_e8h5l")
+accessory_type = 0
+level = 1
+crit_damage_bonus = 0
+crit_rate_bonus = 0
+speed_bonus = 0
+jump_bonus = 0
+avoidability_bonus = 0
+accuracy_bonus = 0
+hp_bonus = 0
+mp_bonus = 0
+weapon_defense_bonus = 2
+magic_defense_bonus = 0
+id = 21
+name = "Red Headband"
+value = 52
+type = 2
+rarity = 0
+description = "A piece of cloth meant to be wrapped around the head. Provides minimal defense."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("14_vnj33")
+
+[sub_resource type="Resource" id="Resource_oa7no"]
+resource_local_to_scene = true
+script = ExtResource("16_5j80m")
+recipe_quantity = 0
+id = 456
+name = "Copper Ore"
+value = 85
+type = 5
+rarity = 0
+description = "Copper harvested from the depths of the tower. Used to craft gear."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("15_iu41e")
+
+[sub_resource type="Resource" id="Resource_0gfnw"]
+resource_local_to_scene = true
+script = ExtResource("16_5j80m")
+recipe_quantity = 0
+id = 456
+name = "Copper Ore"
+value = 85
+type = 5
+rarity = 0
+description = "Copper harvested from the depths of the tower. Used to craft gear."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("15_iu41e")
+
+[sub_resource type="Resource" id="Resource_8rv2g"]
+resource_local_to_scene = true
+script = ExtResource("19_hw7qw")
+drip_type = 0
+animation_name = ""
+id = 34234
+name = "White T-Shirt"
+value = 20
+type = 3
+rarity = 0
+description = "A basic white under shirt."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("18_jqelg")
+
+[sub_resource type="Resource" id="Resource_28c24"]
+resource_local_to_scene = true
+script = ExtResource("19_hw7qw")
+drip_type = 2
+animation_name = ""
+id = 32434
+name = "Sneakers"
+value = 14
+type = 3
+rarity = 0
+description = "Basic Sneakers. Doesn't look great, but protects your feet."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("20_v4a58")
+
+[sub_resource type="Resource" id="Resource_y2y3j"]
+resource_local_to_scene = true
+script = ExtResource("6_ohc3r")
+consumable_type = 0
+provided_hp = 50
+provided_mp = 0
+buff_duration = 0
+speed_buff_amount = 0.0
+jump_buff_amount = 0.0
+accuracy_buff_amount = 0.0
+avoidability_buff_amount = 0.0
+crit_rate_buff_amount = 0.0
+crit_damage_buff_amount = 0.0
+weapon_attack_buff_amount = 0.0
+weapon_defense_buff_amount = 0.0
+magic_attack_buff_amount = 0.0
+magic_defense_buff_amount = 0.0
+shadow_attack_buff_amount = 0.0
+id = 10
+name = "Basic HP Potion"
+value = 10
+type = 4
+rarity = 0
+description = "Standard Health Potion recovers 50 health"
+is_stackable = true
+max_stack = 999
+icon = ExtResource("22_g3ct5")
+
+[sub_resource type="Resource" id="Resource_8p32a"]
+resource_local_to_scene = true
+script = ExtResource("6_ohc3r")
+consumable_type = 0
+provided_hp = 50
+provided_mp = 0
+buff_duration = 0
+speed_buff_amount = 0.0
+jump_buff_amount = 0.0
+accuracy_buff_amount = 0.0
+avoidability_buff_amount = 0.0
+crit_rate_buff_amount = 0.0
+crit_damage_buff_amount = 0.0
+weapon_attack_buff_amount = 0.0
+weapon_defense_buff_amount = 0.0
+magic_attack_buff_amount = 0.0
+magic_defense_buff_amount = 0.0
+shadow_attack_buff_amount = 0.0
+id = 10
+name = "Basic HP Potion"
+value = 10
+type = 4
+rarity = 0
+description = "Standard Health Potion recovers 50 health"
+is_stackable = true
+max_stack = 999
+icon = ExtResource("22_g3ct5")
 
 [node name="TestLevel" type="Node2D"]
 
@@ -1116,19 +1219,9 @@ position = Vector2(510, 476)
 position = Vector2(66, -43.75)
 shape = SubResource("RectangleShape2D_aka5t")
 
-[node name="TestEnemy" parent="." instance=ExtResource("3_vlowr")]
-position = Vector2(246, 511)
-stats_resource = SubResource("Resource_3vyta")
-equipped_weapon = SubResource("Resource_g2j2s")
-
-[node name="TestEnemy3" parent="." instance=ExtResource("3_vlowr")]
-position = Vector2(42, 511)
-stats_resource = SubResource("Resource_dc2it")
-equipped_weapon = SubResource("Resource_d1qdd")
-
 [node name="Item2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(461, 440)
-item_data = SubResource("Resource_8bvt6")
+item_data = SubResource("Resource_faui2")
 
 [node name="CurrencyInteractable" parent="." instance=ExtResource("12_gbcdt")]
 position = Vector2(313, 407)
@@ -1155,3 +1248,51 @@ position = Vector2(-5, 305)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea3"]
 position = Vector2(0, 18.5)
 shape = SubResource("RectangleShape2D_vvb74")
+
+[node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(154, 375)
+item_data = SubResource("Resource_krpnx")
+
+[node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(60, 356)
+item_data = SubResource("Resource_bdx47")
+
+[node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(31, 502)
+item_data = SubResource("Resource_c6qpf")
+
+[node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(68, 501)
+item_data = SubResource("Resource_oa7no")
+
+[node name="ItemInteractable9" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(319, 501)
+item_data = SubResource("Resource_0gfnw")
+
+[node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(113, 502)
+item_data = ExtResource("16_rlig1")
+
+[node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(153, 502)
+item_data = SubResource("Resource_8rv2g")
+
+[node name="ItemInteractable7" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(201, 503)
+item_data = SubResource("Resource_28c24")
+
+[node name="ItemInteractable8" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(249, 504)
+item_data = SubResource("Resource_y2y3j")
+
+[node name="ItemInteractable10" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(281, 404)
+item_data = SubResource("Resource_8p32a")
+
+[node name="ItemInteractable11" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(416, 438)
+item_data = ExtResource("22_lj7ux")
+
+[node name="ItemInteractable12" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(478, 478)
+item_data = ExtResource("23_vx5b8")

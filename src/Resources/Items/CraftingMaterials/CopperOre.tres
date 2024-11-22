@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CraftingMaterial" load_steps=3 format=3 uid="uid://5e641ye58r0u"]
+
+[ext_resource type="Texture2D" uid="uid://cp0j1enswieth" path="res://Assets/copper_ore_icon.png" id="1_f0jpw"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="2_sxr8f"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_sxr8f")
+recipe_quantity = 5
+id = 456
+name = "Copper Ore"
+value = 85
+type = 5
+rarity = 0
+description = "Copper harvested from the depths of the tower. Used to craft gear."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("1_f0jpw")

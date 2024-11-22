@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Drip" load_steps=3 format=3 uid="uid://dg0qd7uv8kfyb"]
+
+[ext_resource type="Texture2D" uid="uid://bc261fyjtmj8k" path="res://Assets/tshirt_icon.png" id="1_h6pbg"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/drip.gd" id="1_n6jwt"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_n6jwt")
+drip_type = 0
+animation_name = ""
+id = 34234
+name = "White T-Shirt"
+value = 20
+type = 3
+rarity = 0
+description = "A basic white under shirt."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_h6pbg")
