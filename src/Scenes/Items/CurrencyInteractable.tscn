@@ -6,10 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48yx2"]
 size = Vector2(12, 11)
 
-[node name="CurrencyInteractable" type="Node2D"]
+[node name="CurrencyInteractable" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_ekrjr")
 min_value = 15
 max_value = 25
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_t5eqd")

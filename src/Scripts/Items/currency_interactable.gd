@@ -7,6 +7,8 @@ class_name CurrencyInteractable extends Node2D
 var min_value : int = 1
 @export
 var max_value : int = 5
+@export
+var sprite : Sprite2D
 var _value : int
 var can_pick_up : bool
 # Called when the node enters the scene tree for the first time.

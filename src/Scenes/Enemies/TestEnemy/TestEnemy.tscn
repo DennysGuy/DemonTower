@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://rr3hqaxuipq6"]
+[gd_scene load_steps=85 format=3 uid="uid://rr3hqaxuipq6"]
 
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/test_enemy.gd" id="1_qtaie"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="2_ksgm4"]
@@ -25,7 +25,8 @@
 [ext_resource type="Script" path="res://src/Scripts/Components/health_component.gd" id="23_2xsit"]
 [ext_resource type="PackedScene" uid="uid://dq621bir04ut6" path="res://src/Scenes/Items/item_holder.tscn" id="24_gakb0"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/item.gd" id="25_8wpyo"]
-[ext_resource type="Texture2D" uid="uid://d4nc5j0pdivax" path="res://Assets/cloth_claw_icon.png" id="26_pxico"]
+[ext_resource type="Texture2D" uid="uid://cp0j1enswieth" path="res://Assets/copper_ore_icon.png" id="26_lrg3f"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="27_hyt4x"]
 
 [sub_resource type="Resource" id="Resource_omp2x"]
 resource_local_to_scene = true
@@ -43,7 +44,7 @@ int_level = 1
 luk_level = 1
 critical_rate = 0.0
 critical_damage = 0.0
-avoidability = 10.0
+avoidability = 1.0
 accuracy = 10.0
 speed = 120
 jump = 200
@@ -475,18 +476,19 @@ size = Vector2(48, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oapef"]
 size = Vector2(28, 32)
 
-[sub_resource type="Resource" id="Resource_x3soy"]
+[sub_resource type="Resource" id="Resource_8clxa"]
 resource_local_to_scene = true
-script = ExtResource("25_8wpyo")
-id = 4
-name = "Cloth Claw"
-value = 0
-type = 0
+script = ExtResource("27_hyt4x")
+recipe_quantity = 5
+id = 456
+name = "Copper Ore"
+value = 85
+type = 5
 rarity = 0
-description = "A couple of clothes wrapped together with some scraps of metal. Some how is protective."
-is_stackable = false
-max_stack = 0
-icon = ExtResource("26_pxico")
+description = "Copper harvested from the depths of the tower. Used to craft gear."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("26_lrg3f")
 
 [node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -619,7 +621,7 @@ script = ExtResource("23_2xsit")
 parent = NodePath("..")
 
 [node name="ItemHolder" parent="." instance=ExtResource("24_gakb0")]
-items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_x3soy"), null])
+items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_8clxa")])
 min_currency_value = 5
 max_currency_value = 10
 

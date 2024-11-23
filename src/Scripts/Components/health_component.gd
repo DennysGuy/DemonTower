@@ -12,7 +12,7 @@ func apply_healing(health: float):
 		parent.stats_resource.current_health += health
 
 func apply_damage(stats_resource : Stats, equipped_weapon : Weapon):
-	var hit_chance = max(0.2, min(0.95,stats_resource.accuracy / (stats_resource.accuracy + parent.stats_resource.avoidability)))*100
+	var hit_chance = max(0.1, min(0.98,stats_resource.accuracy / (stats_resource.accuracy + parent.stats_resource.avoidability)))*100
 	var hit_roll = randi_range(1,100)
 	if hit_roll <= hit_chance:
 		#hit landed

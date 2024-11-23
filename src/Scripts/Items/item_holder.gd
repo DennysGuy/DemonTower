@@ -12,11 +12,26 @@ var min_currency_value : int
 @export
 var max_currency_value : int
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+# Function to spawn an item
+func spawn_items():
+	#need to figure out a way to set and implement a drop rate for certain items
+	#some items will need to be more difficult to attain
+	#some times enemy will drop multiple items
+	#bosses will always drop a ton of items
+	var item_drop = load("res://src/Scenes/Items/ItemInteractable.tscn").instantiate()
+	item_drop.item_data = items[0]
+	item_drop.global_position = get_parent().global_position + Vector2(-15, -5)
+	get_tree().current_scene.add_child(item_drop)
+	print("Item created at position: ", item_drop.global_position)
+	print("In instance: ", get_tree().current_scene)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+# Function to spawn currency
+func spawn_currency():
+	var coin_drop = load("res://src/Scenes/Items/CurrencyInteractable.tscn").instantiate()
+	coin_drop.min_value = min_currency_value
+	coin_drop.max_value = max_currency_value
+	coin_drop.z_index = 999
+	coin_drop.global_position = get_parent().global_position + Vector2(15, -5)
+	get_tree().current_scene.add_child(coin_drop)
+	print("Item created at position: ", coin_drop.global_position)

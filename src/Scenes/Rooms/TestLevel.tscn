@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=25 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
@@ -906,7 +906,7 @@ size = Vector2(14, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aka5t"]
 size = Vector2(12, 110.5)
 
-[sub_resource type="Resource" id="Resource_nxtft"]
+[sub_resource type="Resource" id="Resource_ru0kt"]
 resource_local_to_scene = true
 script = ExtResource("6_ohc3r")
 consumable_type = 0
@@ -934,58 +934,6 @@ is_stackable = true
 max_stack = 999
 icon = ExtResource("5_4uc2u")
 
-[sub_resource type="Resource" id="Resource_2es64"]
-resource_local_to_scene = true
-script = ExtResource("6_c8d2o")
-name = "Spore"
-color = ""
-max_health = 50.0
-current_health = 50.0
-magic_points = 100
-current_magic_points = 100
-equipped_archetype = 0
-str_level = 3
-dex_level = 1
-int_level = 1
-luk_level = 1
-critical_rate = 0.0
-critical_damage = 0.0
-avoidability = 10.0
-accuracy = 10.0
-speed = 120
-jump = 200
-xp_value = 700000
-
-[sub_resource type="Resource" id="Resource_xaam7"]
-resource_local_to_scene = true
-script = ExtResource("6_h7fgs")
-level = 1
-archetype_class = 0
-weapon_class = 0
-weapon_speed = 60
-weapon_rarity = 0
-elemental_effect = 0
-xp_type = 0
-weapon_attack = 4
-weapon_defense = 2
-magic_attack = 0
-magic_defense = 2
-shadow_attack = 0
-shadow_defense = 2
-HP_bonus = 0
-MP_bonus = 0
-movement_speed_bonus = 0
-jump_bonus = 0
-animation_name = ""
-id = 0
-name = "Basic Enemy Weapon"
-value = 0
-type = 0
-rarity = 0
-description = "This is a basic weapon for the mushroom enemy"
-is_stackable = false
-max_stack = 0
-
 [sub_resource type="Resource" id="Resource_3gcth"]
 resource_local_to_scene = true
 script = ExtResource("6_c8d2o")
@@ -1008,7 +956,7 @@ speed = 120
 jump = 200
 xp_value = 0
 
-[sub_resource type="Resource" id="Resource_ysqxc"]
+[sub_resource type="Resource" id="Resource_7pebb"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
 level = 1
@@ -1072,7 +1020,7 @@ shape = SubResource("RectangleShape2D_aka5t")
 
 [node name="Item2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(461, 440)
-item_data = SubResource("Resource_nxtft")
+item_data = SubResource("Resource_ru0kt")
 
 [node name="CurrencyInteractable" parent="." instance=ExtResource("12_gbcdt")]
 position = Vector2(313, 407)
@@ -1083,15 +1031,10 @@ position = Vector2(114, 376)
 [node name="CurrencyInteractable3" parent="." instance=ExtResource("12_gbcdt")]
 position = Vector2(18, 343)
 
-[node name="TestEnemy" parent="." instance=ExtResource("12_dpdpj")]
-position = Vector2(120, 510)
-stats_resource = SubResource("Resource_2es64")
-equipped_weapon = SubResource("Resource_xaam7")
-
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(190, 365)
 stats_resource = SubResource("Resource_3gcth")
-equipped_weapon = SubResource("Resource_ysqxc")
+equipped_weapon = SubResource("Resource_7pebb")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -1104,3 +1047,6 @@ position = Vector2(-5, 305)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea3"]
 position = Vector2(0, 18.5)
 shape = SubResource("RectangleShape2D_vvb74")
+
+[node name="TestEnemy" parent="." instance=ExtResource("12_dpdpj")]
+position = Vector2(183, 510)

@@ -9,8 +9,8 @@ func enter() -> void:
 	super()
 	parent.player.apply_received_xp(parent.stats_resource.xp_value)
 	
-	parent.spawn_currency()
-	#parent.spawn_item()
+	item_holder.spawn_currency()
+	item_holder.spawn_items()
 	print("IM DEAD!")
 	parent.call_deferred("queue_free")
 

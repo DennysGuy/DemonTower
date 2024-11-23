@@ -46,10 +46,11 @@ _data = {
 "RESET": SubResource("Animation_w2von")
 }
 
-[node name="ItemInteractable" type="Node2D" node_paths=PackedStringArray("animation_player")]
+[node name="ItemInteractable" type="Node2D" node_paths=PackedStringArray("animation_player", "sprite")]
 script = ExtResource("1_idfgl")
 animation_player = NodePath("AnimationPlayer")
 item_data = SubResource("Resource_od5hv")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ao2pg")

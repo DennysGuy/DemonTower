@@ -3,11 +3,12 @@ class_name ItemInteractable extends Node2D
 @export var animation_player : AnimationPlayer
 @export var item_data : Item
 @export var quantity : int = 1
-@onready var sprite : Sprite2D = $Sprite2D
+@export var sprite : Sprite2D 
 var can_be_picked_up : bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	can_be_picked_up = false
+	print(sprite)
 	sprite.texture = item_data.icon
 	animation_player.play("Hover")
 
