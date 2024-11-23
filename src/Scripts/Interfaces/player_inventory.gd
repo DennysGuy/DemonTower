@@ -19,10 +19,14 @@ class_name PlayerInventory extends Control
 @onready var item_description : RichTextLabel = $HBoxContainer/Details/VBoxContainer/Description
 @onready var stats : RichTextLabel = $HBoxContainer/Details/VBoxContainer/Stats
 @onready var discard_button : Button = $HBoxContainer/Details/DiscardButton
+@onready var drop_amount_panel : Panel = $DropAmountPanel
+@onready var drop_amount_input : TextEdit = $DropAmountPanel/InputAmountBox
+@onready var confirm_drop_amount_button : Button = $DropAmountPanel/ConfirmDropButton
 
 var inventory_name : String
 var is_stackable : bool
 var _item_data : Item
+var _item_drop
 var player : Player
 signal update_inventory
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +36,7 @@ func _ready() -> void:
 		player = players[0]
 		print("Player found:",player)
 	clear_details()
+	drop_amount_panel.hide()
 	consume_button.hide()
 	equip_button.hide()
 
@@ -144,17 +149,26 @@ func _on_equip_button_button_down():
 	_item_data = null
 
 func _on_discard_button_button_down() -> void:
-	clear_details()
-	var item_interactable : ItemInteractable = load("res://src/Scenes/Items/ItemInteractable.tscn").instantiate()
-	var item_drop : Array = Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
-	item_interactable.item_data = item_drop[0]
-	item_interactable.quantity = item_drop[1]
-	item_interactable.global_position = player.global_position + Vector2(0,-5)
-	if item_interactable.item_data != null:
-		get_tree().current_scene.add_child(item_interactable)
-	_item_data = null
+	var item_inventory = Inventory.inventories["categories"][_item_data.get_item_inventory_name()]
+	var key = Inventory.search_item(item_inventory, _item_data.id)
+	var item_slot = item_inventory[key]
+	
+	if _item_data.is_stackable and item_slot["quantity"] > 1:
+		drop_amount_panel.show()
+	else:
+		clear_details()
+		_item_drop = Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
+		var item_interactable : ItemInteractable = load("res://src/Scenes/Items/ItemInteractable.tscn").instantiate()
+		item_interactable.item_data = _item_drop[0]
+		item_interactable.global_position = player.global_position + Vector2(0,-5)
+		if item_interactable.item_data != null:
+			get_tree().current_scene.add_child(item_interactable)
+		_item_drop = null
+		_item_data = null
 	
 func clear_details() -> void:
+	drop_amount_panel.hide()
+	consume_button.hide()
 	equip_button.hide()
 	item_icon.texture = null
 	item_level.text = "N/A"
@@ -168,3 +182,19 @@ func _on_consume_button_button_down() -> void:
 			Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
 			player.health_component.apply_healing(_item_data.provided_hp)
 			player.health_component.apply_mp_replenish(_item_data.provided_mp)
+
+
+func _on_confirm_drop_button_button_down() -> void:
+	var drop_amount = drop_amount_input.text
+	if drop_amount.is_valid_int():	
+		_item_drop = Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data, int(drop_amount))
+		var item_interactable : ItemInteractable = load("res://src/Scenes/Items/ItemInteractable.tscn").instantiate()
+		item_interactable.item_data = _item_drop[0]
+		item_interactable.quantity = _item_drop[1]
+		item_interactable.global_position = player.global_position + Vector2(0,-5)
+		if item_interactable.item_data != null:
+			get_tree().current_scene.add_child(item_interactable)
+			print("You have drop " + drop_amount + " " + _item_data.name)
+		_item_drop = null
+		drop_amount_panel.hide()
+		

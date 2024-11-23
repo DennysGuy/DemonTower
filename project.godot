@@ -24,6 +24,10 @@ ExpHandlers="*res://src/Scripts/Utilities/exp_handlers.gd"
 StatCalculations="*res://src/Scripts/Utilities/stat_calculations.gd"
 Inventory="*res://src/Scripts/Interfaces/inventory.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/viewport_width=480

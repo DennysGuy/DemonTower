@@ -297,6 +297,40 @@ offset_bottom = 148.0
 theme_override_font_sizes/font_size = 4
 text = "Discard"
 
+[node name="DropAmountPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -252.0
+offset_top = -46.0
+offset_right = -136.0
+offset_bottom = 22.0
+
+[node name="InputAmountBox" type="TextEdit" parent="DropAmountPanel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 18.0
+offset_right = 112.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 8
+placeholder_text = "Type amount to drop."
+
+[node name="DropAmountPanelLabel" type="Label" parent="DropAmountPanel"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 4.0
+offset_right = 79.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 8
+text = "Quantity"
+
+[node name="ConfirmDropButton" type="Button" parent="DropAmountPanel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 46.0
+offset_right = 76.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 6
+text = "Confirm"
+
 [connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/WeaponsTabButton" to="." method="_on_weapons_tab_button_button_down"]
 [connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/RecipesTabButton" to="." method="_on_recipes_tab_button_button_down"]
 [connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/AccessoriesTabButton" to="." method="_on_accessories_tab_button_button_down"]
@@ -306,3 +340,4 @@ text = "Discard"
 [connection signal="button_down" from="HBoxContainer/Details/EquipButton" to="." method="_on_equip_button_button_down"]
 [connection signal="button_down" from="HBoxContainer/Details/ConsumeButton" to="." method="_on_consume_button_button_down"]
 [connection signal="button_down" from="HBoxContainer/Details/DiscardButton" to="." method="_on_discard_button_button_down"]
+[connection signal="button_down" from="DropAmountPanel/ConfirmDropButton" to="." method="_on_confirm_drop_button_button_down"]

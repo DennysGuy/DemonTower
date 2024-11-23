@@ -477,7 +477,7 @@ size = Vector2(48, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oapef"]
 size = Vector2(28, 32)
 
-[sub_resource type="Resource" id="Resource_eg14a"]
+[sub_resource type="Resource" id="Resource_ufor2"]
 resource_local_to_scene = true
 script = ExtResource("27_hyt4x")
 recipe_quantity = 5
@@ -623,7 +623,7 @@ script = ExtResource("23_2xsit")
 parent = NodePath("..")
 
 [node name="ItemHolder" parent="." instance=ExtResource("24_gakb0")]
-items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_eg14a")])
+items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_ufor2")])
 min_currency_value = 5
 max_currency_value = 10
 

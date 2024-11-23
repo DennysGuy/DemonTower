@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=32 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="6_c8d2o"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="6_h7fgs"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/consumable.gd" id="6_ohc3r"]
+[ext_resource type="Resource" uid="uid://5e641ye58r0u" path="res://src/Resources/Items/CraftingMaterials/01_Common/CopperOre.tres" id="8_ho2qu"]
 [ext_resource type="PackedScene" uid="uid://bcpd44ry7bhvp" path="res://src/Scenes/Items/ItemInteractable.tscn" id="9_dg0v2"]
 [ext_resource type="PackedScene" uid="uid://rr3hqaxuipq6" path="res://src/Scenes/Enemies/TestEnemy/TestEnemy.tscn" id="12_dpdpj"]
 [ext_resource type="PackedScene" uid="uid://dwhn2o87iljgu" path="res://src/Scenes/Items/CurrencyInteractable.tscn" id="12_gbcdt"]
@@ -907,7 +908,7 @@ size = Vector2(14, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aka5t"]
 size = Vector2(12, 110.5)
 
-[sub_resource type="Resource" id="Resource_pln3q"]
+[sub_resource type="Resource" id="Resource_50vrn"]
 resource_local_to_scene = true
 script = ExtResource("6_ohc3r")
 consumable_type = 0
@@ -936,7 +937,7 @@ is_stackable = true
 max_stack = 999
 icon = ExtResource("5_4uc2u")
 
-[sub_resource type="Resource" id="Resource_6sygm"]
+[sub_resource type="Resource" id="Resource_v6cjm"]
 resource_local_to_scene = true
 script = ExtResource("6_ohc3r")
 consumable_type = 0
@@ -965,7 +966,7 @@ is_stackable = true
 max_stack = 999
 icon = ExtResource("22_g3ct5")
 
-[sub_resource type="Resource" id="Resource_rqo06"]
+[sub_resource type="Resource" id="Resource_6vx3n"]
 resource_local_to_scene = true
 script = ExtResource("6_ohc3r")
 consumable_type = 0
@@ -994,7 +995,7 @@ is_stackable = true
 max_stack = 999
 icon = ExtResource("22_g3ct5")
 
-[sub_resource type="Resource" id="Resource_dkr35"]
+[sub_resource type="Resource" id="Resource_fix6n"]
 resource_local_to_scene = true
 script = ExtResource("6_ohc3r")
 consumable_type = 0
@@ -1045,7 +1046,7 @@ speed = 120
 jump = 200
 xp_value = 0
 
-[sub_resource type="Resource" id="Resource_7ambr"]
+[sub_resource type="Resource" id="Resource_wugul"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
 level = 1
@@ -1163,19 +1164,35 @@ shape = SubResource("RectangleShape2D_aka5t")
 
 [node name="Item2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(461, 440)
-item_data = SubResource("Resource_pln3q")
+item_data = SubResource("Resource_50vrn")
 
 [node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(492, 439)
-item_data = SubResource("Resource_6sygm")
+item_data = SubResource("Resource_v6cjm")
 
 [node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(538, 478)
-item_data = SubResource("Resource_rqo06")
+item_data = SubResource("Resource_6vx3n")
 
 [node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(494, 478)
-item_data = SubResource("Resource_dkr35")
+item_data = SubResource("Resource_fix6n")
+
+[node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(141, 374)
+item_data = ExtResource("8_ho2qu")
+
+[node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(175, 374)
+item_data = ExtResource("8_ho2qu")
+
+[node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(270, 406)
+item_data = ExtResource("8_ho2qu")
+
+[node name="ItemInteractable7" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(230, 393)
+item_data = ExtResource("8_ho2qu")
 
 [node name="CurrencyInteractable" parent="." instance=ExtResource("12_gbcdt")]
 position = Vector2(313, 407)
@@ -1189,7 +1206,7 @@ position = Vector2(18, 343)
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(190, 365)
 stats_resource = SubResource("Resource_3gcth")
-equipped_weapon = SubResource("Resource_7ambr")
+equipped_weapon = SubResource("Resource_wugul")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
