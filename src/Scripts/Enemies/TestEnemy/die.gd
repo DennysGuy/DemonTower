@@ -10,7 +10,7 @@ func enter() -> void:
 	parent.player.apply_received_xp(parent.stats_resource.xp_value)
 	
 	parent.spawn_currency()
-	parent.spawn_item()
+	#parent.spawn_item()
 	print("IM DEAD!")
 	parent.call_deferred("queue_free")
 

@@ -12,12 +12,30 @@ func apply_healing(health: float):
 		parent.stats_resource.current_health += health
 
 func apply_damage(stats_resource : Stats, equipped_weapon : Weapon):
-	var incoming_damage : int 
-	incoming_damage = select_weapon_damage_type(stats_resource, equipped_weapon)
-	damage_taken_label.text = str(incoming_damage)
-	parent.stats_resource.current_health -= incoming_damage
-	if stats_resource.current_health < 0:
-		stats_resource.current_health = 0
+	var hit_chance = max(0.2, min(0.95,stats_resource.accuracy / (stats_resource.accuracy + parent.stats_resource.avoidability)))*100
+	var hit_roll = randi_range(1,100)
+	if hit_roll <= hit_chance:
+		#hit landed
+		var incoming_damage : int 
+		incoming_damage = select_weapon_damage_type(stats_resource, equipped_weapon)
+		#need to calculate crit rate 
+		var crit_roll = randi_range(1,100)
+		var crit_chance = int(100*stats_resource.critical_rate) #if crit
+		if crit_roll <= crit_chance:
+			incoming_damage *= stats_resource.critical_damage
+			stats_resource.current_health -= incoming_damage
+			damage_taken_label.text = "CRIT:"+str(incoming_damage)
+		else:
+			parent.stats_resource.current_health -= incoming_damage
+			damage_taken_label.text = str(incoming_damage)
+			
+		if parent.stats_resource.current_health < 0:
+			parent.stats_resource.current_health = 0
+	else:
+		damage_taken_label.text = "MISSED!"
+		pass
+	
+	
 
 func select_weapon_damage_type(stats_resource : Stats, equipped_weapon : Weapon) -> int:
 	match(equipped_weapon.get_archetype_class_name()):

@@ -28,8 +28,7 @@ var enemy : Entity
 func _ready() -> void:
 	
 	_set_stats()
-	Inventory.equip_gear("weapon", load("res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres"))
-	
+	Inventory.equip_gear("weapon", load("res://src/Resources/Items/Weapons/Archetypes/Warrior/SwordShields/01_Common/WoodSwordShield.tres"))
 	state_machine.init(self)
 
 func _process(delta):

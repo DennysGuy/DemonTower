@@ -32,8 +32,8 @@ resource_local_to_scene = true
 script = ExtResource("2_ksgm4")
 name = "Spore"
 color = ""
-max_health = 100.0
-current_health = 100.0
+max_health = 50.0
+current_health = 50.0
 magic_points = 100
 current_magic_points = 100
 equipped_archetype = 0
@@ -41,10 +41,10 @@ str_level = 3
 dex_level = 1
 int_level = 1
 luk_level = 1
-critical_rate = 0
-critical_damage = 5
-avoidability = 10
-accuracy = 10
+critical_rate = 0.0
+critical_damage = 0.0
+avoidability = 10.0
+accuracy = 10.0
 speed = 120
 jump = 200
 xp_value = 700000
@@ -475,7 +475,7 @@ size = Vector2(48, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oapef"]
 size = Vector2(28, 32)
 
-[sub_resource type="Resource" id="Resource_sx7b1"]
+[sub_resource type="Resource" id="Resource_x3soy"]
 resource_local_to_scene = true
 script = ExtResource("25_8wpyo")
 id = 4
@@ -619,7 +619,7 @@ script = ExtResource("23_2xsit")
 parent = NodePath("..")
 
 [node name="ItemHolder" parent="." instance=ExtResource("24_gakb0")]
-items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_sx7b1"), null])
+items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_x3soy"), null])
 min_currency_value = 5
 max_currency_value = 10
 

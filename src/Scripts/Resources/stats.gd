@@ -22,10 +22,10 @@ class_name Stats extends Resource
 # Secondary Stats
 # Supplementary
 @export_group("Supplementary Stats")
-@export var critical_rate: int = 0
-@export var critical_damage: int = 5
-@export var avoidability: int = 10
-@export var accuracy: int = 10
+@export var critical_rate: float = 0
+@export var critical_damage: float = 0
+@export var avoidability: float = 10
+@export var accuracy: float = 10
 @export var speed: int = 120
 @export var jump: int = 200
 
