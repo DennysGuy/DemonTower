@@ -29,8 +29,6 @@ func enter() -> void:
 	super()
 
 func process_frame(_delta: float) -> State:
-
-	print_debug(parent.player_seen)
 	if !self.parent.player_seen and timer.time_left == 0:
 			return idle_state
 	return null

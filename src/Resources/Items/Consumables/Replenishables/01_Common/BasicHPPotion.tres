@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://cqkch53vhillr"]
+
+[ext_resource type="Texture2D" uid="uid://du3jmm4yyjxm5" path="res://Assets/health_pot_icon.png" id="1_68j86"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/consumable.gd" id="1_mayvh"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_mayvh")
+consumable_type = 0
+provided_hp = 50
+provided_mp = 0
+buff_duration = 0
+speed_buff_amount = 0.0
+jump_buff_amount = 0.0
+accuracy_buff_amount = 0.0
+avoidability_buff_amount = 0.0
+crit_rate_buff_amount = 0.0
+crit_damage_buff_amount = 0.0
+weapon_attack_buff_amount = 0.0
+weapon_defense_buff_amount = 0.0
+magic_attack_buff_amount = 0.0
+magic_defense_buff_amount = 0.0
+shadow_attack_buff_amount = 0.0
+id = 10
+name = "Basic HP Potion"
+value = 10
+is_droppable = true
+type = 4
+rarity = 0
+description = "Standard Health Potion recovers 50 health"
+is_stackable = true
+max_stack = 999
+icon = ExtResource("1_68j86")

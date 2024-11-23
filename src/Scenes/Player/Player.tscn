@@ -1,10 +1,9 @@
-[gd_scene load_steps=173 format=3 uid="uid://c3f22551sc137"]
+[gd_scene load_steps=174 format=3 uid="uid://c3f22551sc137"]
 
 [ext_resource type="Script" path="res://src/Scripts/Player/player.gd" id="1_a8xjd"]
 [ext_resource type="Texture2D" uid="uid://dpoghdu45hbx6" path="res://Assets/Player/TempPlayerAssets/green/char_green_1.png" id="2_4c53k"]
 [ext_resource type="Resource" uid="uid://dl7rmwsv5jx2h" path="res://src/Resources/Stats/PlayerStats.tres" id="2_j0aar"]
 [ext_resource type="Script" path="res://src/Scripts/StateMachine/Statemachine.gd" id="2_jmlgp"]
-[ext_resource type="Resource" uid="uid://dqxah5p2mnex2" path="res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres" id="3_aa7us"]
 [ext_resource type="Texture2D" uid="uid://pgabcbfk8qti" path="res://Assets/Player/TempPlayerAssets/blue/char_blue_2.png" id="3_egkpb"]
 [ext_resource type="Script" path="res://src/Scripts/Player/idle.gd" id="3_x8omn"]
 [ext_resource type="Texture2D" uid="uid://b2c5e2k876b6d" path="res://Assets/Player/TempPlayerAssets/green/char_green_2.png" id="3_xgbbd"]
@@ -25,6 +24,9 @@
 [ext_resource type="Script" path="res://src/Scripts/Player/dead.gd" id="18_ssa6g"]
 [ext_resource type="Script" path="res://src/Scripts/Components/health_component.gd" id="19_ck53d"]
 [ext_resource type="Script" path="res://src/Scripts/Components/velocity_component.gd" id="22_uy8iy"]
+
+[sub_resource type="Resource" id="Resource_pdu0e"]
+metadata/__load_path__ = "res://src/Resources/Weapons/01_Common/Wood_Weapons/WoodSwordShield.tres"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6bx3"]
 atlas = ExtResource("4_guqak")
@@ -1158,11 +1160,15 @@ radius = 7.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7fsx"]
 size = Vector2(14, 29)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p02l"]
+size = Vector2(8, 8)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("coin_purse") groups=["players"]]
 collision_mask = 2
 script = ExtResource("1_a8xjd")
 stats_resource = ExtResource("2_j0aar")
-equipped_weapon = ExtResource("3_aa7us")
+equipped_weapon = SubResource("Resource_pdu0e")
+coin_purse = NodePath("CoinPurse")
 hit_box_x_pos = 23.0
 
 [node name="Timer" type="Timer" parent="."]
@@ -1170,9 +1176,9 @@ wait_time = 0.55
 one_shot = true
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
-position = Vector2(-25, -57)
+position = Vector2(-27, -57)
 sprite_frames = SubResource("SpriteFrames_r0u3h")
-animation = &"Green_Attack3"
+animation = &"Green_Idle"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1313,5 +1319,12 @@ offset_bottom = -38.0
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("parent")]
 script = ExtResource("19_ck53d")
 parent = NodePath("..")
+
+[node name="CoinPurse" type="Area2D" parent="."]
+position = Vector2(-27, -57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinPurse"]
+position = Vector2(27, 37)
+shape = SubResource("RectangleShape2D_2p02l")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -18,6 +18,8 @@ var stats_resource : Stats
 var equipped_weapon : Weapon
 @onready
 var health_bar : ProgressBar = $ProgressBar
+@onready
+var item_holder : ItemHolder = $ItemHolder
 func _ready() -> void:
 	#health_bar.max_value = stats_component.get_max_health()
 	StatCalculations.init_necessary_stat_calculations(stats_resource, equipped_weapon)
@@ -28,21 +30,21 @@ func _ready() -> void:
 	state_machine.init(self)
 	
 func _on_player_detector_body_entered(body : CharacterBody2D):
-	if body.name == "Player":
-		timer.wait_time = 5
+	if body is Player:
+		timer.wait_time = 4
 		player = body
 		player_seen = true
 
 func _on_attack_range_body_entered(body : CharacterBody2D):
-	if body.name == "Player":
+	if body is Player:
 		can_attack = true
 
 func _on_attack_range_body_exited(body : CharacterBody2D):
-	if body.name == "Player":
+	if body is Player:
 		can_attack = false
 
 func _on_player_detector_body_exited(body):
-	if body.name =="Player":
+	if body is Player:
 		timer.start()
 		player_seen = false
 
@@ -50,4 +52,3 @@ func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 	was_hit = true
 	player = hitbox.get_parent()
 	health_component.apply_damage(player.stats_resource, player.equipped_weapon)
-	

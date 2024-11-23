@@ -67,6 +67,7 @@ func calculate_magic_defense(stats_resource : Stats, equipped_weapon : Weapon) -
 func calculate_avoidability(shadow_defense: int, luck_level: int) -> int:
 	return 0
 
+
 func init_necessary_stat_calculations(stats_resource : Stats, equipped_weapon : Weapon) -> void:
 	calculate_minimum_weapon_attack_damage(stats_resource, equipped_weapon)
 	calculate_maximum_weapon_attack_damage(stats_resource, equipped_weapon)

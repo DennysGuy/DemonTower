@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://dokgrab5jiq3v"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="1_f6wj5"]
+[ext_resource type="Texture2D" uid="uid://6c2lurijrlm8" path="res://Assets/weapon_recipe_icon.png" id="1_o8885"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="2_qgyc8"]
+[ext_resource type="Resource" uid="uid://5e641ye58r0u" path="res://src/Resources/Items/CraftingMaterials/01_Common/CopperOre.tres" id="3_lqwh8"]
+
+[resource]
+script = ExtResource("1_f6wj5")
+recipe_type = 0
+materials_list = Array[ExtResource("2_qgyc8")]([ExtResource("3_lqwh8")])
+id = 45464
+name = "Copper Spear Recipe"
+value = 34
+type = 1
+rarity = 0
+description = "A Recipe for a common copper spear. Fairly weak, but at least it's not wood!"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_o8885")

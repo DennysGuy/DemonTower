@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bcdtemidmw335"]
+
+[ext_resource type="Texture2D" uid="uid://d4nc5j0pdivax" path="res://Assets/cloth_claw_icon.png" id="1_78gqn"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="1_yso32"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_yso32")
+level = 1
+archetype_class = 2
+weapon_class = 6
+weapon_speed = 80
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 2
+weapon_attack = 0
+weapon_defense = 2
+magic_attack = 0
+magic_defense = 0
+shadow_attack = 8
+shadow_defense = 1
+HP_bonus = 10
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
+id = 4
+name = "Cloth Claw"
+type = 0
+description = "A couple of clothes wrapped together with some scraps of metal. Some how is protective."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_78gqn")

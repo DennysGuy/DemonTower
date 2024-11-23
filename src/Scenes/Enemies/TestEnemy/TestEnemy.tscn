@@ -1,11 +1,11 @@
-[gd_scene load_steps=79 format=3 uid="uid://rr3hqaxuipq6"]
+[gd_scene load_steps=85 format=3 uid="uid://rr3hqaxuipq6"]
 
 [ext_resource type="Script" path="res://src/Scripts/Enemies/TestEnemy/test_enemy.gd" id="1_qtaie"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="2_ksgm4"]
 [ext_resource type="PackedScene" uid="uid://c7hu37tywrkrv" path="res://src/Components/VelocityComponent.tscn" id="2_v0wd5"]
 [ext_resource type="Texture2D" uid="uid://dldtnspf8as6e" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-AttackWithStun.png" id="2_ydixj"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="3_1wujs"]
 [ext_resource type="Texture2D" uid="uid://bgkiwlvrvvacf" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Die.png" id="3_gmnjf"]
-[ext_resource type="Resource" uid="uid://bau5ta8vc0m5n" path="res://src/Resources/Weapons/EnemyWeapons/BasicEnemyAttackWeapon.tres" id="3_nsfcn"]
 [ext_resource type="Texture2D" uid="uid://dq5ychxg288o6" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Hit.png" id="4_eota0"]
 [ext_resource type="Texture2D" uid="uid://b3v45l2gqt6th" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Idle.png" id="5_gfg00"]
 [ext_resource type="Texture2D" uid="uid://bhj0sqlxda6jk" path="res://Assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Run.png" id="6_mhqqa"]
@@ -23,14 +23,18 @@
 [ext_resource type="Script" path="res://src/Scripts/Components/hurt_box_component.gd" id="21_ja835"]
 [ext_resource type="PackedScene" uid="uid://wa4qfe8gp0xj" path="res://src/Components/AttackRangeComponent.tscn" id="21_okmwy"]
 [ext_resource type="Script" path="res://src/Scripts/Components/health_component.gd" id="23_2xsit"]
+[ext_resource type="PackedScene" uid="uid://dq621bir04ut6" path="res://src/Scenes/Items/item_holder.tscn" id="24_gakb0"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/item.gd" id="25_8wpyo"]
+[ext_resource type="Texture2D" uid="uid://cp0j1enswieth" path="res://Assets/copper_ore_icon.png" id="26_lrg3f"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="27_hyt4x"]
 
 [sub_resource type="Resource" id="Resource_omp2x"]
 resource_local_to_scene = true
 script = ExtResource("2_ksgm4")
 name = "Spore"
 color = ""
-max_health = 100.0
-current_health = 100.0
+max_health = 50.0
+current_health = 50.0
 magic_points = 100
 current_magic_points = 100
 equipped_archetype = 0
@@ -38,13 +42,44 @@ str_level = 3
 dex_level = 1
 int_level = 1
 luk_level = 1
-critical_rate = 0
-critical_damage = 5
-avoidability = 10
-accuracy = 10
+critical_rate = 0.0
+critical_damage = 0.0
+avoidability = 1.0
+accuracy = 10.0
 speed = 120
 jump = 200
 xp_value = 700000
+
+[sub_resource type="Resource" id="Resource_4byxh"]
+resource_local_to_scene = true
+script = ExtResource("3_1wujs")
+level = 1
+archetype_class = 0
+weapon_class = 0
+weapon_speed = 60
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 0
+weapon_attack = 2
+weapon_defense = 1
+magic_attack = 0
+magic_defense = 2
+shadow_attack = 0
+shadow_defense = 2
+HP_bonus = 0
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
+id = 0
+name = "Basic Enemy Weapon"
+value = 0
+is_droppable = true
+type = 0
+rarity = 0
+description = "This is a basic weapon for the mushroom enemy"
+is_stackable = false
+max_stack = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea6pq"]
 atlas = ExtResource("2_ydixj")
@@ -442,12 +477,27 @@ size = Vector2(48, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oapef"]
 size = Vector2(28, 32)
 
+[sub_resource type="Resource" id="Resource_ufor2"]
+resource_local_to_scene = true
+script = ExtResource("27_hyt4x")
+recipe_quantity = 5
+id = 456
+name = "Copper Ore"
+value = 85
+is_droppable = true
+type = 5
+rarity = 0
+description = "Copper harvested from the depths of the tower. Used to craft gear."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("26_lrg3f")
+
 [node name="TestEnemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_qtaie")
 stats_resource = SubResource("Resource_omp2x")
-equipped_weapon = ExtResource("3_nsfcn")
+equipped_weapon = SubResource("Resource_4byxh")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_v0wd5")]
 entity = NodePath("..")
@@ -571,6 +621,11 @@ show_percentage = false
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("parent")]
 script = ExtResource("23_2xsit")
 parent = NodePath("..")
+
+[node name="ItemHolder" parent="." instance=ExtResource("24_gakb0")]
+items = Array[ExtResource("25_8wpyo")]([SubResource("Resource_ufor2")])
+min_currency_value = 5
+max_currency_value = 10
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
