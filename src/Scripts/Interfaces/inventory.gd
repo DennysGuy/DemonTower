@@ -44,7 +44,6 @@ func add_item(category: String, item : Item, quantity: int = 1):
 		# Check if inventory is full
 		if inventory.keys().size() < inventories["metadata"]["slot_quantity"]:
 			# Add a new item
-			#item.generate_unique_id()	
 			var next_key = inventories["metadata"]["key_ids"][category]
 			inventory[next_key] = {
 				"id": item.id,
@@ -58,14 +57,27 @@ func add_item(category: String, item : Item, quantity: int = 1):
 			print_debug("Inventory tab is full!")
 	print(inventory)
 		
-func remove_item(category: String, item):
+func remove_item(category: String, item : Item, quantity : int = 1) -> Array:
 	var inventory = inventories["categories"][category]
 	var item_key = search_item(inventory, item.id)
+	var slot = inventory[item_key]
+	var item_drop : Item = inventory[item_key]["item"]
 	if item_key != null:
-		inventory.erase(item_key)
+		if item_drop.is_stackable:
+			slot["quantity"] = max(0, slot["quantity"]-quantity)
+			if slot["quantity"] == 0:
+				inventory.erase(item_key)
+		else:
+			inventory.erase(item_key)
+		
+		if item_drop.is_droppable:
+			return [item_drop, quantity]
+		else:
+			#we'll need to prompt the user that if they decide to drop, that it will be permanently discarded
+			return []
 	else:
 		print_debug("Item not found in inventory!")
-
+		return []
 # Helper function to search for an item by ID
 func search_item(inventory: Dictionary, item_id: int) -> int:
 	for key in inventory.keys():

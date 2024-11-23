@@ -6,10 +6,10 @@ class_name HealthComponent
 @export var parent : Entity
 
 func apply_healing(health: float):
-	if parent.stats_resource.current_health + health > parent.stats_resource.max_health:
-		parent.stats_resource.current_health = parent.stats_resource.max_health
-	else:
-		parent.stats_resource.current_health += health
+	parent.stats_resource.current_health = min(parent.stats_resource.max_health, parent.stats_resource.current_health + health)
+
+func apply_mp_replenish(magic_points : float):
+	parent.stats_resource.current_magic_points = min(parent.stats_resource.magic_points, parent.stats_resource.current_magic_points + magic_points)
 
 func apply_damage(stats_resource : Stats, equipped_weapon : Weapon):
 	var hit_chance = max(0.1, min(0.98,stats_resource.accuracy / (stats_resource.accuracy + parent.stats_resource.avoidability)))*100
@@ -23,7 +23,7 @@ func apply_damage(stats_resource : Stats, equipped_weapon : Weapon):
 		var crit_chance = int(100*stats_resource.critical_rate) #if crit
 		if crit_roll <= crit_chance:
 			incoming_damage *= stats_resource.critical_damage
-			stats_resource.current_health -= incoming_damage
+			parent.stats_resource.current_health -= incoming_damage
 			damage_taken_label.text = "CRIT:"+str(incoming_damage)
 		else:
 			parent.stats_resource.current_health -= incoming_damage

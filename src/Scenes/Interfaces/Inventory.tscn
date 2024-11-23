@@ -237,6 +237,15 @@ offset_bottom = 16.0
 theme_override_font_sizes/font_size = 4
 text = "Equip"
 
+[node name="ConsumeButton" type="Button" parent="HBoxContainer/Details"]
+layout_mode = 2
+offset_left = 47.0
+offset_top = 1.0
+offset_right = 74.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 4
+text = "Consume"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Details"]
 layout_mode = 1
 anchors_preset = 8
@@ -295,4 +304,5 @@ text = "Discard"
 [connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/ConsumablesTabButton" to="." method="_on_consumables_tab_button_button_down"]
 [connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/MaterialsTabButton" to="." method="_on_materials_tab_button_button_down"]
 [connection signal="button_down" from="HBoxContainer/Details/EquipButton" to="." method="_on_equip_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/Details/ConsumeButton" to="." method="_on_consume_button_button_down"]
 [connection signal="button_down" from="HBoxContainer/Details/DiscardButton" to="." method="_on_discard_button_button_down"]

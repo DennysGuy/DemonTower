@@ -13,6 +13,7 @@ class_name PlayerInventory extends Control
 #Details Nodes
 @onready var item_icon : TextureRect = $HBoxContainer/Details/VBoxContainer/Icon
 @onready var equip_button : Button = $HBoxContainer/Details/EquipButton
+@onready var consume_button : Button = $HBoxContainer/Details/ConsumeButton
 @onready var item_name : Label = $HBoxContainer/Details/VBoxContainer/Name
 @onready var item_level : Label = $HBoxContainer/Details/VBoxContainer/Level
 @onready var item_description : RichTextLabel = $HBoxContainer/Details/VBoxContainer/Description
@@ -31,6 +32,7 @@ func _ready() -> void:
 		player = players[0]
 		print("Player found:",player)
 	clear_details()
+	consume_button.hide()
 	equip_button.hide()
 
 	inventory_name = "weapons"
@@ -108,8 +110,14 @@ func _on_slot_action(item_data : Item) -> void:
 	item_name.text = item_data.name
 	item_description.text = item_data.description
 	
-	if not(item_data.type == item_data.TYPE.CONSUMABLE or item_data.type == item_data.TYPE.RECIPE or item_data.type == item_data.TYPE.MATERIAL):
+	if not(item_data.type == item_data.TYPE.CONSUMABLE\
+	or item_data.type == item_data.TYPE.RECIPE\
+	or item_data.type == item_data.TYPE.MATERIAL):
+		consume_button.hide()
 		equip_button.show()
+	if item_data.type == item_data.TYPE.CONSUMABLE:
+		equip_button.hide()
+		consume_button.show()
 	if item_data.type == item_data.TYPE.WEAPON:
 		item_level.text = "Level: " + str(item_data.level) + " Archetype: " + str(item_data.get_archetype_class_name())
 	
@@ -137,7 +145,13 @@ func _on_equip_button_button_down():
 
 func _on_discard_button_button_down() -> void:
 	clear_details()
-	Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
+	var item_interactable : ItemInteractable = load("res://src/Scenes/Items/ItemInteractable.tscn").instantiate()
+	var item_drop : Array = Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
+	item_interactable.item_data = item_drop[0]
+	item_interactable.quantity = item_drop[1]
+	item_interactable.global_position = player.global_position + Vector2(0,-5)
+	if item_interactable.item_data != null:
+		get_tree().current_scene.add_child(item_interactable)
 	_item_data = null
 	
 func clear_details() -> void:
@@ -146,3 +160,11 @@ func clear_details() -> void:
 	item_level.text = "N/A"
 	item_name.text = "N/A"
 	item_description.text = "N/A"
+
+
+func _on_consume_button_button_down() -> void:
+	if _item_data.type == _item_data.TYPE.CONSUMABLE:
+		if _item_data.consumable_type == _item_data.ConsumableType.REPLENISHING:
+			Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
+			player.health_component.apply_healing(_item_data.provided_hp)
+			player.health_component.apply_mp_replenish(_item_data.provided_mp)

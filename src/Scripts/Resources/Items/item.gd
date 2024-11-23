@@ -21,6 +21,7 @@ enum RARITY {
 @export var id : int
 @export var name : String
 @export var value : int
+@export var is_droppable : bool = true
 @export_enum("Weapon", "Recipe", "Accessory", "Drip", "Consumable", "Material") var type : int
 @export_enum("Common", "Uncommon", "Rare", "Very Rare", "Ultra Rare", "Legendary") var rarity : int
 @export var description : String

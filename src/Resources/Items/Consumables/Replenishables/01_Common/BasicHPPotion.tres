@@ -24,6 +24,7 @@ shadow_attack_buff_amount = 0.0
 id = 10
 name = "Basic HP Potion"
 value = 10
+is_droppable = true
 type = 4
 rarity = 0
 description = "Standard Health Potion recovers 50 health"

@@ -24,6 +24,7 @@ shadow_attack_buff_amount = 0.0
 id = 11
 name = "Basic MP Potion"
 value = 30
+is_droppable = false
 type = 4
 rarity = 0
 description = "A Basic Potion that heals 75 MP"
