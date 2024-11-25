@@ -918,7 +918,7 @@ speed = 120
 jump = 200
 xp_value = 0
 
-[sub_resource type="Resource" id="Resource_vncr3"]
+[sub_resource type="Resource" id="Resource_jbhws"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
 level = 1
@@ -970,7 +970,7 @@ tile_set = SubResource("TileSet_e2t1h")
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(69, 244)
 stats_resource = SubResource("Resource_3gcth")
-equipped_weapon = SubResource("Resource_vncr3")
+equipped_weapon = SubResource("Resource_jbhws")
 
 [node name="NpcInteractable" parent="." instance=ExtResource("6_jm6bf")]
 time_line = "shop_keeper_talk"
