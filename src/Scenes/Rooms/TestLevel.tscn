@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=18 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://636u6us5vqin" path="res://src/Scenes/Interfaces/PlayerHUD.tscn" id="6_2sq7a"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="6_c8d2o"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="6_h7fgs"]
+[ext_resource type="PackedScene" uid="uid://g54ni6fq53ig" path="res://src/Scenes/NPCs/NPCInteractable.tscn" id="6_jm6bf"]
 [ext_resource type="Script" path="res://src/Scripts/Camera.gd" id="15_ctc77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
@@ -917,7 +918,7 @@ speed = 120
 jump = 200
 xp_value = 0
 
-[sub_resource type="Resource" id="Resource_beikd"]
+[sub_resource type="Resource" id="Resource_vncr3"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
 level = 1
@@ -948,6 +949,9 @@ description = "Knives are the primary melee weapon of the Rogue class, designed 
 is_stackable = false
 max_stack = 0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
+size = Vector2(70, 39)
+
 [node name="TestLevel" type="Node2D"]
 
 [node name="Environment" type="Node2D" parent="."]
@@ -966,7 +970,14 @@ tile_set = SubResource("TileSet_e2t1h")
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(69, 244)
 stats_resource = SubResource("Resource_3gcth")
-equipped_weapon = SubResource("Resource_beikd")
+equipped_weapon = SubResource("Resource_vncr3")
+
+[node name="NpcInteractable" parent="." instance=ExtResource("6_jm6bf")]
+time_line = "shop_keeper_talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcInteractable"]
+position = Vector2(409, 220)
+shape = SubResource("RectangleShape2D_8yij8")
 
 [node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(240, 135)
