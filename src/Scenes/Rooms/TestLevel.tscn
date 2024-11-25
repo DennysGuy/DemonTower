@@ -1,19 +1,12 @@
-[gd_scene load_steps=32 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=16 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
-[ext_resource type="PackedScene" uid="uid://cr4mk0fffryp1" path="res://src/Scenes/Utilities/NoZoneArea.tscn" id="3_3je4i"]
 [ext_resource type="PackedScene" uid="uid://c3f22551sc137" path="res://src/Scenes/Player/Player.tscn" id="3_qwxlk"]
-[ext_resource type="Texture2D" uid="uid://g3mr6tn7jpc1" path="res://Assets/mana_pot_icon.png" id="5_4uc2u"]
 [ext_resource type="PackedScene" uid="uid://636u6us5vqin" path="res://src/Scenes/Interfaces/PlayerHUD.tscn" id="6_2sq7a"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="6_c8d2o"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="6_h7fgs"]
-[ext_resource type="Script" path="res://src/Scripts/Resources/Items/consumable.gd" id="6_ohc3r"]
-[ext_resource type="Resource" uid="uid://5e641ye58r0u" path="res://src/Resources/Items/CraftingMaterials/01_Common/CopperOre.tres" id="8_ho2qu"]
-[ext_resource type="PackedScene" uid="uid://bcpd44ry7bhvp" path="res://src/Scenes/Items/ItemInteractable.tscn" id="9_dg0v2"]
-[ext_resource type="PackedScene" uid="uid://rr3hqaxuipq6" path="res://src/Scenes/Enemies/TestEnemy/TestEnemy.tscn" id="12_dpdpj"]
-[ext_resource type="PackedScene" uid="uid://dwhn2o87iljgu" path="res://src/Scenes/Items/CurrencyInteractable.tscn" id="12_gbcdt"]
-[ext_resource type="Texture2D" uid="uid://du3jmm4yyjxm5" path="res://Assets/health_pot_icon.png" id="22_g3ct5"]
+[ext_resource type="Script" path="res://src/Scripts/Camera.gd" id="15_ctc77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
 texture = ExtResource("1_m0vj0")
@@ -902,128 +895,6 @@ margins = Vector2i(4, 0)
 [sub_resource type="TileSet" id="TileSet_e2t1h"]
 sources/0 = SubResource("TileSetAtlasSource_awlcv")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl4y2"]
-size = Vector2(14, 49)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aka5t"]
-size = Vector2(12, 110.5)
-
-[sub_resource type="Resource" id="Resource_50vrn"]
-resource_local_to_scene = true
-script = ExtResource("6_ohc3r")
-consumable_type = 0
-provided_hp = 0
-provided_mp = 75
-buff_duration = 0
-speed_buff_amount = 0.0
-jump_buff_amount = 0.0
-accuracy_buff_amount = 0.0
-avoidability_buff_amount = 0.0
-crit_rate_buff_amount = 0.0
-crit_damage_buff_amount = 0.0
-weapon_attack_buff_amount = 0.0
-weapon_defense_buff_amount = 0.0
-magic_attack_buff_amount = 0.0
-magic_defense_buff_amount = 0.0
-shadow_attack_buff_amount = 0.0
-id = 11
-name = "Basic MP Potion"
-value = 30
-is_droppable = true
-type = 4
-rarity = 0
-description = "A Basic Potion that heals 75 MP"
-is_stackable = true
-max_stack = 999
-icon = ExtResource("5_4uc2u")
-
-[sub_resource type="Resource" id="Resource_v6cjm"]
-resource_local_to_scene = true
-script = ExtResource("6_ohc3r")
-consumable_type = 0
-provided_hp = 50
-provided_mp = 0
-buff_duration = 0
-speed_buff_amount = 0.0
-jump_buff_amount = 0.0
-accuracy_buff_amount = 0.0
-avoidability_buff_amount = 0.0
-crit_rate_buff_amount = 0.0
-crit_damage_buff_amount = 0.0
-weapon_attack_buff_amount = 0.0
-weapon_defense_buff_amount = 0.0
-magic_attack_buff_amount = 0.0
-magic_defense_buff_amount = 0.0
-shadow_attack_buff_amount = 0.0
-id = 10
-name = "Basic HP Potion"
-value = 10
-is_droppable = true
-type = 4
-rarity = 0
-description = "Standard Health Potion recovers 50 health"
-is_stackable = true
-max_stack = 999
-icon = ExtResource("22_g3ct5")
-
-[sub_resource type="Resource" id="Resource_6vx3n"]
-resource_local_to_scene = true
-script = ExtResource("6_ohc3r")
-consumable_type = 0
-provided_hp = 50
-provided_mp = 0
-buff_duration = 0
-speed_buff_amount = 0.0
-jump_buff_amount = 0.0
-accuracy_buff_amount = 0.0
-avoidability_buff_amount = 0.0
-crit_rate_buff_amount = 0.0
-crit_damage_buff_amount = 0.0
-weapon_attack_buff_amount = 0.0
-weapon_defense_buff_amount = 0.0
-magic_attack_buff_amount = 0.0
-magic_defense_buff_amount = 0.0
-shadow_attack_buff_amount = 0.0
-id = 10
-name = "Basic HP Potion"
-value = 10
-is_droppable = true
-type = 4
-rarity = 0
-description = "Standard Health Potion recovers 50 health"
-is_stackable = true
-max_stack = 999
-icon = ExtResource("22_g3ct5")
-
-[sub_resource type="Resource" id="Resource_fix6n"]
-resource_local_to_scene = true
-script = ExtResource("6_ohc3r")
-consumable_type = 0
-provided_hp = 50
-provided_mp = 0
-buff_duration = 0
-speed_buff_amount = 0.0
-jump_buff_amount = 0.0
-accuracy_buff_amount = 0.0
-avoidability_buff_amount = 0.0
-crit_rate_buff_amount = 0.0
-crit_damage_buff_amount = 0.0
-weapon_attack_buff_amount = 0.0
-weapon_defense_buff_amount = 0.0
-magic_attack_buff_amount = 0.0
-magic_defense_buff_amount = 0.0
-shadow_attack_buff_amount = 0.0
-id = 10
-name = "Basic HP Potion"
-value = 10
-is_droppable = true
-type = 4
-rarity = 0
-description = "Standard Health Potion recovers 50 health"
-is_stackable = true
-max_stack = 999
-icon = ExtResource("22_g3ct5")
-
 [sub_resource type="Resource" id="Resource_3gcth"]
 resource_local_to_scene = true
 script = ExtResource("6_c8d2o")
@@ -1046,7 +917,7 @@ speed = 120
 jump = 200
 xp_value = 0
 
-[sub_resource type="Resource" id="Resource_wugul"]
+[sub_resource type="Resource" id="Resource_beikd"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
 level = 1
@@ -1077,150 +948,46 @@ description = "Knives are the primary melee weapon of the Rogue class, designed 
 is_stackable = false
 max_stack = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvb74"]
-size = Vector2(20, 57)
-
-[sub_resource type="Resource" id="Resource_xgafg"]
-resource_local_to_scene = true
-script = ExtResource("6_c8d2o")
-name = "Spore"
-color = ""
-max_health = 50.0
-current_health = 50.0
-magic_points = 100
-current_magic_points = 100
-equipped_archetype = 0
-str_level = 2
-dex_level = 1
-int_level = 1
-luk_level = 1
-critical_rate = 0.0
-critical_damage = 0.0
-avoidability = 1.0
-accuracy = 10.0
-speed = 120
-jump = 200
-xp_value = 700000
-
-[sub_resource type="Resource" id="Resource_k8qyb"]
-resource_local_to_scene = true
-script = ExtResource("6_h7fgs")
-level = 1
-archetype_class = 0
-weapon_class = 0
-weapon_speed = 60
-weapon_rarity = 0
-elemental_effect = 0
-xp_type = 0
-weapon_attack = 2
-weapon_defense = 1
-magic_attack = 0
-magic_defense = 2
-shadow_attack = 0
-shadow_defense = 2
-HP_bonus = 0
-MP_bonus = 0
-movement_speed_bonus = 0
-jump_bonus = 0
-animation_name = ""
-id = 0
-name = "Basic Enemy Weapon"
-value = 0
-is_droppable = true
-type = 0
-rarity = 0
-description = "This is a basic weapon for the mushroom enemy"
-is_stackable = false
-max_stack = 0
-
 [node name="TestLevel" type="Node2D"]
 
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Second_Floor" type="TileMapLayer" parent="Environment"]
-tile_map_data = PackedByteArray("AAAjAB8AAAAXAAIAAAAiAB8AAAAXAAIAAAAhAB8AAAAXAAIAAAAgAB8AAAAXAAIAAAAfAB8AAAAXAAIAAAAeAB8AAAAXAAIAAAAdAB8AAAAXAAIAAAAcAB8AAAAXAAIAAAAbAB8AAAAXAAIAAAAaAB8AAAAXAAIAAAAZAB8AAAAXAAIAAAAZAB4AAAAXAAIAAAAYAB4AAAAXAAIAAAAYAB8AAAAXAAIAAAAXAB8AAAAXAAIAAAAWAB8AAAAXAAIAAAAVAB8AAAAXAAIAAAAWAB4AAAAXAAIAAAAXAB4AAAAXAAIAAAAVAB4AAAAXAAIAAAAUAB4AAAAXAAIAAAAUAB8AAAAXAAIAAAAaAB4AAAAXAAIAAAAbAB4AAAAXAAIAAAAcAB4AAAAXAAIAAAAdAB4AAAAXAAIAAAAeAB4AAAAXAAIAAAAfAB4AAAAXAAIAAAAfAB0AAAAXAAIAAAAeAB0AAAAXAAIAAAAdAB0AAAAXAAIAAAAcAB0AAAAXAAIAAAAbAB0AAAAXAAIAAAAaAB0AAAAXAAIAAAAZAB0AAAAXAAIAAAAYAB0AAAAXAAIAAAAXAB0AAAAXAAIAAAAWAB0AAAAXAAIAAAAVAB0AAAAXAAIAAAAUAB0AAAAXAAIAAAATAB0AAAAbAAgAAAATAB4AAAAbAAgAAAATAB8AAAAbAAgAAAASAB8AAAAbAAgAAAARAB8AAAAbAAgAAAAQAB8AAAAbAAgAAAAPAB8AAAAbAAgAAAAOAB8AAAAbAAgAAAANAB8AAAAbAAgAAAAMAB8AAAAbAAgAAAALAB8AAAAbAAgAAAAKAB8AAAAbAAgAAAAJAB8AAAAbAAgAAAAIAB8AAAAbAAgAAAAHAB8AAAAbAAgAAAAGAB8AAAAbAAgAAAAFAB8AAAAbAAgAAAAEAB8AAAAbAAgAAAADAB8AAAAbAAgAAAACAB8AAAAbAAgAAAABAB8AAAAbAAgAAAAAAB8AAAAbAAgAAAAAAB4AAAAbAAgAAAABAB4AAAAbAAgAAAACAB4AAAAbAAgAAAADAB4AAAAbAAgAAAAEAB4AAAAbAAgAAAAFAB4AAAAbAAgAAAAGAB4AAAAbAAgAAAAHAB4AAAAbAAgAAAAIAB4AAAAbAAgAAAAJAB4AAAAbAAgAAAAKAB4AAAAbAAgAAAALAB4AAAAbAAgAAAAMAB4AAAAbAAgAAAANAB4AAAAbAAgAAAAOAB4AAAAbAAgAAAAPAB4AAAAbAAgAAAAQAB4AAAAbAAgAAAARAB4AAAAbAAgAAAASAB4AAAAbAAgAAAASAB0AAAAbAAgAAAARAB0AAAAbAAgAAAAQAB0AAAAbAAgAAAAPAB0AAAAbAAgAAAAOAB0AAAAbAAgAAAANAB0AAAAbAAgAAAAMAB0AAAAbAAgAAAALAB0AAAAbAAgAAAAKAB0AAAAbAAgAAAAJAB0AAAAbAAgAAAAIAB0AAAAbAAgAAAAHAB0AAAAbAAgAAAAGAB0AAAAbAAgAAAAFAB0AAAAbAAgAAAAEAB0AAAAbAAgAAAADAB0AAAAbAAgAAAACAB0AAAAbAAgAAAABAB0AAAAbAAgAAAAAAB0AAAAbAAgAAAAUABwAAAAIABQAAAATABwAAAAIABQAAAASABwAAAAIABQAAAARABwAAAAIABQAAAAQABwAAAAIABQAAAAPABwAAAAIABQAAAAOABwAAAAIABQAAAANABwAAAAIABQAAAAMABwAAAAIABQAAAALABwAAAAIABQAAAAKABwAAAAIABQAAAAJABwAAAAIABQAAAAIABwAAAAIABQAAAAHABwAAAAIABQAAAAGABwAAAAIABQAAAAFABwAAAAIABQAAAAEABwAAAAIABQAAAADABwAAAAIABQAAAACABwAAAAIABQAAAABABwAAAAIABQAAAAAABwAAAAIABQAAAAAABsAAAAIABQAAAABABsAAAAIABQAAAACABsAAAAIABQAAAADABsAAAAIABQAAAAEABsAAAAIABQAAAAFABsAAAAIABQAAAAGABsAAAAIABQAAAAHABsAAAAIABQAAAAIABsAAAAIABQAAAAJABsAAAAIABQAAAAKABsAAAAIABQAAAALABsAAAAIABQAAAAMABsAAAAIABQAAAANABsAAAAIABQAAAAOABsAAAAIABQAAAAPABsAAAAIABQAAAAQABsAAAAIABQAAAARABsAAAAIABQAAAASABsAAAAIABQAAAATABsAAAAIABQAAAAUABsAAAAIABQAAAA=")
 tile_set = SubResource("TileSet_svrny")
 
 [node name="Floor" type="TileMapLayer" parent="Environment"]
-tile_map_data = PackedByteArray("AAAAACAAAAASAAwAAAABACAAAAATAAwAAAACACAAAAAUAAwAAAADACAAAAASAAwAAAAEACAAAAATAAwAAAAFACAAAAAUAAwAAAAGACAAAAASAAwAAAAHACAAAAATAAwAAAAIACAAAAAUAAwAAAAJACAAAAASAAwAAAAKACAAAAATAAwAAAALACAAAAAUAAwAAAAMACAAAAASAAwAAAANACAAAAATAAwAAAAOACAAAAAUAAwAAAAPACAAAAASAAwAAAAQACAAAAATAAwAAAARACAAAAAUAAwAAAASACAAAAASAAwAAAATACAAAAATAAwAAAAUACAAAAAUAAwAAAAVACAAAAASAAwAAAAWACAAAAATAAwAAAAXACAAAAAUAAwAAAAYAB8AAAAAAAsAAAAYACAAAAAAAAwAAAAZAB8AAAABAAsAAAAaAB4AAAAAAAsAAAAaAB8AAAAAAAwAAAAbAB4AAAAIAA0AAAAcAB4AAAAJAA0AAAAdAB4AAAAKAA0AAAAeAB4AAAAIAA0AAAAfAB4AAAAJAA0AAAAgAB4AAAAKAA0AAAAhAB4AAAAIAA0AAAAiAB4AAAAJAA0AAAAjAB4AAAAKAA0AAAAZACAAAAAEABIAAAAaACAAAAAEABIAAAAbACAAAAAEABIAAAAcACAAAAAEABIAAAAdACAAAAAEABIAAAAeACAAAAAEABIAAAAfACAAAAAEABIAAAAgACAAAAAEABIAAAAhACAAAAAEABIAAAAiACAAAAAEABIAAAAjACAAAAAEABIAAAAbAB8AAAAIAA4AAAAcAB8AAAAJAA4AAAAdAB8AAAAKAA4AAAAeAB8AAAAIAA4AAAAfAB8AAAAJAA4AAAAgAB8AAAAKAA4AAAAhAB8AAAAIAA4AAAAiAB8AAAAJAA4AAAAjAB8AAAAKAA4AAAATACEAAAAEABIAAAASACEAAAAEABIAAAARACEAAAAEABIAAAAQACEAAAAEABIAAAAPACEAAAAEABIAAAAOACEAAAAEABIAAAANACEAAAAEABIAAAAMACEAAAAEABIAAAALACEAAAAEABIAAAAKACEAAAAEABIAAAAJACEAAAAEABIAAAAIACEAAAAEABIAAAAHACEAAAAEABIAAAAGACEAAAAEABIAAAAFACEAAAAEABIAAAAEACEAAAAEABIAAAADACEAAAAEABIAAAACACEAAAAEABIAAAABACEAAAAEABIAAAAAACEAAAAEABIAAAAUACEAAAAEABIAAAAVACEAAAAEABIAAAAWACEAAAAEABIAAAAXACEAAAAEABIAAAAYACEAAAAEABIAAAAZACEAAAAEABIAAAAaACEAAAAEABIAAAAbACEAAAAEABIAAAAcACEAAAAEABIAAAAdACEAAAAEABIAAAAeACEAAAAEABIAAAAfACEAAAAEABIAAAAgACEAAAAEABIAAAAhACEAAAAEABIAAAAiACEAAAAEABIAAAAjACEAAAAEABIAAAAjACIAAAAEABIAAAAjACMAAAAEABIAAAAiACMAAAAEABIAAAAhACMAAAAEABIAAAAgACMAAAAEABIAAAAfACMAAAAEABIAAAAeACMAAAAEABIAAAAdACMAAAAEABIAAAAcACMAAAAEABIAAAAbACMAAAAEABIAAAAaACMAAAAEABIAAAAZACMAAAAEABIAAAAYACMAAAAEABIAAAAXACMAAAAEABIAAAAWACMAAAAEABIAAAAVACMAAAAEABIAAAAUACMAAAAEABIAAAATACMAAAAEABIAAAASACMAAAAEABIAAAARACMAAAAEABIAAAAQACMAAAAEABIAAAAPACMAAAAEABIAAAAOACMAAAAEABIAAAANACMAAAAEABIAAAAMACMAAAAEABIAAAALACMAAAAEABIAAAAKACMAAAAEABIAAAAJACMAAAAEABIAAAAIACMAAAAEABIAAAAHACMAAAAEABIAAAAGACMAAAAEABIAAAAFACMAAAAEABIAAAAEACMAAAAEABIAAAADACMAAAAEABIAAAACACIAAAAEABIAAAABACIAAAAEABIAAAAAACIAAAAEABIAAAAAACMAAAAEABIAAAABACMAAAAEABIAAAACACMAAAAEABIAAAADACIAAAAEABIAAAAEACIAAAAEABIAAAAFACIAAAAEABIAAAAGACIAAAAEABIAAAAHACIAAAAEABIAAAAIACIAAAAEABIAAAAJACIAAAAEABIAAAAKACIAAAAEABIAAAALACIAAAAEABIAAAAMACIAAAAEABIAAAANACIAAAAEABIAAAAOACIAAAAEABIAAAAPACIAAAAEABIAAAAQACIAAAAEABIAAAARACIAAAAEABIAAAASACIAAAAEABIAAAATACIAAAAEABIAAAAUACIAAAAEABIAAAAVACIAAAAEABIAAAAWACIAAAAEABIAAAAXACIAAAAEABIAAAAYACIAAAAEABIAAAAZACIAAAAEABIAAAAaACIAAAAEABIAAAAbACIAAAAEABIAAAAcACIAAAAEABIAAAAdACIAAAAEABIAAAAeACIAAAAEABIAAAAfACIAAAAEABIAAAAgACIAAAAEABIAAAAhACIAAAAEABIAAAAiACIAAAAEABIAAAAeABwAAAASAAwAAAAfABwAAAATAAwAAAAbABwAAAAUAAwAAAAcABwAAAATAAwAAAAdABwAAAAUAAwAAAAZABwAAAASAAwAAAAaABwAAAATAAwAAAAYABwAAAAFAAwAAAAXABwAAAAEABIAAAAYABsAAAAFAAsAAAAXABsAAAAEAAsAAAAWABoAAAADAAoAAAAVABoAAAAEAAsAAAAWABsAAAAEABIAAAAWABwAAAAEABIAAAAVABsAAAAEABIAAAAVABwAAAAEABIAAAASABoAAAASAAwAAAATABoAAAATAAwAAAAUABoAAAAUAAwAAAAQABoAAAATAAwAAAARABoAAAAUAAwAAAAPABoAAAAFAAwAAAAPABkAAAAFAAsAAAAOABkAAAAEAAsAAAANABkAAAADAAsAAAANABgAAAADAAoAAAAMABgAAAAEAAsAAAAOABoAAAAEABIAAAANABoAAAAEABIAAAAMABkAAAAEABIAAAAMABoAAAAEABIAAAAJABgAAAASAAwAAAAKABgAAAATAAwAAAALABgAAAAUAAwAAAAGABgAAAASAAwAAAAHABgAAAATAAwAAAAIABgAAAAUAAwAAAAFABgAAAAFAAwAAAAFABcAAAAFAAsAAAAEABcAAAAEAAsAAAADABcAAAADAAsAAAADABYAAAADAAoAAAACABYAAAAEAAsAAAAAABYAAAASAAwAAAABABYAAAATAAwAAAALABoAAAAEABIAAAAKABoAAAAEABIAAAAJABoAAAAEABIAAAAIABoAAAAEABIAAAAHABoAAAAEABIAAAAGABoAAAAEABIAAAAFABoAAAAEABIAAAAEABoAAAAEABIAAAADABoAAAAEABIAAAACABoAAAAEABIAAAABABoAAAAEABIAAAAAABoAAAAEABIAAAAAABcAAAAEABIAAAAAABgAAAAEABIAAAAAABkAAAAEABIAAAABABcAAAAEABIAAAACABcAAAAEABIAAAACABgAAAAEABIAAAABABgAAAAEABIAAAACABkAAAAEABIAAAADABkAAAAEABIAAAADABgAAAAEABIAAAAEABgAAAAEABIAAAAEABkAAAAEABIAAAABABkAAAAEABIAAAAFABkAAAAEABIAAAAGABkAAAAEABIAAAAHABkAAAAEABIAAAAIABkAAAAEABIAAAAJABkAAAAEABIAAAAKABkAAAAEABIAAAALABkAAAAEABIAAAA=")
+tile_map_data = PackedByteArray("AAAAAA8AAAASAAwAAAABAA8AAAATAAwAAAACAA8AAAAUAAwAAAADAA8AAAASAAwAAAAEAA8AAAATAAwAAAAFAA8AAAAUAAwAAAAGAA8AAAASAAwAAAAHAA8AAAATAAwAAAAIAA8AAAAUAAwAAAAJAA8AAAASAAwAAAAKAA8AAAATAAwAAAALAA8AAAAUAAwAAAAMAA8AAAASAAwAAAANAA8AAAATAAwAAAAOAA8AAAAUAAwAAAAPAA8AAAASAAwAAAAQAA8AAAATAAwAAAARAA8AAAAUAAwAAAASAA8AAAASAAwAAAATAA8AAAATAAwAAAAUAA8AAAAUAAwAAAAVAA8AAAASAAwAAAAWAA8AAAATAAwAAAAXAA8AAAAUAAwAAAAYAA8AAAASAAwAAAAZAA8AAAATAAwAAAAaAA8AAAAUAAwAAAAbAA8AAAASAAwAAAAcAA8AAAATAAwAAAAdAA8AAAAUAAwAAAAAABAAAAAIAA4AAAABABAAAAAJAA4AAAACABAAAAAKAA4AAAADABAAAAAIAA4AAAAEABAAAAAJAA4AAAAFABAAAAAKAA4AAAAGABAAAAAIAA4AAAAHABAAAAAJAA4AAAAIABAAAAAKAA4AAAAJABAAAAAIAA4AAAAKABAAAAAJAA4AAAALABAAAAAKAA4AAAAMABAAAAAIAA4AAAANABAAAAAJAA4AAAAOABAAAAAKAA4AAAAPABAAAAAIAA4AAAAQABAAAAAJAA4AAAARABAAAAAKAA4AAAASABAAAAAIAA4AAAATABAAAAAJAA4AAAAUABAAAAAKAA4AAAAVABAAAAAIAA4AAAAWABAAAAAJAA4AAAAXABAAAAAKAA4AAAAYABAAAAAIAA4AAAAZABAAAAAJAA4AAAAaABAAAAAKAA4AAAAbABAAAAAIAA4AAAAcABAAAAAJAA4AAAAdABAAAAAKAA4AAAAeAA8AAAASAAwAAAAfAA8AAAATAAwAAAAgAA8AAAAUAAwAAAAhAA8AAAASAAwAAAAiAA8AAAATAAwAAAAjAA8AAAAUAAwAAAAkAA8AAAASAAwAAAAlAA8AAAATAAwAAAAmAA8AAAAUAAwAAAAnAA8AAAASAAwAAAAoAA8AAAATAAwAAAApAA8AAAAUAAwAAAAqAA8AAAASAAwAAAArAA8AAAATAAwAAAAsAA8AAAAUAAwAAAAtAA8AAAASAAwAAAAuAA8AAAATAAwAAAAvAA8AAAAUAAwAAAAwAA8AAAASAAwAAAAxAA8AAAATAAwAAAAyAA8AAAAUAAwAAAAzAA8AAAASAAwAAAA0AA8AAAATAAwAAAA1AA8AAAAUAAwAAAA2AA8AAAASAAwAAAA3AA8AAAATAAwAAAA4AA8AAAAUAAwAAAAeABAAAAAIAA4AAAAfABAAAAAJAA4AAAAgABAAAAAKAA4AAAAhABAAAAAIAA4AAAAiABAAAAAJAA4AAAAjABAAAAAKAA4AAAAkABAAAAAIAA4AAAAlABAAAAAJAA4AAAAmABAAAAAKAA4AAAAnABAAAAAIAA4AAAAoABAAAAAJAA4AAAApABAAAAAKAA4AAAAqABAAAAAIAA4AAAArABAAAAAJAA4AAAAsABAAAAAKAA4AAAAtABAAAAAIAA4AAAAuABAAAAAJAA4AAAAvABAAAAAKAA4AAAAwABAAAAAIAA4AAAAxABAAAAAJAA4AAAAyABAAAAAKAA4AAAAzABAAAAAIAA4AAAA0ABAAAAAJAA4AAAA1ABAAAAAKAA4AAAA2ABAAAAAIAA4AAAA3ABAAAAAJAA4AAAA4ABAAAAAKAA4AAAA=")
 tile_set = SubResource("TileSet_wygj1")
 
 [node name="Objects" type="TileMapLayer" parent="Environment"]
-tile_map_data = PackedByteArray("AAAPAAQAAAAAAAAAAAAPAAUAAAAAAAEAAAAPAAYAAAAAAAIAAAAPAAcAAAAAAAMAAAAPAAgAAAAAAAQAAAAPAAkAAAAAAAUAAAAQAAQAAAABAAAAAAAQAAUAAAABAAEAAAAQAAYAAAABAAIAAAAQAAcAAAABAAMAAAAQAAgAAAABAAQAAAAQAAkAAAABAAUAAAARAAQAAAACAAAAAAARAAUAAAACAAEAAAARAAYAAAACAAIAAAARAAcAAAACAAMAAAARAAgAAAACAAQAAAARAAkAAAACAAUAAAASAAQAAAADAAAAAAASAAUAAAADAAEAAAASAAYAAAADAAIAAAASAAcAAAADAAMAAAASAAgAAAADAAQAAAASAAkAAAADAAUAAAATAAQAAAAEAAAAAAATAAUAAAAEAAEAAAATAAYAAAAEAAIAAAATAAcAAAAEAAMAAAATAAgAAAAEAAQAAAATAAkAAAAEAAUAAAAUAAQAAAAFAAAAAAAUAAUAAAAFAAEAAAAUAAYAAAAFAAIAAAAUAAcAAAAFAAMAAAAUAAgAAAAFAAQAAAAUAAkAAAAFAAUAAAAVAAQAAAAGAAAAAAAVAAUAAAAGAAEAAAAVAAYAAAAGAAIAAAAVAAcAAAAGAAMAAAAVAAgAAAAGAAQAAAAVAAkAAAAGAAUAAAA=")
+tile_map_data = PackedByteArray("AAAWAAkAAAAAAAAAAAAWAAoAAAAAAAEAAAAWAAsAAAAAAAIAAAAWAAwAAAAAAAMAAAAWAA0AAAAAAAQAAAAWAA4AAAAAAAUAAAAXAAkAAAABAAAAAAAXAAoAAAABAAEAAAAXAAsAAAABAAIAAAAXAAwAAAABAAMAAAAXAA0AAAABAAQAAAAXAA4AAAABAAUAAAAYAAkAAAACAAAAAAAYAAoAAAACAAEAAAAYAAsAAAACAAIAAAAYAAwAAAACAAMAAAAYAA0AAAACAAQAAAAYAA4AAAACAAUAAAAZAAkAAAADAAAAAAAZAAoAAAADAAEAAAAZAAsAAAADAAIAAAAZAAwAAAADAAMAAAAZAA0AAAADAAQAAAAZAA4AAAADAAUAAAAaAAkAAAAEAAAAAAAaAAoAAAAEAAEAAAAaAAsAAAAEAAIAAAAaAAwAAAAEAAMAAAAaAA0AAAAEAAQAAAAaAA4AAAAEAAUAAAAbAAkAAAAFAAAAAAAbAAoAAAAFAAEAAAAbAAsAAAAFAAIAAAAbAAwAAAAFAAMAAAAbAA0AAAAFAAQAAAAbAA4AAAAFAAUAAAAcAAkAAAAGAAAAAAAcAAoAAAAGAAEAAAAcAAsAAAAGAAIAAAAcAAwAAAAGAAMAAAAcAA0AAAAGAAQAAAAcAA4AAAAGAAUAAAA=")
 tile_set = SubResource("TileSet_e2t1h")
 
-[node name="NoZoneArea" parent="." instance=ExtResource("3_3je4i")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea"]
-position = Vector2(-2, 487.5)
-shape = SubResource("RectangleShape2D_wl4y2")
-
-[node name="NoZoneArea2" parent="." instance=ExtResource("3_3je4i")]
-position = Vector2(510, 476)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea2"]
-position = Vector2(66, -43.75)
-shape = SubResource("RectangleShape2D_aka5t")
-
-[node name="Item2" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(461, 440)
-item_data = SubResource("Resource_50vrn")
-
-[node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(492, 439)
-item_data = SubResource("Resource_v6cjm")
-
-[node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(538, 478)
-item_data = SubResource("Resource_6vx3n")
-
-[node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(494, 478)
-item_data = SubResource("Resource_fix6n")
-
-[node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(141, 374)
-item_data = ExtResource("8_ho2qu")
-
-[node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(175, 374)
-item_data = ExtResource("8_ho2qu")
-
-[node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(270, 406)
-item_data = ExtResource("8_ho2qu")
-
-[node name="ItemInteractable7" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(230, 393)
-item_data = ExtResource("8_ho2qu")
-
-[node name="CurrencyInteractable" parent="." instance=ExtResource("12_gbcdt")]
-position = Vector2(313, 407)
-
-[node name="CurrencyInteractable2" parent="." instance=ExtResource("12_gbcdt")]
-position = Vector2(114, 376)
-
-[node name="CurrencyInteractable3" parent="." instance=ExtResource("12_gbcdt")]
-position = Vector2(18, 343)
-
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
-position = Vector2(190, 365)
+position = Vector2(69, 244)
 stats_resource = SubResource("Resource_3gcth")
-equipped_weapon = SubResource("Resource_wugul")
+equipped_weapon = SubResource("Resource_beikd")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(240, 135)
+limit_left = 0
+limit_right = 850
+limit_bottom = 302
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_left_margin = 1.0
+drag_top_margin = 1.0
+drag_right_margin = 1.0
+drag_bottom_margin = 1.0
+script = ExtResource("15_ctc77")
+player = NodePath("../Player")
+smoothing_distance = 2
 
-[node name="PlayerHUD" parent="Player/Camera2D" node_paths=PackedStringArray("player") instance=ExtResource("6_2sq7a")]
-player = NodePath("../..")
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="NoZoneArea3" parent="." instance=ExtResource("3_3je4i")]
-position = Vector2(-5, 305)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NoZoneArea3"]
-position = Vector2(0, 18.5)
-shape = SubResource("RectangleShape2D_vvb74")
-
-[node name="TestEnemy" parent="." instance=ExtResource("12_dpdpj")]
-position = Vector2(183, 510)
-stats_resource = SubResource("Resource_xgafg")
-equipped_weapon = SubResource("Resource_k8qyb")
+[node name="PlayerHUD" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("6_2sq7a")]
+offset_left = 1.0
+offset_top = 0.0
+offset_right = 1.0
+offset_bottom = 0.0
+player = NodePath("../../Player")
