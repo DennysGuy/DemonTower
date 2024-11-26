@@ -1,0 +1,16 @@
+Shop are locations in the main hub where players can purchase 
+valuable items to help them progress in the game
+
+There will be no designated weapon shops as weapons are crafted. 
+
+Shops:
+	- Utility Shop:
+		- players can buy consumable items here such as replenishing potions and buff potions
+	- Material Shop
+		- players can buy materials that can help them craft weapons
+	- Drip Shop
+		- players can buy cosmetics here.
+		- as Drip is cosmetic only, this shop will be refreshed every so often with random cosmetics.
+		- The player should check here every so often for new cosmetics. This will hopefully give the players
+		  the capability of keeping their look fresh if they so desire.
+	- Crafting Station
