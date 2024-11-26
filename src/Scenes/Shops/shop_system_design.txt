@@ -14,3 +14,11 @@ Shops:
 		- The player should check here every so often for new cosmetics. This will hopefully give the players
 		  the capability of keeping their look fresh if they so desire.
 	- Crafting Station
+		- crafting station is broken down into three distinct stations
+			- refinery station: 
+				- allows the player to take raw items and refine them into materials necessary for crafting
+			- smithing station
+				- allows the player to take their refined and other crafting items and transform them into a weapon or accessory. 
+					- there might be a mini-game where the player will have the chance to get an enhanced version of their weapon.
+			- enhancement station:
+				- the player can enhance 
