@@ -11,6 +11,7 @@ var item_data : Item
 var belongs_to_player : bool
 
 signal shop_action(item_data)
+signal player_action(item_data)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +25,10 @@ func _ready():
 
 func _on_gui_input(event : InputEvent):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		shop_action.emit(item_data)
+		if belongs_to_player:
+			player_action.emit(item_data)
+		else:
+			shop_action.emit(item_data)
 
 func set_item_data(item_data : Item):
 	self.item_data = item_data

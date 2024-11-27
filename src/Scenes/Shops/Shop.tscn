@@ -68,7 +68,7 @@ is_stackable = true
 max_stack = 999
 icon = ExtResource("5_i07or")
 
-[node name="Shop" type="Control" node_paths=PackedStringArray("shop_title", "for_sale_button", "buy_back_button", "shop_list", "quantity_panel", "quantity_input", "quantity_purchase_button", "quantity_cancel_button", "confirmation_panel", "confirmation_button", "confirmation_cancel", "insufficient_funds_panel", "close_insufficient_funds_panel", "transaction_successful_panel", "close_transaction_successful_panel")]
+[node name="Shop" type="Control" node_paths=PackedStringArray("shop_title", "for_sale_button", "buy_back_button", "shop_list", "player_inventory_list", "quantity_panel", "quantity_input", "quantity_purchase_button", "quantity_cancel_button", "confirmation_panel", "confirmation_button", "confirmation_cancel", "insufficient_funds_panel", "close_insufficient_funds_panel", "transaction_successful_panel", "close_transaction_successful_panel", "gold_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,6 +82,7 @@ for_sale_button = NodePath("Panel/HBoxContainer/Seller/HBoxContainer/ForSaleButt
 buy_back_button = NodePath("Panel/HBoxContainer/Seller/HBoxContainer/BuyBackButton")
 items_for_sale = Array[ExtResource("2_by4mw")]([SubResource("Resource_5w717"), SubResource("Resource_i7uhb"), ExtResource("6_hjdbj")])
 shop_list = NodePath("Panel/HBoxContainer/Seller/ScrollContainer/GridContainer")
+player_inventory_list = NodePath("Panel/HBoxContainer/Player/ScrollContainer/GridContainer")
 quantity_panel = NodePath("QuantityPanel")
 quantity_input = NodePath("QuantityPanel/QuantityInput")
 quantity_purchase_button = NodePath("QuantityPanel/HBoxContainer/QuantityPurchaseButton")
@@ -93,6 +94,7 @@ insufficient_funds_panel = NodePath("InsufficientFunds")
 close_insufficient_funds_panel = NodePath("InsufficientFunds/CloseInsufficientFundsPanel")
 transaction_successful_panel = NodePath("SaleSuccess")
 close_transaction_successful_panel = NodePath("SaleSuccess/CloseSaleSuccessPanel")
+gold_label = NodePath("Panel/HBoxContainer/Player/GoldLabel")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -232,7 +234,7 @@ layout_mode = 0
 offset_left = 12.0
 offset_top = 22.0
 offset_right = 152.0
-offset_bottom = 189.0
+offset_bottom = 176.0
 
 [node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/Player/ScrollContainer"]
 layout_mode = 2
@@ -242,6 +244,15 @@ theme_override_constants/v_separation = 48
 
 [node name="ShopItem" parent="Panel/HBoxContainer/Player/ScrollContainer/GridContainer" instance=ExtResource("6_blno2")]
 layout_mode = 2
+
+[node name="GoldLabel" type="Label" parent="Panel/HBoxContainer/Player"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 179.0
+offset_right = 60.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 9
+text = "Gold: 1000"
 
 [node name="QuantityPanel" type="ColorRect" parent="."]
 layout_mode = 0
@@ -403,6 +414,12 @@ theme_override_font_sizes/font_size = 7
 text = "Close"
 
 [connection signal="button_down" from="Panel/LeaveStoreButton" to="." method="_on_leave_store_button_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/WeaponTab" to="." method="_on_weapon_tab_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/RecipesTab" to="." method="_on_recipes_tab_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/AccessoriesTab" to="." method="_on_accessories_tab_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/DripTab" to="." method="_on_drip_tab_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/ConsumablesTab" to="." method="_on_consumables_tab_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/MaterialsTab" to="." method="_on_materials_tab_button_down"]
 [connection signal="button_down" from="QuantityPanel/HBoxContainer/QuantityPurchaseButton" to="." method="_on_quantity_purchase_button_button_down"]
 [connection signal="button_down" from="QuantityPanel/HBoxContainer/QuantityCancelButton" to="." method="_on_quantity_cancel_button_button_down"]
 [connection signal="button_down" from="ConfirmPurchase/HBoxContainer/ConfirmationButton" to="." method="_on_confirmation_button_button_down"]

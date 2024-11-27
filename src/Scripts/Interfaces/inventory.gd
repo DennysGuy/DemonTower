@@ -11,7 +11,7 @@ var inventories : Dictionary = {
 	},
 	"metadata": {
 		"slot_quantity": 25,
-		"gold": 125,
+		"gold": 12500,
 		"key_ids": {  # For tracking auto-increment keys
 			"weapons": 0,
 			"recipes": 0,
@@ -55,6 +55,7 @@ func add_item(category: String, item : Item, quantity: int = 1):
 			inventories["metadata"]["key_ids"][category] += 1
 		else:
 			print_debug("Inventory tab is full!")
+	print("category: ", category)
 	print(inventory)
 		
 func remove_item(category: String, item : Item, quantity : int = 1) -> Array:

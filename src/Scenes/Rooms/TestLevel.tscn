@@ -921,7 +921,7 @@ speed = 120
 jump = 200
 xp_value = 0
 
-[sub_resource type="Resource" id="Resource_xc50f"]
+[sub_resource type="Resource" id="Resource_l0aft"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
 level = 1
@@ -956,7 +956,7 @@ max_stack = 0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
 size = Vector2(70, 39)
 
-[sub_resource type="Resource" id="Resource_7e15h"]
+[sub_resource type="Resource" id="Resource_e7d06"]
 resource_local_to_scene = true
 script = ExtResource("11_wc0hb")
 recipe_quantity = 5
@@ -990,7 +990,7 @@ tile_set = SubResource("TileSet_e2t1h")
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(69, 244)
 stats_resource = SubResource("Resource_3gcth")
-equipped_weapon = SubResource("Resource_xc50f")
+equipped_weapon = SubResource("Resource_l0aft")
 
 [node name="NpcInteractable" parent="." instance=ExtResource("6_jm6bf")]
 time_line = "shop_keeper_talk"
@@ -1025,4 +1025,4 @@ player = NodePath("../../Player")
 
 [node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(626, 229)
-item_data = SubResource("Resource_7e15h")
+item_data = SubResource("Resource_e7d06")
