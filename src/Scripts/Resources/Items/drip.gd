@@ -4,7 +4,6 @@ enum DripClass {SHIRT, PANTS, SHOES}
 
 @export_group("Drip Type")
 @export_enum("Shirt", "Pants", "Shoes") var drip_type : int
-
 @export_group("Visual Components")
 @export var animation_name: String = ""
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=22 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="Texture2D" uid="uid://1u42dimr4av5" path="res://Assets/oak_woods_v1.0/decorations/shop.png" id="2_socv0"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="6_c8d2o"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="6_h7fgs"]
 [ext_resource type="PackedScene" uid="uid://g54ni6fq53ig" path="res://src/Scenes/NPCs/NPCInteractable.tscn" id="6_jm6bf"]
+[ext_resource type="PackedScene" uid="uid://bcpd44ry7bhvp" path="res://src/Scenes/Items/ItemInteractable.tscn" id="9_dg0v2"]
+[ext_resource type="Texture2D" uid="uid://cp0j1enswieth" path="res://Assets/copper_ore_icon.png" id="10_g04bh"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="11_wc0hb"]
 [ext_resource type="Script" path="res://src/Scripts/Camera.gd" id="15_ctc77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
@@ -918,7 +921,7 @@ speed = 120
 jump = 200
 xp_value = 0
 
-[sub_resource type="Resource" id="Resource_jbhws"]
+[sub_resource type="Resource" id="Resource_xc50f"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
 level = 1
@@ -941,7 +944,8 @@ jump_bonus = 0
 animation_name = ""
 id = 0
 name = "Wood Knives"
-value = 0
+sell_value = 0
+shop_value = 0
 is_droppable = true
 type = 0
 rarity = 0
@@ -951,6 +955,22 @@ max_stack = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
 size = Vector2(70, 39)
+
+[sub_resource type="Resource" id="Resource_7e15h"]
+resource_local_to_scene = true
+script = ExtResource("11_wc0hb")
+recipe_quantity = 5
+id = 456
+name = "Copper Ore"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 5
+rarity = 0
+description = "Copper harvested from the depths of the tower. Used to craft gear."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("10_g04bh")
 
 [node name="TestLevel" type="Node2D"]
 
@@ -970,7 +990,7 @@ tile_set = SubResource("TileSet_e2t1h")
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(69, 244)
 stats_resource = SubResource("Resource_3gcth")
-equipped_weapon = SubResource("Resource_jbhws")
+equipped_weapon = SubResource("Resource_xc50f")
 
 [node name="NpcInteractable" parent="." instance=ExtResource("6_jm6bf")]
 time_line = "shop_keeper_talk"
@@ -1002,3 +1022,7 @@ offset_top = 0.0
 offset_right = 1.0
 offset_bottom = 0.0
 player = NodePath("../../Player")
+
+[node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(626, 229)
+item_data = SubResource("Resource_7e15h")

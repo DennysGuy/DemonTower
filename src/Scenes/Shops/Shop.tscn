@@ -1,0 +1,411 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjpyopbj8ntyo"]
+
+[ext_resource type="Script" path="res://src/Scripts/Shops/shop.gd" id="1_p0xyf"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/item.gd" id="2_by4mw"]
+[ext_resource type="Texture2D" uid="uid://du3jmm4yyjxm5" path="res://Assets/health_pot_icon.png" id="3_avxhc"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/consumable.gd" id="4_82vlf"]
+[ext_resource type="Texture2D" uid="uid://g3mr6tn7jpc1" path="res://Assets/mana_pot_icon.png" id="5_i07or"]
+[ext_resource type="PackedScene" uid="uid://d4eosmublq6ma" path="res://src/Scenes/Shops/ShopItem.tscn" id="6_blno2"]
+[ext_resource type="Resource" uid="uid://x77xci8tsx7b" path="res://src/Resources/Items/Drip/Pants/01_Common/CargoPants.tres" id="6_hjdbj"]
+
+[sub_resource type="Resource" id="Resource_5w717"]
+resource_local_to_scene = true
+script = ExtResource("4_82vlf")
+consumable_type = 0
+provided_hp = 50
+provided_mp = 0
+buff_duration = 0
+speed_buff_amount = 0.0
+jump_buff_amount = 0.0
+accuracy_buff_amount = 0.0
+avoidability_buff_amount = 0.0
+crit_rate_buff_amount = 0.0
+crit_damage_buff_amount = 0.0
+weapon_attack_buff_amount = 0.0
+weapon_defense_buff_amount = 0.0
+magic_attack_buff_amount = 0.0
+magic_defense_buff_amount = 0.0
+shadow_attack_buff_amount = 0.0
+id = 10
+name = "Basic HP Potion"
+sell_value = 25
+shop_value = 100
+is_droppable = true
+type = 4
+rarity = 0
+description = "Standard Health Potion recovers 50 health"
+is_stackable = true
+max_stack = 999
+icon = ExtResource("3_avxhc")
+
+[sub_resource type="Resource" id="Resource_i7uhb"]
+resource_local_to_scene = true
+script = ExtResource("4_82vlf")
+consumable_type = 0
+provided_hp = 0
+provided_mp = 75
+buff_duration = 0
+speed_buff_amount = 0.0
+jump_buff_amount = 0.0
+accuracy_buff_amount = 0.0
+avoidability_buff_amount = 0.0
+crit_rate_buff_amount = 0.0
+crit_damage_buff_amount = 0.0
+weapon_attack_buff_amount = 0.0
+weapon_defense_buff_amount = 0.0
+magic_attack_buff_amount = 0.0
+magic_defense_buff_amount = 0.0
+shadow_attack_buff_amount = 0.0
+id = 11
+name = "Basic MP Potion"
+sell_value = 50
+shop_value = 150
+is_droppable = false
+type = 4
+rarity = 0
+description = "A Basic Potion that heals 75 MP"
+is_stackable = true
+max_stack = 999
+icon = ExtResource("5_i07or")
+
+[node name="Shop" type="Control" node_paths=PackedStringArray("shop_title", "for_sale_button", "buy_back_button", "shop_list", "quantity_panel", "quantity_input", "quantity_purchase_button", "quantity_cancel_button", "confirmation_panel", "confirmation_button", "confirmation_cancel", "insufficient_funds_panel", "close_insufficient_funds_panel", "transaction_successful_panel", "close_transaction_successful_panel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p0xyf")
+this_name = "Utility"
+shop_title = NodePath("Panel/ShopTitle")
+for_sale_button = NodePath("Panel/HBoxContainer/Seller/HBoxContainer/ForSaleButton")
+buy_back_button = NodePath("Panel/HBoxContainer/Seller/HBoxContainer/BuyBackButton")
+items_for_sale = Array[ExtResource("2_by4mw")]([SubResource("Resource_5w717"), SubResource("Resource_i7uhb"), ExtResource("6_hjdbj")])
+shop_list = NodePath("Panel/HBoxContainer/Seller/ScrollContainer/GridContainer")
+quantity_panel = NodePath("QuantityPanel")
+quantity_input = NodePath("QuantityPanel/QuantityInput")
+quantity_purchase_button = NodePath("QuantityPanel/HBoxContainer/QuantityPurchaseButton")
+quantity_cancel_button = NodePath("QuantityPanel/HBoxContainer/QuantityCancelButton")
+confirmation_panel = NodePath("ConfirmPurchase")
+confirmation_button = NodePath("ConfirmPurchase/HBoxContainer/ConfirmationButton")
+confirmation_cancel = NodePath("ConfirmPurchase/HBoxContainer/ConfirmationCancelButton")
+insufficient_funds_panel = NodePath("InsufficientFunds")
+close_insufficient_funds_panel = NodePath("InsufficientFunds/CloseInsufficientFundsPanel")
+transaction_successful_panel = NodePath("SaleSuccess")
+close_transaction_successful_panel = NodePath("SaleSuccess/CloseSaleSuccessPanel")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 17.0
+offset_right = 442.0
+offset_bottom = 249.0
+
+[node name="ShopTitle" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 10.0
+offset_right = 58.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 7
+text = "Item Shop"
+
+[node name="Player" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 12.0
+offset_right = 239.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 7
+text = "Player Inventory"
+
+[node name="LeaveStoreButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.0
+offset_top = 4.0
+offset_right = -7.0
+offset_bottom = 21.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 6
+text = "Leave Store"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 26.0
+offset_right = -20.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Seller" type="Panel" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/Seller"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 83.0
+offset_bottom = 21.0
+
+[node name="ForSaleButton" type="Button" parent="Panel/HBoxContainer/Seller/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "For Sale"
+
+[node name="BuyBackButton" type="Button" parent="Panel/HBoxContainer/Seller/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Buy Back
+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/Seller"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 22.0
+offset_right = 152.0
+offset_bottom = 189.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/Seller/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/v_separation = 48
+
+[node name="ShopItem" parent="Panel/HBoxContainer/Seller/ScrollContainer/GridContainer" instance=ExtResource("6_blno2")]
+layout_mode = 2
+
+[node name="Player" type="Panel" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/Player"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 153.0
+offset_bottom = 21.0
+theme_override_constants/separation = 1
+
+[node name="WeaponTab" type="Button" parent="Panel/HBoxContainer/Player/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Weap."
+
+[node name="RecipesTab" type="Button" parent="Panel/HBoxContainer/Player/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Recip.
+"
+
+[node name="AccessoriesTab" type="Button" parent="Panel/HBoxContainer/Player/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Acc."
+
+[node name="DripTab" type="Button" parent="Panel/HBoxContainer/Player/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Drip"
+
+[node name="ConsumablesTab" type="Button" parent="Panel/HBoxContainer/Player/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Cons."
+
+[node name="MaterialsTab" type="Button" parent="Panel/HBoxContainer/Player/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Mat.
+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/Player"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 22.0
+offset_right = 152.0
+offset_bottom = 189.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/Player/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/v_separation = 48
+
+[node name="ShopItem" parent="Panel/HBoxContainer/Player/ScrollContainer/GridContainer" instance=ExtResource("6_blno2")]
+layout_mode = 2
+
+[node name="QuantityPanel" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 99.0
+offset_right = 308.0
+offset_bottom = 164.0
+color = Color(0.523889, 0.635373, 0.747571, 1)
+
+[node name="QuanittyLabel" type="Label" parent="QuantityPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.5
+offset_right = 23.5
+offset_bottom = 14.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Quantity:"
+
+[node name="QuantityInput" type="TextEdit" parent="QuantityPanel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 17.0
+offset_right = 118.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 7
+placeholder_text = "Amount"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuantityPanel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 43.0
+offset_right = 97.0
+offset_bottom = 62.0
+
+[node name="QuantityPurchaseButton" type="Button" parent="QuantityPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Purchase"
+
+[node name="QuantityCancelButton" type="Button" parent="QuantityPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Cancel"
+
+[node name="ConfirmPurchase" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 99.0
+offset_right = 308.0
+offset_bottom = 164.0
+color = Color(0.523889, 0.635373, 0.747571, 1)
+
+[node name="ConfirmPurchaseLabel" type="Label" parent="ConfirmPurchase"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_top = 3.0
+offset_right = 43.5
+offset_bottom = 17.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Confirm Purchase"
+
+[node name="Purchase" type="Label" parent="ConfirmPurchase"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 15.0
+offset_right = 102.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 12
+text = "Are you sure?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmPurchase"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 38.0
+offset_right = 82.0
+offset_bottom = 57.0
+
+[node name="ConfirmationButton" type="Button" parent="ConfirmPurchase/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Yes!"
+
+[node name="ConfirmationCancelButton" type="Button" parent="ConfirmPurchase/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "No!"
+
+[node name="InsufficientFunds" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 99.0
+offset_right = 308.0
+offset_bottom = 164.0
+color = Color(0.523889, 0.635373, 0.747571, 1)
+
+[node name="InsufficientFundsNotice" type="Label" parent="InsufficientFunds"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 15.0
+offset_right = 120.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 12
+text = "Insufficient Funds!"
+
+[node name="CloseInsufficientFundsPanel" type="Button" parent="InsufficientFunds"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.5
+offset_top = -22.0
+offset_right = 13.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 7
+text = "Close"
+
+[node name="SaleSuccess" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 99.0
+offset_right = 308.0
+offset_bottom = 164.0
+color = Color(0.523889, 0.635373, 0.747571, 1)
+
+[node name="SaleSuccess" type="Label" parent="SaleSuccess"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 16.0
+offset_right = 120.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 10
+text = "Transaction Successful!"
+
+[node name="CloseSaleSuccessPanel" type="Button" parent="SaleSuccess"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.5
+offset_top = -22.0
+offset_right = 13.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 7
+text = "Close"
+
+[connection signal="button_down" from="Panel/LeaveStoreButton" to="." method="_on_leave_store_button_button_down"]
+[connection signal="button_down" from="QuantityPanel/HBoxContainer/QuantityPurchaseButton" to="." method="_on_quantity_purchase_button_button_down"]
+[connection signal="button_down" from="QuantityPanel/HBoxContainer/QuantityCancelButton" to="." method="_on_quantity_cancel_button_button_down"]
+[connection signal="button_down" from="ConfirmPurchase/HBoxContainer/ConfirmationButton" to="." method="_on_confirmation_button_button_down"]
+[connection signal="button_down" from="ConfirmPurchase/HBoxContainer/ConfirmationCancelButton" to="." method="_on_confirmation_cancel_button_button_down"]
+[connection signal="button_down" from="InsufficientFunds/CloseInsufficientFundsPanel" to="." method="_on_close_insufficient_funds_panel_button_down"]
+[connection signal="button_down" from="SaleSuccess/CloseSaleSuccessPanel" to="." method="_on_close_sale_success_panel_button_down"]
