@@ -68,16 +68,16 @@ func _confirm_player_item_sale():
 	pass
 
 func _confirm_purchase():
-	var player_gold = Inventory.inventories["meta_data"]["gold"]
+	var player_gold = Inventory.inventories["metadata"]["gold"]
 	if (player_gold - _item_data.shop_value) < 0:
 		print("Not enough gold!")
-		quantity_panel.hide()
+		confirmation_panel.hide()
 		_item_data = null
 		insufficient_funds_panel.show()
 	else:
-		Inventory.inventories["meta_data"]["gold"] -= _item_data.shop_value
+		Inventory.inventories["metadata"]["gold"] -= _item_data.shop_value
 		Inventory.add_item(_item_data.get_item_inventory_name(), _item_data, 1)
-		quantity_panel.hide()
+		confirmation_panel.hide()
 		_item_data = null
 		inventory_needs_update = true
 		transaction_successful_panel.show()
