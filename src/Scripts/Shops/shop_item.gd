@@ -7,6 +7,7 @@ var item_data : Item
 @onready var item_icon : TextureRect = $IconBG/ItemIcon
 @onready var item_name : Label = $VBoxContainer/ItemName
 @onready var item_price_tag : Label = $VBoxContainer/PriceTag
+@export var quantity_label : Label
 
 var belongs_to_player : bool
 

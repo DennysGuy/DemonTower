@@ -1,74 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjpyopbj8ntyo"]
+[gd_scene load_steps=7 format=3 uid="uid://bjpyopbj8ntyo"]
 
 [ext_resource type="Script" path="res://src/Scripts/Shops/shop.gd" id="1_p0xyf"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/item.gd" id="2_by4mw"]
-[ext_resource type="Texture2D" uid="uid://du3jmm4yyjxm5" path="res://Assets/health_pot_icon.png" id="3_avxhc"]
-[ext_resource type="Script" path="res://src/Scripts/Resources/Items/consumable.gd" id="4_82vlf"]
-[ext_resource type="Texture2D" uid="uid://g3mr6tn7jpc1" path="res://Assets/mana_pot_icon.png" id="5_i07or"]
+[ext_resource type="Resource" uid="uid://cqkch53vhillr" path="res://src/Resources/Items/Consumables/Replenishables/01_Common/BasicHPPotion.tres" id="3_jbcun"]
+[ext_resource type="Resource" uid="uid://cigjg7lpx53oh" path="res://src/Resources/Items/Consumables/Replenishables/01_Common/BasicMPPotion.tres" id="4_38sq4"]
 [ext_resource type="PackedScene" uid="uid://d4eosmublq6ma" path="res://src/Scenes/Shops/ShopItem.tscn" id="6_blno2"]
 [ext_resource type="Resource" uid="uid://x77xci8tsx7b" path="res://src/Resources/Items/Drip/Pants/01_Common/CargoPants.tres" id="6_hjdbj"]
 
-[sub_resource type="Resource" id="Resource_5w717"]
-resource_local_to_scene = true
-script = ExtResource("4_82vlf")
-consumable_type = 0
-provided_hp = 50
-provided_mp = 0
-buff_duration = 0
-speed_buff_amount = 0.0
-jump_buff_amount = 0.0
-accuracy_buff_amount = 0.0
-avoidability_buff_amount = 0.0
-crit_rate_buff_amount = 0.0
-crit_damage_buff_amount = 0.0
-weapon_attack_buff_amount = 0.0
-weapon_defense_buff_amount = 0.0
-magic_attack_buff_amount = 0.0
-magic_defense_buff_amount = 0.0
-shadow_attack_buff_amount = 0.0
-id = 10
-name = "Basic HP Potion"
-sell_value = 25
-shop_value = 100
-is_droppable = true
-type = 4
-rarity = 0
-description = "Standard Health Potion recovers 50 health"
-is_stackable = true
-max_stack = 999
-icon = ExtResource("3_avxhc")
-
-[sub_resource type="Resource" id="Resource_i7uhb"]
-resource_local_to_scene = true
-script = ExtResource("4_82vlf")
-consumable_type = 0
-provided_hp = 0
-provided_mp = 75
-buff_duration = 0
-speed_buff_amount = 0.0
-jump_buff_amount = 0.0
-accuracy_buff_amount = 0.0
-avoidability_buff_amount = 0.0
-crit_rate_buff_amount = 0.0
-crit_damage_buff_amount = 0.0
-weapon_attack_buff_amount = 0.0
-weapon_defense_buff_amount = 0.0
-magic_attack_buff_amount = 0.0
-magic_defense_buff_amount = 0.0
-shadow_attack_buff_amount = 0.0
-id = 11
-name = "Basic MP Potion"
-sell_value = 50
-shop_value = 150
-is_droppable = false
-type = 4
-rarity = 0
-description = "A Basic Potion that heals 75 MP"
-is_stackable = true
-max_stack = 999
-icon = ExtResource("5_i07or")
-
-[node name="Shop" type="Control" node_paths=PackedStringArray("shop_title", "for_sale_button", "buy_back_button", "shop_list", "player_inventory_list", "quantity_panel", "quantity_input", "quantity_purchase_button", "quantity_cancel_button", "confirmation_panel", "confirmation_button", "confirmation_cancel", "insufficient_funds_panel", "close_insufficient_funds_panel", "transaction_successful_panel", "close_transaction_successful_panel", "gold_label")]
+[node name="Shop" type="Control" node_paths=PackedStringArray("shop_title", "for_sale_button", "buy_back_button", "shop_list", "player_inventory_list", "quantity_panel", "quantity_input", "quantity_purchase_button", "quantity_cancel_button", "confirmation_panel", "confirmation_button", "confirmation_cancel", "insufficient_funds_panel", "close_insufficient_funds_panel", "transaction_successful_panel", "close_transaction_successful_panel", "confirm_quantity_sale_panel", "quantity_sale_input", "confirm_sale_panel", "gold_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,7 +19,7 @@ this_name = "Utility"
 shop_title = NodePath("Panel/ShopTitle")
 for_sale_button = NodePath("Panel/HBoxContainer/Seller/HBoxContainer/ForSaleButton")
 buy_back_button = NodePath("Panel/HBoxContainer/Seller/HBoxContainer/BuyBackButton")
-items_for_sale = Array[ExtResource("2_by4mw")]([SubResource("Resource_5w717"), SubResource("Resource_i7uhb"), ExtResource("6_hjdbj")])
+items_for_sale = Array[ExtResource("2_by4mw")]([ExtResource("3_jbcun"), ExtResource("4_38sq4"), ExtResource("6_hjdbj")])
 shop_list = NodePath("Panel/HBoxContainer/Seller/ScrollContainer/GridContainer")
 player_inventory_list = NodePath("Panel/HBoxContainer/Player/ScrollContainer/GridContainer")
 quantity_panel = NodePath("QuantityPanel")
@@ -94,6 +33,9 @@ insufficient_funds_panel = NodePath("InsufficientFunds")
 close_insufficient_funds_panel = NodePath("InsufficientFunds/CloseInsufficientFundsPanel")
 transaction_successful_panel = NodePath("SaleSuccess")
 close_transaction_successful_panel = NodePath("SaleSuccess/CloseSaleSuccessPanel")
+confirm_quantity_sale_panel = NodePath("QuantitySalePanel")
+quantity_sale_input = NodePath("QuantitySalePanel/QuantitySaleInput")
+confirm_sale_panel = NodePath("ConfirmSale")
 gold_label = NodePath("Panel/HBoxContainer/Player/GoldLabel")
 
 [node name="Panel" type="Panel" parent="."]
@@ -300,6 +242,52 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 7
 text = "Cancel"
 
+[node name="QuantitySalePanel" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 99.0
+offset_right = 308.0
+offset_bottom = 164.0
+color = Color(0.523889, 0.635373, 0.747571, 1)
+
+[node name="QuantitySaleLabel" type="Label" parent="QuantitySalePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.5
+offset_right = 23.5
+offset_bottom = 14.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Quantity:"
+
+[node name="QuantitySaleInput" type="TextEdit" parent="QuantitySalePanel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 17.0
+offset_right = 118.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 7
+placeholder_text = "Amount"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuantitySalePanel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 43.0
+offset_right = 97.0
+offset_bottom = 62.0
+
+[node name="QuantitySaleButton" type="Button" parent="QuantitySalePanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Sell"
+
+[node name="QuantitySaleCancelButton" type="Button" parent="QuantitySalePanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Cancel"
+
 [node name="ConfirmPurchase" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 181.0
@@ -343,6 +331,53 @@ theme_override_font_sizes/font_size = 7
 text = "Yes!"
 
 [node name="ConfirmationCancelButton" type="Button" parent="ConfirmPurchase/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "No!"
+
+[node name="ConfirmSale" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 99.0
+offset_right = 308.0
+offset_bottom = 164.0
+color = Color(0.523889, 0.635373, 0.747571, 1)
+
+[node name="ConfirmSaleLabel" type="Label" parent="ConfirmSale"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_top = 3.0
+offset_right = 43.5
+offset_bottom = 17.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Confirm Sale"
+
+[node name="Sale" type="Label" parent="ConfirmSale"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 15.0
+offset_right = 102.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 12
+text = "Are you sure?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmSale"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 38.0
+offset_right = 82.0
+offset_bottom = 57.0
+
+[node name="ConfirmationSaleButton" type="Button" parent="ConfirmSale/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Yes!"
+
+[node name="ConfirmationSaleCancelButton" type="Button" parent="ConfirmSale/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 7
 text = "No!"
@@ -414,6 +449,8 @@ theme_override_font_sizes/font_size = 7
 text = "Close"
 
 [connection signal="button_down" from="Panel/LeaveStoreButton" to="." method="_on_leave_store_button_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Seller/HBoxContainer/ForSaleButton" to="." method="_on_for_sale_button_button_down"]
+[connection signal="button_down" from="Panel/HBoxContainer/Seller/HBoxContainer/BuyBackButton" to="." method="_on_buy_back_button_button_down"]
 [connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/WeaponTab" to="." method="_on_weapon_tab_button_down"]
 [connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/RecipesTab" to="." method="_on_recipes_tab_button_down"]
 [connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/AccessoriesTab" to="." method="_on_accessories_tab_button_down"]
@@ -422,7 +459,11 @@ text = "Close"
 [connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/MaterialsTab" to="." method="_on_materials_tab_button_down"]
 [connection signal="button_down" from="QuantityPanel/HBoxContainer/QuantityPurchaseButton" to="." method="_on_quantity_purchase_button_button_down"]
 [connection signal="button_down" from="QuantityPanel/HBoxContainer/QuantityCancelButton" to="." method="_on_quantity_cancel_button_button_down"]
+[connection signal="button_down" from="QuantitySalePanel/HBoxContainer/QuantitySaleButton" to="." method="_on_quantity_sale_button_button_down"]
+[connection signal="button_down" from="QuantitySalePanel/HBoxContainer/QuantitySaleCancelButton" to="." method="_on_quantity_sale_cancel_button_button_down"]
 [connection signal="button_down" from="ConfirmPurchase/HBoxContainer/ConfirmationButton" to="." method="_on_confirmation_button_button_down"]
 [connection signal="button_down" from="ConfirmPurchase/HBoxContainer/ConfirmationCancelButton" to="." method="_on_confirmation_cancel_button_button_down"]
+[connection signal="button_down" from="ConfirmSale/HBoxContainer/ConfirmationSaleButton" to="." method="_on_confirmation_sale_button_button_down"]
+[connection signal="button_down" from="ConfirmSale/HBoxContainer/ConfirmationSaleCancelButton" to="." method="_on_confirmation_sale_cancel_button_button_down"]
 [connection signal="button_down" from="InsufficientFunds/CloseInsufficientFundsPanel" to="." method="_on_close_insufficient_funds_panel_button_down"]
 [connection signal="button_down" from="SaleSuccess/CloseSaleSuccessPanel" to="." method="_on_close_sale_success_panel_button_down"]
