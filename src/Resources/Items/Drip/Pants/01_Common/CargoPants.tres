@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Drip" load_steps=3 format=3 uid="uid://x77xci8tsx7b"]
+
+[ext_resource type="Texture2D" uid="uid://c6aeijgdtrmnw" path="res://Assets/cargo_pants_icon.png" id="1_sfe6v"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/drip.gd" id="1_uaio3"]
+
+[resource]
+script = ExtResource("1_uaio3")
+drip_type = 1
+animation_name = ""
+id = 23234
+name = "Brown Cargo Pants"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 3
+rarity = 0
+description = "Cargo Pants that provide a nice look."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_sfe6v")

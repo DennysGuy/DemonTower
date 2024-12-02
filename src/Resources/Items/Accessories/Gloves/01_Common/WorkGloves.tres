@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=3 format=3 uid="uid://02ca5x2f4kg4"]
+
+[ext_resource type="Texture2D" uid="uid://hqjsgujptn24" path="res://Assets/work_glove_icon.png" id="1_mb1hd"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/accessory.gd" id="1_ujrgr"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_ujrgr")
+accessory_type = 1
+level = 1
+crit_damage_bonus = 0
+crit_rate_bonus = 0
+speed_bonus = 0
+jump_bonus = 0
+avoidability_bonus = 0
+accuracy_bonus = 2
+hp_bonus = 10
+mp_bonus = 0
+weapon_defense_bonus = 2
+magic_defense_bonus = 0
+id = 0
+name = "Work Gloves"
+value = 100
+type = 2
+rarity = 0
+description = "Gloves designed to protect ones hands while working"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_mb1hd")

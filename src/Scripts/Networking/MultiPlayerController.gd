@@ -5,6 +5,9 @@ extends Control
 var peer
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var executable_path = OS.get_executable_path()
+	var blocking = false
+	OS.execute(executable_path, blocking)
 	multiplayer.peer_connected.connect(peer_connected)
 	multiplayer.peer_disconnected.connect(peer_disconnected)
 	multiplayer.connected_to_server.connect(connected_to_server)

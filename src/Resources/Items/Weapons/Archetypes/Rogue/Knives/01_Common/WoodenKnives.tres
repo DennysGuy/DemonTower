@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://d3p87w5h6lwvo"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="1_14x6r"]
+[ext_resource type="Texture2D" uid="uid://cylmtulin1rqd" path="res://Assets/wooden_knives_icon.png" id="1_g4sww"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_14x6r")
+level = 1
+archetype_class = 2
+weapon_class = 5
+weapon_speed = 100
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 2
+weapon_attack = 0
+weapon_defense = 2
+magic_attack = 0
+magic_defense = 0
+shadow_attack = 8
+shadow_defense = 1
+HP_bonus = 10
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
+id = 3
+name = "Wood Knives"
+type = 0
+description = "Wood based knives suitable as an entry level melee weapon for Rogues."
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_g4sww")

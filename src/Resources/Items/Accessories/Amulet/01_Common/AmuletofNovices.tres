@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=3 format=3 uid="uid://10og77k6shmt"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/accessory.gd" id="1_6tuij"]
+[ext_resource type="Texture2D" uid="uid://ums2wwig75fx" path="res://Assets/amulet_of_novice_icon.png" id="1_xmg17"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_6tuij")
+accessory_type = 2
+level = 1
+crit_damage_bonus = 0
+crit_rate_bonus = 0
+speed_bonus = 0
+jump_bonus = 0
+avoidability_bonus = 0
+accuracy_bonus = 0
+hp_bonus = 25
+mp_bonus = 25
+weapon_defense_bonus = 1
+magic_defense_bonus = 1
+id = 0
+name = ""
+value = 0
+type = 0
+rarity = 0
+description = ""
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_xmg17")
