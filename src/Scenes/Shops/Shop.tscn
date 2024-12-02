@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d4eosmublq6ma" path="res://src/Scenes/Shops/ShopItem.tscn" id="6_blno2"]
 [ext_resource type="Resource" uid="uid://x77xci8tsx7b" path="res://src/Resources/Items/Drip/Pants/01_Common/CargoPants.tres" id="6_hjdbj"]
 
-[node name="Shop" type="Control" node_paths=PackedStringArray("shop_title", "for_sale_button", "buy_back_button", "shop_list", "player_inventory_list", "quantity_panel", "quantity_input", "quantity_purchase_button", "quantity_cancel_button", "confirmation_panel", "confirmation_button", "confirmation_cancel", "insufficient_funds_panel", "close_insufficient_funds_panel", "transaction_successful_panel", "close_transaction_successful_panel", "confirm_quantity_sale_panel", "quantity_sale_input", "confirm_sale_panel", "gold_label")]
+[node name="Shop" type="Control" node_paths=PackedStringArray("shop_title", "for_sale_button", "buy_back_button", "shop_list", "player_inventory_list", "quantity_panel", "quantity_input", "quantity_purchase_button", "quantity_cancel_button", "confirmation_panel", "confirmation_button", "confirmation_cancel", "insufficient_funds_panel", "close_insufficient_funds_panel", "transaction_successful_panel", "close_transaction_successful_panel", "confirm_quantity_sale_panel", "quantity_sale_input", "confirm_sale_panel", "quantity_buy_back_panel", "quantity_buy_back_purchase_button", "buy_back_purchase_panel", "buy_back_purchase_button", "gold_label") groups=["buy_back_items"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,6 +36,10 @@ close_transaction_successful_panel = NodePath("SaleSuccess/CloseSaleSuccessPanel
 confirm_quantity_sale_panel = NodePath("QuantitySalePanel")
 quantity_sale_input = NodePath("QuantitySalePanel/QuantitySaleInput")
 confirm_sale_panel = NodePath("ConfirmSale")
+quantity_buy_back_panel = NodePath("QuantityBuyBackPanel")
+quantity_buy_back_purchase_button = NodePath("QuantityBuyBackPanel/HBoxContainer/QuantityBuyBackPurchaseButton")
+buy_back_purchase_panel = NodePath("ConfirmBuyBackPurchase")
+buy_back_purchase_button = NodePath("ConfirmBuyBackPurchase/HBoxContainer/ConfirmationBuyBackPurchaseButton")
 gold_label = NodePath("Panel/HBoxContainer/Player/GoldLabel")
 
 [node name="Panel" type="Panel" parent="."]
@@ -242,6 +246,52 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 7
 text = "Cancel"
 
+[node name="QuantityBuyBackPanel" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 99.0
+offset_right = 308.0
+offset_bottom = 164.0
+color = Color(0.523889, 0.635373, 0.747571, 1)
+
+[node name="QuanittyLabel" type="Label" parent="QuantityBuyBackPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.5
+offset_right = 23.5
+offset_bottom = 14.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Buy Back Quantity:"
+
+[node name="QuantityInput" type="TextEdit" parent="QuantityBuyBackPanel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 17.0
+offset_right = 118.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 7
+placeholder_text = "Amount"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuantityBuyBackPanel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 43.0
+offset_right = 97.0
+offset_bottom = 62.0
+
+[node name="QuantityBuyBackPurchaseButton" type="Button" parent="QuantityBuyBackPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Purchase"
+
+[node name="QuantityBuyBackCancelButton" type="Button" parent="QuantityBuyBackPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Cancel"
+
 [node name="QuantitySalePanel" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 181.0
@@ -331,6 +381,54 @@ theme_override_font_sizes/font_size = 7
 text = "Yes!"
 
 [node name="ConfirmationCancelButton" type="Button" parent="ConfirmPurchase/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "No!"
+
+[node name="ConfirmBuyBackPurchase" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 99.0
+offset_right = 308.0
+offset_bottom = 164.0
+color = Color(0.523889, 0.635373, 0.747571, 1)
+
+[node name="ConfirmPurchaseLabel" type="Label" parent="ConfirmBuyBackPurchase"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_top = 3.0
+offset_right = 43.5
+offset_bottom = 17.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Confirm Buy Back"
+
+[node name="Purchase" type="Label" parent="ConfirmBuyBackPurchase"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 15.0
+offset_right = 102.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 12
+text = "Buy this item back?
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmBuyBackPurchase"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 38.0
+offset_right = 82.0
+offset_bottom = 57.0
+
+[node name="ConfirmationBuyBackPurchaseButton" type="Button" parent="ConfirmBuyBackPurchase/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Yes!"
+
+[node name="ConfirmationBuyBackPurchaseCancelButton" type="Button" parent="ConfirmBuyBackPurchase/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 7
 text = "No!"
@@ -459,10 +557,14 @@ text = "Close"
 [connection signal="button_down" from="Panel/HBoxContainer/Player/HBoxContainer/MaterialsTab" to="." method="_on_materials_tab_button_down"]
 [connection signal="button_down" from="QuantityPanel/HBoxContainer/QuantityPurchaseButton" to="." method="_on_quantity_purchase_button_button_down"]
 [connection signal="button_down" from="QuantityPanel/HBoxContainer/QuantityCancelButton" to="." method="_on_quantity_cancel_button_button_down"]
+[connection signal="button_down" from="QuantityBuyBackPanel/HBoxContainer/QuantityBuyBackPurchaseButton" to="." method="_on_quantity_buy_back_purchase_button_button_down"]
+[connection signal="button_down" from="QuantityBuyBackPanel/HBoxContainer/QuantityBuyBackCancelButton" to="." method="_on_quantity_buy_back_cancel_button_button_down"]
 [connection signal="button_down" from="QuantitySalePanel/HBoxContainer/QuantitySaleButton" to="." method="_on_quantity_sale_button_button_down"]
 [connection signal="button_down" from="QuantitySalePanel/HBoxContainer/QuantitySaleCancelButton" to="." method="_on_quantity_sale_cancel_button_button_down"]
 [connection signal="button_down" from="ConfirmPurchase/HBoxContainer/ConfirmationButton" to="." method="_on_confirmation_button_button_down"]
 [connection signal="button_down" from="ConfirmPurchase/HBoxContainer/ConfirmationCancelButton" to="." method="_on_confirmation_cancel_button_button_down"]
+[connection signal="button_down" from="ConfirmBuyBackPurchase/HBoxContainer/ConfirmationBuyBackPurchaseButton" to="." method="_on_confirmation_buy_back_purchase_button_button_down"]
+[connection signal="button_down" from="ConfirmBuyBackPurchase/HBoxContainer/ConfirmationBuyBackPurchaseCancelButton" to="." method="_on_confirmation_buy_back_purchase_cancel_button_button_down"]
 [connection signal="button_down" from="ConfirmSale/HBoxContainer/ConfirmationSaleButton" to="." method="_on_confirmation_sale_button_button_down"]
 [connection signal="button_down" from="ConfirmSale/HBoxContainer/ConfirmationSaleCancelButton" to="." method="_on_confirmation_sale_cancel_button_button_down"]
 [connection signal="button_down" from="InsufficientFunds/CloseInsufficientFundsPanel" to="." method="_on_close_insufficient_funds_panel_button_down"]

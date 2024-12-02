@@ -9,10 +9,12 @@ var item_data : Item
 @onready var item_price_tag : Label = $VBoxContainer/PriceTag
 @export var quantity_label : Label
 
-var belongs_to_player : bool
+var belongs_to_player : bool = false
+var in_buy_back_list : bool = false
 
 signal shop_action(item_data)
 signal player_action(item_data)
+signal buy_back_action(item_data)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +31,10 @@ func _on_gui_input(event : InputEvent):
 		if belongs_to_player:
 			player_action.emit(item_data)
 		else:
-			shop_action.emit(item_data)
+			if in_buy_back_list:
+				buy_back_action.emit(item_data)
+			else:
+				shop_action.emit(item_data)
 
 func set_item_data(item_data : Item):
 	self.item_data = item_data

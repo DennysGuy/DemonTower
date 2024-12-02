@@ -9,6 +9,7 @@ extends Control
 @export var buy_back_button : Button
 @export_group("Shop Lists")
 @export var items_for_sale : Array[Item]
+var purchase_from_buy_back : bool = false
 var buy_back_list : Dictionary = {
 	"buyback" : {	
 	},
@@ -42,6 +43,11 @@ var buy_back_list : Dictionary = {
 @export var confirm_quantity_sale_panel : ColorRect
 @export var quantity_sale_input : TextEdit
 @export var confirm_sale_panel : ColorRect
+@export_group("Buy Back Panels")
+@export var quantity_buy_back_panel : ColorRect
+@export var quantity_buy_back_purchase_button : Button
+@export var buy_back_purchase_panel : ColorRect
+@export var buy_back_purchase_button : Button
 
 @export_group("Gold")
 @export var gold_label : Label
@@ -59,6 +65,8 @@ func _ready() -> void:
 	insufficient_funds_panel.hide()
 	confirm_quantity_sale_panel.hide()
 	confirm_sale_panel.hide()
+	buy_back_purchase_panel.hide()
+	quantity_buy_back_panel.hide()
 	shop_name = this_name + " " + "shop"
 	shop_title.text = shop_name
 	_inventory_tab = "weapons"
@@ -94,7 +102,18 @@ func _on_player_action(item_data : Item):
 		confirm_quantity_sale_panel.hide()
 		confirm_sale_panel.show()
 
-func _confirm_purchase() -> void:
+func _on_buy_back_action(item_data : Item):
+	print("PORQUE?")
+	_item_data = item_data
+	if item_data.is_stackable:
+		print("Here!")
+		quantity_buy_back_panel.show()
+		buy_back_purchase_panel.hide()
+	else:
+		quantity_buy_back_panel.hide()
+		buy_back_purchase_panel.show()
+
+func _confirm_purchase(buy_back : Dictionary = {}) -> void:
 	var player_gold = Inventory.inventories["metadata"]["gold"]
 	if (player_gold - _item_data.shop_value) < 0:
 		print("Not enough gold!")
@@ -102,30 +121,46 @@ func _confirm_purchase() -> void:
 		_item_data = null
 		insufficient_funds_panel.show()
 	else:
+		if purchase_from_buy_back:
+			remove_item(_item_data)
+			purchase_from_buy_back = false
+			buy_back_purchase_panel.hide()
+		else:
+			confirmation_panel.hide()
+			
 		Inventory.inventories["metadata"]["gold"] -= _item_data.shop_value
 		Inventory.add_item(_item_data.get_item_inventory_name(), _item_data, 1)
-		confirmation_panel.hide()
+		
 		_item_data = null
 		inventory_needs_update = true
 		transaction_successful_panel.show()
 		
-func _confirm_purchase_quantity() -> void:
+func _confirm_purchase_quantity(buy_back: Dictionary = {}) -> void:
 	var quantity_amount = quantity_input.text
 	var player_gold = Inventory.inventories["metadata"]["gold"]
 	if quantity_amount.is_valid_int():
 		var total_price = _item_data.shop_value * int(quantity_amount)
-		if  (player_gold - total_price) < 0:
+		if (player_gold - total_price) < 0:
 			print("Not enough gold!")
 			quantity_panel.hide()
 			_item_data = null
 			insufficient_funds_panel.show()
+			return
+		
+		if purchase_from_buy_back:
+			var removed_item = remove_item(_item_data,int(quantity_amount))
+			total_price = _item_data.shop_value * removed_item[1]
+			Inventory.add_item(_item_data.get_item_inventory_name(), removed_item[0], removed_item[1])
+			purchase_from_buy_back = false
+			quantity_buy_back_panel.hide()
 		else:
-			Inventory.inventories["metadata"]["gold"] -= (total_price)
 			Inventory.add_item(_item_data.get_item_inventory_name(), _item_data, int(quantity_amount))
 			quantity_panel.hide()
-			_item_data = null
-			inventory_needs_update = true
-			transaction_successful_panel.show()
+		Inventory.inventories["metadata"]["gold"] -= (total_price)		
+		
+		transaction_successful_panel.show()
+		_item_data = null
+		inventory_needs_update = true
 			
 func _display_items_for_sale() -> void:
 	clear_item_container()
@@ -142,8 +177,9 @@ func _display_buy_back_items() -> void:
 		var buy_back_item : ShopItem = load("res://src/Scenes/Shops/ShopItem.tscn").instantiate()
 		buy_back_item.item_data = buy_back_list["buyback"][key]["item"]
 		buy_back_item.belongs_to_player = false
+		buy_back_item.in_buy_back_list = true
 		buy_back_item.quantity_label.text = str(buy_back_list["buyback"][key]["quantity"])
-		buy_back_item.connect("shop_action", _on_shop_action)
+		buy_back_item.connect("buy_back_action", _on_buy_back_action)
 		shop_list.add_child(buy_back_item)
 		
 func display_inventory(name: String, show_quantity: bool) -> void:
@@ -162,7 +198,7 @@ func display_inventory(name: String, show_quantity: bool) -> void:
 		if item_data["item"].is_stackable:
 			shop_item.quantity_label.show()
 		else:
-			shop_item.quantity_lable.hide()
+			shop_item.quantity_label.hide()
 		shop_item.belongs_to_player = true
 		# Set the item data and quantity for the slot
 		shop_item.set_item_data(item_data["item"])  # Pass the `item` field
@@ -260,23 +296,28 @@ func add_item_to_shop(item : Item, quantity: int = 1) -> void:
 		inventory["metadata"]["key_ids"] += 1
 	print(inventory)
 		
-func remove_item(category: String, item : Item, quantity : int = 1) -> Array:
-	var inventory = buy_back_list
+func remove_item(item : Item, quantity : int = 1) -> Array:
+	var inventory = buy_back_list["buyback"]
 	var item_key = search_item(inventory, item.id)
 	var slot = inventory[item_key]
-	var item_to_remove : Item = inventory[item_key]["item"]
-	if item_key != -1:
-		if item_to_remove.is_stackable:
-			slot["quantity"] = max(0, slot["quantity"]-quantity)
-			if slot["quantity"] == 0:
+	var true_quantity = quantity
+	var item_drop : Item = inventory[item_key]["item"]
+	if item_key != null:
+		if item_drop.is_stackable:
+			var difference = max(0, slot["quantity"]-quantity)
+			if difference == 0:
+				true_quantity = slot["quantity"]
 				inventory.erase(item_key)
+			else:
+				slot["quantity"] -= quantity
+			
+			return [item_drop, true_quantity]
 		else:
 			inventory.erase(item_key)
-		
-		return [item_to_remove, quantity]
-	else:
-		print_debug("Item not found in inventory!")
-		return []
+			return [item_drop, 1]
+			
+			
+	return []
 
 func search_item(inventory: Dictionary, item_id: int) -> int:
 	for key in inventory.keys():
@@ -315,6 +356,7 @@ func confirm_sale() -> void:
 	_item_data = null
 	confirm_sale_panel.hide()
 	transaction_successful_panel.show()
+	inventory_needs_update = true
 
 func _on_quantity_sale_button_button_down() -> void:
 	confirm_quantity_sale()
@@ -337,3 +379,21 @@ func _on_for_sale_button_button_down() -> void:
 func _on_buy_back_button_button_down() -> void:
 	display_items_for_sale = false
 	inventory_needs_update = true
+
+func _on_quantity_buy_back_purchase_button_button_down() -> void:
+	purchase_from_buy_back = true
+	_confirm_purchase_quantity(buy_back_list["buyback"])
+
+func _on_quantity_buy_back_cancel_button_button_down() -> void:
+	quantity_buy_back_panel.hide()
+	_item_data = null
+
+
+func _on_confirmation_buy_back_purchase_button_button_down() -> void:
+	purchase_from_buy_back = true
+	_confirm_purchase(buy_back_list["buyback"])
+
+
+func _on_confirmation_buy_back_purchase_cancel_button_button_down() -> void:
+	buy_back_purchase_panel.hide()
+	_item_data = null
