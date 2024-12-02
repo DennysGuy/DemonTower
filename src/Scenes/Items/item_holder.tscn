@@ -1,7 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq621bir04ut6"]
+[gd_scene load_steps=3 format=3 uid="uid://dq621bir04ut6"]
 
 [ext_resource type="Script" path="res://src/Scripts/Items/item_holder.gd" id="1_g67e6"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/item.gd" id="2_a0mqe"]
 
 [node name="ItemHolder" type="Node"]
 script = ExtResource("1_g67e6")
-items = [null, null, null, null]
+items = Array[ExtResource("2_a0mqe")]([null, null, null, null])

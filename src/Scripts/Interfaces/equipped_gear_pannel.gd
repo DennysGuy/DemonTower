@@ -36,7 +36,13 @@ var _equipped_pants : Drip
 var _equipped_shoes : Drip
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	_equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
+	_equipped_hat = Inventory.inventories["equipped_gear"]["hat"]
+	_equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
+	_equipped_amulet = Inventory.inventories["equipped_gear"]["amulet"]
+	_equipped_shirt = Inventory.inventories["equipped_gear"]["shirt"]
+	_equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
+	_equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

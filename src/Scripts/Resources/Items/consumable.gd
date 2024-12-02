@@ -8,7 +8,6 @@ enum ConsumableType {
 }
 
 @export_enum("Replenishing", "Buff") var consumable_type : int
-
 @export_group("Replenishments")
 @export var provided_hp : int
 @export var provided_mp : int

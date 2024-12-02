@@ -13,9 +13,7 @@ enum RecipeType {
 	ACCESSORY
 }
 @export_enum("Weapon", "Accessory") var recipe_type : int
-
 @export var materials_list : Array[CraftingMaterial]
-
 func get_recipe_type_name() -> String:
 	match(recipe_type):
 		RecipeType.WEAPON:

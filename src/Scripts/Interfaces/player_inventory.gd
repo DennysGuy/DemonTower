@@ -175,14 +175,12 @@ func clear_details() -> void:
 	item_name.text = "N/A"
 	item_description.text = "N/A"
 
-
 func _on_consume_button_button_down() -> void:
 	if _item_data.type == _item_data.TYPE.CONSUMABLE:
 		if _item_data.consumable_type == _item_data.ConsumableType.REPLENISHING:
 			Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
 			player.health_component.apply_healing(_item_data.provided_hp)
 			player.health_component.apply_mp_replenish(_item_data.provided_mp)
-
 
 func _on_confirm_drop_button_button_down() -> void:
 	var drop_amount = drop_amount_input.text

@@ -12,10 +12,8 @@ func _process(delta: float) -> void:
 		Dialogic.start(time_line)
 
 func _on_body_entered(body: Node2D) -> void:
-	print("hi!")
 	if body is Player:
 		player_in_range = true
-		print("player is in range")
 
 
 func _on_body_exited(body: Node2D) -> void:
