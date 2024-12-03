@@ -18,6 +18,12 @@ class_name Stats extends Resource
 @export var dex_level: int = 1
 @export var int_level: int = 1
 @export var luk_level: int = 1
+@export var mining_level: int = 1
+@export var smelting_level: int = 1
+@export var crafting_level: int = 1
+@export var wood_cutting_level: int = 1
+@export var fire_making_level: int = 1
+@export var cooking_level: int = 1
 
 # Secondary Stats
 # Supplementary

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CraftingMaterial" load_steps=3 format=3 uid="uid://pj6luk2rovdi"]
+
+[ext_resource type="Texture2D" uid="uid://bjea4xkyy6kv2" path="res://Assets/Iron_Bar_icon.png" id="1_c462r"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="1_jkold"]
+
+[resource]
+script = ExtResource("1_jkold")
+recipe_quantity = 0
+id = 458
+name = "Iron Bar"
+sell_value = 0
+shop_value = 100
+is_droppable = true
+type = 0
+rarity = 0
+description = "A crafting material used to create iron based equipment"
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_c462r")

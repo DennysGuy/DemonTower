@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ProductList" load_steps=3 format=3 uid="uid://750t8v1t0ue5"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="1_od7g3"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Lists/product_list.gd" id="2_pngyl"]
+
+[resource]
+script = ExtResource("2_pngyl")
+product_list = Array[ExtResource("1_od7g3")]([])

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://c81krgewlu30n"]
+
+[ext_resource type="Resource" uid="uid://5e641ye58r0u" path="res://src/Resources/Items/CraftingMaterials/01_Common/CopperOre.tres" id="1_3jool"]
+[ext_resource type="Texture2D" uid="uid://y22lcbaa0x4t" path="res://Assets/Bronze_Bar_icon.png" id="1_iao7m"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="2_rh7ah"]
+
+[resource]
+script = ExtResource("2_rh7ah")
+recipe_level = 1
+crafting_fee = 25
+recipe_type = 0
+materials_list = {
+ExtResource("1_3jool"): 1
+}
+id = 23
+name = "Bronze Bar"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 1
+rarity = 0
+description = "Used to craft Bronze based Equipement"
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_iao7m")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://brjkd4oyfjs25"]
+
+[ext_resource type="Texture2D" uid="uid://bjea4xkyy6kv2" path="res://Assets/Iron_Bar_icon.png" id="1_vccpe"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="2_aik4g"]
+
+[resource]
+script = ExtResource("2_aik4g")
+recipe_level = 5
+crafting_fee = 50
+recipe_type = 0
+materials_list = {}
+id = 24
+name = "Iron Bar"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 1
+rarity = 0
+description = "Used to craft Iron Gear"
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_vccpe")
