@@ -11,7 +11,7 @@ var inventories : Dictionary = {
 	},
 	"metadata": {
 		"slot_quantity": 25,
-		"gold": 12500,
+		"gold": 50,
 		"key_ids": {  # For tracking auto-increment keys
 			"weapons": 0,
 			"recipes": 0,
@@ -31,7 +31,6 @@ var inventories : Dictionary = {
 		"shoes": null
 	}
 }
-
 # Helper function to add items
 func add_item(category: String, item : Item, quantity: int = 1):
 	var inventory = inventories["categories"][category]
@@ -92,8 +91,6 @@ func search_item(inventory: Dictionary, item_id: int) -> int:
 		if inventory[key]["id"] == item_id:
 			return key
 	return -1
-
-
 
 func add_gold(value : int):
 	inventories["gold"] += value

@@ -104,7 +104,7 @@ script = ExtResource("1_w27xc")
 [node name="SkillsXPMenu" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 349.0
-offset_top = 144.0
+offset_top = 46.0
 offset_right = 475.0
 offset_bottom = 239.0
 
@@ -129,45 +129,111 @@ text = "Level 1"
 
 [node name="STRXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 4
 text = "STR XP"
 
 [node name="STRXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_487di")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fv18p")
 
 [node name="DEXXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 4
 text = "DEX XP"
 
 [node name="DEXXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_5w26u")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8mfw5")
 
 [node name="INTXP_Lable" type="Label" parent="SkillsXPMenu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 4
 text = "INT XP"
 
 [node name="INTXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_fml3t")
 theme_override_styles/fill = SubResource("StyleBoxFlat_f05d1")
 
 [node name="LUKXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 4
 text = "LUK XP"
 
 [node name="LUKXP_ProgresBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
+
+[node name="MINXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "MINING XP"
+
+[node name="MINXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
+
+[node name="SMTXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "SMELTING XP"
+
+[node name="SMTXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
+
+[node name="CRFXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "CRAFTING XP"
+
+[node name="CRFXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
+
+[node name="WCXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "WOODCUTTING XP"
+
+[node name="WCXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
+
+[node name="FMXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "FIREMAKING XP"
+
+[node name="FMXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
+
+[node name="CKXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "FIREMAKING XP"
+
+[node name="CKXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
 
@@ -578,6 +644,7 @@ theme_override_font_sizes/font_size = 7
 text = "Menu"
 
 [node name="Inventory" parent="." instance=ExtResource("2_71v43")]
+visible = false
 layout_mode = 1
 offset_left = 348.0
 offset_top = 104.0

@@ -15,8 +15,8 @@ quantity_label = NodePath("Container/Quantity")
 
 [node name="Container" type="Container" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 16.0
+offset_bottom = 16.0
 
 [node name="ColorRect" type="ColorRect" parent="Container"]
 custom_minimum_size = Vector2(16, 16)
