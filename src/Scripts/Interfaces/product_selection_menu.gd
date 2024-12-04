@@ -122,6 +122,7 @@ func _on_start_crafting_button_button_down():
 	if _recipe and calculate_quantity(_recipe) > 0:
 		process_icon.texture = _recipe.icon
 		progress_bar.value = 0
+		progress_bar.max_value = _recipe.crafting_time_cost
 		_succeeded = 0
 		_failed = 0
 		update_process_panel_visuals(_recipe)
@@ -167,7 +168,7 @@ func remove_materials_from_inventory(recipe : Recipe) -> void:
 				start_crafting = false
 				return # we need to break the loop as we cannot make any more
 		else:
-			start_crafting = false # if the material isn't in inventory we'll break the process.
+			start_crafting = false # if the material isn't in inventory we'll end the process.
 			return
 
 func add_product_to_inventory(recipe : Recipe):
@@ -192,7 +193,11 @@ func update_process_panel_visuals(recipe : Recipe) -> void:
 	amount_failed_count.text = "Failed: " + str(_failed)
 
 func fill_progress_bar() -> void:
-	progress_bar.value += 1 #magic number, we'll need to use maths to adjust this
+	match(_recipe.recipe_type):
+		_recipe.RecipeType.RESOURCE:
+			progress_bar.value += player.stats_resource.smelting_speed
+		_recipe.RecipeType.DISH:
+			progress_bar.value += player.stats_resource.cooking_speed
 
 func clear_product_list() -> void:
 	for child in products.get_children():

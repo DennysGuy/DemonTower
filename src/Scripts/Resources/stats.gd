@@ -31,6 +31,9 @@ class_name Stats extends Resource
 @export var critical_rate: float = 0
 @export var critical_damage: float = 0
 @export var avoidability: float = 10
+@export var smelting_speed: float = 1
+@export var crafting_speed: float = 1
+@export var cooking_speed: float = 1
 @export var accuracy: float = 10
 @export var speed: int = 120
 @export var jump: int = 200

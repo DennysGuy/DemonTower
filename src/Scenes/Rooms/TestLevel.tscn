@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=26 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="TileSet" uid="uid://cxknhuu5nlqrx" path="res://src/Scenes/Rooms/TestLevel.tres" id="2_mvtek"]
@@ -10,9 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://g54ni6fq53ig" path="res://src/Scenes/NPCs/NPCInteractable.tscn" id="6_jm6bf"]
 [ext_resource type="PackedScene" uid="uid://bcpd44ry7bhvp" path="res://src/Scenes/Items/ItemInteractable.tscn" id="9_dg0v2"]
 [ext_resource type="Script" path="res://src/Scripts/hud.gd" id="9_xryin"]
-[ext_resource type="Resource" uid="uid://5e641ye58r0u" path="res://src/Resources/Items/CraftingMaterials/01_Common/CopperOre.tres" id="11_p8glt"]
 [ext_resource type="PackedScene" uid="uid://d0hr1lc780cnk" path="res://src/Scenes/Shops/SmeltingStation/SmeltingOven.tscn" id="12_h3w45"]
+[ext_resource type="Texture2D" uid="uid://cp0j1enswieth" path="res://Assets/copper_ore_icon.png" id="13_abbtc"]
 [ext_resource type="Resource" uid="uid://brl6ki5ovbq6n" path="res://src/Resources/Items/CraftingMaterials/01_Common/TinOre.tres" id="13_bobpn"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="14_ccisj"]
 [ext_resource type="Script" path="res://src/Scripts/Camera.gd" id="15_ctc77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
@@ -497,12 +498,15 @@ cooking_level = 1
 critical_rate = 0.5
 critical_damage = 1.2
 avoidability = 10.0
+smelting_speed = 1.0
+crafting_speed = 1.0
+cooking_speed = 1.0
 accuracy = 20.0
 speed = 120
 jump = 200
 xp_value = 0
 
-[sub_resource type="Resource" id="Resource_ixx4y"]
+[sub_resource type="Resource" id="Resource_ui35b"]
 resource_local_to_scene = true
 script = ExtResource("6_h7fgs")
 level = 1
@@ -537,6 +541,51 @@ max_stack = 0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
 size = Vector2(70, 39)
 
+[sub_resource type="Resource" id="Resource_6g0ri"]
+resource_local_to_scene = true
+script = ExtResource("14_ccisj")
+id = 456
+name = "Copper Ore"
+sell_value = 0
+shop_value = 75
+is_droppable = true
+type = 5
+rarity = 0
+description = "A meterial to be refined into crafting material."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("13_abbtc")
+
+[sub_resource type="Resource" id="Resource_b7bq8"]
+resource_local_to_scene = true
+script = ExtResource("14_ccisj")
+id = 456
+name = "Copper Ore"
+sell_value = 0
+shop_value = 75
+is_droppable = true
+type = 5
+rarity = 0
+description = "A meterial to be refined into crafting material."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("13_abbtc")
+
+[sub_resource type="Resource" id="Resource_2kvut"]
+resource_local_to_scene = true
+script = ExtResource("14_ccisj")
+id = 456
+name = "Copper Ore"
+sell_value = 0
+shop_value = 75
+is_droppable = true
+type = 5
+rarity = 0
+description = "A meterial to be refined into crafting material."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("13_abbtc")
+
 [node name="TestLevel" type="Node2D"]
 
 [node name="Environment" type="Node2D" parent="."]
@@ -555,7 +604,7 @@ tile_set = SubResource("TileSet_e2t1h")
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(69, 244)
 stats_resource = SubResource("Resource_3gcth")
-equipped_weapon = SubResource("Resource_ixx4y")
+equipped_weapon = SubResource("Resource_ui35b")
 
 [node name="NpcInteractable" parent="." instance=ExtResource("6_jm6bf")]
 time_line = "shop_keeper_talk"
@@ -597,7 +646,7 @@ offset_bottom = 240.0
 
 [node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(559, 227)
-item_data = ExtResource("11_p8glt")
+item_data = SubResource("Resource_6g0ri")
 
 [node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(595, 227)
@@ -605,7 +654,7 @@ item_data = ExtResource("13_bobpn")
 
 [node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(639, 227)
-item_data = ExtResource("11_p8glt")
+item_data = SubResource("Resource_b7bq8")
 
 [node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(701, 227)
@@ -613,7 +662,7 @@ item_data = ExtResource("13_bobpn")
 
 [node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(772, 227)
-item_data = ExtResource("11_p8glt")
+item_data = SubResource("Resource_2kvut")
 
 [node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(826, 227)
