@@ -38,13 +38,13 @@ materials_inventory_panel = NodePath("StationHomeMenu/MaterialsInventoryPanel")
 selected_wood_icon = NodePath("StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel/WoodSelector/Container/WoodIcon")
 wood_quantity_label = NodePath("StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel/QuantityLabel")
 wood_slots = NodePath("StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots")
-cooking_process_panel = NodePath("CookingProcessPanel")
-dish_process_icon = NodePath("CookingProcessPanel/DishProcessIcon")
-dish_progress_bar = NodePath("CookingProcessPanel/ProgressBar")
-dish_remaining_label = NodePath("CookingProcessPanel/HBoxContainer/Remaining")
-dish_succeeded_label = NodePath("CookingProcessPanel/HBoxContainer/Succeeded")
-dish_failed_label = NodePath("CookingProcessPanel/HBoxContainer/Failed")
-dish_process_terminate_button = NodePath("CookingProcessPanel/DishTerminateButton")
+cooking_process_panel = NodePath("StationHomeMenu/CookingProcessPanel")
+dish_process_icon = NodePath("StationHomeMenu/CookingProcessPanel/DishProcessIcon")
+dish_progress_bar = NodePath("StationHomeMenu/CookingProcessPanel/ProgressBar")
+dish_remaining_label = NodePath("StationHomeMenu/CookingProcessPanel/HBoxContainer/Remaining")
+dish_succeeded_label = NodePath("StationHomeMenu/CookingProcessPanel/HBoxContainer/Succeeded")
+dish_failed_label = NodePath("StationHomeMenu/CookingProcessPanel/HBoxContainer/Failed")
+dish_process_terminate_button = NodePath("StationHomeMenu/CookingProcessPanel/DishTerminateButton")
 
 [node name="StationHomeMenu" type="ColorRect" parent="."]
 layout_mode = 1
@@ -258,7 +258,6 @@ theme_override_font_sizes/font_size = 4
 text = "close"
 
 [node name="MaterialsInventoryPanel" type="Panel" parent="StationHomeMenu"]
-visible = false
 layout_mode = 2
 offset_left = 121.0
 offset_top = 51.0
@@ -337,8 +336,86 @@ offset_bottom = 14.0
 theme_override_font_sizes/font_size = 3
 text = "close"
 
+[node name="CookingProcessPanel" type="ColorRect" parent="StationHomeMenu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -152.0
+offset_right = -6.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.412324, 0.508323, 0.64372, 1)
+
+[node name="DishProcessIcon" type="TextureRect" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -54.5
+offset_right = 20.0
+offset_bottom = -14.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_d825d")
+
+[node name="ProgressBar" type="ProgressBar" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 85.0
+offset_right = 120.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 6
+
+[node name="Cooking" type="Label" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 67.0
+offset_right = 83.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 7
+text = "Cooking..."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 105.0
+offset_right = 126.0
+offset_bottom = 116.0
+theme_override_constants/separation = 14
+
+[node name="Remaining" type="Label" parent="StationHomeMenu/CookingProcessPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Left: 22"
+
+[node name="Succeeded" type="Label" parent="StationHomeMenu/CookingProcessPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Success: 2"
+
+[node name="Failed" type="Label" parent="StationHomeMenu/CookingProcessPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Failed: 1"
+
+[node name="DishTerminateButton" type="Button" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 2
+offset_left = 46.0
+offset_top = 123.0
+offset_right = 79.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 5
+text = "Terminate"
+
 [node name="ProcessPanel" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -436,78 +513,6 @@ offset_right = 10.5
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 5
-text = "Terminate"
-
-[node name="CookingProcessPanel" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 263.0
-offset_top = 82.0
-offset_right = 393.0
-offset_bottom = 229.0
-color = Color(0.412324, 0.508323, 0.64372, 1)
-
-[node name="DishProcessIcon" type="TextureRect" parent="CookingProcessPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -54.5
-offset_right = 20.0
-offset_bottom = -14.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_d825d")
-
-[node name="ProgressBar" type="ProgressBar" parent="CookingProcessPanel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 85.0
-offset_right = 120.0
-offset_bottom = 98.0
-theme_override_font_sizes/font_size = 6
-
-[node name="Cooking" type="Label" parent="CookingProcessPanel"]
-layout_mode = 0
-offset_left = 49.0
-offset_top = 67.0
-offset_right = 83.0
-offset_bottom = 78.0
-theme_override_font_sizes/font_size = 7
-text = "Cooking..."
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CookingProcessPanel"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 105.0
-offset_right = 126.0
-offset_bottom = 116.0
-theme_override_constants/separation = 14
-
-[node name="Remaining" type="Label" parent="CookingProcessPanel/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 7
-text = "Left: 22"
-
-[node name="Succeeded" type="Label" parent="CookingProcessPanel/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 7
-text = "Success: 2"
-
-[node name="Failed" type="Label" parent="CookingProcessPanel/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 7
-text = "Failed: 1"
-
-[node name="DishTerminateButton" type="Button" parent="CookingProcessPanel"]
-layout_mode = 2
-offset_left = 46.0
-offset_top = 123.0
-offset_right = 79.0
-offset_bottom = 139.0
 theme_override_font_sizes/font_size = 5
 text = "Terminate"
 

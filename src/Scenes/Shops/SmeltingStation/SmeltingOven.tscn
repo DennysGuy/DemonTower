@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0hr1lc780cnk"]
+[gd_scene load_steps=9 format=3 uid="uid://d0hr1lc780cnk"]
 
 [ext_resource type="Texture2D" uid="uid://dqqhm0cq82dmy" path="res://Assets/SmeltingOvenTempArt.png" id="1_b4oie"]
 [ext_resource type="Script" path="res://src/Scripts/Shops/SmeltingStation/smelting_oven.gd" id="1_xvuus"]
 [ext_resource type="PackedScene" uid="uid://bg5twd5cmwn2c" path="res://src/Scenes/Interfaces/ProductCraftingStation.tscn" id="2_sy876"]
-[ext_resource type="Resource" uid="uid://750t8v1t0ue5" path="res://src/Resources/RefineryProductList.tres" id="4_ljgqt"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="4_krooj"]
+[ext_resource type="Resource" uid="uid://c81krgewlu30n" path="res://src/Resources/Items/Recipes/01_Common/Resource_Recipes/BronzeBar.tres" id="5_ghvel"]
+[ext_resource type="Resource" uid="uid://brjkd4oyfjs25" path="res://src/Resources/Items/Recipes/01_Common/Resource_Recipes/IronBar.tres" id="6_wt1mf"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Lists/product_list.gd" id="7_378cn"]
+
+[sub_resource type="Resource" id="Resource_uh682"]
+resource_local_to_scene = true
+script = ExtResource("7_378cn")
+product_list = Array[ExtResource("4_krooj")]([ExtResource("5_ghvel"), ExtResource("6_wt1mf")])
 
 [node name="SmeltingOven" type="TextureButton" node_paths=PackedStringArray("product_crafting_station")]
 offset_left = -15.0
@@ -19,6 +27,6 @@ offset_left = -196.0
 offset_top = -197.0
 offset_right = 184.0
 offset_bottom = 7.0
-product_list = ExtResource("4_ljgqt")
+product_list = SubResource("Resource_uh682")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

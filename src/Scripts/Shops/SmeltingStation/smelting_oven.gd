@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_button_down():
-	print("i'm clicked!")
+	#print("i'm clicked!")
 	if product_crafting_station.hidden:
 		product_crafting_station.update_resource_list = true
 		product_crafting_station.show()

@@ -208,6 +208,7 @@ func cook_dish(recipe : Recipe) -> void:
 		remove_materials_from_inventory(recipe)
 		add_product_to_inventory(recipe)
 		stored_wood[0]["quantity"] -= 1
+		wood_quantity_label.text = stored_wood[0]["quantity"]
 		update_process_panel_visuals(recipe, dish_progress_bar, dish_remaining_label, dish_succeeded_label, dish_failed_label)
 	else:
 		fill_progress_bar(dish_progress_bar)
@@ -297,9 +298,17 @@ func terminate_process() -> void:
 		process_panel.hide()
 	else:
 		clear_cooking_process_panel()
+		selected_wood_icon.texture = null
+		wood_quantity_label.text = ""
 		cooking_process_panel.hide()
 
 func _on_close_panel_button_button_down():
+	if is_cooking_station:
+		if !stored_wood.is_empty(): #we will add back the stored wood when exiting station
+			Inventory.add_item("materials", stored_wood[0]["wood"], stored_wood[0]["quantity"])
+			selected_wood_icon.texture = null
+			wood_quantity_label.text = ""
+			stored_wood.erase(0)
 	self.hide()
 
 func _on_wood_selector_gui_input(event : InputEvent):
