@@ -5,13 +5,12 @@
 
 [resource]
 script = ExtResource("1_jkold")
-recipe_quantity = 0
 id = 458
 name = "Iron Bar"
 sell_value = 0
 shop_value = 100
 is_droppable = true
-type = 0
+type = 6
 rarity = 0
 description = "A crafting material used to create iron based equipment"
 is_stackable = true

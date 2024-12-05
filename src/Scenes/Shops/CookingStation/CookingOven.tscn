@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ggfw8h237y5b"]
+
+[ext_resource type="Texture2D" uid="uid://bmk1pd3g52pfr" path="res://Assets/WoodBurningStoveTempArt.png" id="1_4aw0d"]
+[ext_resource type="Script" path="res://src/Scripts/Shops/SmeltingStation/smelting_oven.gd" id="2_w6sj7"]
+[ext_resource type="PackedScene" uid="uid://bg5twd5cmwn2c" path="res://src/Scenes/Interfaces/ProductCraftingStation.tscn" id="3_mtujv"]
+
+[node name="CookingOven" type="TextureButton" node_paths=PackedStringArray("product_crafting_station")]
+offset_left = -15.0
+offset_top = -32.0
+offset_right = 17.0
+texture_normal = ExtResource("1_4aw0d")
+script = ExtResource("2_w6sj7")
+product_crafting_station = NodePath("ProductCraftingStation")
+
+[node name="ProductCraftingStation" parent="." instance=ExtResource("3_mtujv")]
+layout_mode = 1
+offset_left = -196.0
+offset_top = -197.0
+offset_right = 184.0
+offset_bottom = 7.0
+is_cooking_station = true
+title_text = "Cooking Station"
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

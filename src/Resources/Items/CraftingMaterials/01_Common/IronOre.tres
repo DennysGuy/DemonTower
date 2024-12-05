@@ -5,13 +5,12 @@
 
 [resource]
 script = ExtResource("1_1sfx5")
-recipe_quantity = 0
 id = 460
 name = "Iron Ore"
 sell_value = 50
 shop_value = 0
 is_droppable = true
-type = 5
+type = 6
 rarity = 0
 description = "Used to make Iron Gear"
 is_stackable = true

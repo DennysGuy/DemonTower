@@ -5,13 +5,12 @@
 
 [resource]
 script = ExtResource("1_ab0li")
-recipe_quantity = 0
 id = 457
 name = "Tin Ore"
 sell_value = 0
 shop_value = 75
 is_droppable = true
-type = 5
+type = 6
 rarity = 0
 description = "A meterial to be refined into crafting material."
 is_stackable = true

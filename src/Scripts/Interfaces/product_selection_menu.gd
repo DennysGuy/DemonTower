@@ -1,6 +1,7 @@
 class_name ProductCraftingStation extends Control
 
 @export var product_list : ProductList
+@export var is_cooking_station : bool
 @export var products : GridContainer
 @export var title_text : String
 @export var menu_title : Label
@@ -19,21 +20,44 @@ class_name ProductCraftingStation extends Control
 @export var amount_succeeded_count : Label
 @export var amount_failed_count : Label
 @export var terminate_process_button : Button
+@export_group("Materials Inventory Panel")
+@export var wood_selector_margin_container : MarginContainer
+@export var wood_panel : Panel 
+@export var materials_inventory_panel : Panel
+@export var selected_wood_icon : TextureRect
+@export var wood_quantity_label : Label
+@export var wood_slots : GridContainer
+@export_group("Cooking Process Panel")
+@export var cooking_process_panel : ColorRect
+@export var dish_process_icon : TextureRect
+@export var dish_progress_bar : ProgressBar
+@export var dish_remaining_label : Label
+@export var dish_succeeded_label : Label
+@export var dish_failed_label : Label
+@export var dish_process_terminate_button : Button
 
 var player : Player
 var _recipe : Recipe
+var _selected_wood : Wood
 var update_details_panel : bool
 var update_resource_list : bool
 var start_crafting : bool
 var _succeeded = 0
 var _failed = 0
-
+var stored_wood : Dictionary = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_details_panel = true
 	update_resource_list = true
 	start_crafting = false
 	process_panel.hide()
+	cooking_process_panel.hide()
+	materials_inventory_panel.hide()
+	if is_cooking_station:
+		wood_selector_margin_container.show()
+	else:
+		wood_selector_margin_container.hide()
+
 	menu_title.text = title_text
 	player = get_tree().get_first_node_in_group("players")
 	#clear_product_list()
@@ -47,34 +71,38 @@ func _process(delta):
 	
 	if update_resource_list:
 		if player:
-			clear_product_list()
-			for recipe in product_list.product_list:
-				var new_product : Product = load("res://src/Scenes/Interfaces/Product.tscn").instantiate()
-				#need to check if it's a resource or a dish
-				var compared_level = 0
-				new_product.recipe = recipe
-				if new_product.recipe:
-					match(new_product.recipe.recipe_type):
-						new_product.recipe.RecipeType.RESOURCE:
-							compared_level = player.stats_resource.smelting_level
-						new_product.recipe.RecipeType.DISH:
-							compared_level = player.stats_resource.cooking_level
-					if compared_level >= new_product.recipe.recipe_level:
-						new_product.quantity.text = "Can Make: " + str(calculate_quantity(new_product.recipe))
-						new_product.recipe.player_can_craft = true
-						new_product.set_visibility(true)
+			clear_list(products)
+			if product_list:
+				for recipe in product_list.product_list:
+					var new_product : Product = load("res://src/Scenes/Interfaces/Product.tscn").instantiate()
+					#need to check if it's a resource or a dish
+					var compared_level = 0
+					new_product.recipe = recipe
+					if new_product.recipe:
+						match(new_product.recipe.recipe_type):
+							new_product.recipe.RecipeType.RESOURCE:
+								compared_level = player.stats_resource.smelting_level
+							new_product.recipe.RecipeType.DISH:
+								compared_level = player.stats_resource.cooking_level
+						if compared_level >= new_product.recipe.recipe_level:
+							new_product.quantity.text = "Can Make: " + str(calculate_quantity(new_product.recipe))
+							new_product.recipe.player_can_craft = true
+							new_product.set_visibility(true)
+						else:
+							new_product.recipe.player_can_craft = false
+							new_product.set_visibility(false)
+						new_product.connect("select_recipe", _select_recipe)
+						products.add_child(new_product)
 					else:
-						new_product.recipe.player_can_craft = false
-						new_product.set_visibility(false)
-					new_product.connect("select_recipe", _select_recipe)
-					products.add_child(new_product)
-				else:
-					print("recipe not found")
+						print("recipe not found")
 		update_resource_list = false
 	
 	if start_crafting:
 		process_panel.show()
-		process_materials(_recipe)
+		if !is_cooking_station:
+			process_materials(_recipe)
+		else:
+			cook_dish(_recipe)
 		
 func calculate_quantity(recipe: Recipe) -> int:
 	#get recipe material's list
@@ -118,16 +146,32 @@ func clear_process_panel() -> void:
 	amount_succeeded_count.text = "Success: N/A"
 	amount_failed_count.text = "Failed: N/A"
 
+func clear_cooking_process_panel() -> void:
+	dish_process_icon.texture = load("res://Assets/RecipeUnknown.png")
+	dish_progress_bar.value = 0
+	dish_remaining_label.text = "Left: N/A"
+	dish_succeeded_label.text = "Success: N/A"
+	dish_failed_label.text = "Failed: N/A"
+
 func _on_start_crafting_button_button_down():
 	if _recipe and calculate_quantity(_recipe) > 0:
-		process_icon.texture = _recipe.icon
-		progress_bar.value = 0
-		progress_bar.max_value = _recipe.crafting_time_cost
 		_succeeded = 0
 		_failed = 0
-		update_process_panel_visuals(_recipe)
-		start_crafting = true
-		process_panel.show()
+		
+		if !is_cooking_station:
+			process_icon.texture = _recipe.icon
+			progress_bar.value = 0
+			progress_bar.max_value = _recipe.crafting_time_cost
+			update_process_panel_visuals(_recipe, progress_bar, amount_remaining_count, amount_succeeded_count, amount_failed_count)
+			process_panel.show()
+		else:
+			dish_process_icon.texture = _recipe.icon
+			dish_progress_bar.value = 0
+			progress_bar.max_value = _recipe.crafting_time_cost
+			update_process_panel_visuals(_recipe, dish_progress_bar, dish_remaining_label, dish_succeeded_label, dish_failed_label)
+			cooking_process_panel.show()
+		
+		start_crafting = true	
 	else:
 		print("No recipe selected or not enough resources!")
 
@@ -150,9 +194,23 @@ func process_materials(recipe : Recipe) -> void:
 	if progress_bar.value >= progress_bar.max_value:
 		remove_materials_from_inventory(recipe)
 		add_product_to_inventory(recipe)
-		update_process_panel_visuals(recipe)
+		update_process_panel_visuals(recipe, progress_bar, amount_remaining_count, amount_succeeded_count, amount_failed_count)
 	else:
-		fill_progress_bar()
+		fill_progress_bar(progress_bar)
+
+func cook_dish(recipe : Recipe) -> void:
+	var remaining_player_gold : int = Inventory.inventories["metadata"]["gold"] - recipe.crafting_fee
+	if calculate_quantity(recipe) <= 0 or remaining_player_gold < 0 or stored_wood[0]["quantity"] <= 0: #checks if there is insufficient resources or gold left
+		terminate_process()
+		return
+		
+	if progress_bar.value >= progress_bar.max_value:
+		remove_materials_from_inventory(recipe)
+		add_product_to_inventory(recipe)
+		stored_wood[0]["quantity"] -= 1
+		update_process_panel_visuals(recipe, dish_progress_bar, dish_remaining_label, dish_succeeded_label, dish_failed_label)
+	else:
+		fill_progress_bar(dish_progress_bar)
 
 func remove_materials_from_inventory(recipe : Recipe) -> void:
 	var material_inventory : Dictionary = Inventory.inventories["categories"]["materials"]
@@ -186,28 +244,74 @@ func add_product_to_inventory(recipe : Recipe):
 	
 	_succeeded += 1
 
-func update_process_panel_visuals(recipe : Recipe) -> void:
-	progress_bar.value = 0
-	amount_remaining_count.text = "Left: " + str(calculate_quantity(recipe))
-	amount_succeeded_count.text = "Success: " + str(_succeeded)
-	amount_failed_count.text = "Failed: " + str(_failed)
+func update_process_panel_visuals(recipe : Recipe, _progress_bar : ProgressBar, _amount_remaining_count : Label, _amount_succeeded_count : Label, _amount_failed_count : Label) -> void:
+	_progress_bar.value = 0
+	_amount_remaining_count.text = "Left: " + str(calculate_quantity(recipe))
+	_amount_succeeded_count.text = "Success: " + str(_succeeded)
+	_amount_failed_count.text = "Failed: " + str(_failed)
 
-func fill_progress_bar() -> void:
+func fill_progress_bar(_progress_bar : ProgressBar) -> void:
 	match(_recipe.recipe_type):
 		_recipe.RecipeType.RESOURCE:
-			progress_bar.value += player.stats_resource.smelting_speed
+			_progress_bar.value += player.stats_resource.smelting_speed
 		_recipe.RecipeType.DISH:
-			progress_bar.value += player.stats_resource.cooking_speed
+			_progress_bar.value += player.stats_resource.cooking_speed
 
-func clear_product_list() -> void:
-	for child in products.get_children():
+func clear_list(container : GridContainer) -> void:
+	for child in container.get_children():
 		child.queue_free()
+
+func set_recipe_list(selected_wood : Wood) -> void:
+	if player.stats_resource.fire_making_level >= selected_wood.level:
+		var materials_inventory = Inventory.inventories["categories"]["materials"]
+		product_list = selected_wood.product_list
+		var key = Inventory.search_item(materials_inventory, selected_wood.id)
+		var removed_wood = Inventory.remove_item("materials", materials_inventory[key]["item"], materials_inventory[key]["quantity"])
+		stored_wood[0] = {"wood" : removed_wood[0], "quantity": removed_wood[1]}
+		selected_wood_icon.texture = stored_wood[0]["wood"].icon
+		wood_quantity_label.text = str(stored_wood[0]["quantity"])
+		materials_inventory_panel.hide()
+		update_resource_list = true
+		
+	else:
+		print("Need level " + str(selected_wood.level) + " Fire Making")
+
+func create_wood_inventory() -> void:
+	clear_list(wood_slots)
+	var materials_inventory : Dictionary = Inventory.inventories["categories"]["materials"]
+	for key in materials_inventory.keys():
+		var item : Item = materials_inventory[key]["item"]
+		if item.get_item_category() == "wood":
+			var new_slot : InventorySlot = load("res://src/Scenes/Interfaces/Slot.tscn").instantiate()
+			new_slot.item_data = item
+			new_slot.quantity = materials_inventory[key]["quantity"]
+			new_slot.quantity_label.text = str(new_slot.quantity)
+			new_slot.connect("slot_action", set_recipe_list)
+			wood_slots.add_child(new_slot)
 
 func terminate_process() -> void:
 	start_crafting = false
 	update_resource_list = true
-	clear_process_panel()
-	process_panel.hide()
+	if !is_cooking_station:
+		clear_process_panel()
+		process_panel.hide()
+	else:
+		clear_cooking_process_panel()
+		cooking_process_panel.hide()
 
 func _on_close_panel_button_button_down():
 	self.hide()
+
+func _on_wood_selector_gui_input(event : InputEvent):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		#print_debug("I'm clicked!!")
+		create_wood_inventory()
+		materials_inventory_panel.show()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		if !stored_wood.is_empty():
+			selected_wood_icon.texture = null
+			wood_quantity_label.text = ""
+			Inventory.add_item("materials", stored_wood[0]["wood"], stored_wood[0]["quantity"])
+			
+func _on_close_inventory_panel_button_down():
+	materials_inventory_panel.hide()

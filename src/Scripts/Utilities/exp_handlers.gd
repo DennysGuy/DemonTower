@@ -10,6 +10,7 @@ func level_up_str_stat(stats_resource: Stats) -> void:
 		stats_resource.str_level += 1
 		stats_resource.set_str_current_xp(max(roll_over_xp, 0))
 		stats_resource.set_str_needed_xp(calculate_needed_stat_xp(stats_resource.str_level))
+		#we'll need to do any of secondary stat increases here
 		calculate_total_level(stats_resource)
 
 func level_up_dex_stat(stats_resource: Stats) -> void:
