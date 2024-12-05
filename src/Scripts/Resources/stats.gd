@@ -18,6 +18,12 @@ class_name Stats extends Resource
 @export var dex_level: int = 1
 @export var int_level: int = 1
 @export var luk_level: int = 1
+@export var mining_level: int = 1
+@export var smelting_level: int = 1
+@export var crafting_level: int = 1
+@export var wood_cutting_level: int = 1
+@export var fire_making_level: int = 1
+@export var cooking_level: int = 1
 
 # Secondary Stats
 # Supplementary
@@ -25,6 +31,9 @@ class_name Stats extends Resource
 @export var critical_rate: float = 0
 @export var critical_damage: float = 0
 @export var avoidability: float = 10
+@export var smelting_speed: float = 1
+@export var crafting_speed: float = 1
+@export var cooking_speed: float = 1
 @export var accuracy: float = 10
 @export var speed: int = 120
 @export var jump: int = 200
@@ -118,11 +127,23 @@ var _str_needed_xp: int = 0
 var _dex_needed_xp: int = 0
 var _int_needed_xp: int = 0
 var _luk_needed_xp: int = 0
+var _mining_needed_xp: int = 0
+var _smelting_needed_xp: int = 0
+var _crafting_needed_xp: int = 0
+var _woodcutting_needed_xp: int = 0
+var _firemaking_needed_xp: int = 0
+var _cooking_needed_xp: int = 0
 #Current EXP Attained for that given level
 var _str_current_xp: int = 0
 var _dex_current_xp: int = 0
 var _int_current_xp: int = 0
 var _luk_current_xp: int = 0
+var _mining_current_xp: int = 0
+var _smelting_current_xp: int = 0
+var _crafting_current_xp: int = 0
+var _woodcutting_current_xp: int = 0
+var _firemaking_current_xp: int = 0
+var _cooking_current_xp: int = 0
 # Setters and Getters for total XP
 func get_total_level() -> int:
 	return _total_level
@@ -187,3 +208,76 @@ func set_luk_current_xp(value: int) -> void:
 
 func get_luk_current_xp() -> int:
 	return _luk_current_xp
+
+# Getters and Setters
+func set_mining_needed_xp(value: int) -> void:
+	_mining_needed_xp = value
+
+func get_mining_needed_xp() -> int:
+	return _mining_needed_xp
+
+func set_smelting_needed_xp(value: int) -> void:
+	_smelting_needed_xp = value
+
+func get_smelting_needed_xp() -> int:
+	return _smelting_needed_xp
+
+func set_crafting_needed_xp(value: int) -> void:
+	_crafting_needed_xp = value
+
+func get_crafting_needed_xp() -> int:
+	return _crafting_needed_xp
+
+func set_woodcutting_needed_xp(value: int) -> void:
+	_woodcutting_needed_xp = value
+
+func get_woodcutting_needed_xp() -> int:
+	return _woodcutting_needed_xp
+
+func set_firemaking_needed_xp(value: int) -> void:
+	_firemaking_needed_xp = value
+
+func get_firemaking_needed_xp() -> int:
+	return _firemaking_needed_xp
+
+func set_cooking_needed_xp(value: int) -> void:
+	_cooking_needed_xp = value
+
+func get_cooking_needed_xp() -> int:
+	return _cooking_needed_xp
+
+func set_mining_current_xp(value: int) -> void:
+	_mining_current_xp = value
+
+func get_mining_current_xp() -> int:
+	return _mining_current_xp
+
+func set_smelting_current_xp(value: int) -> void:
+	_smelting_current_xp = value
+
+func get_smelting_current_xp() -> int:
+	return _smelting_current_xp
+
+func set_crafting_current_xp(value: int) -> void:
+	_crafting_current_xp = value
+
+func get_crafting_current_xp() -> int:
+	return _crafting_current_xp
+
+func set_woodcutting_current_xp(value: int) -> void:
+	_woodcutting_current_xp = value
+
+func get_woodcutting_current_xp() -> int:
+	return _woodcutting_current_xp
+
+func set_firemaking_current_xp(value: int) -> void:
+	_firemaking_current_xp = value
+
+func get_firemaking_current_xp() -> int:
+	return _firemaking_current_xp
+
+func set_cooking_current_xp(value: int) -> void:
+	_cooking_current_xp = value
+
+func get_cooking_current_xp() -> int:
+	return _cooking_current_xp

@@ -9,17 +9,29 @@ class_name Recipe extends Item
 #A Recipe will also have a list of crafting materials and quantities for each
 #Need to figure out chain of events when a recipe is unlocked
 enum RecipeType {
+	RESOURCE,
 	WEAPON,
-	ACCESSORY
+	ACCESSORY,
+	DISH
 }
-@export_enum("Weapon", "Accessory") var recipe_type : int
-@export var materials_list : Array[CraftingMaterial]
+@export var recipe_level: int #this will be compared to player's level. If greater than player's level, player will not be able to craft item
+@export var crafting_fee: int
+@export var crafting_time_cost: int
+@export var xp_provided : int
+@export_enum("Resource","Weapon", "Accessory", "Dish") var recipe_type : int
+@export var output_item : Item
+@export var materials_list : Dictionary
+var player_can_craft : bool
 func get_recipe_type_name() -> String:
 	match(recipe_type):
+		RecipeType.RESOURCE:
+			return "Resource"
 		RecipeType.WEAPON:
 			return "Weapon"
 		RecipeType.ACCESSORY:
 			return "Accessory"
+		RecipeType.DISH:
+			return "Dish"
 		_:
 			return ""
 			
@@ -27,6 +39,6 @@ func get_recipe() -> String:
 	var recipe_text : String
 	
 	for material in materials_list:
-		recipe_text += material.name + " x " + str(material.recipe_quantity) + "\n"
+		recipe_text += material.name + " x " + str(materials_list[material]) + "\n"
 	
 	return recipe_text

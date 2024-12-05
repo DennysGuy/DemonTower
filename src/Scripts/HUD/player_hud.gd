@@ -27,6 +27,24 @@ extends Control
 #LUK XP
 @onready var luk_xp_label : Label = $SkillsXPMenu/VBoxContainer/LUKXP_Label
 @onready var luk_xp_progressbar : ProgressBar = $SkillsXPMenu/VBoxContainer/LUKXP_ProgresBar
+#MINING XP
+@onready var min_xp_label : Label = $SkillsXPMenu/VBoxContainer/MINXP_Label
+@onready var min_xp_progressbar : ProgressBar = $SkillsXPMenu/VBoxContainer/MINXP_ProgressBar
+#SMELTING XP
+@onready var smt_xp_label : Label = $SkillsXPMenu/VBoxContainer/SMTXP_Label
+@onready var smt_xp_progressbar : ProgressBar = $SkillsXPMenu/VBoxContainer/SMTXP_ProgressBar
+#CRAFTING XP
+@onready var crf_xp_label : Label = $SkillsXPMenu/VBoxContainer/CRFXP_Label
+@onready var crf_xp_progressbar : ProgressBar = $SkillsXPMenu/VBoxContainer/CRFXP_ProgressBar
+#WOODCUTTING XP
+@onready var wc_xp_label : Label = $SkillsXPMenu/VBoxContainer/WCXP_Label
+@onready var wc_xp_progressbar : ProgressBar = $SkillsXPMenu/VBoxContainer/WCXP_ProgressBar
+#FIREMAKING XP
+@onready var fm_xp_label : Label = $SkillsXPMenu/VBoxContainer/FMXP_Label
+@onready var fm_xp_progressbar : ProgressBar = $SkillsXPMenu/VBoxContainer/FMXP_ProgressBar
+#COOKING XP
+@onready var cook_xp_label : Label = $SkillsXPMenu/VBoxContainer/CKXP_Label
+@onready var cook_xp_progressbar : ProgressBar = $SkillsXPMenu/VBoxContainer/CKXP_ProgressBar
 #Pause Menu Button
 @onready var menu_button : Button = $HUD/HBoxContainer/MiscMargin/Misc/MenuButton
 #STATS panel
@@ -43,6 +61,12 @@ extends Control
 @onready var dex_lvl : Label = $StatsPanel/AbilityLevels/VBoxContainer/DexLvl
 @onready var int_lvl : Label = $StatsPanel/AbilityLevels/VBoxContainer/IntLvl
 @onready var luk_lvl : Label = $StatsPanel/AbilityLevels/VBoxContainer/LukLvl
+@onready var mining_lvl : Label = $StatsPanel/AbilityLevels/VBoxContainer/MINLvl
+@onready var refinery_lvl : Label = $StatsPanel/AbilityLevels/VBoxContainer/SmtLvl
+@onready var crafting_lvl : Label = $StatsPanel/AbilityLevels/VBoxContainer/CRFLVL
+@onready var wood_cutting_lvl : Label = $StatsPanel/AbilityLevels/VBoxContainer/WCLvl
+@onready var fire_making_lvl : Label = $StatsPanel/AbilityLevels/VBoxContainer/FMGLvl
+@onready var cooking_lvl : Label = $StatsPanel/AbilityLevels/VBoxContainer/CKLvl
 #Secondary Details
 @onready var secondary_stats_panel : Panel = $StatsPanel/SecondaryStats
 @onready var p_atk : Label = $StatsPanel/SecondaryStats/ColorRect/VBoxContainer/PATK
@@ -119,6 +143,12 @@ func _process(delta: float) -> void:
 		dex_lvl.text = "DEX LVL: " + str(player.stats_resource.dex_level)
 		int_lvl.text = "INT LVL: " + str(player.stats_resource.int_level)
 		luk_lvl.text = "LUK LVL: " + str(player.stats_resource.luk_level)
+		mining_lvl.text = "MNG LVL: " + str(player.stats_resource.mining_level)
+		refinery_lvl.text = "REF LVL: " + str(player.stats_resource.smelting_level)
+		crafting_lvl.text = "CRF LVL: " + str(player.stats_resource.crafting_level)
+		wood_cutting_lvl.text = "WCG LVL: " + str(player.stats_resource.wood_cutting_level)
+		fire_making_lvl.text = "FMG Lvl: " + str(player.stats_resource.fire_making_level)
+		cooking_lvl.text = "CKG LVL: " + str(player.stats_resource.cooking_level)
 		stats_panel.show()
 	else:
 		stats_panel.hide()
@@ -165,6 +195,30 @@ func _process(delta: float) -> void:
 		luk_xp_label.text = "LUK XP" + "["+str(player.stats_resource.get_luk_current_xp())+"/"+str(player.stats_resource.get_luk_needed_xp())+"]"
 		luk_xp_progressbar.max_value = player.stats_resource.get_luk_needed_xp()
 		luk_xp_progressbar.value = player.stats_resource.get_luk_current_xp()
+		#MINING Display
+		min_xp_label.text = "MINING XP" + "["+str(player.stats_resource.get_mining_current_xp())+"/"+str(player.stats_resource.get_mining_needed_xp())+"]"
+		min_xp_progressbar.max_value = player.stats_resource.get_mining_needed_xp()
+		min_xp_progressbar.value = player.stats_resource.get_mining_current_xp()
+		#SMELTING Display
+		smt_xp_label.text = "SMELTING XP" + "["+str(player.stats_resource.get_smelting_current_xp())+"/"+str(player.stats_resource.get_smelting_needed_xp())+"]"
+		smt_xp_progressbar.max_value = player.stats_resource.get_smelting_needed_xp()
+		smt_xp_progressbar.value = player.stats_resource.get_smelting_current_xp()
+		#CRAFTING Display
+		crf_xp_label.text = "CRAFTING XP" + "["+str(player.stats_resource.get_crafting_current_xp())+"/"+str(player.stats_resource.get_crafting_needed_xp())+"]"
+		crf_xp_progressbar.max_value = player.stats_resource.get_crafting_needed_xp()
+		crf_xp_progressbar.value = player.stats_resource.get_crafting_current_xp()
+		#WOODCUTTING Display
+		wc_xp_label.text = "WOODCUTTING XP" + "["+str(player.stats_resource.get_woodcutting_current_xp())+"/"+str(player.stats_resource.get_woodcutting_needed_xp())+"]"
+		wc_xp_progressbar.max_value = player.stats_resource.get_woodcutting_needed_xp()
+		wc_xp_progressbar.value = player.stats_resource.get_woodcutting_current_xp()
+		#FIREMAKING Display
+		fm_xp_label.text = "FIREMAKING XP" + "["+str(player.stats_resource.get_firemaking_current_xp())+"/"+str(player.stats_resource.get_firemaking_needed_xp())+"]"
+		fm_xp_progressbar.max_value = player.stats_resource.get_firemaking_needed_xp()
+		fm_xp_progressbar.value = player.stats_resource.get_firemaking_current_xp()
+		#COOKING Display
+		cook_xp_label.text = "COOKING XP" + "["+str(player.stats_resource.get_cooking_current_xp())+"/"+str(player.stats_resource.get_cooking_needed_xp())+"]"
+		cook_xp_progressbar.max_value = player.stats_resource.get_cooking_needed_xp()
+		cook_xp_progressbar.value = player.stats_resource.get_cooking_current_xp()
 		XP_menu.show()
 	else:
 		XP_menu.hide()

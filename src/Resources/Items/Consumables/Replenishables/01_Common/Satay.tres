@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://depmu16eiyvch"]
+
+[ext_resource type="Texture2D" uid="uid://bnv1ardogtumd" path="res://Assets/Satay_icon.png" id="1_7lxer"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/consumable.gd" id="1_o4ifs"]
+
+[resource]
+script = ExtResource("1_o4ifs")
+consumable_type = 0
+provided_hp = 150
+provided_mp = 100
+buff_duration = 30
+speed_buff_amount = 0.0
+jump_buff_amount = 0.0
+accuracy_buff_amount = 2.0
+avoidability_buff_amount = 0.0
+crit_rate_buff_amount = 0.0
+crit_damage_buff_amount = 0.0
+weapon_attack_buff_amount = 0.0
+weapon_defense_buff_amount = 0.0
+magic_attack_buff_amount = 0.0
+magic_defense_buff_amount = 0.0
+shadow_attack_buff_amount = 0.0
+id = 13
+name = "Satay"
+sell_value = 0
+shop_value = 75
+is_droppable = true
+type = 4
+rarity = 0
+description = "A tasty dish made from pork. Heals 150 hp and 100 mp with +2 accuracy buff for 30 seconds"
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_7lxer")

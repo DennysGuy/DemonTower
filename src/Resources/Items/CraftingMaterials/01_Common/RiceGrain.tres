@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CraftingMaterial" load_steps=3 format=3 uid="uid://casl6rfv38drh"]
+
+[ext_resource type="Texture2D" uid="uid://coxxqf254ftc3" path="res://Assets/Rice_Grain_icon.png" id="1_htj0b"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="1_r0nt8"]
+
+[resource]
+script = ExtResource("1_r0nt8")
+id = 606
+name = "Rice Grain"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 6
+rarity = 0
+description = "A common crop used in many dishes"
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_htj0b")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CraftingMaterial" load_steps=3 format=3 uid="uid://brl6ki5ovbq6n"]
+
+[ext_resource type="Texture2D" uid="uid://84c5sfmax8rj" path="res://Assets/Tin_Ore_icon.png" id="1_74tnw"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="1_ab0li"]
+
+[resource]
+script = ExtResource("1_ab0li")
+id = 457
+name = "Tin Ore"
+sell_value = 0
+shop_value = 75
+is_droppable = true
+type = 6
+rarity = 0
+description = "A meterial to be refined into crafting material."
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_74tnw")
