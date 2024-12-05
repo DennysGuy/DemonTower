@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c55opoajpkjfp" path="res://Assets/accessory_recipe_icon.png" id="5_d825d"]
 [ext_resource type="PackedScene" uid="uid://dk5rr3nngbcnj" path="res://src/Scenes/Interfaces/Slot.tscn" id="5_vh2ho"]
 
-[node name="ProductCraftingStation" type="Control" node_paths=PackedStringArray("products", "menu_title", "close_panel_button", "details_panel", "start_crafting_button", "recipe_icon", "recipe_name", "ingredients", "process_panel", "process_icon", "progress_bar", "amount_remaining_count", "amount_succeeded_count", "amount_failed_count", "terminate_process_button", "wood_selector_margin_container", "wood_panel", "materials_inventory_panel", "selected_wood_icon", "wood_quantity_label", "wood_slots", "cooking_process_panel", "dish_process_icon", "dish_progress_bar", "dish_remaining_label", "dish_succeeded_label", "dish_failed_label", "dish_process_terminate_button")]
+[node name="ProductCraftingStation" type="Control" node_paths=PackedStringArray("products", "menu_title", "close_panel_button", "details_panel", "start_crafting_button", "recipe_icon", "recipe_name", "ingredients", "process_panel", "process_icon", "progress_bar", "amount_remaining_count", "amount_succeeded_count", "amount_failed_count", "terminate_process_button", "wood_selector_margin_container", "wood_panel", "materials_inventory_panel", "selected_wood_icon", "wood_quantity_label", "wood_slots", "cooking_process_panel", "dish_process_icon", "dish_progress_bar", "dish_remaining_label", "dish_succeeded_label", "dish_failed_label", "dish_process_terminate_button", "results_panel", "results_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +45,8 @@ dish_remaining_label = NodePath("StationHomeMenu/CookingProcessPanel/HBoxContain
 dish_succeeded_label = NodePath("StationHomeMenu/CookingProcessPanel/HBoxContainer/Succeeded")
 dish_failed_label = NodePath("StationHomeMenu/CookingProcessPanel/HBoxContainer/Failed")
 dish_process_terminate_button = NodePath("StationHomeMenu/CookingProcessPanel/DishTerminateButton")
+results_panel = NodePath("ResultsPanel")
+results_label = NodePath("ResultsPanel/Results")
 
 [node name="StationHomeMenu" type="ColorRect" parent="."]
 layout_mode = 1
@@ -516,8 +518,65 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 5
 text = "Terminate"
 
+[node name="ResultsPanel" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 113.0
+offset_right = 299.0
+offset_bottom = 181.0
+color = Color(0.621524, 0.621524, 0.621524, 1)
+
+[node name="Title" type="Label" parent="ResultsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.5
+offset_top = 2.0
+offset_right = 15.5
+offset_bottom = 14.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "Results:"
+
+[node name="Results" type="Label" parent="ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 5
+text = "You've gained : 5 *item*(s)
+(With 2 failures)"
+horizontal_alignment = 1
+
+[node name="CloseResultsPanel" type="Button" parent="ResultsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.5
+offset_top = -17.0
+offset_right = 9.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 4
+text = "Close"
+
 [connection signal="gui_input" from="StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel/WoodSelector" to="." method="_on_wood_selector_gui_input"]
 [connection signal="button_down" from="StationHomeMenu/HBoxContainer/DetailsPanel/BackGround/StartCraftingButton" to="." method="_on_start_crafting_button_button_down"]
 [connection signal="button_down" from="StationHomeMenu/ClosePanelButton" to="." method="_on_close_panel_button_button_down"]
 [connection signal="button_down" from="StationHomeMenu/MaterialsInventoryPanel/CloseInventoryPanel" to="." method="_on_close_inventory_panel_button_down"]
+[connection signal="button_down" from="StationHomeMenu/CookingProcessPanel/DishTerminateButton" to="." method="_on_dish_terminate_button_button_down"]
 [connection signal="button_down" from="ProcessPanel/TerminateProcessButton" to="." method="_on_terminate_process_button_button_down"]
+[connection signal="button_down" from="ResultsPanel/CloseResultsPanel" to="." method="_on_close_results_panel_button_down"]

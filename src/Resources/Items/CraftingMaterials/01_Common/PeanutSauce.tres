@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CraftingMaterial" load_steps=3 format=3 uid="uid://glurffea25db"]
+
+[ext_resource type="Texture2D" uid="uid://beljukptxmbwl" path="res://Assets/peanut_sauce_icon.png" id="1_nm0ge"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="1_ramgb"]
+
+[resource]
+script = ExtResource("1_ramgb")
+id = 608
+name = "Peanut Sauce"
+sell_value = 0
+shop_value = 70
+is_droppable = true
+type = 6
+rarity = 0
+description = "The item shop's signature peanut sauce. Used in many dishes."
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_nm0ge")

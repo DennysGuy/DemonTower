@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://chrocpg8kgxte"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="1_f4nn7"]
+[ext_resource type="Texture2D" uid="uid://crlyfvuvhjtqu" path="res://Assets/Slime_role_icon.png" id="1_qmqrb"]
+[ext_resource type="Resource" uid="uid://cog0gqccohceu" path="res://src/Resources/Items/CraftingMaterials/01_Common/SlimeGel.tres" id="2_s6ooh"]
+[ext_resource type="Resource" uid="uid://casl6rfv38drh" path="res://src/Resources/Items/CraftingMaterials/01_Common/RiceGrain.tres" id="3_besio"]
+[ext_resource type="Resource" uid="uid://d2df2itsxnb8b" path="res://src/Resources/Items/Consumables/Replenishables/01_Common/SlimeRole.tres" id="4_pyy0g"]
+
+[resource]
+script = ExtResource("1_f4nn7")
+recipe_level = 1
+crafting_fee = 30
+crafting_time_cost = 250
+xp_provided = 30
+recipe_type = 3
+output_item = ExtResource("4_pyy0g")
+materials_list = {
+ExtResource("2_s6ooh"): 1,
+ExtResource("3_besio"): 2
+}
+id = 25
+name = "Slime Role"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 0
+rarity = 0
+description = "A delicious slime role!"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_qmqrb")

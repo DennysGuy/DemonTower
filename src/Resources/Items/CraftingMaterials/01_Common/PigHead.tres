@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CraftingMaterial" load_steps=3 format=3 uid="uid://cb235yjn17tfq"]
+
+[ext_resource type="Texture2D" uid="uid://b25xbnsya4yor" path="res://Assets/Pig_head_iicon.png" id="1_67m4v"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="1_gbvsq"]
+
+[resource]
+script = ExtResource("1_gbvsq")
+id = 607
+name = "Pig Head"
+sell_value = 0
+shop_value = 30
+is_droppable = true
+type = 6
+rarity = 0
+description = "Removed from the corpse of a dead pig. Tasty to many."
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_67m4v")

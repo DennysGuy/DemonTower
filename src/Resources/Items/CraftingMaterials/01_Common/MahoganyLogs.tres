@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Wood" load_steps=3 format=3 uid="uid://yyrbxhgaxiou"]
+[gd_resource type="Resource" script_class="Wood" load_steps=4 format=3 uid="uid://yyrbxhgaxiou"]
 
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/wood.gd" id="1_ovd34"]
 [ext_resource type="Texture2D" uid="uid://7oearcfdpxdw" path="res://Assets/mahogony_logs_icon.png" id="1_vcn6m"]
+[ext_resource type="Resource" uid="uid://bmnefx4q6mun3" path="res://src/Resources/MahoganyLogsProductList.tres" id="2_kqdne"]
 
 [resource]
 script = ExtResource("1_ovd34")
 level = 5
 burn_time = 150
+product_list = ExtResource("2_kqdne")
 id = 601
 name = "Mahogany Logs"
 sell_value = 0

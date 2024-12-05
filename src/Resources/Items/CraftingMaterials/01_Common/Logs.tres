@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Wood" load_steps=3 format=3 uid="uid://butolphg2ifxo"]
+[gd_resource type="Resource" script_class="Wood" load_steps=4 format=3 uid="uid://butolphg2ifxo"]
 
 [ext_resource type="Texture2D" uid="uid://ykomsryfi41d" path="res://Assets/plain_logs_icon.png" id="1_5qasg"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/wood.gd" id="1_l4jws"]
+[ext_resource type="Resource" uid="uid://bcylx0w4qn6v5" path="res://src/Resources/LogsProductList.tres" id="2_u5ggh"]
 
 [resource]
 script = ExtResource("1_l4jws")
 level = 1
 burn_time = 100
+product_list = ExtResource("2_u5ggh")
 id = 600
 name = ""
 sell_value = 0

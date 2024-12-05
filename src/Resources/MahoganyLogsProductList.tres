@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="ProductList" load_steps=3 format=3 uid="uid://bmnefx4q6mun3"]
+[gd_resource type="Resource" script_class="ProductList" load_steps=5 format=3 uid="uid://bmnefx4q6mun3"]
 
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="1_on6jc"]
+[ext_resource type="Resource" uid="uid://chrocpg8kgxte" path="res://src/Resources/Items/Recipes/01_Common/Dish_Recipes/SlimeRoleRecipe.tres" id="2_axl2n"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Lists/product_list.gd" id="2_enycv"]
+[ext_resource type="Resource" uid="uid://bto848l6yc31s" path="res://src/Resources/Items/Recipes/01_Common/Dish_Recipes/SatayRecipe.tres" id="3_oqx3c"]
 
 [resource]
 script = ExtResource("2_enycv")
-product_list = Array[ExtResource("1_on6jc")]([])
+product_list = Array[ExtResource("1_on6jc")]([ExtResource("2_axl2n"), ExtResource("3_oqx3c")])

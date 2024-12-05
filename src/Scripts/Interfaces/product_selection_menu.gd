@@ -35,6 +35,9 @@ class_name ProductCraftingStation extends Control
 @export var dish_succeeded_label : Label
 @export var dish_failed_label : Label
 @export var dish_process_terminate_button : Button
+@export_group("Results Panel")
+@export var results_panel : ColorRect
+@export var results_label : Label
 
 var player : Player
 var _recipe : Recipe
@@ -53,6 +56,7 @@ func _ready():
 	process_panel.hide()
 	cooking_process_panel.hide()
 	materials_inventory_panel.hide()
+	results_panel.hide()
 	if is_cooking_station:
 		wood_selector_margin_container.show()
 	else:
@@ -98,7 +102,6 @@ func _process(delta):
 		update_resource_list = false
 	
 	if start_crafting:
-		process_panel.show()
 		if !is_cooking_station:
 			process_materials(_recipe)
 		else:
@@ -177,6 +180,7 @@ func _on_start_crafting_button_button_down():
 
 func _on_terminate_process_button_button_down():
 	terminate_process()
+	display_results()
 
 func process_materials(recipe : Recipe) -> void:
 	#We'll watch a progress bar fill up.
@@ -189,6 +193,7 @@ func process_materials(recipe : Recipe) -> void:
 	var remaining_player_gold : int = Inventory.inventories["metadata"]["gold"] - recipe.crafting_fee
 	if calculate_quantity(recipe) <= 0 or remaining_player_gold < 0: #checks if there is insufficient resources or gold left
 		terminate_process()
+		display_results()
 		return
 		
 	if progress_bar.value >= progress_bar.max_value:
@@ -200,15 +205,33 @@ func process_materials(recipe : Recipe) -> void:
 
 func cook_dish(recipe : Recipe) -> void:
 	var remaining_player_gold : int = Inventory.inventories["metadata"]["gold"] - recipe.crafting_fee
-	if calculate_quantity(recipe) <= 0 or remaining_player_gold < 0 or stored_wood[0]["quantity"] <= 0: #checks if there is insufficient resources or gold left
+	var remaining_quantity = calculate_quantity(recipe)
+	if  stored_wood.is_empty(): #checks if there is insufficient resources or gold left
+		selected_wood_icon.texture = null
+		wood_quantity_label.text = ""
+		product_list = null
 		terminate_process()
+		display_results()
+		return
+	elif remaining_quantity <= 0 or remaining_player_gold < 0:
+		if stored_wood.is_empty():
+			selected_wood_icon.texture = null
+			wood_quantity_label.text = ""
+			product_list = null
+			terminate_process()
+		else:
+			start_crafting = false
+			update_resource_list = true
+			clear_cooking_process_panel()
+			cooking_process_panel.hide()
+		display_results()
 		return
 		
-	if progress_bar.value >= progress_bar.max_value:
+	if dish_progress_bar.value >= dish_progress_bar.max_value:
 		remove_materials_from_inventory(recipe)
 		add_product_to_inventory(recipe)
 		stored_wood[0]["quantity"] -= 1
-		wood_quantity_label.text = stored_wood[0]["quantity"]
+		wood_quantity_label.text = str(stored_wood[0]["quantity"])
 		update_process_panel_visuals(recipe, dish_progress_bar, dish_remaining_label, dish_succeeded_label, dish_failed_label)
 	else:
 		fill_progress_bar(dish_progress_bar)
@@ -298,14 +321,15 @@ func terminate_process() -> void:
 		process_panel.hide()
 	else:
 		clear_cooking_process_panel()
-		selected_wood_icon.texture = null
-		wood_quantity_label.text = ""
+		update_resource_list = true
 		cooking_process_panel.hide()
 
 func _on_close_panel_button_button_down():
 	if is_cooking_station:
 		if !stored_wood.is_empty(): #we will add back the stored wood when exiting station
 			Inventory.add_item("materials", stored_wood[0]["wood"], stored_wood[0]["quantity"])
+			product_list = null
+			update_resource_list = true
 			selected_wood_icon.texture = null
 			wood_quantity_label.text = ""
 			stored_wood.erase(0)
@@ -320,7 +344,21 @@ func _on_wood_selector_gui_input(event : InputEvent):
 		if !stored_wood.is_empty():
 			selected_wood_icon.texture = null
 			wood_quantity_label.text = ""
+			product_list = null
+			update_resource_list = true
 			Inventory.add_item("materials", stored_wood[0]["wood"], stored_wood[0]["quantity"])
 			
+func display_results() -> void:
+	results_label.text = "You have gained " + str(_succeeded) + " " + _recipe.name +"(s)"+"\n"+"(with " + str(_failed) +" failing)"
+	results_panel.show()
+	
 func _on_close_inventory_panel_button_down():
 	materials_inventory_panel.hide()
+
+func _on_dish_terminate_button_button_down():
+	clear_cooking_process_panel()
+	cooking_process_panel.hide()
+	display_results()
+
+func _on_close_results_panel_button_down():
+	results_panel.hide()

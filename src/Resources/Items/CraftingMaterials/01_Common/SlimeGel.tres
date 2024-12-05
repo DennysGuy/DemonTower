@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CraftingMaterial" load_steps=3 format=3 uid="uid://cog0gqccohceu"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="1_m8a70"]
+[ext_resource type="Texture2D" uid="uid://dv6yg0reuglkr" path="res://Assets/Slime_gel_icon.png" id="1_xmmep"]
+
+[resource]
+script = ExtResource("1_m8a70")
+id = 605
+name = "Slime Gel"
+sell_value = 0
+shop_value = 10
+is_droppable = true
+type = 6
+rarity = 0
+description = "Gel Dropped from a slain Slime"
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_xmmep")
