@@ -46,8 +46,14 @@ func _process(delta: float) -> void:
 			pass
 		update_details_panel = false
 	
+	if update_craft_panel:
+		if stored_recipe.is_empty():
+			clear_craft_panel()
+		else:
+			update_crafting_panel_visuals()
+		update_craft_panel = false
+	
 	if start_crafting:
-		update_crafting_panel_visuals()
 		process_materials(_recipe)
 
 func clear_craft_panel() -> void:
@@ -93,25 +99,29 @@ func _select_recipe(recipe : Recipe) -> void:
 		_recipe = null
 
 func _on_start_crafting_button_button_down() -> void:
-	if _recipe and calculate_quantity(_recipe) > 0:
-		_succeeded = 0
-		_failed = 0
-		var recipe_inventory : Dictionary = Inventory.inventories["categories"]["recipes"]
-		var key = Inventory.search_item(recipe_inventory, _recipe.id)
-		var removed_recipe = Inventory.remove_item("recipes", _recipe,recipe_inventory[key]["quantity"])
-		stored_recipe[0] = {"recipe": removed_recipe[0], "quantity": removed_recipe[1]}
-		output_item_icon.texture = _recipe.output_item.icon
-		crafting_progress_bar.value = 0
-		crafting_progress_bar.max_value = _recipe.crafting_time_cost
-		update_crafting_panel_visuals()
-		update_inventory_panel = true
-		start_crafting = true	
-	else:
-		print("No recipe selected or not enough resources!")
+	if !start_crafting:
+		if _recipe and calculate_quantity(_recipe) > 0:
+			_succeeded = 0
+			_failed = 0
+			var recipe_inventory : Dictionary = Inventory.inventories["categories"]["recipes"]
+			var key = Inventory.search_item(recipe_inventory, _recipe.id)
+			var removed_recipe = Inventory.remove_item("recipes", _recipe,recipe_inventory[key]["quantity"])
+			stored_recipe[0] = {"recipe": removed_recipe[0], "quantity": removed_recipe[1]}
+			output_item_icon.texture = _recipe.output_item.icon
+			crafting_progress_bar.value = 0
+			crafting_progress_bar.max_value = _recipe.crafting_time_cost
+			update_craft_panel = true
+			update_inventory_panel = true
+			start_crafting = true	
+		else:
+			print("No recipe selected or not enough resources!")
 
 func update_crafting_panel_visuals() -> void:
 	crafting_progress_bar.value = 0
-	recipe_quantity_left_label.text = str(stored_recipe[0]["quantity"])
+	if !stored_recipe.is_empty():
+		recipe_quantity_left_label.text = str(stored_recipe[0]["quantity"])
+	else:
+		recipe_quantity_left_label.text = "0"
 	remaining_amount_label.text = "Left: " + str(calculate_quantity(_recipe))
 	succeeded_label.text = "Success: " + str(_succeeded)
 	failed_label.text = "Failed: " + str(_failed)
@@ -188,6 +198,7 @@ func clear_inventory():
 func select_recipe(recipe : Recipe):
 	if player.stats_resource.crafting_level >= recipe.recipe_level:
 		_recipe = recipe
+		update_details_panel_visuals()
 	else:
 		print("Need crafting level " + str(recipe.recipe_level))
 

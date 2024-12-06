@@ -11,7 +11,7 @@ var inventories : Dictionary = {
 	},
 	"metadata": {
 		"slot_quantity": 25,
-		"gold": 1000,
+		"gold": 175,
 		"key_ids": {  # For tracking auto-increment keys
 			"weapons": 0,
 			"recipes": 0,
