@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://brjkd4oyfjs25" path="res://src/Resources/Items/Recipes/01_Common/Resource_Recipes/IronBar.tres" id="6_wt1mf"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/Lists/product_list.gd" id="7_378cn"]
 
-[sub_resource type="Resource" id="Resource_nm4qm"]
+[sub_resource type="Resource" id="Resource_h52la"]
 resource_local_to_scene = true
 script = ExtResource("7_378cn")
 product_list = Array[ExtResource("4_krooj")]([ExtResource("5_ghvel"), ExtResource("6_wt1mf")])
@@ -27,6 +27,6 @@ offset_left = -196.0
 offset_top = -197.0
 offset_right = 184.0
 offset_bottom = 7.0
-product_list = SubResource("Resource_nm4qm")
+product_list = SubResource("Resource_h52la")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
