@@ -1,0 +1,18 @@
+PLAYER ANIMATIONS
+
+- idle
+- run animations
+	- standard x
+	- sword/shield variant
+	- 2H variant
+	- dual daggers variant
+- jump
+- fall
+- hurt
+- alert
+- pick axe swing
+- wood axe swing
+- die
+- climb ladder
+- climb rope
+- craft
