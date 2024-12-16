@@ -28,8 +28,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+}
+directories/dtl_directory={
+"shop_keeper_talk": "res://src/DialogicComponents/shop_keeper_talk.dtl"
+}
 variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -72,7 +76,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/itemcreator/plugin.cfg")
 
 [input]
 
