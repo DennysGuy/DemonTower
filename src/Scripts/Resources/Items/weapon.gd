@@ -87,6 +87,26 @@ func get_movement_speed_bonus() -> int:
 func get_jump_bonus() -> int:
 	return jump_bonus
 
+func get_weapon_type_name () -> String:
+	match(weapon_class):
+		WeaponClass.SWORDSHIELD:
+			return "Sword and Shield"
+		WeaponClass.SPEAR:
+			return "Spear"
+		WeaponClass.TWOHANDED:
+			return "Two-Handed"
+		WeaponClass.WAND:
+			return "Wand"
+		WeaponClass.STAFF:
+			return "Staff"
+		WeaponClass.KNIVES:
+			return "Knives"
+		WeaponClass.CLAW:
+			return "Claw"
+		_:
+			return "Standard"
+
+
 func get_archetype_class_name() -> String:
 	match(archetype_class):
 		ArchetypeClass.WARRIOR:
