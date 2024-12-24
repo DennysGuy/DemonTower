@@ -1,4 +1,4 @@
-[gd_scene load_steps=195 format=3 uid="uid://c3f22551sc137"]
+[gd_scene load_steps=207 format=3 uid="uid://c3f22551sc137"]
 
 [ext_resource type="Script" path="res://src/Scripts/Player/player.gd" id="1_a8xjd"]
 [ext_resource type="Texture2D" uid="uid://dpoghdu45hbx6" path="res://Assets/Player/TempPlayerAssets/green/char_green_1.png" id="2_4c53k"]
@@ -1183,6 +1183,7 @@ size = Vector2(8, 8)
 
 [sub_resource type="Animation" id="Animation_njxob"]
 resource_name = "Idle"
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2340,7 +2341,7 @@ tracks/56/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_md2c5"]
-resource_name = "Run_SWS"
+resource_name = "SwordShield_Run"
 length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
@@ -2788,11 +2789,59 @@ tracks/36/keys = {
 "values": [2.62255, 2.62255, 2.25147, 2.21446, 2.35548, 2.58309, 2.51327, 2.25147, 2.25147]
 }
 
+[sub_resource type="Animation" id="Animation_63tr5"]
+resource_name = "Standard_Run"
+
+[sub_resource type="Animation" id="Animation_hivny"]
+resource_name = "Standard_Jump"
+
+[sub_resource type="Animation" id="Animation_mgb56"]
+resource_name = "SwordShield_Jump"
+
+[sub_resource type="Animation" id="Animation_r4f2y"]
+resource_name = "Die"
+
+[sub_resource type="Animation" id="Animation_lba07"]
+resource_name = "Hit"
+
+[sub_resource type="Animation" id="Animation_gq4dw"]
+resource_name = "Standard_Fall"
+
+[sub_resource type="Animation" id="Animation_jd3nr"]
+resource_name = "SwordShield_Fall"
+
+[sub_resource type="Animation" id="Animation_24vlr"]
+resource_name = "Standard_Climb"
+
+[sub_resource type="Animation" id="Animation_vees6"]
+resource_name = "SwordShield_Climb"
+
+[sub_resource type="Animation" id="Animation_pgawx"]
+resource_name = "SwordShield_Attack1"
+
+[sub_resource type="Animation" id="Animation_kvv6c"]
+resource_name = "SwordShield_Attack2"
+
+[sub_resource type="Animation" id="Animation_dka21"]
+resource_name = "SwordShield_Attack3"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_boit3"]
 _data = {
+"Die": SubResource("Animation_r4f2y"),
+"Hit": SubResource("Animation_lba07"),
 "Idle": SubResource("Animation_njxob"),
 "RESET": SubResource("Animation_nju0n"),
-"Run_SWS": SubResource("Animation_md2c5")
+"Standard_Climb": SubResource("Animation_24vlr"),
+"Standard_Fall": SubResource("Animation_gq4dw"),
+"Standard_Jump": SubResource("Animation_hivny"),
+"Standard_Run": SubResource("Animation_63tr5"),
+"SwordShield_Attack1": SubResource("Animation_pgawx"),
+"SwordShield_Attack2": SubResource("Animation_kvv6c"),
+"SwordShield_Attack3": SubResource("Animation_dka21"),
+"SwordShield_Climb": SubResource("Animation_vees6"),
+"SwordShield_Fall": SubResource("Animation_jd3nr"),
+"SwordShield_Jump": SubResource("Animation_mgb56"),
+"SwordShield_Run": SubResource("Animation_md2c5")
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("coin_purse") groups=["players"]]
