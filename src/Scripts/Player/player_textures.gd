@@ -96,7 +96,7 @@ const texture_atlas = {
 				0 : preload("res://Assets/Player/Male/Capes/NomadBackPack-Idle.png")
 			},
 		},
-		"Run": {
+		"Move" : {
 			"Head" : {
 				#White Skin
 				0 : preload("res://Assets/Player/Male/Head_Male/Heads_Male/Head_White_Male-Run1.png")

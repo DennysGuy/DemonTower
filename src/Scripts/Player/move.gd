@@ -16,7 +16,9 @@ var prev_input
 func enter() -> void:
 	parent.was_hit = false
 	parent.enable_gravity = true
-	animation_name = PlayerManager.get_player_color()+"_Run"
+	#animation_name = PlayerManager.get_player_color()+"_Run"
+	parent.set_textures(name)
+	parent.play_animation(4)
 	super()
 	parent.velocity.x = 0
 

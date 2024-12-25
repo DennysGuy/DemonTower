@@ -11,7 +11,9 @@ var hit_state: State
 func enter() -> void:
 	super()
 	parent.enable_gravity = false
-	animation_name = PlayerManager.get_player_color()+"_Climb"
+	#animation_name = PlayerManager.get_player_color()+"_Climb"
+	parent.set_textures(name)
+	parent.play_animation(1)
 	parent.velocity.x = 0
 	move_speed = 100
 	

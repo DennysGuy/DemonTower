@@ -4,7 +4,38 @@ class_name Player extends Entity
 @export var equipped_weapon : Weapon
 @export var coin_purse : Area2D
 
-@export
+@onready var player_animations : AnimationPlayer = $AnimationPlayer
+
+#player parts
+#shield
+@onready var shield : Sprite2D = $PlayerParts/Shield
+#Left Arm 
+@onready var left_arm : Sprite2D = $PlayerParts/LeftUpperBody/LeftArm
+@onready var left_shirt_sleeve : Sprite2D = $PlayerParts/LeftUpperBody/LeftShirtSleeve
+@onready var left_glove : Sprite2D = $PlayerParts/LeftUpperBody/LeftGlove
+#UpperMiddleBody
+@onready var cape : Sprite2D = $PlayerParts/UpperMiddleBody/Cape
+@onready var torso : Sprite2D = $PlayerParts/UpperMiddleBody/Torso
+@onready var shirt_torso : Sprite2D = $PlayerParts/UpperMiddleBody/ShirtTorso
+#LowerBody
+@onready var legs : Sprite2D = $PlayerParts/LowerBody/Legs
+@onready var pants : Sprite2D = $PlayerParts/LowerBody/Pants
+@onready var bottoms : Sprite2D = $PlayerParts/LowerBody/Bottoms
+#RightUpperBody
+@onready var sword : Sprite2D = $PlayerParts/RightUpperBody/Sword
+@onready var right_arm : Sprite2D = $PlayerParts/RightUpperBody/RightArm
+@onready var right_shirt_sleeve : Sprite2D = $PlayerParts/RightUpperBody/RightShirtSleeve
+@onready var right_glove : Sprite2D = $PlayerParts/RightUpperBody/RightGlove
+#UpperBody
+@onready var head : Sprite2D = $PlayerParts/UpperBody/Head
+@onready var eyes : Sprite2D = $PlayerParts/UpperBody/Eyes
+@onready var hair : Sprite2D = $PlayerParts/UpperBody/Hair
+#OnClimb
+@onready var cape_on_climb : Sprite2D= $PlayerParts/OnClimb/CapeOnClimb
+@onready var weapon_on_climb : Sprite2D = $PlayerParts/OnClimb/WeaponOnClimb
+#Effects
+@onready var effects = $PlayerParts/Effects
+
 var hit_box_x_pos : float
 var has_jumped := false
 var in_ladder_area := false
@@ -22,12 +53,19 @@ var health_component : HealthComponent = $HealthComponent
 var health_tracker : Label = $HealthTracker
 @onready
 var damage_taken_tracker : Label = $DamageTaken
+var selected_animations : Array
 
+const animation_names : Dictionary = {
+	"Standard" : ["Idle","Climb", "Hit", "Die", "Standard_Run", "Standard_Jump", "Standard_Fall"],
+	"Sword and Shield" : ["Idle","Climb", "Hit", "Die", "SwordShield_Run", "SwordShield_Jump", "SwordShield_Fall", "SwordShield_Attack1", "SwordShield_Attack2", "SwordShield_Attack3"]
+}
+var weapon_type : String
 var enemy : Entity
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:
-	
 	_set_stats()
+	weapon_type = "Standard"
+	selected_animations = animation_names[weapon_type]
 	Inventory.equip_gear("weapon", load("res://src/Resources/Items/Weapons/Archetypes/Warrior/SwordShields/01_Common/WoodSwordShield.tres"))
 	state_machine.init(self)
 
@@ -48,6 +86,28 @@ func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 	was_hit = true
 	enemy = hitbox.get_parent()
 	health_component.apply_damage(enemy.stats_resource, enemy.equipped_weapon)
+
+func play_animation(index : int) -> void:
+	player_animations.play(selected_animations[index])
+
+
+func set_textures(state : String) -> void:
+	left_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Left Arm"][0]
+	left_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Left Sleeve"]
+	#left_glove.texture = PlayerTextures.texture_atlas[weapon_type][state][]
+	cape.texture = PlayerTextures.texture_atlas[weapon_type][state]["Cape"][0]
+	torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Torso"][0]
+	shirt_torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Torso Shirt"]
+	legs.texture = PlayerTextures.texture_atlas[weapon_type][state]["Legs"][0]
+	pants.texture = PlayerTextures.texture_atlas[weapon_type][state]["Pants"][0]
+	bottoms.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shoes"][0]
+	#sword.textures
+	right_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Right Arm"][0]
+	right_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Right Sleeve"]
+	#right_glove
+	head.texture = PlayerTextures.texture_atlas[weapon_type][state]["Head"][0]
+	eyes.texture = PlayerTextures.texture_atlas[weapon_type][state]["Eyes"]["Green"][0]
+	hair.texture = PlayerTextures.texture_atlas[weapon_type][state]["Hair"]["Black"][0]
 
 func _set_stats():
 	player_name.text = stats_resource.name

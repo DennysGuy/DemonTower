@@ -1,4 +1,4 @@
-[gd_scene load_steps=202 format=3 uid="uid://c3f22551sc137"]
+[gd_scene load_steps=192 format=3 uid="uid://c3f22551sc137"]
 
 [ext_resource type="Script" path="res://src/Scripts/Player/player.gd" id="1_a8xjd"]
 [ext_resource type="Texture2D" uid="uid://dpoghdu45hbx6" path="res://Assets/Player/TempPlayerAssets/green/char_green_1.png" id="2_4c53k"]
@@ -17,23 +17,13 @@
 [ext_resource type="Script" path="res://src/Scripts/Components/hit_box_component.gd" id="8_75pm8"]
 [ext_resource type="Texture2D" uid="uid://b6k7iam5xadba" path="res://Assets/Player/Male/Shields/WoodenShield-Idle.png" id="9_13tao"]
 [ext_resource type="Script" path="res://src/Scripts/Player/attack_1.gd" id="10_bnlu5"]
-[ext_resource type="Texture2D" uid="uid://c2mkqky8db1dh" path="res://Assets/Player/Male/Torso_Male/Torsos_Male/Torso_White_M-ClimbLadder.png" id="10_m7n6x"]
 [ext_resource type="Script" path="res://src/Scripts/Player/attack_2.gd" id="11_0ycbk"]
-[ext_resource type="Texture2D" uid="uid://gtkxae4m3wd" path="res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-ClimbLadder.png" id="11_m02y8"]
 [ext_resource type="Script" path="res://src/Scripts/Player/attack_3.gd" id="12_d5uju"]
-[ext_resource type="Texture2D" uid="uid://crpkqh1p2od7q" path="res://Assets/Player/Male/LowerBody_Male/LegsMale/Legs_White-ClimbLadder.png" id="12_q13si"]
-[ext_resource type="Texture2D" uid="uid://d21ipm6w4587a" path="res://Assets/Player/Male/LowerBody_Male/LegsMale/PantsMale/NomadPantsM-ClimbLadder.png" id="13_khwem"]
-[ext_resource type="Texture2D" uid="uid://cj6hsvkkdogkx" path="res://Assets/Player/Male/LowerBody_Male/LegsMale/BottomsMale/NomadBootsM-ClimbLadder.png" id="14_so515"]
 [ext_resource type="Script" path="res://src/Scripts/Player/player_name_tag.gd" id="15_cb3mg"]
-[ext_resource type="Texture2D" uid="uid://4ou381jehpe5" path="res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_Standard_White-ClimbLadder.png" id="15_cvulg"]
-[ext_resource type="Texture2D" uid="uid://djnvj0mjmmw6j" path="res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_Standard_RM-ClimbLadder.png" id="16_cptdb"]
 [ext_resource type="Script" path="res://src/Scripts/Player/hit.gd" id="17_6haq7"]
-[ext_resource type="Texture2D" uid="uid://chw5nvmbbrpv2" path="res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_Standard_RM-ClimbLadder.png" id="17_p2gsp"]
 [ext_resource type="Script" path="res://src/Scripts/Components/hurt_box_component.gd" id="18_eh7ik"]
-[ext_resource type="Texture2D" uid="uid://cvcthej1fh3pj" path="res://Assets/Player/Male/Head_Male/Heads_Male/Head_White_Male-ClimbLadder.png" id="18_idmlb"]
 [ext_resource type="Script" path="res://src/Scripts/Player/dead.gd" id="18_ssa6g"]
 [ext_resource type="Script" path="res://src/Scripts/Components/health_component.gd" id="19_ck53d"]
-[ext_resource type="Texture2D" uid="uid://ocqfx5lju8ju" path="res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-ClimbLadder.png" id="19_d8gby"]
 [ext_resource type="Script" path="res://src/Scripts/Components/velocity_component.gd" id="22_uy8iy"]
 
 [sub_resource type="Resource" id="Resource_pdu0e"]
@@ -1162,18 +1152,6 @@ animations = [{
 "name": &"Red_Run",
 "speed": 12.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i487o"]
-radius = 9.0
-height = 56.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpkan"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7fsx"]
-size = Vector2(17, 51)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p02l"]
-size = Vector2(8, 8)
 
 [sub_resource type="Animation" id="Animation_r4f2y"]
 resource_name = "Die"
@@ -4842,26 +4820,42 @@ _data = {
 "SwordShield_Run": SubResource("Animation_md2c5")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i487o"]
+radius = 9.0
+height = 56.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpkan"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7fsx"]
+size = Vector2(17, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p02l"]
+size = Vector2(8, 8)
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("coin_purse") groups=["players"]]
 collision_mask = 2
 script = ExtResource("1_a8xjd")
 stats_resource = ExtResource("2_j0aar")
 equipped_weapon = SubResource("Resource_pdu0e")
 coin_purse = NodePath("CoinPurse")
-hit_box_x_pos = 23.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.55
 one_shot = true
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(-27, -57)
 sprite_frames = SubResource("SpriteFrames_r0u3h")
 animation = &"Green_Idle"
 centered = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_boit3")
+}
+
 [node name="PlayerParts" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -37)
 
 [node name="Shield" type="Sprite2D" parent="PlayerParts"]
@@ -4885,26 +4879,21 @@ hframes = 10
 hframes = 10
 
 [node name="Torso" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
-texture = ExtResource("10_m7n6x")
 hframes = 10
 frame = 2
 
 [node name="ShirtTorso" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
-texture = ExtResource("11_m02y8")
 hframes = 10
 
 [node name="LowerBody" type="Node2D" parent="PlayerParts"]
 
 [node name="Legs" type="Sprite2D" parent="PlayerParts/LowerBody"]
-texture = ExtResource("12_q13si")
 hframes = 10
 
 [node name="Pants" type="Sprite2D" parent="PlayerParts/LowerBody"]
-texture = ExtResource("13_khwem")
 hframes = 10
 
 [node name="Bottoms" type="Sprite2D" parent="PlayerParts/LowerBody"]
-texture = ExtResource("14_so515")
 hframes = 10
 
 [node name="RightUpperBody" type="Node2D" parent="PlayerParts"]
@@ -4913,26 +4902,21 @@ hframes = 10
 position = Vector2(1, 21)
 
 [node name="RightArm" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
-texture = ExtResource("15_cvulg")
 hframes = 10
 
 [node name="RightShirtSleeve" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
-texture = ExtResource("16_cptdb")
 hframes = 10
 
 [node name="RightGlove" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
-texture = ExtResource("17_p2gsp")
 hframes = 10
 
 [node name="UpperBody" type="Node2D" parent="PlayerParts"]
 
 [node name="Head" type="Sprite2D" parent="PlayerParts/UpperBody"]
-texture = ExtResource("18_idmlb")
 
 [node name="Eyes" type="Sprite2D" parent="PlayerParts/UpperBody"]
 
 [node name="Hair" type="Sprite2D" parent="PlayerParts/UpperBody"]
-texture = ExtResource("19_d8gby")
 
 [node name="OnClimb" type="Node2D" parent="PlayerParts"]
 
@@ -4943,7 +4927,6 @@ texture = ExtResource("19_d8gby")
 [node name="Effects" type="Sprite2D" parent="PlayerParts"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-2, -28)
 shape = SubResource("CapsuleShape2D_i487o")
 
@@ -4972,11 +4955,10 @@ position = Vector2(23, -17)
 script = ExtResource("8_75pm8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(16, 1)
+position = Vector2(5, 0)
 shape = SubResource("RectangleShape2D_rpkan")
 
 [node name="HurtBox" type="Area2D" parent="."]
-visible = false
 script = ExtResource("18_eh7ik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
@@ -5090,10 +5072,5 @@ position = Vector2(-27, -77)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinPurse"]
 position = Vector2(27, 37)
 shape = SubResource("RectangleShape2D_2p02l")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_boit3")
-}
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
