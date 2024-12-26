@@ -64,9 +64,22 @@ const texture_atlas = {
 				#White Skin
 				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_Standard_White-Idle.png")
 			},
+			
+			"Gloves" : {
+				
+				"Left Glove" : {
+					#Nomad Left Glove
+					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_Standard_LM-Idle.png")
+				}, 
+				"Right Glove" : {
+					#Nomad Right Glove
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_Standard_RM-Idle.png")
+				}
+			},
+			
 			"Torso" : {
 				#White Skin
-				0 : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-Idle.png")
+				0 : preload("res://Assets/Player/Male/Torso_Male/Torsos_Male/Torso_White_M-Idle.png")
 			},
 			"Right Arm" : {
 				#White Skin
@@ -125,6 +138,18 @@ const texture_atlas = {
 				#White Skin
 				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_Standard_White-Run1.png")
 			},
+			
+			"Gloves" : {
+				"Left Glove" : {
+					#Nomad Left Glove
+					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_Standard_LM-Run1.png")
+				}, 
+				"Right Glove" : {
+					#Nomad Right Glove
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_Standard_RM-Run1.png")
+				}
+			},
+			
 			"Shirt": {
 				0 : { #Nomad Shirt Green
 					"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Standard_Male-Run1.png"),
@@ -166,6 +191,7 @@ const texture_atlas = {
 					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png")
 				}
 			},
+			
 			"Left Arm" : {
 				#White Skin
 				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_Standard_White-Jump_Standard.png")
@@ -178,6 +204,18 @@ const texture_atlas = {
 				#White Skin
 				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_Standard_White-Jump_Standard.png")
 			},
+
+			"Gloves" : {
+				"Left Glove" : {
+					#Nomad Left Glove
+					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_Standard_LM-Jump_Standard.png")
+				}, 
+				"Right Glove" : {
+					#Nomad Right Glove
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_Standard_RM-Jump_Standard.png")
+				}
+			},
+						
 			"Shirt": {
 				0 : { #Nomad Shirt Green
 					"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Standard_Male-Jump_Standard.png"),
@@ -232,6 +270,16 @@ const texture_atlas = {
 				#White Skin
 				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_Standard_White-Jump_Standard.png")
 			},
+			"Gloves" : {
+				"Left Glove" : {
+					#Nomad Left Glove
+					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_Standard_LM-Jump_Standard.png")
+				}, 
+				"Right Glove" : {
+					#Nomad Right Glove
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_Standard_RM-Jump_Standard.png")
+				}
+			},
 			"Shirt": {
 				0 : { #Nomad Shirt Green
 					"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Standard_Male-Jump_Standard.png"),
@@ -278,9 +326,14 @@ const texture_atlas = {
 				#White Skin
 				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_Standard_White-ClimbLadder.png")
 			},
+			"Gloves" : {
+				"Right Glove" : {
+					#Nomad Right Glove
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_Standard_RM-ClimbLadder.png")
+				}
+			},
 			"Shirt": {
 				0 : { #Nomad Shirt Green
-					"Left Sleeve" : null,
 					"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-Run1.png") ,
 					"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_Standard_RM-ClimbLadder.png")
 				}
@@ -331,6 +384,16 @@ const texture_atlas = {
 			"Right Arm" : {
 				#White Skin
 				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_Standard_White-Jump_Standard.png")
+			},
+			"Gloves" : {
+				"Left Glove" : {
+					#Nomad Left Glove
+					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_Standard_LM-Jump_Standard.png")
+				}, 
+				"Right Glove" : {
+					#Nomad Right Glove
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_Standard_RM-Jump_Standard.png")
+				}
 			},
 			"Shirt": {
 				0 : { #Nomad Shirt Green

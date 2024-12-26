@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="New_Demon_Tower"
+config/name="Binder's Tower"
 run/main_scene="res://src/Scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
@@ -69,8 +69,8 @@ text/input_action="progress_dialogue"
 
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=270
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"

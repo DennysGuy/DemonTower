@@ -42,7 +42,8 @@ func process_physics(_delta: float) -> State:
 
 	parent.hitbox.position.x = (parent.hit_box_x_pos * input)
 	if movement != 0:
-		parent.animation_player.flip_h = movement < 0
+		#parent.animation_player.flip_h = movement < 0
+		parent.flip_textures(movement < 0)
 	
 	parent.velocity.x = movement
 	#set floor snapping for sloped surfaces

@@ -36,6 +36,8 @@ class_name Player extends Entity
 #Effects
 @onready var effects = $PlayerParts/Effects
 
+var texture_parts : Array[Sprite2D]
+
 var hit_box_x_pos : float
 var has_jumped := false
 var in_ladder_area := false
@@ -64,9 +66,14 @@ var enemy : Entity
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:
 	_set_stats()
-	weapon_type = "Standard"
+	if equipped_weapon == null:
+		weapon_type = "Standard"
+	else:
+		weapon_type = equipped_weapon.get_weapon_type_name()
+		
+	texture_parts = [left_arm, left_shirt_sleeve, left_glove, cape, torso, shirt_torso, legs, pants, bottoms, sword, right_arm, right_shirt_sleeve, right_glove, head,eyes,hair]
 	selected_animations = animation_names[weapon_type]
-	Inventory.equip_gear("weapon", load("res://src/Resources/Items/Weapons/Archetypes/Warrior/SwordShields/01_Common/WoodSwordShield.tres"))
+	#Inventory.equip_gear("weapon", load("res://src/Resources/Items/Weapons/Archetypes/Warrior/SwordShields/01_Common/WoodSwordShield.tres"))
 	state_machine.init(self)
 
 func _process(delta):
@@ -90,21 +97,29 @@ func _on_hurt_box_area_entered(hitbox : HitBox) -> void:
 func play_animation(index : int) -> void:
 	player_animations.play(selected_animations[index])
 
+func flip_textures(flip : bool) -> void:
+	for sprite in texture_parts:
+		sprite.flip_h = flip
 
 func set_textures(state : String) -> void:
-	left_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Left Arm"][0]
-	left_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Left Sleeve"]
-	#left_glove.texture = PlayerTextures.texture_atlas[weapon_type][state][]
+	if Inventory.inventories["equipped_gear"]["shirt"] != null:
+		left_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Left Sleeve"]
+		shirt_torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Torso Shirt"]
+		right_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Right Sleeve"]
+	if Inventory.inventories["equipped_gear"]["gloves"] != null:
+		left_glove.texture = PlayerTextures.texture_atlas[weapon_type][state]["Gloves"]["Left Glove"][0]
+		right_glove.texture = PlayerTextures.texture_atlas[weapon_type][state]["Gloves"]["Right Glove"][0]
+	if Inventory.inventories["equipped_gear"]["pants"] != null:
+		pants.texture = PlayerTextures.texture_atlas[weapon_type][state]["Pants"][0]
+	if Inventory.inventories["equipped_gear"]["shoes"] != null:
+		bottoms.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shoes"][0]
+	
 	cape.texture = PlayerTextures.texture_atlas[weapon_type][state]["Cape"][0]
 	torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Torso"][0]
-	shirt_torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Torso Shirt"]
-	legs.texture = PlayerTextures.texture_atlas[weapon_type][state]["Legs"][0]
-	pants.texture = PlayerTextures.texture_atlas[weapon_type][state]["Pants"][0]
-	bottoms.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shoes"][0]
-	#sword.textures
+	left_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Left Arm"][0]
 	right_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Right Arm"][0]
-	right_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Right Sleeve"]
-	#right_glove
+	legs.texture = PlayerTextures.texture_atlas[weapon_type][state]["Legs"][0]
+	#sword.textures
 	head.texture = PlayerTextures.texture_atlas[weapon_type][state]["Head"][0]
 	eyes.texture = PlayerTextures.texture_atlas[weapon_type][state]["Eyes"]["Green"][0]
 	hair.texture = PlayerTextures.texture_atlas[weapon_type][state]["Hair"]["Black"][0]
@@ -112,10 +127,11 @@ func set_textures(state : String) -> void:
 func _set_stats():
 	player_name.text = stats_resource.name
 	ExpHandlers.calculate_total_level(stats_resource)
+	stats_resource.current_health = stats_resource.max_health #will be removed during final setup
 	if equipped_weapon:
 		ExpHandlers.init_needed_xp_for_all_stats(stats_resource)
-	stats_resource.max_health = stats_resource.max_health + equipped_weapon.HP_bonus #this will need to be set whenever player changes weapon
-	stats_resource.current_health = stats_resource.max_health #will be removed during final setup
+		stats_resource.max_health = stats_resource.max_health + equipped_weapon.HP_bonus #this will need to be set whenever player changes weapon
+	
 
 func apply_received_xp(value : int) -> void:
 	match(equipped_weapon.archetype_class):

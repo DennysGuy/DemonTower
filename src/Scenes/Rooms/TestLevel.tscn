@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=33 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="TileSet" uid="uid://cxknhuu5nlqrx" path="res://src/Scenes/Rooms/TestLevel.tres" id="2_mvtek"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c3f22551sc137" path="res://src/Scenes/Player/Player.tscn" id="3_qwxlk"]
 [ext_resource type="PackedScene" uid="uid://636u6us5vqin" path="res://src/Scenes/Interfaces/PlayerHUD.tscn" id="6_2sq7a"]
 [ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="6_c8d2o"]
-[ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="6_h7fgs"]
 [ext_resource type="PackedScene" uid="uid://g54ni6fq53ig" path="res://src/Scenes/NPCs/NPCInteractable.tscn" id="6_jm6bf"]
 [ext_resource type="PackedScene" uid="uid://bcpd44ry7bhvp" path="res://src/Scenes/Items/ItemInteractable.tscn" id="9_dg0v2"]
 [ext_resource type="Script" path="res://src/Scripts/hud.gd" id="9_xryin"]
@@ -514,42 +513,10 @@ speed = 120
 jump = 200
 xp_value = 0
 
-[sub_resource type="Resource" id="Resource_piodm"]
-resource_local_to_scene = true
-script = ExtResource("6_h7fgs")
-level = 1
-archetype_class = 2
-weapon_class = 5
-weapon_speed = 100
-weapon_rarity = 0
-elemental_effect = 0
-xp_type = 2
-weapon_attack = 0
-weapon_defense = 2
-magic_attack = 0
-magic_defense = 0
-shadow_attack = 8
-shadow_defense = 1
-HP_bonus = 10
-MP_bonus = 0
-movement_speed_bonus = 0
-jump_bonus = 0
-animation_name = ""
-id = 0
-name = "Wood Knives"
-sell_value = 0
-shop_value = 0
-is_droppable = true
-type = 0
-rarity = 0
-description = "Knives are the primary melee weapon of the Rogue class, designed for stealthy and agile combat. While they have the lowest damage output and range compared to all other weapons in the game, their speed and mobility more than make up for it. Knives allow players to execute quick, precise strikes, making them ideal for hit-and-run tactics. In addition, wielding a knife provides a notable boost to movement and jump abilities, enabling the player to fluidly dart in and out of combat. This high mobility, combined with the ability to deliver rapid attacks, makes the knife a versatile weapon for players who prefer swift, evasive playstyles. Using Knives will primarily provide LUK exp and secondarily, DEX exp"
-is_stackable = false
-max_stack = 0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
 size = Vector2(70, 39)
 
-[sub_resource type="Resource" id="Resource_kmymy"]
+[sub_resource type="Resource" id="Resource_j5mv2"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -564,7 +531,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_53232"]
+[sub_resource type="Resource" id="Resource_0o6up"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -579,7 +546,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_2qwdk"]
+[sub_resource type="Resource" id="Resource_hsivx"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -594,7 +561,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_06qvn"]
+[sub_resource type="Resource" id="Resource_bx76k"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -627,7 +594,6 @@ tile_set = SubResource("TileSet_e2t1h")
 [node name="Player" parent="." instance=ExtResource("3_qwxlk")]
 position = Vector2(69, 244)
 stats_resource = SubResource("Resource_3gcth")
-equipped_weapon = SubResource("Resource_piodm")
 
 [node name="NpcInteractable" parent="." instance=ExtResource("6_jm6bf")]
 time_line = "shop_keeper_talk"
@@ -652,25 +618,30 @@ player = NodePath("../Player")
 smoothing_distance = 2
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("9_xryin")
 
 [node name="PlayerHUD" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("6_2sq7a")]
-offset_left = 1.0
-offset_top = 0.0
-offset_right = 1.0
-offset_bottom = 0.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 67.0
+offset_top = 90.0
+offset_right = 67.0
+offset_bottom = 90.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 4
 player = NodePath("../../Player")
 
 [node name="SmeltingOven" parent="." instance=ExtResource("12_h3w45")]
-offset_left = 254.0
-offset_top = 208.0
-offset_right = 286.0
-offset_bottom = 240.0
+offset_left = 244.0
+offset_top = 203.0
+offset_right = 276.0
+offset_bottom = 235.0
 
 [node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(559, 227)
-item_data = SubResource("Resource_kmymy")
+item_data = SubResource("Resource_j5mv2")
 
 [node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(595, 227)
@@ -678,11 +649,11 @@ item_data = ExtResource("13_bobpn")
 
 [node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(639, 227)
-item_data = SubResource("Resource_53232")
+item_data = SubResource("Resource_0o6up")
 
 [node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(701, 227)
-item_data = SubResource("Resource_2qwdk")
+item_data = SubResource("Resource_hsivx")
 
 [node name="ItemInteractable7" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(735, 226)
@@ -698,7 +669,7 @@ item_data = ExtResource("16_6iert")
 
 [node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(772, 227)
-item_data = SubResource("Resource_06qvn")
+item_data = SubResource("Resource_bx76k")
 
 [node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(826, 227)
