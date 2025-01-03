@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Drip" load_steps=3 format=3 uid="uid://bc4mh84bydyno"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/drip.gd" id="1_7ybpa"]
+[ext_resource type="Texture2D" uid="uid://bhds6352pajcu" path="res://Assets/nomad_shirt_icon.png" id="1_7ysqf"]
+
+[resource]
+script = ExtResource("1_7ybpa")
+drip_type = 0
+animation_name = ""
+id = 48
+texture_index = 0
+name = ""
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 3
+rarity = 0
+description = "A cozy shirt for the cold times"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_7ysqf")

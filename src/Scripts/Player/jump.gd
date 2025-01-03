@@ -16,6 +16,7 @@ func enter() -> void:
 	#animation_name = PlayerManager.get_player_color()+"_Jump"
 	parent.set_textures(name)
 	parent.play_animation(5)
+	
 	super()
 	parent.has_jumped = true
 	parent.velocity.y -= 300

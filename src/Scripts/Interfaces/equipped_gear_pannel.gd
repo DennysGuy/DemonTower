@@ -34,8 +34,14 @@ var _equipped_amulet : Accessory
 var _equipped_shirt : Drip
 var _equipped_pants : Drip
 var _equipped_shoes : Drip
+
+var player : Player
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var players = get_tree().get_nodes_in_group("players")
+	if players.size() > 0:
+		player = players[0]
+		print("Player found:",player)
 	_equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
 	_equipped_hat = Inventory.inventories["equipped_gear"]["hat"]
 	_equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
@@ -109,39 +115,52 @@ func _on_unequip_weapon_button_down() -> void:
 		_equipped_weapon = null
 		Inventory.inventories["equipped_gear"]["weapon"] = null
 
-
 func _on_unequip_hat_button_button_down() -> void:
 	if _equipped_hat:
 		Inventory.add_item("accessories", _equipped_hat, 1)
 		_equipped_hat = null
 		Inventory.inventories["equipped_gear"]["hat"] = null
-
+	player.set_textures("Idle")
+		
 func _on_unequip_gloves_button_button_down() -> void:
 	if _equipped_gloves:
 		Inventory.add_item("accessories", _equipped_gloves, 1)
 		_equipped_gloves = null
 		Inventory.inventories["equipped_gear"]["gloves"] = null
-
+	player.left_glove.texture = null
+	player.right_glove.texture = null
+	player.set_textures("Idle")
+	
 func _on_unequip_amulet_button_button_down() -> void:
 	if _equipped_amulet:
 		Inventory.add_item("accessories", _equipped_amulet, 1)
 		_equipped_amulet = null
 		Inventory.inventories["equipped_gear"]["amulet"] = null
-
+	player.set_textures("Idle")
+	
 func _on_unequip_shirt_button_button_down() -> void:
 	if _equipped_shirt:
 		Inventory.add_item("drip", _equipped_shirt, 1)
 		_equipped_shirt = null
 		Inventory.inventories["equipped_gear"]["shirt"] = null
-
+	
+	player.left_shirt_sleeve.texture = null
+	player.shirt_torso.texture = null
+	player.right_shirt_sleeve.texture = null
+	player.set_textures("Idle")
+	
 func _on_unequip_pants_button_button_down() -> void:
 	if _equipped_pants:
 		Inventory.add_item("drip", _equipped_pants, 1)
 		_equipped_weapon = null
 		Inventory.inventories["equipped_gear"]["pants"] = null
-
+	player.pants.texture = null
+	player.set_textures("Idle")
+	
 func _on_unequip_shoes_button_button_down() -> void:
 	if _equipped_shoes:
 		Inventory.add_item("drip", _equipped_shoes, 1)
 		_equipped_weapon = null
 		Inventory.inventories["equipped_gear"]["shoes"] = null
+	player.bottoms.texture = null
+	player.set_textures("Idle")

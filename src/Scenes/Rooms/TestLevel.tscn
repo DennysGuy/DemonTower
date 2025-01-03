@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=34 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="TileSet" uid="uid://cxknhuu5nlqrx" path="res://src/Scenes/Rooms/TestLevel.tres" id="2_mvtek"]
@@ -15,10 +15,11 @@
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="14_ccisj"]
 [ext_resource type="Script" path="res://src/Scripts/Camera.gd" id="15_ctc77"]
 [ext_resource type="Resource" uid="uid://butolphg2ifxo" path="res://src/Resources/Items/CraftingMaterials/01_Common/Logs.tres" id="16_6iert"]
+[ext_resource type="Resource" uid="uid://bc4mh84bydyno" path="res://src/Resources/Items/Drip/Shirts/01_Common/NomadShirt.tres" id="17_filyb"]
+[ext_resource type="Resource" uid="uid://cy5tsayru4luf" path="res://src/Resources/Items/Drip/Pants/01_Common/NomadPants.tres" id="18_5wlnc"]
 [ext_resource type="PackedScene" uid="uid://ggfw8h237y5b" path="res://src/Scenes/Shops/CookingStation/CookingOven.tscn" id="18_8aly0"]
-[ext_resource type="Resource" uid="uid://cog0gqccohceu" path="res://src/Resources/Items/CraftingMaterials/01_Common/SlimeGel.tres" id="19_43htk"]
-[ext_resource type="Resource" uid="uid://casl6rfv38drh" path="res://src/Resources/Items/CraftingMaterials/01_Common/RiceGrain.tres" id="20_2uq1v"]
-[ext_resource type="Resource" uid="uid://cb235yjn17tfq" path="res://src/Resources/Items/CraftingMaterials/01_Common/PigHead.tres" id="21_yq3l8"]
+[ext_resource type="Resource" uid="uid://dfde5dwb6b83y" path="res://src/Resources/Items/Drip/Shoes/01_Common/NomadBoots.tres" id="19_g3764"]
+[ext_resource type="Resource" uid="uid://bwt65vrjlwsa" path="res://src/Resources/Items/Accessories/Gloves/01_Common/NomadGloves.tres" id="20_0w45k"]
 [ext_resource type="Resource" uid="uid://glurffea25db" path="res://src/Resources/Items/CraftingMaterials/01_Common/PeanutSauce.tres" id="22_v3n7t"]
 [ext_resource type="PackedScene" uid="uid://wfc712emhnd3" path="res://src/Scenes/Shops/CraftingStation/CraftingStation.tscn" id="23_0cvq6"]
 [ext_resource type="Resource" uid="uid://c4pugbrg2wc75" path="res://src/Resources/Items/Recipes/Weapons/01_Common/BronzeSwordShield.tres" id="24_qulqe"]
@@ -516,10 +517,11 @@ xp_value = 0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
 size = Vector2(70, 39)
 
-[sub_resource type="Resource" id="Resource_j5mv2"]
+[sub_resource type="Resource" id="Resource_ai75y"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
+texture_index = 0
 name = "Copper Ore"
 sell_value = 0
 shop_value = 75
@@ -531,10 +533,11 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_0o6up"]
+[sub_resource type="Resource" id="Resource_adu46"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
+texture_index = 0
 name = "Copper Ore"
 sell_value = 0
 shop_value = 75
@@ -546,10 +549,11 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_hsivx"]
+[sub_resource type="Resource" id="Resource_nt76p"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
+texture_index = 0
 name = "Copper Ore"
 sell_value = 0
 shop_value = 75
@@ -561,10 +565,11 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_bx76k"]
+[sub_resource type="Resource" id="Resource_7cjaa"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
+texture_index = 0
 name = "Copper Ore"
 sell_value = 0
 shop_value = 75
@@ -641,7 +646,7 @@ offset_bottom = 235.0
 
 [node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(559, 227)
-item_data = SubResource("Resource_j5mv2")
+item_data = SubResource("Resource_ai75y")
 
 [node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(595, 227)
@@ -649,11 +654,11 @@ item_data = ExtResource("13_bobpn")
 
 [node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(639, 227)
-item_data = SubResource("Resource_0o6up")
+item_data = SubResource("Resource_adu46")
 
 [node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(701, 227)
-item_data = SubResource("Resource_hsivx")
+item_data = SubResource("Resource_nt76p")
 
 [node name="ItemInteractable7" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(735, 226)
@@ -669,7 +674,7 @@ item_data = ExtResource("16_6iert")
 
 [node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(772, 227)
-item_data = SubResource("Resource_bx76k")
+item_data = SubResource("Resource_7cjaa")
 
 [node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(826, 227)
@@ -682,29 +687,21 @@ offset_top = 208.0
 offset_right = 530.0
 offset_bottom = 240.0
 
-[node name="ItemInteractable10" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(134, 230)
-item_data = ExtResource("19_43htk")
-
 [node name="ItemInteractable11" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(155, 229)
-item_data = ExtResource("20_2uq1v")
-
-[node name="ItemInteractable16" parent="." instance=ExtResource("9_dg0v2")]
-position = Vector2(113, 229)
-item_data = ExtResource("20_2uq1v")
+item_data = ExtResource("17_filyb")
 
 [node name="ItemInteractable12" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(177, 229)
-item_data = ExtResource("21_yq3l8")
+item_data = ExtResource("18_5wlnc")
 
 [node name="ItemInteractable13" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(198, 229)
-item_data = ExtResource("22_v3n7t")
+item_data = ExtResource("19_g3764")
 
 [node name="ItemInteractable14" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(217, 230)
-item_data = ExtResource("21_yq3l8")
+item_data = ExtResource("20_0w45k")
 
 [node name="ItemInteractable15" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(240, 231)

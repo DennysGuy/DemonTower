@@ -99,6 +99,7 @@ offset_right = -239.0
 offset_bottom = -135.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_w27xc")
 
 [node name="SkillsXPMenu" type="Panel" parent="."]

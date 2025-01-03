@@ -102,17 +102,21 @@ func flip_textures(flip : bool) -> void:
 		sprite.flip_h = flip
 
 func set_textures(state : String) -> void:
-	if Inventory.inventories["equipped_gear"]["shirt"] != null:
-		left_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Left Sleeve"]
-		shirt_torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Torso Shirt"]
-		right_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][0]["Right Sleeve"]
-	if Inventory.inventories["equipped_gear"]["gloves"] != null:
-		left_glove.texture = PlayerTextures.texture_atlas[weapon_type][state]["Gloves"]["Left Glove"][0]
-		right_glove.texture = PlayerTextures.texture_atlas[weapon_type][state]["Gloves"]["Right Glove"][0]
-	if Inventory.inventories["equipped_gear"]["pants"] != null:
-		pants.texture = PlayerTextures.texture_atlas[weapon_type][state]["Pants"][0]
-	if Inventory.inventories["equipped_gear"]["shoes"] != null:
-		bottoms.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shoes"][0]
+	var equipped_shirt = Inventory.inventories["equipped_gear"]["shirt"]
+	var equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
+	var equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
+	var equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
+	if equipped_shirt != null:
+		left_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Left Sleeve"]
+		shirt_torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Torso Shirt"]
+		right_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Right Sleeve"]
+	if equipped_gloves != null:
+		left_glove.texture = PlayerTextures.texture_atlas[weapon_type][state]["Gloves"]["Left Glove"][equipped_gloves.texture_index]
+		right_glove.texture = PlayerTextures.texture_atlas[weapon_type][state]["Gloves"]["Right Glove"][equipped_gloves.texture_index]
+	if equipped_pants != null:
+		pants.texture = PlayerTextures.texture_atlas[weapon_type][state]["Pants"][equipped_pants.texture_index]
+	if equipped_shoes != null:
+		bottoms.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shoes"][equipped_shoes.texture_index]
 	
 	cape.texture = PlayerTextures.texture_atlas[weapon_type][state]["Cape"][0]
 	torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Torso"][0]

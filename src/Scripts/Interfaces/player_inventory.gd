@@ -144,7 +144,7 @@ func _on_equip_button_button_down():
 	if equipped_gear_slot:
 		Inventory.add_item(_item_data.get_item_inventory_name(), equipped_gear_slot, 1)
 	Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
-	
+	player.set_textures("Idle")
 	clear_details()
 	_item_data = null
 

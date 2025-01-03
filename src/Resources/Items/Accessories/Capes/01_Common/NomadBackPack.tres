@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=3 format=3 uid="uid://ivlcbc3kue41"]
+
+[ext_resource type="Texture2D" uid="uid://bbfqanxiyrk26" path="res://Assets/nomad_backpack_icon.png" id="1_w7woh"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/accessory.gd" id="2_m41tw"]
+
+[resource]
+script = ExtResource("2_m41tw")
+accessory_type = 2
+level = 0
+crit_damage_bonus = 0
+crit_rate_bonus = 0
+speed_bonus = 0
+jump_bonus = 0
+avoidability_bonus = 0
+accuracy_bonus = 0
+hp_bonus = 0
+mp_bonus = 0
+weapon_defense_bonus = 0
+magic_defense_bonus = 0
+id = 49
+texture_index = 0
+name = "Nomad BackPack"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 2
+rarity = 0
+description = "Holds all things necessary for a nomad"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_w7woh")
