@@ -58,8 +58,8 @@ var damage_taken_tracker : Label = $DamageTaken
 var selected_animations : Array
 
 const animation_names : Dictionary = {
-	"Standard" : ["Idle","Climb", "Hit", "Die", "Standard_Run", "Standard_Jump", "Standard_Fall"],
-	"Sword and Shield" : ["Idle","Climb", "Hit", "Die", "SwordShield_Run", "SwordShield_Jump", "SwordShield_Fall", "SwordShield_Attack1", "SwordShield_Attack2", "SwordShield_Attack3"]
+	"Standard" : ["Idle","Climb", "Hit", "Die", "Run", "Jump", "Fall"],
+	"Sword and Shield" : ["Idle","Climb", "Hit", "Die", "Run", "Jump", "Fall", "SwordShield_Attack1", "SwordShield_Attack2", "SwordShield_Attack3"]
 }
 var weapon_type : String
 var enemy : Entity
@@ -118,7 +118,39 @@ func set_textures(state : String) -> void:
 	if equipped_shoes != null:
 		bottoms.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shoes"][equipped_shoes.texture_index]
 	
+
 	cape.texture = PlayerTextures.texture_atlas[weapon_type][state]["Cape"][0]
+	
+	torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Torso"][0]
+	left_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Left Arm"][0]
+	right_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Right Arm"][0]
+	legs.texture = PlayerTextures.texture_atlas[weapon_type][state]["Legs"][0]
+	#sword.textures
+	head.texture = PlayerTextures.texture_atlas[weapon_type][state]["Head"][0]
+	eyes.texture = PlayerTextures.texture_atlas[weapon_type][state]["Eyes"]["Green"][0]
+	hair.texture = PlayerTextures.texture_atlas[weapon_type][state]["Hair"]["Black"][0]
+
+func set_textures_on_climb(state):
+	var equipped_shirt = Inventory.inventories["equipped_gear"]["shirt"]
+	var equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
+	var equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
+	var equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
+	var equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
+	if equipped_shirt != null:
+		left_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Left Sleeve"]
+		shirt_torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Torso Shirt"]
+		right_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Right Sleeve"]
+	if equipped_gloves != null:
+		left_glove.texture = PlayerTextures.texture_atlas[weapon_type][state]["Gloves"]["Left Glove"][equipped_gloves.texture_index]
+		right_glove.texture = PlayerTextures.texture_atlas[weapon_type][state]["Gloves"]["Right Glove"][equipped_gloves.texture_index]
+	if equipped_pants != null:
+		pants.texture = PlayerTextures.texture_atlas[weapon_type][state]["Pants"][equipped_pants.texture_index]
+	if equipped_shoes != null:
+		bottoms.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shoes"][equipped_shoes.texture_index]
+	
+
+	cape.texture = PlayerTextures.texture_atlas[weapon_type][state]["Cape"][0]
+	
 	torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Torso"][0]
 	left_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Left Arm"][0]
 	right_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Right Arm"][0]

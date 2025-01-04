@@ -1,11 +1,11 @@
 extends Control
 
 @onready
-var preview_animations : AnimatedSprite2D = $PlayerCharacterPreview/PreviewAnimations
+var preview_animations : AnimatedSprite2D = $ColorRect/PlayerCharacterPreview/PreviewAnimations
 @onready
-var name_box : LineEdit = $LineEdit
+var name_box : LineEdit = $ColorRect/LineEdit
 @onready
-var character : Label = $Character
+var character : Label = $ColorRect/Character
 var index : int = 0
 var selected_color = ""
 # Called when the node enters the scene tree for the first time.

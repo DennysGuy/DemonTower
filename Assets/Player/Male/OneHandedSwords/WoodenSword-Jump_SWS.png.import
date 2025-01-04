@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deo5gcc2wvwh8"
-path="res://.godot/imported/NomadShirtLSleeve_Standard_Male-ClimbLadder.png-b110cd5cbc85d919f06a7fcdb632bb6d.ctex"
+uid="uid://xevos1tinit6"
+path="res://.godot/imported/WoodenSword-Jump_SWS.png-d74aa8111c00520f1b3457190527870c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Standard_Male-ClimbLadder.png"
-dest_files=["res://.godot/imported/NomadShirtLSleeve_Standard_Male-ClimbLadder.png-b110cd5cbc85d919f06a7fcdb632bb6d.ctex"]
+source_file="res://Assets/Player/Male/OneHandedSwords/WoodenSword-Jump_SWS.png"
+dest_files=["res://.godot/imported/WoodenSword-Jump_SWS.png-d74aa8111c00520f1b3457190527870c.ctex"]
 
 [params]
 

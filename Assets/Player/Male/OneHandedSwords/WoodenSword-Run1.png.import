@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwvshaf0uei4d"
-path="res://.godot/imported/NomadShirtLSleeve_Standard_Male-Basic_SWS_Attack.png-105f8e1f44c407c70568fce95e2ae979.ctex"
+uid="uid://slemik0fdfwo"
+path="res://.godot/imported/WoodenSword-Run1.png-5aa535bf4e892449278ddd4e8e40cea8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Standard_Male-Basic_SWS_Attack.png"
-dest_files=["res://.godot/imported/NomadShirtLSleeve_Standard_Male-Basic_SWS_Attack.png-105f8e1f44c407c70568fce95e2ae979.ctex"]
+source_file="res://Assets/Player/Male/OneHandedSwords/WoodenSword-Run1.png"
+dest_files=["res://.godot/imported/WoodenSword-Run1.png-5aa535bf4e892449278ddd4e8e40cea8.ctex"]
 
 [params]
 

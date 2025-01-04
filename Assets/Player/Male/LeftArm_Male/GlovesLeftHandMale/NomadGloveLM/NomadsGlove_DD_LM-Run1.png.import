@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daa2pfxbip150"
-path="res://.godot/imported/NomadShirtLSleeve_SWS_Male-Jump_Standard.png-9bf2e964806526848449e0b8bad7da4c.ctex"
+uid="uid://bw421wvuq45mf"
+path="res://.godot/imported/NomadsGlove_DD_LM-Run1.png-57397520ac32375f05ff50f33812dffe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_SWS_Male-Jump_Standard.png"
-dest_files=["res://.godot/imported/NomadShirtLSleeve_SWS_Male-Jump_Standard.png-9bf2e964806526848449e0b8bad7da4c.ctex"]
+source_file="res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_DD_LM-Run1.png"
+dest_files=["res://.godot/imported/NomadsGlove_DD_LM-Run1.png-57397520ac32375f05ff50f33812dffe.ctex"]
 
 [params]
 
