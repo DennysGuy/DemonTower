@@ -117,9 +117,7 @@ func _on_unequip_weapon_button_down() -> void:
 			player.shield.texture = null
 		_equipped_weapon = null
 		Inventory.inventories["equipped_gear"]["weapon"] = null
-
-	player.weapon_type = "Standard"
-	player.selected_animations = player.animation_names[player.weapon_type]
+	player.standardize_animations()
 
 func _on_unequip_hat_button_button_down() -> void:
 	if _equipped_hat:

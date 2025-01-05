@@ -102,6 +102,10 @@ func flip_textures(flip : bool) -> void:
 	for sprite in texture_parts:
 		sprite.flip_h = flip
 
+func standardize_animations():
+	weapon_type = "Standard"
+	selected_animations = animation_names[weapon_type]
+
 func set_weapon(type : String, weapon : Weapon):
 	equipped_weapon = weapon
 	if equipped_weapon == null:
