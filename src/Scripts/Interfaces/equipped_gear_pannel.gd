@@ -112,8 +112,14 @@ func _process(delta):
 func _on_unequip_weapon_button_down() -> void:
 	if _equipped_weapon:
 		Inventory.add_item("weapons", _equipped_weapon, 1)
+		if _equipped_weapon.get_weapon_type_name() == "Sword and Shield":
+			player.sword.texture = null
+			player.shield.texture = null
 		_equipped_weapon = null
 		Inventory.inventories["equipped_gear"]["weapon"] = null
+
+	player.weapon_type = "Standard"
+	player.selected_animations = player.animation_names[player.weapon_type]
 
 func _on_unequip_hat_button_button_down() -> void:
 	if _equipped_hat:

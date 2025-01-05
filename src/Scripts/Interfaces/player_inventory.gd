@@ -143,7 +143,12 @@ func _on_equip_button_button_down():
 	
 	if equipped_gear_slot:
 		Inventory.add_item(_item_data.get_item_inventory_name(), equipped_gear_slot, 1)
+
 	Inventory.remove_item(_item_data.get_item_inventory_name(), _item_data)
+	if _item_data.type == _item_data.TYPE.WEAPON:
+		var newly_equipped_weapon : Weapon = Inventory.inventories["equipped_gear"]["weapon"]
+		player.set_weapon(newly_equipped_weapon.get_weapon_type_name(), _item_data)	
+	
 	player.set_textures("Idle")
 	clear_details()
 	_item_data = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://b7yrr7van54j8"]
+[gd_scene load_steps=37 format=4 uid="uid://b7yrr7van54j8"]
 
 [ext_resource type="Texture2D" uid="uid://bbw1q6roe4gsb" path="res://Assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_m0vj0"]
 [ext_resource type="TileSet" uid="uid://cxknhuu5nlqrx" path="res://src/Scenes/Rooms/TestLevel.tres" id="2_mvtek"]
@@ -23,6 +23,8 @@
 [ext_resource type="Resource" uid="uid://glurffea25db" path="res://src/Resources/Items/CraftingMaterials/01_Common/PeanutSauce.tres" id="22_v3n7t"]
 [ext_resource type="PackedScene" uid="uid://wfc712emhnd3" path="res://src/Scenes/Shops/CraftingStation/CraftingStation.tscn" id="23_0cvq6"]
 [ext_resource type="Resource" uid="uid://c4pugbrg2wc75" path="res://src/Resources/Items/Recipes/Weapons/01_Common/BronzeSwordShield.tres" id="24_qulqe"]
+[ext_resource type="Texture2D" uid="uid://cljkolrryqasw" path="res://Assets/wooden_sword_shield_icon.png" id="24_xchr1"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="25_q3n3f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nm7nk"]
 texture = ExtResource("1_m0vj0")
@@ -517,7 +519,7 @@ xp_value = 0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
 size = Vector2(70, 39)
 
-[sub_resource type="Resource" id="Resource_ai75y"]
+[sub_resource type="Resource" id="Resource_3uo4m"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -533,7 +535,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_adu46"]
+[sub_resource type="Resource" id="Resource_3quvx"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -549,7 +551,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_nt76p"]
+[sub_resource type="Resource" id="Resource_faagu"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -565,7 +567,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_7cjaa"]
+[sub_resource type="Resource" id="Resource_bxdcq"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -580,6 +582,40 @@ description = "A meterial to be refined into crafting material."
 is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
+
+[sub_resource type="Resource" id="Resource_fdpb7"]
+resource_local_to_scene = true
+script = ExtResource("25_q3n3f")
+level = 4
+archetype_class = 0
+weapon_class = 0
+weapon_speed = 60
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 0
+weapon_attack = 12
+weapon_defense = 5
+magic_attack = 0
+magic_defense = 0
+shadow_attack = 0
+shadow_defense = 0
+HP_bonus = 15
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
+id = 1
+texture_index = 0
+name = "Wood Sword and Shield"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 0
+rarity = 0
+description = "A dull wood based sword and a fence. Offers some protection and little damage"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("24_xchr1")
 
 [node name="TestLevel" type="Node2D"]
 
@@ -623,6 +659,7 @@ player = NodePath("../Player")
 smoothing_distance = 2
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("9_xryin")
 
 [node name="PlayerHUD" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("6_2sq7a")]
@@ -646,7 +683,7 @@ offset_bottom = 235.0
 
 [node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(559, 227)
-item_data = SubResource("Resource_ai75y")
+item_data = SubResource("Resource_3uo4m")
 
 [node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(595, 227)
@@ -654,11 +691,11 @@ item_data = ExtResource("13_bobpn")
 
 [node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(639, 227)
-item_data = SubResource("Resource_adu46")
+item_data = SubResource("Resource_3quvx")
 
 [node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(701, 227)
-item_data = SubResource("Resource_nt76p")
+item_data = SubResource("Resource_faagu")
 
 [node name="ItemInteractable7" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(735, 226)
@@ -674,7 +711,7 @@ item_data = ExtResource("16_6iert")
 
 [node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(772, 227)
-item_data = SubResource("Resource_7cjaa")
+item_data = SubResource("Resource_bxdcq")
 
 [node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(826, 227)
@@ -717,3 +754,7 @@ offset_bottom = 240.0
 position = Vector2(755, 227)
 item_data = ExtResource("24_qulqe")
 quantity = 2
+
+[node name="ItemInteractable10" parent="." instance=ExtResource("9_dg0v2")]
+position = Vector2(302, 227)
+item_data = SubResource("Resource_fdpb7")

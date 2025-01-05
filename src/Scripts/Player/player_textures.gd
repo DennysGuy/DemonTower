@@ -539,9 +539,9 @@ const texture_atlas = {
 				0 : preload("res://Assets/Player/Male/OneHandedSwords/WoodenSword-Idle.png")
 			},
 			"Shield" : {
+				#Wooden Shield
 				0 : preload("res://Assets/Player/Male/Shields/WoodenShield-Idle.png")
 			}
-			
 		},
 		"Move" : {
 			"Head" : {
@@ -562,7 +562,7 @@ const texture_atlas = {
 			},
 			"Left Arm" : {
 				#White Skin
-				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_Standard_White-Run1.png")
+				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_SWS_White-Run1.png")
 			},
 			"Torso" : {
 				#White Skin
@@ -688,7 +688,6 @@ const texture_atlas = {
 				0 : preload("res://Assets/Player/Male/Shields/WoodenShield-Jump_SWS.png")
 			}
 					
-			
 		},
 		"Fall": {
 			"Head" : {
@@ -698,59 +697,59 @@ const texture_atlas = {
 			"Eyes" : {
 				"Green" : { # Green Eyes
 					#Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_SWS.png")
 				}
 			},
 			"Hair" : {
 				"Black": { #Black Colors
 					#Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_SWS.png")
 				}
 			},
 			"Left Arm" : {
 				#White Skin
-				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_Standard_White-Jump_Standard.png")
+				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_SWS_White-Jump_SWS.png")
 			},
 			"Torso" : {
 				#White Skin
-				0 : preload("res://Assets/Player/Male/Torso_Male/Torsos_Male/Torso_White_M-Jump_Standard.png")
+				0 : preload("res://Assets/Player/Male/Torso_Male/Torsos_Male/Torso_White_M-Jump_SWS.png")
 			},
 			"Right Arm" : {
 				#White Skin
-				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_Standard_White-Jump_Standard.png")
+				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_SWS_White-Jump_SWS.png")
 			},
 			"Gloves" : {
 				"Left Glove" : {
 					#Nomad Left Glove
-					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_Standard_LM-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_SWS_LM-Jump_SWS.png")
 				}, 
 				"Right Glove" : {
 					#Nomad Right Glove
-					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_Standard_RM-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_SWS_RM-Jump_SWS.png")
 				}
 			},
 			"Shirt": {
 				0 : { #Nomad Shirt Green
-					"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Standard_Male-Jump_Standard.png"),
-					"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-Jump_Standard.png") ,
-					"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_Standard_RM-Jump_Standard.png")
+					"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_SWS_Male-Jump_SWS.png"),
+					"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-Jump_SWS.png") ,
+					"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_SWS_RM-Jump_SWS.png")
 				}
 			},
 			"Legs" : {
 				#White skin
-				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/Legs_White-Jump_Standard.png")
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/Legs_White-Jump_SWS.png")
 			},
 			"Pants" : {
 				#Nomad Pants Green
-				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/PantsMale/NomadPantsM-Jump_Standard.png")
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/PantsMale/NomadPantsM-Jump_SWS.png")
 			},
 			"Shoes": {
 				#Nomad Shoes
-				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/BottomsMale/NomadBootsM-Jump_Standard.png")
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/BottomsMale/NomadBootsM-Jump_SWS.png")
 			},
 			"Cape": {
 				#Nomad Backpack
-				0 : preload("res://Assets/Player/Male/Capes/NomadBackPack-Jump_Standard.png")
+				0 : preload("res://Assets/Player/Male/Capes/NomadBackPack-Jump_SWS.png")
 			},
 			"Sword" : {
 				#Wooden Sword
@@ -932,6 +931,236 @@ const texture_atlas = {
 				#Nomad Backpack
 				0 : preload("res://Assets/Player/Male/Capes/NomadBackPack-Death.png")
 			},			
-		}		
+		},
+	"Attack1": {
+			"Head" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/Head_Male/Heads_Male/Head_White_Male-Basic_SWS_Attack.png")
+			},
+			"Eyes" : {
+				"Green" : { # Green Eyes
+					#Eyes Style 1
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Basic_SWS_Attack.png")
+				}
+			},
+			"Hair" : {
+				"Black": { #Black Colors
+					#Hair Style 1
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Basic_SWS_Attack.png")
+				}
+			},
+			"Left Arm" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_SWS_White-Basic_SWS_Attack.png")
+			},
+			
+			"Gloves" : {
+				
+				"Left Glove" : {
+					#Nomad Left Glove
+					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_SWS_LM-Basic_SWS_Attack.png")
+				}, 
+				"Right Glove" : {
+					#Nomad Right Glove
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_SWS_RM-Basic_SWS_Attack.png")
+				}
+			},
+			
+			"Torso" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/Torso_Male/Torsos_Male/Torso_White_M-Basic_SWS_Attack.png")
+			},
+			"Right Arm" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_SWS_White-Basic_SWS_Attack.png")
+			},
+			"Shirt": {
+				0 : { #Nomad Shirt Green
+					"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_SWS_Male-Basic_SWS_Attack.png") ,
+					"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-Basic_SWS_Attack.png") ,
+					"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_SWS_RM-Basic_SWS_Attack.png")
+				}
+			},
+			"Legs" : {
+				#White skin
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/Legs_White-Basic_SWS_Attack.png")
+			},
+			"Pants" : {
+				#Nomad Pants Green
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/PantsMale/NomadPantsM-Basic_SWS_Attack.png")
+			},
+			"Shoes": {
+				#Nomad Shoes
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/BottomsMale/NomadBootsM-Basic_SWS_Attack.png")
+			},
+			"Cape": {
+				#Nomad Backpack
+				0 : preload("res://Assets/Player/Male/Capes/NomadBackPack-Basic_SWS_Attack.png")
+			},
+			"Sword" : {
+				#Wooden Sword
+				0 : preload("res://Assets/Player/Male/OneHandedSwords/WoodenSword-Basic_SWS_Attack.png")
+			},
+			"Shield" : {
+				0 : preload("res://Assets/Player/Male/Shields/WoodenShield-Basic_SWS_Attack.png")
+			},
+			"Effect" : {
+				0 : preload("res://Assets/Player/Effects-Basic_SWS_Attack.png")
+			}
+			
+		},
+"Attack2": {
+			"Head" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/Head_Male/Heads_Male/Head_White_Male-Basic_SWS_Attack.png")
+			},
+			"Eyes" : {
+				"Green" : { # Green Eyes
+					#Eyes Style 1
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Basic_SWS_Attack.png")
+				}
+			},
+			"Hair" : {
+				"Black": { #Black Colors
+					#Hair Style 1
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Basic_SWS_Attack.png")
+				}
+			},
+			"Left Arm" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_SWS_White-Basic_SWS_Attack.png")
+			},
+			
+			"Gloves" : {
+				
+				"Left Glove" : {
+					#Nomad Left Glove
+					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_SWS_LM-Basic_SWS_Attack.png")
+				}, 
+				"Right Glove" : {
+					#Nomad Right Glove
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_SWS_RM-Basic_SWS_Attack.png")
+				}
+			},
+			
+			"Torso" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/Torso_Male/Torsos_Male/Torso_White_M-Basic_SWS_Attack.png")
+			},
+			"Right Arm" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_SWS_White-Basic_SWS_Attack.png")
+			},
+			"Shirt": {
+				0 : { #Nomad Shirt Green
+					"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_SWS_Male-Basic_SWS_Attack.png") ,
+					"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-Basic_SWS_Attack.png") ,
+					"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_SWS_RM-Basic_SWS_Attack.png")
+				}
+			},
+			"Legs" : {
+				#White skin
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/Legs_White-Basic_SWS_Attack.png")
+			},
+			"Pants" : {
+				#Nomad Pants Green
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/PantsMale/NomadPantsM-Basic_SWS_Attack.png")
+			},
+			"Shoes": {
+				#Nomad Shoes
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/BottomsMale/NomadBootsM-Basic_SWS_Attack.png")
+			},
+			"Cape": {
+				#Nomad Backpack
+				0 : preload("res://Assets/Player/Male/Capes/NomadBackPack-Basic_SWS_Attack.png")
+			},
+			"Sword" : {
+				#Wooden Sword
+				0 : preload("res://Assets/Player/Male/OneHandedSwords/WoodenSword-Basic_SWS_Attack.png")
+			},
+			"Shield" : {
+				0 : preload("res://Assets/Player/Male/Shields/WoodenShield-Basic_SWS_Attack.png")
+			},
+			"Effect" : {
+				0 : preload("res://Assets/Player/Effects-Basic_SWS_Attack.png")
+			}
+			
+		},
+"Attack3": {
+			"Head" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/Head_Male/Heads_Male/Head_White_Male-Basic_SWS_Attack.png")
+			},
+			"Eyes" : {
+				"Green" : { # Green Eyes
+					#Eyes Style 1
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Basic_SWS_Attack.png")
+				}
+			},
+			"Hair" : {
+				"Black": { #Black Colors
+					#Hair Style 1
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Basic_SWS_Attack.png")
+				}
+			},
+			"Left Arm" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_SWS_White-Basic_SWS_Attack.png")
+			},
+			
+			"Gloves" : {
+				
+				"Left Glove" : {
+					#Nomad Left Glove
+					0 : preload("res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_SWS_LM-Basic_SWS_Attack.png")
+				}, 
+				"Right Glove" : {
+					#Nomad Right Glove
+					0 : preload("res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_SWS_RM-Basic_SWS_Attack.png")
+				}
+			},
+			
+			"Torso" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/Torso_Male/Torsos_Male/Torso_White_M-Basic_SWS_Attack.png")
+			},
+			"Right Arm" : {
+				#White Skin
+				0 : preload("res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_SWS_White-Basic_SWS_Attack.png")
+			},
+			"Shirt": {
+				0 : { #Nomad Shirt Green
+					"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_SWS_Male-Basic_SWS_Attack.png") ,
+					"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-Basic_SWS_Attack.png") ,
+					"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_SWS_RM-Basic_SWS_Attack.png")
+				}
+			},
+			"Legs" : {
+				#White skin
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/Legs_White-Basic_SWS_Attack.png")
+			},
+			"Pants" : {
+				#Nomad Pants Green
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/PantsMale/NomadPantsM-Basic_SWS_Attack.png")
+			},
+			"Shoes": {
+				#Nomad Shoes
+				0 : preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/BottomsMale/NomadBootsM-Basic_SWS_Attack.png")
+			},
+			"Cape": {
+				#Nomad Backpack
+				0 : preload("res://Assets/Player/Male/Capes/NomadBackPack-Basic_SWS_Attack.png")
+			},
+			"Sword" : {
+				#Wooden Sword
+				0 : preload("res://Assets/Player/Male/OneHandedSwords/WoodenSword-Basic_SWS_Attack.png")
+			},
+			"Shield" : {
+				0 : preload("res://Assets/Player/Male/Shields/WoodenShield-Basic_SWS_Attack.png")
+			},
+			"Effect" : {
+				0 : preload("res://Assets/Player/Effects-Basic_SWS_Attack.png")
+			}
+		},		
 	}
 }

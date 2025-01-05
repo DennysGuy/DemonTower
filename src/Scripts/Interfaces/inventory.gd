@@ -107,6 +107,7 @@ func remove_gold(value :int):
 
 func equip_gear(category: String, gear):
 	inventories["equipped_gear"][category] = gear
+	
 
 func un_equip_gear(category: String):
 	inventories["equipped_gear"][category] = null

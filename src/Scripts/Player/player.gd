@@ -59,7 +59,7 @@ var selected_animations : Array
 
 const animation_names : Dictionary = {
 	"Standard" : ["Idle","Climb", "Hit", "Die", "Run", "Jump", "Fall"],
-	"Sword and Shield" : ["Idle","Climb", "Hit", "Die", "Run", "Jump", "Fall", "SwordShield_Attack1", "SwordShield_Attack2", "SwordShield_Attack3"]
+	"Sword and Shield" : ["Idle","Climb", "Hit", "Die", "Run", "Equip_Jump", "Equip_Fall", "SwordShield_Attack1", "SwordShield_Attack2", "SwordShield_Attack3"]
 }
 var weapon_type : String
 var enemy : Entity
@@ -71,13 +71,14 @@ func _ready() -> void:
 	else:
 		weapon_type = equipped_weapon.get_weapon_type_name()
 		
-	texture_parts = [left_arm, left_shirt_sleeve, left_glove, cape, torso, shirt_torso, legs, pants, bottoms, sword, right_arm, right_shirt_sleeve, right_glove, head,eyes,hair]
+	texture_parts = [left_arm, left_shirt_sleeve, left_glove, cape, torso, shirt_torso, legs, pants, bottoms, sword, right_arm, right_shirt_sleeve, right_glove, head,eyes,hair,sword,shield,effects]
 	selected_animations = animation_names[weapon_type]
 	#Inventory.equip_gear("weapon", load("res://src/Resources/Items/Weapons/Archetypes/Warrior/SwordShields/01_Common/WoodSwordShield.tres"))
 	state_machine.init(self)
 
 func _process(delta):
 	#PlayerManager.track_for_excess_xp()
+	#print(weapon_type)
 	equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
 	if equipped_weapon:
 		StatCalculations.init_necessary_stat_calculations(stats_resource, equipped_weapon)
@@ -101,11 +102,20 @@ func flip_textures(flip : bool) -> void:
 	for sprite in texture_parts:
 		sprite.flip_h = flip
 
+func set_weapon(type : String, weapon : Weapon):
+	equipped_weapon = weapon
+	if equipped_weapon == null:
+		weapon_type = "Standard"
+	else:
+		weapon_type = equipped_weapon.get_weapon_type_name()
+	selected_animations = animation_names[weapon_type]
+
 func set_textures(state : String) -> void:
 	var equipped_shirt = Inventory.inventories["equipped_gear"]["shirt"]
 	var equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
 	var equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
 	var equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
+
 	if equipped_shirt != null:
 		left_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Left Sleeve"]
 		shirt_torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Torso Shirt"]
@@ -117,8 +127,13 @@ func set_textures(state : String) -> void:
 		pants.texture = PlayerTextures.texture_atlas[weapon_type][state]["Pants"][equipped_pants.texture_index]
 	if equipped_shoes != null:
 		bottoms.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shoes"][equipped_shoes.texture_index]
+	if equipped_weapon:
+		if weapon_type == "Sword and Shield":
+			sword.texture = PlayerTextures.texture_atlas[weapon_type][state]["Sword"][equipped_weapon.texture_index]
+			shield.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shield"][equipped_weapon.texture_index]
+			if "Attack" in state:
+				effects.texture = PlayerTextures.texture_atlas[weapon_type][state]["Effect"][0]
 	
-
 	cape.texture = PlayerTextures.texture_atlas[weapon_type][state]["Cape"][0]
 	
 	torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Torso"][0]
@@ -135,7 +150,7 @@ func set_textures_on_climb(state):
 	var equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
 	var equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
 	var equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
-	var equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
+
 	if equipped_shirt != null:
 		left_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Left Sleeve"]
 		shirt_torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Torso Shirt"]
