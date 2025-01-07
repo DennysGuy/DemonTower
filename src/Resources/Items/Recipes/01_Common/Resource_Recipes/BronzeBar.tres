@@ -19,6 +19,7 @@ ExtResource("1_3jool"): 1,
 ExtResource("3_3njid"): 1
 }
 id = 23
+texture_index = 0
 name = "Bronze Bar"
 sell_value = 0
 shop_value = 0

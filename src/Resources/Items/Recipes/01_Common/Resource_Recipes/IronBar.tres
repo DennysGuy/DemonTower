@@ -17,6 +17,7 @@ materials_list = {
 ExtResource("2_fpenx"): 2
 }
 id = 24
+texture_index = 0
 name = "Iron Bar"
 sell_value = 0
 shop_value = 0
