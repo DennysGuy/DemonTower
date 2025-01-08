@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dbgvtxfs32jha"]
+[gd_scene load_steps=34 format=3 uid="uid://dbgvtxfs32jha"]
 
 [ext_resource type="Script" path="res://src/Scripts/Interfaces/character_creator_controller.gd" id="1_sbcf4"]
 [ext_resource type="Texture2D" uid="uid://dwkex047ka4pp" path="res://Assets/Player/PlayerCreationMenu/NightSky.png" id="2_gqrk2"]
@@ -15,23 +15,6 @@
 [ext_resource type="FontFile" uid="uid://x2pjbb5qrim0" path="res://Assets/Fonts/alagard.ttf" id="13_vs0ph"]
 [ext_resource type="Texture2D" uid="uid://c664afk35fg6o" path="res://Assets/Player/PlayerCreationMenu/SelectionArrow.png" id="14_62eq2"]
 [ext_resource type="Texture2D" uid="uid://bmwot5agcnflo" path="res://Assets/Player/PlayerCreationMenu/SelectionArrow_Pressed.png" id="15_76m4r"]
-[ext_resource type="Texture2D" uid="uid://b6k7iam5xadba" path="res://Assets/Player/Male/Shields/WoodenShield-Idle.png" id="16_esqtx"]
-[ext_resource type="Texture2D" uid="uid://dksi58tklilu0" path="res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_SWS_White-Idle.png" id="17_pjsrn"]
-[ext_resource type="Texture2D" uid="uid://cqw5ushxua8ud" path="res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_SWS_Male-Idle.png" id="18_dcu0q"]
-[ext_resource type="Texture2D" uid="uid://bw6t0cdq1rk48" path="res://Assets/Player/Male/LeftArm_Male/GlovesLeftHandMale/NomadGloveLM/NomadsGlove_SWS_LM-Idle.png" id="19_j8fkq"]
-[ext_resource type="Texture2D" uid="uid://c8gyxkpi3gre4" path="res://Assets/Player/Male/Capes/NomadBackPack-Idle.png" id="20_2avy7"]
-[ext_resource type="Texture2D" uid="uid://bgfsvqpgb4tdc" path="res://Assets/Player/Male/Torso_Male/Torsos_Male/Torso_White_M-Idle.png" id="21_llppu"]
-[ext_resource type="Texture2D" uid="uid://ds1c1gvpcl3ii" path="res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-Idle.png" id="22_2aorl"]
-[ext_resource type="Texture2D" uid="uid://dojx3d626xkl1" path="res://Assets/Player/Male/LowerBody_Male/LegsMale/Legs_White-Idle.png" id="23_5fo53"]
-[ext_resource type="Texture2D" uid="uid://7vhptcn5va3m" path="res://Assets/Player/Male/LowerBody_Male/LegsMale/PantsMale/NomadPantsM-Idle.png" id="24_p7cap"]
-[ext_resource type="Texture2D" uid="uid://bknff1v6xignj" path="res://Assets/Player/Male/LowerBody_Male/LegsMale/BottomsMale/NomadBootsM-Idle.png" id="25_ydnbs"]
-[ext_resource type="Texture2D" uid="uid://dsewoum5ini8" path="res://Assets/Player/Male/OneHandedSwords/WoodenSword-Idle.png" id="26_4qq4f"]
-[ext_resource type="Texture2D" uid="uid://ckdfrrv3uc7o0" path="res://Assets/Player/Male/RightArm_Male/RightArms_Male/White_Skin/RightArm_SWS_White-Idle.png" id="27_0tw2i"]
-[ext_resource type="Texture2D" uid="uid://dbe5fdmofdowc" path="res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_Standard_RM-Idle.png" id="28_4vgy4"]
-[ext_resource type="Texture2D" uid="uid://ura5q7l8b2k3" path="res://Assets/Player/Male/RightArm_Male/RightGloves_Male/NomadGloveRM/NomadGlove_Standard_RM-Idle.png" id="29_ilalt"]
-[ext_resource type="Texture2D" uid="uid://dtc74ooe1gl5p" path="res://Assets/Player/Male/Head_Male/Heads_Male/Head_White_Male-Idle.png" id="30_jyw8y"]
-[ext_resource type="Texture2D" uid="uid://bs0bcimueqi85" path="res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Idle.png" id="31_5tg32"]
-[ext_resource type="Texture2D" uid="uid://c0njs423ykvmq" path="res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Idle.png" id="32_5cfaj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yf2bu"]
 atlas = ExtResource("4_h1hx5")
@@ -686,6 +669,7 @@ theme_override_font_sizes/font_size = 14
 text = "Cancel"
 
 [node name="CheckBox" type="CheckBox" parent="Scroll"]
+layout_mode = 0
 offset_left = 359.0
 offset_top = 234.0
 offset_right = 407.0
@@ -699,67 +683,48 @@ text = "Hide"
 position = Vector2(184, 155)
 
 [node name="Shield" type="Sprite2D" parent="PlayerParts"]
-texture = ExtResource("16_esqtx")
 
 [node name="LeftUpperBody" type="Node2D" parent="PlayerParts"]
 
 [node name="LeftArm" type="Sprite2D" parent="PlayerParts/LeftUpperBody"]
-texture = ExtResource("17_pjsrn")
 
 [node name="LeftShirtSleeve" type="Sprite2D" parent="PlayerParts/LeftUpperBody"]
-texture = ExtResource("18_dcu0q")
 
 [node name="LeftGlove" type="Sprite2D" parent="PlayerParts/LeftUpperBody"]
-texture = ExtResource("19_j8fkq")
 
 [node name="UpperMiddleBody" type="Node2D" parent="PlayerParts"]
 
 [node name="Cape" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
-texture = ExtResource("20_2avy7")
 
 [node name="Torso" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
-texture = ExtResource("21_llppu")
 
 [node name="ShirtTorso" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
-texture = ExtResource("22_2aorl")
 
 [node name="LowerBody" type="Node2D" parent="PlayerParts"]
 
 [node name="Legs" type="Sprite2D" parent="PlayerParts/LowerBody"]
-texture = ExtResource("23_5fo53")
 
 [node name="Pants" type="Sprite2D" parent="PlayerParts/LowerBody"]
-texture = ExtResource("24_p7cap")
 
 [node name="Bottoms" type="Sprite2D" parent="PlayerParts/LowerBody"]
-texture = ExtResource("25_ydnbs")
 
 [node name="RightUpperBody" type="Node2D" parent="PlayerParts"]
 
 [node name="Sword" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
-texture = ExtResource("26_4qq4f")
 
 [node name="RightArm" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
-texture = ExtResource("27_0tw2i")
 
 [node name="RightShirtSleeve" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
-texture = ExtResource("28_4vgy4")
 
 [node name="RightGlove" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
-texture = ExtResource("29_ilalt")
 
 [node name="UpperBody" type="Node2D" parent="PlayerParts"]
 
 [node name="Head" type="Sprite2D" parent="PlayerParts/UpperBody"]
-texture = ExtResource("30_jyw8y")
 
 [node name="Eyes" type="Sprite2D" parent="PlayerParts/UpperBody"]
-texture = ExtResource("31_5tg32")
 
 [node name="Hair" type="Sprite2D" parent="PlayerParts/UpperBody"]
-texture = ExtResource("32_5cfaj")
-
-[node name="Effects" type="Sprite2D" parent="PlayerParts"]
 
 [connection signal="pressed" from="Scroll/HairStyleSelectorButtons/HSMoveBack" to="." method="_on_hs_move_back_pressed"]
 [connection signal="pressed" from="Scroll/HairStyleSelectorButtons/HSMoveForward" to="." method="_on_hs_move_forward_pressed"]
