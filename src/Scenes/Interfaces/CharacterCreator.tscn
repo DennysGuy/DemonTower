@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dbgvtxfs32jha"]
+[gd_scene load_steps=30 format=3 uid="uid://dbgvtxfs32jha"]
 
 [ext_resource type="Script" path="res://src/Scripts/Interfaces/character_creator_controller.gd" id="1_sbcf4"]
 [ext_resource type="Texture2D" uid="uid://dwkex047ka4pp" path="res://Assets/Player/PlayerCreationMenu/NightSky.png" id="2_gqrk2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://csp3jkgpblmu8" path="res://Assets/Player/PlayerCreationMenu/Cliff.png" id="8_aff2l"]
 [ext_resource type="Texture2D" uid="uid://do45sd1n6xgj0" path="res://Assets/campfire_animated.png" id="9_5cp26"]
 [ext_resource type="Texture2D" uid="uid://c4y35nqdd0esx" path="res://Assets/Player/PlayerCreationMenu/Fog-FG.png" id="9_eeh8x"]
+[ext_resource type="Shader" path="res://src/Scenes/Interfaces/FogMovement.gdshader" id="10_hht7m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yf2bu"]
 atlas = ExtResource("4_h1hx5")
@@ -32,6 +33,11 @@ animations = [{
 "name": &"default",
 "speed": 1.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj7ut"]
+shader = ExtResource("10_hht7m")
+shader_parameter/direction = Vector2(-1, 0)
+shader_parameter/speed_scale = 0.01
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1c5rk"]
 atlas = ExtResource("9_5cp26")
@@ -125,6 +131,11 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xglyu"]
+shader = ExtResource("10_hht7m")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.01
+
 [node name="CharacterCreator" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -155,7 +166,8 @@ texture = ExtResource("3_bqd7g")
 [node name="Stars" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 179)
 sprite_frames = SubResource("SpriteFrames_rmkgd")
-frame_progress = 0.223615
+autoplay = "default"
+frame_progress = 0.311446
 
 [node name="Moon" type="TextureRect" parent="."]
 layout_mode = 1
@@ -174,8 +186,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_5w564")
+stretch_mode = 1
 
 [node name="FogBG" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qj7ut")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,6 +197,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_8hfql")
+stretch_mode = 1
 
 [node name="Cliff" type="TextureRect" parent="."]
 layout_mode = 1
@@ -196,10 +211,13 @@ texture = ExtResource("8_aff2l")
 [node name="Campfire" type="AnimatedSprite2D" parent="."]
 position = Vector2(103, 153)
 sprite_frames = SubResource("SpriteFrames_cqa48")
-frame_progress = 0.235912
+autoplay = "default"
+frame_progress = 0.928116
 
 [node name="FogFG" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_xglyu")
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("9_eeh8x")
+stretch_mode = 1
