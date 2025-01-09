@@ -30,7 +30,7 @@ var not_available_icon : Texture2D
 var _equipped_weapon : Weapon
 var _equipped_hat : Accessory
 var _equipped_gloves : Accessory
-var _equipped_amulet : Accessory
+var _equipped_cape : Accessory
 var _equipped_shirt : Drip
 var _equipped_pants : Drip
 var _equipped_shoes : Drip
@@ -45,7 +45,7 @@ func _ready():
 	_equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
 	_equipped_hat = Inventory.inventories["equipped_gear"]["hat"]
 	_equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
-	_equipped_amulet = Inventory.inventories["equipped_gear"]["amulet"]
+	_equipped_cape = Inventory.inventories["equipped_gear"]["cape"]
 	_equipped_shirt = Inventory.inventories["equipped_gear"]["shirt"]
 	_equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
 	_equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
@@ -55,7 +55,7 @@ func _process(delta):
 	_equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
 	_equipped_hat = Inventory.inventories["equipped_gear"]["hat"]
 	_equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
-	_equipped_amulet = Inventory.inventories["equipped_gear"]["amulet"]
+	_equipped_cape = Inventory.inventories["equipped_gear"]["cape"]
 	_equipped_shirt = Inventory.inventories["equipped_gear"]["shirt"]
 	_equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
 	_equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
@@ -81,9 +81,9 @@ func _process(delta):
 		unequip_gloves_button.hide()
 		equipped_gloves_icon.texture = not_available_icon
 	
-	if _equipped_amulet:
+	if _equipped_cape:
 		unequip_amulet_button.show()
-		equipped_amulet_icon.texture = _equipped_amulet.icon
+		equipped_amulet_icon.texture = _equipped_cape.icon
 	else:
 		unequip_amulet_button.hide()
 		equipped_amulet_icon.texture = not_available_icon	
@@ -134,12 +134,13 @@ func _on_unequip_gloves_button_button_down() -> void:
 	player.left_glove.texture = null
 	player.right_glove.texture = null
 	player.set_textures("Idle")
-	
+
+#TODO: change name from amulet to cape
 func _on_unequip_amulet_button_button_down() -> void:
-	if _equipped_amulet:
-		Inventory.add_item("accessories", _equipped_amulet, 1)
-		_equipped_amulet = null
-		Inventory.inventories["equipped_gear"]["amulet"] = null
+	if _equipped_cape:
+		Inventory.add_item("accessories", _equipped_cape, 1)
+		_equipped_cape = null
+		Inventory.inventories["equipped_gear"]["cape"] = null
 	player.set_textures("Idle")
 	
 func _on_unequip_shirt_button_button_down() -> void:

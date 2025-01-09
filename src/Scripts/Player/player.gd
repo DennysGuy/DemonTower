@@ -65,7 +65,9 @@ var weapon_type : String
 var enemy : Entity
 # Called when the node enters the scene tee for the first time.
 func _ready() -> void:
+	stats_resource = SaveManager.load_player_data()
 	_set_stats()
+	equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
 	if equipped_weapon == null:
 		weapon_type = "Standard"
 	else:
@@ -119,6 +121,7 @@ func set_textures(state : String) -> void:
 	var equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
 	var equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
 	var equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
+	var equipped_cape = Inventory.inventories["equipped_gear"]["cape"]
 
 	if equipped_shirt != null:
 		left_shirt_sleeve.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shirt"][equipped_shirt.texture_index]["Left Sleeve"]
@@ -137,17 +140,17 @@ func set_textures(state : String) -> void:
 			shield.texture = PlayerTextures.texture_atlas[weapon_type][state]["Shield"][equipped_weapon.texture_index]
 			if "Attack" in state:
 				effects.texture = PlayerTextures.texture_atlas[weapon_type][state]["Effect"][0]
+	if equipped_cape != null:
+		cape.texture = PlayerTextures.texture_atlas[weapon_type][state]["Cape"][equipped_cape.texture_index]
 	
-	cape.texture = PlayerTextures.texture_atlas[weapon_type][state]["Cape"][0]
-	
-	torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Torso"][0]
-	left_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Left Arm"][0]
-	right_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Right Arm"][0]
-	legs.texture = PlayerTextures.texture_atlas[weapon_type][state]["Legs"][0]
+	torso.texture = PlayerTextures.texture_atlas[weapon_type][state]["Torso"][stats_resource.skin_color_index]
+	left_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Left Arm"][stats_resource.skin_color_index]
+	right_arm.texture = PlayerTextures.texture_atlas[weapon_type][state]["Right Arm"][stats_resource.skin_color_index]
+	legs.texture = PlayerTextures.texture_atlas[weapon_type][state]["Legs"][stats_resource.skin_color_index]
 	#sword.textures
-	head.texture = PlayerTextures.texture_atlas[weapon_type][state]["Head"][0]
-	eyes.texture = PlayerTextures.texture_atlas[weapon_type][state]["Eyes"]["Green"][0]
-	hair.texture = PlayerTextures.texture_atlas[weapon_type][state]["Hair"]["Black"][0]
+	head.texture = PlayerTextures.texture_atlas[weapon_type][state]["Head"][stats_resource.skin_color_index]
+	eyes.texture = PlayerTextures.texture_atlas[weapon_type][state]["Eyes"][stats_resource.eye_color][stats_resource.eye_style_index]
+	hair.texture = PlayerTextures.texture_atlas[weapon_type][state]["Hair"][stats_resource.hair_color][stats_resource.hair_style_index]
 
 func set_textures_on_climb(state):
 	var equipped_shirt = Inventory.inventories["equipped_gear"]["shirt"]

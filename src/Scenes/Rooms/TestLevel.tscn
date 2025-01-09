@@ -489,11 +489,16 @@ sources/0 = SubResource("TileSetAtlasSource_awlcv")
 resource_local_to_scene = true
 script = ExtResource("6_c8d2o")
 name = "DennysGuy"
-color = "Green"
 max_health = 100.0
 current_health = 100.0
 magic_points = 100
 current_magic_points = 100
+body_type = 1
+skin_color_index = 0
+eye_color = ""
+eye_style_index = 0
+hair_color = ""
+hair_style_index = 0
 equipped_archetype = 0
 str_level = 1
 dex_level = 1
@@ -519,7 +524,7 @@ xp_value = 0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
 size = Vector2(70, 39)
 
-[sub_resource type="Resource" id="Resource_d3we3"]
+[sub_resource type="Resource" id="Resource_h80id"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -535,7 +540,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_hflud"]
+[sub_resource type="Resource" id="Resource_ym2pf"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -551,7 +556,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_2k6uw"]
+[sub_resource type="Resource" id="Resource_ityaq"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -567,7 +572,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_yge1n"]
+[sub_resource type="Resource" id="Resource_sth0n"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -583,7 +588,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_hstls"]
+[sub_resource type="Resource" id="Resource_551ix"]
 resource_local_to_scene = true
 script = ExtResource("25_q3n3f")
 level = 4
@@ -683,7 +688,7 @@ offset_bottom = 240.0
 
 [node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(559, 227)
-item_data = SubResource("Resource_d3we3")
+item_data = SubResource("Resource_h80id")
 
 [node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(595, 227)
@@ -691,11 +696,11 @@ item_data = ExtResource("13_bobpn")
 
 [node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(639, 227)
-item_data = SubResource("Resource_hflud")
+item_data = SubResource("Resource_ym2pf")
 
 [node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(701, 227)
-item_data = SubResource("Resource_2k6uw")
+item_data = SubResource("Resource_ityaq")
 
 [node name="ItemInteractable7" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(735, 226)
@@ -711,7 +716,7 @@ item_data = ExtResource("16_6iert")
 
 [node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(772, 227)
-item_data = SubResource("Resource_yge1n")
+item_data = SubResource("Resource_sth0n")
 
 [node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(826, 227)
@@ -757,7 +762,7 @@ quantity = 2
 
 [node name="ItemInteractable10" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(302, 227)
-item_data = SubResource("Resource_hstls")
+item_data = SubResource("Resource_551ix")
 
 [node name="CookingOven2" parent="." instance=ExtResource("18_8aly0")]
 offset_left = 466.0

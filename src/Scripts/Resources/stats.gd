@@ -3,11 +3,18 @@ class_name Stats extends Resource
 # Define the properties that will appear in the Inspector
 @export_group("Meta Data")
 @export var name: String
-@export var color: String
 @export var max_health: float = 100.0
 @export var current_health: float = 100.0
 @export var magic_points: int = 100
 @export var current_magic_points: int = 100
+
+@export_group("Appearance")
+@export var body_type : int = 1
+@export var skin_color_index : int = 0
+@export var eye_color : String = ""
+@export var eye_style_index : int = 0
+@export var hair_color : String = ""
+@export var hair_style_index : int = 0
 
 @export_group("Equipped Archetype")
 @export_enum("Warrior", "Mage", "Rogue") var equipped_archetype : int

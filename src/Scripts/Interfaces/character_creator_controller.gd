@@ -208,12 +208,50 @@ func _on_sw_move_back_pressed() -> void:
 func _on_sw_move_forward_pressed() -> void:
 	starter_weapon_index = cycle_trait(1, starter_weapon_index, starter_weapon_max_index)
 
+func get_shirt_resource(index : int):
+	match(index):
+		0:
+			return load("res://src/Resources/Items/Drip/Shirts/01_Common/NomadShirt.tres")
+		_:
+			return 0
 
+func get_pants_resource(index : int):
+	match(index):
+		0:
+			return load("res://src/Resources/Items/Drip/Pants/01_Common/NomadPants.tres")
+		_:
+			return 0
+
+func get_weapon_resource(index : int):
+	match(index):
+		0:
+			return load("res://src/Resources/Items/Weapons/Archetypes/Warrior/SwordShields/01_Common/WoodSwordShield.tres")
+		_:
+			return 0
+	
+func create_new_player() -> void:
+	var player_data : Stats = Stats.new()
+	player_data.name = name_entry_box.text
+	player_data.skin_color_index = skin_color_index
+	player_data.eye_color = eye_colors[eye_color_index]
+	player_data.eye_style_index = eye_style_index
+	player_data.hair_style_index = hair_style_index
+	player_data.hair_color = hair_colors[hair_color_index]
+	player_data.body_type = body_type_index + 1
+	
+	Inventory.equip_gear("weapon", get_weapon_resource(starter_weapon_index))
+	Inventory.equip_gear("shirt", get_shirt_resource(outfit_color_index))
+	Inventory.equip_gear("pants", get_pants_resource(outfit_color_index))
+	Inventory.equip_gear("gloves", load("res://src/Resources/Items/Accessories/Gloves/01_Common/NomadGloves.tres"))
+	Inventory.equip_gear("shoes", load("res://src/Resources/Items/Drip/Shoes/01_Common/NomadBoots.tres"))
+	Inventory.equip_gear("cape", load("res://src/Resources/Items/Accessories/Capes/01_Common/NomadBackPack.tres"))
+	
+	SaveManager.save_player_data(player_data)	
 
 func _on_start_game_pressed() -> void:
-	pass # Replace with function body.
-
-
+	create_new_player()
+	get_tree().change_scene_to_file("res://src/Scenes/Rooms/TestLevel.tscn")
+	
 func _on_cancel_pressed() -> void:
 	pass # Replace with function body.
 
