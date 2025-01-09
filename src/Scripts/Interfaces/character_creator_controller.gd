@@ -64,10 +64,10 @@ var starter_weapon_max_index = 0
 
 var starter_weapons : Array[String] = ["Sword and Shield", "Wand", "Knives"]
 var hair_style_names : Array[String] = ["Med", "Short", "Long"]
-var hair_colors : Array[String] = ["Black", "Brown", "Blond", "Red", "Green", "Blue"]
+var hair_colors : Array[String] = ["Black", "Brown", "Blond"]
 var skin_colors : Array[String] = ["Light", "Med", "Dark"]
-var eye_colors : Array[String] = ["Green", "Brown", "Blue", "Hazel"]
-var outfit_colors : Array[String] = ["Green", "Red", "Blue", "Black", "White"]
+var eye_colors : Array[String] = ["Green", "Brown", "Blue"]
+var outfit_colors : Array[String] = ["Green", "Red", "Blue"]
 
 var textures : Dictionary = PlayerTextures.texture_atlas
 
