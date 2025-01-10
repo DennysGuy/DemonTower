@@ -89,7 +89,7 @@ func _ready():
 	#eye_color_max_index = eye_colors.size()-1
 	
 	#outfit_color_max_index = outfit_colors.size()-1
-	outfit_color_max_index = 0
+	outfit_color_max_index = textures["Sword and Shield"]["Idle"]["Shirt"].keys().size()-1
 	#starter_weapon_max_index = starter_weapons.size()-1
 	starter_weapon_max_index = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -524,7 +524,7 @@ xp_value = 0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
 size = Vector2(70, 39)
 
-[sub_resource type="Resource" id="Resource_h80id"]
+[sub_resource type="Resource" id="Resource_7wr0c"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -540,7 +540,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_ym2pf"]
+[sub_resource type="Resource" id="Resource_6jwmn"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -556,7 +556,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_ityaq"]
+[sub_resource type="Resource" id="Resource_imrsf"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -572,7 +572,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_sth0n"]
+[sub_resource type="Resource" id="Resource_4khmg"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -588,7 +588,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_551ix"]
+[sub_resource type="Resource" id="Resource_5hvlh"]
 resource_local_to_scene = true
 script = ExtResource("25_q3n3f")
 level = 4
@@ -688,7 +688,7 @@ offset_bottom = 240.0
 
 [node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(559, 227)
-item_data = SubResource("Resource_h80id")
+item_data = SubResource("Resource_7wr0c")
 
 [node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(595, 227)
@@ -696,11 +696,11 @@ item_data = ExtResource("13_bobpn")
 
 [node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(639, 227)
-item_data = SubResource("Resource_ym2pf")
+item_data = SubResource("Resource_6jwmn")
 
 [node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(701, 227)
-item_data = SubResource("Resource_ityaq")
+item_data = SubResource("Resource_imrsf")
 
 [node name="ItemInteractable7" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(735, 226)
@@ -716,7 +716,7 @@ item_data = ExtResource("16_6iert")
 
 [node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(772, 227)
-item_data = SubResource("Resource_sth0n")
+item_data = SubResource("Resource_4khmg")
 
 [node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(826, 227)
@@ -762,7 +762,7 @@ quantity = 2
 
 [node name="ItemInteractable10" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(302, 227)
-item_data = SubResource("Resource_551ix")
+item_data = SubResource("Resource_5hvlh")
 
 [node name="CookingOven2" parent="." instance=ExtResource("18_8aly0")]
 offset_left = 466.0

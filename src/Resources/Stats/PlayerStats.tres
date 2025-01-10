@@ -6,14 +6,16 @@
 resource_local_to_scene = true
 script = ExtResource("1_k7i7e")
 name = "DennysGuy"
-color = "Green"
 max_health = 100.0
 current_health = 100.0
 magic_points = 100
 current_magic_points = 100
+body_type = 1
 skin_color_index = 0
 eye_color = ""
 eye_style_index = 0
+hair_color = ""
+hair_style_index = 0
 equipped_archetype = 0
 str_level = 1
 dex_level = 1
