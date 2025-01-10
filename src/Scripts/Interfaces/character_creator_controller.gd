@@ -211,14 +211,22 @@ func _on_sw_move_forward_pressed() -> void:
 func get_shirt_resource(index : int):
 	match(index):
 		0:
-			return load("res://src/Resources/Items/Drip/Shirts/01_Common/NomadShirt.tres")
+			return load("res://src/Resources/Items/Drip/Shirts/01_Common/NomadShirtGreen.tres")
+		1:
+			return load("res://src/Resources/Items/Drip/Shirts/01_Common/NomadShirtRed.tres")
+		2:
+			return load("res://src/Resources/Items/Drip/Shirts/01_Common/NomadShirtBlue.tres")
 		_:
 			return 0
 
 func get_pants_resource(index : int):
 	match(index):
 		0:
-			return load("res://src/Resources/Items/Drip/Pants/01_Common/NomadPants.tres")
+			return load("res://src/Resources/Items/Drip/Pants/01_Common/NomadPantsGreen.tres")
+		1:
+			return load("res://src/Resources/Items/Drip/Pants/01_Common/NomadPantsRed.tres")
+		2:
+			return load("res://src/Resources/Items/Drip/Pants/01_Common/NomadPantsBlue.tres")	
 		_:
 			return 0
 

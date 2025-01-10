@@ -15,8 +15,8 @@
 [ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="14_ccisj"]
 [ext_resource type="Script" path="res://src/Scripts/Camera.gd" id="15_ctc77"]
 [ext_resource type="Resource" uid="uid://butolphg2ifxo" path="res://src/Resources/Items/CraftingMaterials/01_Common/Logs.tres" id="16_6iert"]
-[ext_resource type="Resource" uid="uid://bc4mh84bydyno" path="res://src/Resources/Items/Drip/Shirts/01_Common/NomadShirt.tres" id="17_filyb"]
-[ext_resource type="Resource" uid="uid://cy5tsayru4luf" path="res://src/Resources/Items/Drip/Pants/01_Common/NomadPants.tres" id="18_5wlnc"]
+[ext_resource type="Resource" uid="uid://bc4mh84bydyno" path="res://src/Resources/Items/Drip/Shirts/01_Common/NomadShirtGreen.tres" id="17_filyb"]
+[ext_resource type="Resource" uid="uid://cy5tsayru4luf" path="res://src/Resources/Items/Drip/Pants/01_Common/NomadPantsGreen.tres" id="18_5wlnc"]
 [ext_resource type="PackedScene" uid="uid://ggfw8h237y5b" path="res://src/Scenes/Shops/CookingStation/CookingOven.tscn" id="18_8aly0"]
 [ext_resource type="Resource" uid="uid://dfde5dwb6b83y" path="res://src/Resources/Items/Drip/Shoes/01_Common/NomadBoots.tres" id="19_g3764"]
 [ext_resource type="Resource" uid="uid://bwt65vrjlwsa" path="res://src/Resources/Items/Accessories/Gloves/01_Common/NomadGloves.tres" id="20_0w45k"]
@@ -524,7 +524,7 @@ xp_value = 0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yij8"]
 size = Vector2(70, 39)
 
-[sub_resource type="Resource" id="Resource_7wr0c"]
+[sub_resource type="Resource" id="Resource_3hx0d"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -540,7 +540,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_6jwmn"]
+[sub_resource type="Resource" id="Resource_xcgw0"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -556,7 +556,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_imrsf"]
+[sub_resource type="Resource" id="Resource_c8riv"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -572,7 +572,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_4khmg"]
+[sub_resource type="Resource" id="Resource_0oli4"]
 resource_local_to_scene = true
 script = ExtResource("14_ccisj")
 id = 456
@@ -588,7 +588,7 @@ is_stackable = true
 max_stack = 9999
 icon = ExtResource("13_abbtc")
 
-[sub_resource type="Resource" id="Resource_5hvlh"]
+[sub_resource type="Resource" id="Resource_4s50e"]
 resource_local_to_scene = true
 script = ExtResource("25_q3n3f")
 level = 4
@@ -688,7 +688,7 @@ offset_bottom = 240.0
 
 [node name="ItemInteractable" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(559, 227)
-item_data = SubResource("Resource_7wr0c")
+item_data = SubResource("Resource_3hx0d")
 
 [node name="ItemInteractable2" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(595, 227)
@@ -696,11 +696,11 @@ item_data = ExtResource("13_bobpn")
 
 [node name="ItemInteractable3" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(639, 227)
-item_data = SubResource("Resource_6jwmn")
+item_data = SubResource("Resource_xcgw0")
 
 [node name="ItemInteractable4" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(701, 227)
-item_data = SubResource("Resource_imrsf")
+item_data = SubResource("Resource_c8riv")
 
 [node name="ItemInteractable7" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(735, 226)
@@ -716,7 +716,7 @@ item_data = ExtResource("16_6iert")
 
 [node name="ItemInteractable5" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(772, 227)
-item_data = SubResource("Resource_4khmg")
+item_data = SubResource("Resource_0oli4")
 
 [node name="ItemInteractable6" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(826, 227)
@@ -762,7 +762,7 @@ quantity = 2
 
 [node name="ItemInteractable10" parent="." instance=ExtResource("9_dg0v2")]
 position = Vector2(302, 227)
-item_data = SubResource("Resource_5hvlh")
+item_data = SubResource("Resource_4s50e")
 
 [node name="CookingOven2" parent="." instance=ExtResource("18_8aly0")]
 offset_left = 466.0

@@ -303,10 +303,20 @@ const texture_atlas = {
 		},
 						
 		"Shirt": {
-			0 : { #Nomad Shirt Green
-				"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Standard_Male-Jump_Standard.png"),
-				"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM-Jump_Standard.png") ,
-				"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_Standard_RM-Jump_Standard.png")
+			0 : { # Nomad Shirt Green
+				"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Green_Standard_Male-Jump_Standard.png"),
+				"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM_Green-Jump_Standard.png"),
+				"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_Green_Standard_RM-Jump_Standard.png")
+			},
+			1 : { # Nomad Shirt Red
+				"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Red_Standard_Male-Jump_Standard.png"),
+				"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM_Red-Jump_Standard.png"),
+				"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_Red_Standard_RM-Jump_Standard.png")
+			},
+			2 : { # Nomad Shirt Blue
+				"Left Sleeve" : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/ShirtsLeftSleevesMale/NomadShirtSleeveLeft_Male/NomadShirtLSleeve_Blue_Standard_Male-Jump_Standard.png"),
+				"Torso Shirt" : preload("res://Assets/Player/Male/Torso_Male/ShirtTorsos_Male/NomadShirtTorsoM_Blue-Jump_Standard.png"),
+				"Right Sleeve" : preload("res://Assets/Player/Male/RightArm_Male/RightShirtSleeves_Male/NomadShirtSleeve_Blue_Standard_RM-Jump_Standard.png")
 			}
 		},
 		"Legs" : {
@@ -430,7 +440,9 @@ const texture_atlas = {
 				1: preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/PantsMale/NomadPantsM_Red-Jump_Standard.png"),
 				2: preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/PantsMale/NomadPantsM_Blue-Jump_Standard.png"),
 			},
-			
+			"Shoes" : {
+				0: preload("res://Assets/Player/Male/LowerBody_Male/LegsMale/BottomsMale/NomadBootsM-Jump_Standard.png")
+			},
 			"Cape": {
 				#Nomad Backpack
 				0 : preload("res://Assets/Player/Male/Capes/NomadBackPack-Jump_Standard.png")
