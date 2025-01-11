@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CraftingMaterial" load_steps=3 format=3 uid="uid://brhlu7is2rwbh"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="1_1sfx5"]
+[ext_resource type="Texture2D" uid="uid://nomjnbttdtcl" path="res://Assets/Iron_Ore_icon.png" id="1_2u5kl"]
+
+[resource]
+script = ExtResource("1_1sfx5")
+id = 460
+name = "Iron Ore"
+sell_value = 50
+shop_value = 0
+is_droppable = true
+type = 6
+rarity = 0
+description = "Used to make Iron Gear"
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_2u5kl")

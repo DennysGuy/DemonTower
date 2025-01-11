@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://c4pugbrg2wc75"]
+
+[ext_resource type="Texture2D" uid="uid://6c2lurijrlm8" path="res://Assets/weapon_recipe_icon.png" id="1_1wd6t"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="1_dgeg0"]
+[ext_resource type="Resource" uid="uid://8hkgbbo3icax" path="res://src/Resources/Items/CraftingMaterials/01_Common/BronzeBar.tres" id="2_1cuj7"]
+[ext_resource type="Resource" uid="uid://bw7o3xaal8vwb" path="res://src/Resources/Items/Weapons/Archetypes/Warrior/SwordShields/01_Common/BronzeSwordShield.tres" id="2_yrptq"]
+
+[resource]
+script = ExtResource("1_dgeg0")
+recipe_level = 1
+crafting_fee = 75
+crafting_time_cost = 400
+xp_provided = 35
+recipe_type = 1
+output_item = ExtResource("2_yrptq")
+materials_list = {
+ExtResource("2_1cuj7"): 2
+}
+id = 55
+name = "Bronze Sword and Shield"
+sell_value = 1
+shop_value = 0
+is_droppable = true
+type = 1
+rarity = 0
+description = "A reliable weapon made from bronze bars"
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_1wd6t")

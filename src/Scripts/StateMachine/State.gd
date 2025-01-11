@@ -12,7 +12,6 @@ var parent
 
 func enter() -> void:
 	parent.animation_player.play(animation_name)
-	pass
 
 func exit() -> void:
 	pass

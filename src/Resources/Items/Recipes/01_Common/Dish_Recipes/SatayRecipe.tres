@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://bto848l6yc31s"]
+
+[ext_resource type="Texture2D" uid="uid://bnv1ardogtumd" path="res://Assets/Satay_icon.png" id="1_3bf6j"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/recipe.gd" id="1_7qyr3"]
+[ext_resource type="Resource" uid="uid://cb235yjn17tfq" path="res://src/Resources/Items/CraftingMaterials/01_Common/PigHead.tres" id="2_i3utx"]
+[ext_resource type="Resource" uid="uid://glurffea25db" path="res://src/Resources/Items/CraftingMaterials/01_Common/PeanutSauce.tres" id="3_cjy5e"]
+[ext_resource type="Resource" uid="uid://depmu16eiyvch" path="res://src/Resources/Items/Consumables/Replenishables/01_Common/Satay.tres" id="4_ilf0q"]
+
+[resource]
+script = ExtResource("1_7qyr3")
+recipe_level = 5
+crafting_fee = 50
+crafting_time_cost = 400
+xp_provided = 35
+recipe_type = 3
+output_item = ExtResource("4_ilf0q")
+materials_list = {
+ExtResource("2_i3utx"): 2,
+ExtResource("3_cjy5e"): 2
+}
+id = 26
+name = "Satay"
+sell_value = 0
+shop_value = 75
+is_droppable = true
+type = 4
+rarity = 0
+description = "A tasty pork based dish on skewers!"
+is_stackable = true
+max_stack = 0
+icon = ExtResource("1_3bf6j")

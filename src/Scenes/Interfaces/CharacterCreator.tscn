@@ -1,0 +1,747 @@
+[gd_scene load_steps=34 format=3 uid="uid://dbgvtxfs32jha"]
+
+[ext_resource type="Script" path="res://src/Scripts/Interfaces/character_creator_controller.gd" id="1_sbcf4"]
+[ext_resource type="Texture2D" uid="uid://dwkex047ka4pp" path="res://Assets/Player/PlayerCreationMenu/NightSky.png" id="2_gqrk2"]
+[ext_resource type="Texture2D" uid="uid://bmsyuuqcf54h4" path="res://Assets/Player/PlayerCreationMenu/Trees-BG.png" id="3_bqd7g"]
+[ext_resource type="Texture2D" uid="uid://nj20nkqyrxle" path="res://Assets/Player/PlayerCreationMenu/Stars.png" id="4_h1hx5"]
+[ext_resource type="Texture2D" uid="uid://hujr1h0wionq" path="res://Assets/Player/PlayerCreationMenu/Moon.png" id="5_p7j2t"]
+[ext_resource type="Texture2D" uid="uid://b1c61tk66crkb" path="res://Assets/Player/PlayerCreationMenu/Trees-FG.png" id="6_5w564"]
+[ext_resource type="Texture2D" uid="uid://bs4v4swokneby" path="res://Assets/Player/PlayerCreationMenu/Fog-BG.png" id="7_8hfql"]
+[ext_resource type="Texture2D" uid="uid://csp3jkgpblmu8" path="res://Assets/Player/PlayerCreationMenu/Cliff.png" id="8_aff2l"]
+[ext_resource type="Texture2D" uid="uid://do45sd1n6xgj0" path="res://Assets/campfire_animated.png" id="9_5cp26"]
+[ext_resource type="Texture2D" uid="uid://c4y35nqdd0esx" path="res://Assets/Player/PlayerCreationMenu/Fog-FG.png" id="9_eeh8x"]
+[ext_resource type="Shader" path="res://src/Scenes/Interfaces/FogMovement.gdshader" id="10_hht7m"]
+[ext_resource type="Texture2D" uid="uid://b37axi0wr5s00" path="res://Assets/Player/PlayerCreationMenu/Scroll.png" id="12_ah45n"]
+[ext_resource type="FontFile" uid="uid://x2pjbb5qrim0" path="res://Assets/Fonts/alagard.ttf" id="13_vs0ph"]
+[ext_resource type="Texture2D" uid="uid://c664afk35fg6o" path="res://Assets/Player/PlayerCreationMenu/SelectionArrow.png" id="14_62eq2"]
+[ext_resource type="Texture2D" uid="uid://bmwot5agcnflo" path="res://Assets/Player/PlayerCreationMenu/SelectionArrow_Pressed.png" id="15_76m4r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf2bu"]
+atlas = ExtResource("4_h1hx5")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1ocq"]
+atlas = ExtResource("4_h1hx5")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rmkgd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf2bu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1ocq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj7ut"]
+shader = ExtResource("10_hht7m")
+shader_parameter/direction = Vector2(-1, 0)
+shader_parameter/speed_scale = 0.01
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c5rk"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(0, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be683"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(39, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2cfp"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(78, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pd7r"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(117, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjfb5"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(156, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuxlg"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(195, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naae6"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(234, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkxiq"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(273, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5f3y"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(312, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp8gv"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(351, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agkaq"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(390, 0, 39, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00d5o"]
+atlas = ExtResource("9_5cp26")
+region = Rect2(429, 0, 39, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cqa48"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c5rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be683")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2cfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pd7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjfb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuxlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naae6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkxiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5f3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp8gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agkaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00d5o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xglyu"]
+shader = ExtResource("10_hht7m")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.01
+
+[node name="CharacterCreator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbcf4")
+
+[node name="NightSky" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gqrk2")
+
+[node name="TreesBG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bqd7g")
+
+[node name="Stars" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 179)
+sprite_frames = SubResource("SpriteFrames_rmkgd")
+autoplay = "default"
+frame_progress = 0.311446
+
+[node name="Moon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_p7j2t")
+
+[node name="TreesFG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_5w564")
+stretch_mode = 1
+
+[node name="FogBG" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qj7ut")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_8hfql")
+stretch_mode = 1
+
+[node name="Cliff" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_aff2l")
+
+[node name="Campfire" type="AnimatedSprite2D" parent="."]
+position = Vector2(103, 153)
+sprite_frames = SubResource("SpriteFrames_cqa48")
+autoplay = "default"
+frame_progress = 0.928116
+
+[node name="FogFG" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_xglyu")
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("9_eeh8x")
+stretch_mode = 1
+
+[node name="Scroll" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ah45n")
+
+[node name="CharacterCreation" type="Label" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 88.0
+offset_top = -86.0
+offset_right = 193.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 12
+text = "Character Creation"
+
+[node name="Name" type="Label" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 69.5
+offset_top = -68.0
+offset_right = 102.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 12
+text = "Name:"
+
+[node name="NameEntryBox" type="TextEdit" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = -75.0
+offset_right = 209.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+placeholder_text = "John Walaby"
+
+[node name="HairStyle" type="HBoxContainer" parent="Scroll"]
+layout_mode = 2
+offset_left = 365.0
+offset_top = 128.0
+offset_right = 413.0
+offset_bottom = 138.0
+
+[node name="Hair" type="Label" parent="Scroll/HairStyle"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Hair:"
+
+[node name="Style" type="Label" parent="Scroll/HairStyle"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Long"
+
+[node name="HairStyleSelectorButtons" type="HBoxContainer" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = -40.0
+offset_right = 90.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HSMoveBack" type="TextureButton" parent="Scroll/HairStyleSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+flip_h = true
+
+[node name="HSMoveForward" type="TextureButton" parent="Scroll/HairStyleSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+
+[node name="HairColor" type="HBoxContainer" parent="Scroll"]
+layout_mode = 2
+offset_left = 364.0
+offset_top = 159.0
+offset_right = 420.0
+offset_bottom = 169.0
+
+[node name="Color" type="Label" parent="Scroll/HairColor"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Color:"
+
+[node name="ColorLabel" type="Label" parent="Scroll/HairColor"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Black"
+
+[node name="HairColorSelectorButtons" type="HBoxContainer" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 47.0
+offset_top = -9.0
+offset_right = 91.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HCMoveBack" type="TextureButton" parent="Scroll/HairColorSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+flip_h = true
+
+[node name="HCMoveForward" type="TextureButton" parent="Scroll/HairColorSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+
+[node name="BodyType" type="HBoxContainer" parent="Scroll"]
+layout_mode = 2
+offset_left = 495.0
+offset_top = 128.0
+offset_right = 552.0
+offset_bottom = 138.0
+
+[node name="Body" type="Label" parent="Scroll/BodyType"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Body:"
+
+[node name="Type" type="Label" parent="Scroll/BodyType"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Type 1"
+
+[node name="EyesType" type="HBoxContainer" parent="Scroll"]
+layout_mode = 2
+offset_left = 430.0
+offset_top = 128.0
+offset_right = 487.0
+offset_bottom = 138.0
+
+[node name="Eyes" type="Label" parent="Scroll/EyesType"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Eyes:"
+
+[node name="Type" type="Label" parent="Scroll/EyesType"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Type 1"
+
+[node name="EyeStyleSelectorButtons" type="HBoxContainer" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 116.0
+offset_top = -40.0
+offset_right = 160.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ESMoveBack" type="TextureButton" parent="Scroll/EyeStyleSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+flip_h = true
+
+[node name="ESMoveForward" type="TextureButton" parent="Scroll/EyeStyleSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+
+[node name="EyesColor" type="HBoxContainer" parent="Scroll"]
+layout_mode = 2
+offset_left = 430.0
+offset_top = 159.0
+offset_right = 487.0
+offset_bottom = 169.0
+
+[node name="EyeColor" type="Label" parent="Scroll/EyesColor"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Color:"
+
+[node name="Color" type="Label" parent="Scroll/EyesColor"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Black"
+
+[node name="EyeColorSelectorButtons" type="HBoxContainer" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 116.0
+offset_top = -8.0
+offset_right = 160.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ECMoveBack" type="TextureButton" parent="Scroll/EyeColorSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+flip_h = true
+
+[node name="ECMoveForward" type="TextureButton" parent="Scroll/EyeColorSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+
+[node name="BodyTypeSelectorButtons" type="HBoxContainer" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 181.0
+offset_top = -38.0
+offset_right = 225.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="BTMoveBack" type="TextureButton" parent="Scroll/BodyTypeSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+flip_h = true
+
+[node name="BTMoveForward" type="TextureButton" parent="Scroll/BodyTypeSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+
+[node name="SkinColor" type="HBoxContainer" parent="Scroll"]
+layout_mode = 2
+offset_left = 498.0
+offset_top = 159.0
+offset_right = 550.0
+offset_bottom = 169.0
+
+[node name="Skin" type="Label" parent="Scroll/SkinColor"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Skin:"
+
+[node name="Color" type="Label" parent="Scroll/SkinColor"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Light"
+
+[node name="SkinColorSelectorButtons" type="HBoxContainer" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 180.0
+offset_top = -5.0
+offset_right = 224.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="SCMoveBack" type="TextureButton" parent="Scroll/SkinColorSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+flip_h = true
+
+[node name="SCMoveForward" type="TextureButton" parent="Scroll/SkinColorSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+
+[node name="Outfit" type="Label" parent="Scroll"]
+layout_mode = 2
+offset_left = 364.0
+offset_top = 198.0
+offset_right = 424.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Outfit Color: "
+
+[node name="Color" type="Label" parent="Scroll"]
+layout_mode = 2
+offset_left = 457.0
+offset_top = 198.0
+offset_right = 484.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Green"
+horizontal_alignment = 1
+
+[node name="OutfitColorSelectorButtons" type="HBoxContainer" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 129.0
+offset_top = 30.0
+offset_right = 173.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="OCMoveBack" type="TextureButton" parent="Scroll/OutfitColorSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+flip_h = true
+
+[node name="OCMoveForward" type="TextureButton" parent="Scroll/OutfitColorSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+
+[node name="Weapon" type="Label" parent="Scroll"]
+layout_mode = 2
+offset_left = 364.0
+offset_top = 227.0
+offset_right = 438.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Starter Weapon:"
+
+[node name="Type" type="Label" parent="Scroll"]
+layout_mode = 2
+offset_left = 451.0
+offset_top = 228.0
+offset_right = 532.0
+offset_bottom = 238.0
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Sword and Shield"
+
+[node name="StarterWeaponSelectorButtons" type="HBoxContainer" parent="Scroll"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = 60.0
+offset_right = 172.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="SWMoveBack" type="TextureButton" parent="Scroll/StarterWeaponSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+flip_h = true
+
+[node name="SWMoveForward" type="TextureButton" parent="Scroll/StarterWeaponSelectorButtons"]
+layout_mode = 2
+texture_normal = ExtResource("14_62eq2")
+texture_pressed = ExtResource("15_76m4r")
+
+[node name="ProgressButtons" type="HBoxContainer" parent="Scroll"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 262.0
+offset_right = 512.0
+offset_bottom = 284.0
+
+[node name="StartGame" type="Button" parent="Scroll/ProgressButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 14
+text = "Confirm"
+
+[node name="Cancel" type="Button" parent="Scroll/ProgressButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 14
+text = "Cancel"
+
+[node name="CheckBox" type="CheckBox" parent="Scroll"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 234.0
+offset_right = 407.0
+offset_bottom = 258.0
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("13_vs0ph")
+theme_override_font_sizes/font_size = 10
+text = "Hide"
+
+[node name="PlayerParts" type="Node2D" parent="."]
+position = Vector2(184, 155)
+
+[node name="Shield" type="Sprite2D" parent="PlayerParts"]
+
+[node name="LeftUpperBody" type="Node2D" parent="PlayerParts"]
+
+[node name="LeftArm" type="Sprite2D" parent="PlayerParts/LeftUpperBody"]
+
+[node name="LeftShirtSleeve" type="Sprite2D" parent="PlayerParts/LeftUpperBody"]
+
+[node name="LeftGlove" type="Sprite2D" parent="PlayerParts/LeftUpperBody"]
+
+[node name="UpperMiddleBody" type="Node2D" parent="PlayerParts"]
+
+[node name="Cape" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
+
+[node name="Torso" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
+
+[node name="ShirtTorso" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
+
+[node name="LowerBody" type="Node2D" parent="PlayerParts"]
+
+[node name="Legs" type="Sprite2D" parent="PlayerParts/LowerBody"]
+
+[node name="Pants" type="Sprite2D" parent="PlayerParts/LowerBody"]
+
+[node name="Bottoms" type="Sprite2D" parent="PlayerParts/LowerBody"]
+
+[node name="RightUpperBody" type="Node2D" parent="PlayerParts"]
+
+[node name="Sword" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
+
+[node name="RightArm" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
+
+[node name="RightShirtSleeve" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
+
+[node name="RightGlove" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
+
+[node name="UpperBody" type="Node2D" parent="PlayerParts"]
+
+[node name="Head" type="Sprite2D" parent="PlayerParts/UpperBody"]
+
+[node name="Eyes" type="Sprite2D" parent="PlayerParts/UpperBody"]
+
+[node name="Hair" type="Sprite2D" parent="PlayerParts/UpperBody"]
+
+[connection signal="pressed" from="Scroll/HairStyleSelectorButtons/HSMoveBack" to="." method="_on_hs_move_back_pressed"]
+[connection signal="pressed" from="Scroll/HairStyleSelectorButtons/HSMoveForward" to="." method="_on_hs_move_forward_pressed"]
+[connection signal="pressed" from="Scroll/HairColorSelectorButtons/HCMoveBack" to="." method="_on_hc_move_back_pressed"]
+[connection signal="pressed" from="Scroll/HairColorSelectorButtons/HCMoveForward" to="." method="_on_hc_move_forward_pressed"]
+[connection signal="pressed" from="Scroll/EyeStyleSelectorButtons/ESMoveBack" to="." method="_on_es_move_back_pressed"]
+[connection signal="pressed" from="Scroll/EyeStyleSelectorButtons/ESMoveForward" to="." method="_on_es_move_forward_pressed"]
+[connection signal="pressed" from="Scroll/EyeColorSelectorButtons/ECMoveBack" to="." method="_on_ec_move_back_pressed"]
+[connection signal="pressed" from="Scroll/EyeColorSelectorButtons/ECMoveForward" to="." method="_on_ec_move_forward_pressed"]
+[connection signal="pressed" from="Scroll/BodyTypeSelectorButtons/BTMoveBack" to="." method="_on_bt_move_back_pressed"]
+[connection signal="pressed" from="Scroll/BodyTypeSelectorButtons/BTMoveForward" to="." method="_on_bt_move_forward_pressed"]
+[connection signal="pressed" from="Scroll/SkinColorSelectorButtons/SCMoveBack" to="." method="_on_sc_move_back_pressed"]
+[connection signal="pressed" from="Scroll/SkinColorSelectorButtons/SCMoveForward" to="." method="_on_sc_move_forward_pressed"]
+[connection signal="pressed" from="Scroll/OutfitColorSelectorButtons/OCMoveBack" to="." method="_on_oc_move_back_pressed"]
+[connection signal="pressed" from="Scroll/OutfitColorSelectorButtons/OCMoveForward" to="." method="_on_oc_move_forward_pressed"]
+[connection signal="pressed" from="Scroll/StarterWeaponSelectorButtons/SWMoveBack" to="." method="_on_sw_move_back_pressed"]
+[connection signal="pressed" from="Scroll/StarterWeaponSelectorButtons/SWMoveForward" to="." method="_on_sw_move_forward_pressed"]
+[connection signal="pressed" from="Scroll/ProgressButtons/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Scroll/ProgressButtons/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="toggled" from="Scroll/CheckBox" to="." method="_on_check_box_toggled"]

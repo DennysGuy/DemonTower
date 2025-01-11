@@ -1,0 +1,343 @@
+[gd_scene load_steps=3 format=3 uid="uid://bigiyu1id210e"]
+
+[ext_resource type="Script" path="res://src/Scripts/Interfaces/player_inventory.gd" id="1_82wuk"]
+[ext_resource type="PackedScene" uid="uid://dk5rr3nngbcnj" path="res://src/Scenes/Interfaces/Slot.tscn" id="2_wrp36"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_82wuk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -121.0
+offset_top = -95.0
+offset_right = 128.0
+offset_bottom = 94.0
+color = Color(0.0629729, 0.419512, 0.514648, 1)
+
+[node name="Inventory" type="Label" parent="."]
+layout_mode = 0
+offset_left = -117.0
+offset_top = -94.0
+offset_right = -61.0
+offset_bottom = -77.0
+theme_override_font_sizes/font_size = 12
+text = "Inventory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(180, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -75.0
+offset_right = 122.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SideBar" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/SideBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -69.0
+offset_right = 22.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="HBoxContainer/SideBar/MarginContainer"]
+layout_mode = 2
+
+[node name="WeaponsTabButton" type="Button" parent="HBoxContainer/SideBar/MarginContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Weap."
+
+[node name="RecipesTabButton" type="Button" parent="HBoxContainer/SideBar/MarginContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Recipes"
+
+[node name="AccessoriesTabButton" type="Button" parent="HBoxContainer/SideBar/MarginContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Access."
+
+[node name="DripTabButton" type="Button" parent="HBoxContainer/SideBar/MarginContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Drip"
+
+[node name="ConsumablesTabButton" type="Button" parent="HBoxContainer/SideBar/MarginContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Consume"
+
+[node name="MaterialsTabButton" type="Button" parent="HBoxContainer/SideBar/MarginContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Materials"
+
+[node name="ListArea" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(110, 150)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TabTitle" type="Label" parent="HBoxContainer/ListArea"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 1.0
+offset_right = 50.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 9
+text = "Weapons"
+
+[node name="CurrencyCounter" type="Label" parent="HBoxContainer/ListArea"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = 2.0
+offset_right = 53.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Currency: 100000"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ListArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 14.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ListArea/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 3
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="InventorySlot" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="InventorySlot2" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="HBoxContainer/ListArea/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("2_wrp36")]
+layout_mode = 2
+
+[node name="Details" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Details" type="Label" parent="HBoxContainer/Details"]
+layout_mode = 2
+offset_right = 30.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 9
+text = "Details"
+
+[node name="EquipButton" type="Button" parent="HBoxContainer/Details"]
+layout_mode = 2
+offset_left = 54.0
+offset_top = 1.0
+offset_right = 73.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 4
+text = "Equip"
+
+[node name="ConsumeButton" type="Button" parent="HBoxContainer/Details"]
+layout_mode = 2
+offset_left = 47.0
+offset_top = 1.0
+offset_right = 74.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 4
+text = "Consume"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Details"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -61.0
+offset_right = 35.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Details/VBoxContainer"]
+custom_minimum_size = Vector2(16, 32)
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="HBoxContainer/Details/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+
+[node name="Level" type="Label" parent="HBoxContainer/Details/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 5
+
+[node name="Description" type="RichTextLabel" parent="HBoxContainer/Details/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 5
+fit_content = true
+
+[node name="Stats" type="RichTextLabel" parent="HBoxContainer/Details/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 5
+text = "Stats 1
+Stats 2
+Stats 3"
+fit_content = true
+
+[node name="DiscardButton" type="Button" parent="HBoxContainer/Details"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 133.0
+offset_right = 73.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 4
+text = "Discard"
+
+[node name="DropAmountPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -252.0
+offset_top = -46.0
+offset_right = -136.0
+offset_bottom = 22.0
+
+[node name="InputAmountBox" type="TextEdit" parent="DropAmountPanel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 18.0
+offset_right = 112.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 8
+placeholder_text = "Type amount to drop."
+
+[node name="DropAmountPanelLabel" type="Label" parent="DropAmountPanel"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 4.0
+offset_right = 79.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 8
+text = "Quantity"
+
+[node name="ConfirmDropButton" type="Button" parent="DropAmountPanel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 46.0
+offset_right = 76.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 6
+text = "Confirm"
+
+[connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/WeaponsTabButton" to="." method="_on_weapons_tab_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/RecipesTabButton" to="." method="_on_recipes_tab_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/AccessoriesTabButton" to="." method="_on_accessories_tab_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/DripTabButton" to="." method="_on_drip_tab_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/ConsumablesTabButton" to="." method="_on_consumables_tab_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/SideBar/MarginContainer/ButtonContainer/MaterialsTabButton" to="." method="_on_materials_tab_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/Details/EquipButton" to="." method="_on_equip_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/Details/ConsumeButton" to="." method="_on_consume_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/Details/DiscardButton" to="." method="_on_discard_button_button_down"]
+[connection signal="button_down" from="DropAmountPanel/ConfirmDropButton" to="." method="_on_confirm_drop_button_button_down"]

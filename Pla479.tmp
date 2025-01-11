@@ -1,0 +1,522 @@
+[gd_scene load_steps=14 format=3 uid="uid://636u6us5vqin"]
+
+[ext_resource type="Script" path="res://src/Scripts/HUD/player_hud.gd" id="1_04w3r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_487di"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv18p"]
+bg_color = Color(0.756383, 0.268177, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w26u"]
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mfw5"]
+bg_color = Color(0.184428, 0.553115, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fml3t"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f05d1"]
+bg_color = Color(0.6, 0, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev2sq"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6jjo"]
+bg_color = Color(0.691381, 0.54534, 3.85046e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5cli"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk677"]
+bg_color = Color(1, 0.344584, 0.264761, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfflw"]
+bg_color = Color(0.194349, 0.194349, 0.194349, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2aihr"]
+bg_color = Color(0.27662, 0.404663, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="PlayerHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_04w3r")
+
+[node name="SkillsXPMenu" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 144.0
+offset_right = 475.0
+offset_bottom = 239.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SkillsXPMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.046875
+anchor_top = 0.0322581
+anchor_right = 0.953125
+anchor_bottom = 0.967742
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelLabel" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "Level 1"
+
+[node name="STRXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "STR XP"
+
+[node name="STRXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_487di")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fv18p")
+
+[node name="DEXXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "DEX XP"
+
+[node name="DEXXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_5w26u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8mfw5")
+
+[node name="INTXP_Lable" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "INT XP"
+
+[node name="INTXP_ProgressBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_fml3t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f05d1")
+
+[node name="LUKXP_Label" type="Label" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "LUK XP"
+
+[node name="LUKXP_ProgresBar" type="ProgressBar" parent="SkillsXPMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_ev2sq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d6jjo")
+
+[node name="StatsPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 34.0
+offset_right = 206.0
+offset_bottom = 210.0
+
+[node name="CharacterStatsLabel" type="Label" parent="StatsPanel"]
+layout_mode = 1
+offset_left = 6.0
+offset_right = 51.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 6
+text = "Character Stats"
+
+[node name="PlayerDetail" type="ColorRect" parent="StatsPanel"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -75.0
+offset_right = 63.5
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.35093, 0.361492, 0.52375, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsPanel/PlayerDetail"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = -31.0
+offset_right = 47.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="NameLabel" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Name: Dennysuy"
+
+[node name="EquippedArchetype" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Current Archetype: Warrior"
+
+[node name="TotalLevel" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Total Level: 4"
+
+[node name="TotalEXP" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Total XP : 300"
+
+[node name="HP" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "HP: 100/100"
+
+[node name="MP" type="Label" parent="StatsPanel/PlayerDetail/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "MP: 100/100"
+
+[node name="AbilityLevels" type="ColorRect" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 2.0
+offset_right = 64.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.712487, 0.692503, 0.761319, 1)
+
+[node name="VBoxContainer" type="GridContainer" parent="StatsPanel/AbilityLevels"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -19.0
+offset_right = 59.5
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="StrLvl" type="Label" parent="StatsPanel/AbilityLevels/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "STR LVL : 1"
+
+[node name="DexLvl" type="Label" parent="StatsPanel/AbilityLevels/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 11
+text = "DEX LVL : 1"
+
+[node name="IntLvl" type="Label" parent="StatsPanel/AbilityLevels/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "INT LVL : 1"
+
+[node name="LukLvl" type="Label" parent="StatsPanel/AbilityLevels/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "LUK LVL : 1"
+
+[node name="SecondaryStatsButton" type="Button" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -16.0
+offset_right = -5.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 3
+text = "Details >"
+
+[node name="SecondaryStats" type="Panel" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -106.0
+offset_right = 101.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="StatsPanel/SecondaryStats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -41.0
+offset_right = 45.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.351388, 0.520673, 0.694781, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsPanel/SecondaryStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -40.5
+offset_right = 39.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="PATK" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "PATK : 1-3"
+
+[node name="MATK" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "MATK: 0-1"
+
+[node name="WDEF" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "WDEF: 3"
+
+[node name="MDEF" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "MDEF: 0
+"
+
+[node name="ACC" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "ACC: 60
+"
+
+[node name="AVOID" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "AVOID: 90
+"
+
+[node name="SPEED" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "SPD: 100"
+
+[node name="JMP" type="Label" parent="StatsPanel/SecondaryStats/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "JMP: 100"
+
+[node name="Label" type="Label" parent="StatsPanel/SecondaryStats"]
+layout_mode = 1
+offset_left = 5.0
+offset_right = 52.0
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 6
+text = "Secondary Stats"
+
+[node name="HUD" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 241.0
+offset_right = 479.0
+offset_bottom = 269.0
+size_flags_vertical = 3
+color = Color(0.790587, 0.822444, 0.80937, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerDescriptionMargin" type="MarginContainer" parent="HUD/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 2
+
+[node name="PlayerDescriptionBox" type="ColorRect" parent="HUD/HBoxContainer/PlayerDescriptionMargin"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+
+[node name="PlayerName" type="Label" parent="HUD/HBoxContainer/PlayerDescriptionMargin/PlayerDescriptionBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -5.5
+offset_right = 22.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "DennysGuy"
+
+[node name="StatBarsMargin" type="MarginContainer" parent="HUD/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="StatBars" type="ColorRect" parent="HUD/HBoxContainer/StatBarsMargin"]
+custom_minimum_size = Vector2(290, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="BarsMargin" type="MarginContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars"]
+layout_mode = 0
+offset_right = 312.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Bars" type="HBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin"]
+layout_mode = 2
+
+[node name="HPBar" type="VBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="HitPointsLabel" type="Label" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/HPBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+text = "HP"
+
+[node name="HPBar" type="ProgressBar" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/HPBar"]
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_k5cli")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bk677")
+show_percentage = false
+
+[node name="MPBar" type="VBoxContainer" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="MagicPointsLabel" type="Label" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/MPBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+text = "MP"
+
+[node name="MPBar" type="ProgressBar" parent="HUD/HBoxContainer/StatBarsMargin/StatBars/BarsMargin/Bars/MPBar"]
+custom_minimum_size = Vector2(0, 11)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_xfflw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2aihr")
+show_percentage = false
+
+[node name="MiscMargin" type="MarginContainer" parent="HUD/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="Misc" type="ColorRect" parent="HUD/HBoxContainer/MiscMargin"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="MenuButton" type="Button" parent="HUD/HBoxContainer/MiscMargin/Misc"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "Menu"
+
+[connection signal="pressed" from="StatsPanel/SecondaryStatsButton" to="." method="_on_secondary_stats_button_pressed"]
+[connection signal="pressed" from="HUD/HBoxContainer/MiscMargin/Misc/MenuButton" to="." method="_on_menu_button_pressed"]

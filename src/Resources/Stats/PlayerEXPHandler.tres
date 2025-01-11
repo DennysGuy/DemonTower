@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="EXPHandler" load_steps=2 format=3 uid="uid://d2mm2q2hvv55k"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/exp_handler.gd" id="1_ditk0"]
+
+[resource]
+script = ExtResource("1_ditk0")

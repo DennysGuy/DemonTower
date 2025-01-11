@@ -1,0 +1,44 @@
+PLAYER ANIMATIONS
+
+- idle
+- run animations - legs will stay the same while arms change
+	- standard x
+	- sword/shield variant
+	- 2H variant
+	- Spear variant
+	- dual daggers variant
+- attack
+	1 handed weapons [Sword/Shield, Wand, Staff, Claw] x
+		- swing 1
+		- swing 2
+		- swing 3
+		- dash attack (?)
+		- air attack (?)
+	2 handed weapons [2h, Spear, Daggers -- separated 2 handed]
+		- swing 1
+		- swing 2
+		- swing 3
+		- dash attack (?)
+		- air attack (?)
+- jump
+	- no weapon equipped
+	- 1h weapons
+	- 2h weapons
+- fall
+	- no weapon equipped
+	- 1h weapons
+	- 2h weapons
+- hurt
+- alert
+- pick axe swing (1h?)
+- wood axe swing (1h?)
+- die
+- climb ladder
+	- 1h, sws, 2h, daggers, unequipped?
+- climb rope
+	- 1h, sws, 2h, daggers, unequipped?
+- smithing
+- crafting
+- cooking
+
+- skills (to be filled in)

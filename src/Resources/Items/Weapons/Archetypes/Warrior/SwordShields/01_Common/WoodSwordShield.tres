@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://dqxah5p2mnex2"]
+
+[ext_resource type="Texture2D" uid="uid://cljkolrryqasw" path="res://Assets/wooden_sword_shield_icon.png" id="1_0gq1f"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/weapon.gd" id="1_l1ch4"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_l1ch4")
+level = 4
+archetype_class = 0
+weapon_class = 0
+weapon_speed = 60
+weapon_rarity = 0
+elemental_effect = 0
+xp_type = 0
+weapon_attack = 12
+weapon_defense = 5
+magic_attack = 0
+magic_defense = 0
+shadow_attack = 0
+shadow_defense = 0
+HP_bonus = 15
+MP_bonus = 0
+movement_speed_bonus = 0
+jump_bonus = 0
+animation_name = ""
+id = 1
+name = "Wood Sword and Shield"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 0
+rarity = 0
+description = "A dull wood based sword and a fence. Offers some protection and little damage"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_0gq1f")

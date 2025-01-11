@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Drip" load_steps=3 format=3 uid="uid://dfde5dwb6b83y"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/drip.gd" id="1_1whja"]
+[ext_resource type="Texture2D" uid="uid://bb17v2mpitjv0" path="res://Assets/nomad_boots_icon.png" id="1_tq1r2"]
+
+[resource]
+script = ExtResource("1_1whja")
+drip_type = 2
+animation_name = ""
+id = 48
+texture_index = 0
+name = "Nomad Boots"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 3
+rarity = 0
+description = "Thick Boots to traverse harsh terrain"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_tq1r2")

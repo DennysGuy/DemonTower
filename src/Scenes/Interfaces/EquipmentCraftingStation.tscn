@@ -1,0 +1,370 @@
+[gd_scene load_steps=5 format=3 uid="uid://be0cihyuy4tx0"]
+
+[ext_resource type="Script" path="res://src/Scripts/Interfaces/equipment_crafting_station.gd" id="1_aoaba"]
+[ext_resource type="Texture2D" uid="uid://cljkolrryqasw" path="res://Assets/wooden_sword_shield_icon.png" id="1_ie60u"]
+[ext_resource type="PackedScene" uid="uid://dk5rr3nngbcnj" path="res://src/Scenes/Interfaces/Slot.tscn" id="1_r0gn0"]
+[ext_resource type="Texture2D" uid="uid://6c2lurijrlm8" path="res://Assets/weapon_recipe_icon.png" id="2_k7tb5"]
+
+[node name="EquipmentCraftingStation" type="Control" node_paths=PackedStringArray("crafting_panel", "inventory_slots", "close_station_button", "output_item_icon", "crafting_progress_bar", "remaining_amount_label", "succeeded_label", "failed_label", "recipe_quantity_left_label", "details_icon", "recipe_name_label", "recipe_description")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aoaba")
+crafting_panel = NodePath("CraftingPanel")
+inventory_slots = NodePath("CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots")
+close_station_button = NodePath("CraftingPanel/CloseStation")
+output_item_icon = NodePath("CraftingPanel/HBoxContainer/CraftPanel/OutputItemIcon")
+crafting_progress_bar = NodePath("CraftingPanel/HBoxContainer/CraftPanel/ProgressBar")
+remaining_amount_label = NodePath("CraftingPanel/HBoxContainer/CraftPanel/HBoxContainer/RemainingAmountLabel")
+succeeded_label = NodePath("CraftingPanel/HBoxContainer/CraftPanel/HBoxContainer/SucceededLabel")
+failed_label = NodePath("CraftingPanel/HBoxContainer/CraftPanel/HBoxContainer/FailedLabel")
+recipe_quantity_left_label = NodePath("CraftingPanel/HBoxContainer/CraftPanel/RecipeQuantity")
+details_icon = NodePath("CraftingPanel/HBoxContainer/DetailsPanel/TextureRect")
+recipe_name_label = NodePath("CraftingPanel/HBoxContainer/DetailsPanel/TextureRect/RecipeName")
+recipe_description = NodePath("CraftingPanel/HBoxContainer/DetailsPanel/RecipeDescription")
+
+[node name="CraftingPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.5
+offset_top = -85.5
+offset_right = 183.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CraftingPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 24.0
+offset_right = -6.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="InventoryPanel" type="Panel" parent="CraftingPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InventoryLabel" type="Label" parent="CraftingPanel/HBoxContainer/InventoryPanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 39.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 7
+text = "Inventory"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CraftingPanel/HBoxContainer/InventoryPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -51.0
+offset_right = 47.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventorySlots" type="GridContainer" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="InventorySlot" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot21" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot22" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot23" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot24" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="InventorySlot25" parent="CraftingPanel/HBoxContainer/InventoryPanel/ScrollContainer/InventorySlots" instance=ExtResource("1_r0gn0")]
+layout_mode = 2
+
+[node name="CraftPanel" type="Panel" parent="CraftingPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CraftLabel" type="Label" parent="CraftingPanel/HBoxContainer/CraftPanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 23.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 7
+text = "Craft"
+
+[node name="OutputItemIcon" type="TextureRect" parent="CraftingPanel/HBoxContainer/CraftPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -53.5
+offset_right = 20.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ie60u")
+
+[node name="ProgressBar" type="ProgressBar" parent="CraftingPanel/HBoxContainer/CraftPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -6.0
+offset_right = 46.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CraftingPanel/HBoxContainer/CraftPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = 14.0
+offset_right = 41.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RemainingAmountLabel" type="Label" parent="CraftingPanel/HBoxContainer/CraftPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Left: 22"
+
+[node name="SucceededLabel" type="Label" parent="CraftingPanel/HBoxContainer/CraftPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Success: 4"
+
+[node name="FailedLabel" type="Label" parent="CraftingPanel/HBoxContainer/CraftPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Failed: 1"
+
+[node name="TerminateCraftingButton" type="Button" parent="CraftingPanel/HBoxContainer/CraftPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -29.0
+offset_right = 17.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 5
+text = "Terminate"
+
+[node name="RecipeQuantity" type="Label" parent="CraftingPanel/HBoxContainer/CraftPanel"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 45.0
+offset_right = 49.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 12
+text = "11"
+
+[node name="DetailsPanel" type="Panel" parent="CraftingPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartCraftingButton" type="Button" parent="CraftingPanel/HBoxContainer/DetailsPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 18.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 6
+text = "Start"
+
+[node name="DetailsLabel" type="Label" parent="CraftingPanel/HBoxContainer/DetailsPanel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 29.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 7
+text = "Details"
+
+[node name="TextureRect" type="TextureRect" parent="CraftingPanel/HBoxContainer/DetailsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = -55.5
+offset_right = 20.5
+offset_bottom = -15.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k7tb5")
+
+[node name="RecipeName" type="Label" parent="CraftingPanel/HBoxContainer/DetailsPanel/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = 20.0
+offset_right = 42.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 6
+text = "Bronze Sword and Shield"
+horizontal_alignment = 1
+
+[node name="RecipeDescription" type="RichTextLabel" parent="CraftingPanel/HBoxContainer/DetailsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.5
+offset_top = -72.0
+offset_right = 47.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 6
+text = "Level : 1
+Equipment: Weapon
+Archetype: Warrior
+Class : Sword/Shield
+Recipe:
+1 x Bronze Bar
+1x Wood Bar
+
+Description: 
+A basic sword and shield fit for beginners.
+"
+
+[node name="CloseStation" type="Button" parent="CraftingPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -27.0
+offset_top = 3.0
+offset_right = -6.0
+offset_bottom = 19.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 5
+text = "Close"
+
+[node name="Label" type="Label" parent="CraftingPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 5.0
+offset_right = 66.0
+offset_bottom = 19.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Equipment Crafting Station"
+
+[connection signal="button_down" from="CraftingPanel/HBoxContainer/DetailsPanel/StartCraftingButton" to="." method="_on_start_crafting_button_button_down"]
+[connection signal="button_down" from="CraftingPanel/CloseStation" to="." method="_on_close_station_button_down"]

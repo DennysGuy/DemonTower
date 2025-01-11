@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CraftingMaterial" load_steps=3 format=3 uid="uid://5e641ye58r0u"]
+
+[ext_resource type="Texture2D" uid="uid://cp0j1enswieth" path="res://Assets/copper_ore_icon.png" id="1_f3rdd"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/material.gd" id="2_hytb7"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_hytb7")
+id = 456
+name = "Copper Ore"
+sell_value = 0
+shop_value = 75
+is_droppable = true
+type = 6
+rarity = 0
+description = "A meterial to be refined into crafting material."
+is_stackable = true
+max_stack = 9999
+icon = ExtResource("1_f3rdd")

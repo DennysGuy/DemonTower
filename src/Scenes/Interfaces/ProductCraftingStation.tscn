@@ -1,0 +1,582 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg5twd5cmwn2c"]
+
+[ext_resource type="Script" path="res://src/Scripts/Interfaces/product_selection_menu.gd" id="1_aagjl"]
+[ext_resource type="PackedScene" uid="uid://q52lm4oxx6tl" path="res://src/Scenes/Interfaces/Product.tscn" id="3_qom4v"]
+[ext_resource type="Texture2D" uid="uid://y22lcbaa0x4t" path="res://Assets/Bronze_Bar_icon.png" id="3_u35kq"]
+[ext_resource type="Texture2D" uid="uid://c55opoajpkjfp" path="res://Assets/accessory_recipe_icon.png" id="5_d825d"]
+[ext_resource type="PackedScene" uid="uid://dk5rr3nngbcnj" path="res://src/Scenes/Interfaces/Slot.tscn" id="5_vh2ho"]
+
+[node name="ProductCraftingStation" type="Control" node_paths=PackedStringArray("products", "menu_title", "close_panel_button", "details_panel", "start_crafting_button", "recipe_icon", "recipe_name", "ingredients", "process_panel", "process_icon", "progress_bar", "amount_remaining_count", "amount_succeeded_count", "amount_failed_count", "terminate_process_button", "wood_selector_margin_container", "wood_panel", "materials_inventory_panel", "selected_wood_icon", "wood_quantity_label", "wood_slots", "cooking_process_panel", "dish_process_icon", "dish_progress_bar", "dish_remaining_label", "dish_succeeded_label", "dish_failed_label", "dish_process_terminate_button", "results_panel", "results_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_aagjl")
+products = NodePath("StationHomeMenu/HBoxContainer/ScrollContainer/Products")
+title_text = "Smelting Station"
+menu_title = NodePath("StationHomeMenu/StationName")
+close_panel_button = NodePath("StationHomeMenu/ClosePanelButton")
+details_panel = NodePath("StationHomeMenu/HBoxContainer/DetailsPanel")
+start_crafting_button = NodePath("StationHomeMenu/HBoxContainer/DetailsPanel/BackGround/StartCraftingButton")
+recipe_icon = NodePath("StationHomeMenu/HBoxContainer/DetailsPanel/BackGround/RecipeIcon")
+recipe_name = NodePath("StationHomeMenu/HBoxContainer/DetailsPanel/BackGround/RecipeIcon/RecipeName")
+ingredients = NodePath("StationHomeMenu/HBoxContainer/DetailsPanel/BackGround/Ingredients")
+process_panel = NodePath("ProcessPanel")
+process_icon = NodePath("ProcessPanel/ProcessIcon")
+progress_bar = NodePath("ProcessPanel/ProgressBar")
+amount_remaining_count = NodePath("ProcessPanel/HBoxContainer/LeftCount")
+amount_succeeded_count = NodePath("ProcessPanel/HBoxContainer/SuccessCount")
+amount_failed_count = NodePath("ProcessPanel/HBoxContainer/FailedCount")
+terminate_process_button = NodePath("ProcessPanel/TerminateProcessButton")
+wood_selector_margin_container = NodePath("StationHomeMenu/HBoxContainer/MarginContainer")
+wood_panel = NodePath("StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel")
+materials_inventory_panel = NodePath("StationHomeMenu/MaterialsInventoryPanel")
+selected_wood_icon = NodePath("StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel/WoodSelector/Container/WoodIcon")
+wood_quantity_label = NodePath("StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel/QuantityLabel")
+wood_slots = NodePath("StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots")
+cooking_process_panel = NodePath("StationHomeMenu/CookingProcessPanel")
+dish_process_icon = NodePath("StationHomeMenu/CookingProcessPanel/DishProcessIcon")
+dish_progress_bar = NodePath("StationHomeMenu/CookingProcessPanel/ProgressBar")
+dish_remaining_label = NodePath("StationHomeMenu/CookingProcessPanel/HBoxContainer/Remaining")
+dish_succeeded_label = NodePath("StationHomeMenu/CookingProcessPanel/HBoxContainer/Succeeded")
+dish_failed_label = NodePath("StationHomeMenu/CookingProcessPanel/HBoxContainer/Failed")
+dish_process_terminate_button = NodePath("StationHomeMenu/CookingProcessPanel/DishTerminateButton")
+results_panel = NodePath("ResultsPanel")
+results_label = NodePath("ResultsPanel/Results")
+
+[node name="StationHomeMenu" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -83.0
+offset_right = 159.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.446214, 0.548172, 0.661785, 0.34902)
+
+[node name="Label" type="Label" parent="StationHomeMenu"]
+layout_mode = 2
+offset_left = 10.5
+offset_top = 19.5
+offset_right = 42.5
+offset_bottom = 30.5
+theme_override_font_sizes/font_size = 7
+text = "Products:"
+
+[node name="StationName" type="Label" parent="StationHomeMenu"]
+layout_mode = 0
+offset_left = 7.5
+offset_top = 3.5
+offset_right = 36.5
+offset_bottom = 17.5
+theme_override_font_sizes/font_size = 10
+text = "Smelting Station
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StationHomeMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 30.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="StationHomeMenu/HBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="Products" type="GridContainer" parent="StationHomeMenu/HBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/v_separation = 5
+
+[node name="Product" parent="StationHomeMenu/HBoxContainer/ScrollContainer/Products" instance=ExtResource("3_qom4v")]
+layout_mode = 2
+
+[node name="Product2" parent="StationHomeMenu/HBoxContainer/ScrollContainer/Products" instance=ExtResource("3_qom4v")]
+layout_mode = 2
+
+[node name="Product3" parent="StationHomeMenu/HBoxContainer/ScrollContainer/Products" instance=ExtResource("3_qom4v")]
+layout_mode = 2
+
+[node name="Product4" parent="StationHomeMenu/HBoxContainer/ScrollContainer/Products" instance=ExtResource("3_qom4v")]
+layout_mode = 2
+
+[node name="Product5" parent="StationHomeMenu/HBoxContainer/ScrollContainer/Products" instance=ExtResource("3_qom4v")]
+layout_mode = 2
+
+[node name="Product6" parent="StationHomeMenu/HBoxContainer/ScrollContainer/Products" instance=ExtResource("3_qom4v")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StationHomeMenu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_bottom = 52
+
+[node name="WoodSelectorVBox" type="VBoxContainer" parent="StationHomeMenu/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "wood"
+
+[node name="WoodPanel" type="Panel" parent="StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="WoodSelector" type="Control" parent="StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel"]
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="Container" type="Container" parent="StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel/WoodSelector"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 28.0
+
+[node name="WoodIcon" type="TextureRect" parent="StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel/WoodSelector/Container"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuantityLabel" type="Label" parent="StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 21.0
+offset_right = 30.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 7
+
+[node name="DetailsPanel" type="Panel" parent="StationHomeMenu/HBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="BackGround" type="ColorRect" parent="StationHomeMenu/HBoxContainer/DetailsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -66.5
+offset_right = 55.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.454902, 0.576471, 0.784314, 0.372549)
+
+[node name="StartCraftingButton" type="Button" parent="StationHomeMenu/HBoxContainer/DetailsPanel/BackGround"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 2.0
+offset_right = 108.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 5
+text = "Start"
+
+[node name="RecipeIcon" type="TextureRect" parent="StationHomeMenu/HBoxContainer/DetailsPanel/BackGround"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = -49.5
+offset_right = 20.5
+offset_bottom = -9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_u35kq")
+
+[node name="RecipeName" type="Label" parent="StationHomeMenu/HBoxContainer/DetailsPanel/BackGround/RecipeIcon"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.5
+offset_top = 1.0
+offset_right = 16.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 7
+text = "Bronze Bar"
+
+[node name="RecipeLabel" type="Label" parent="StationHomeMenu/HBoxContainer/DetailsPanel/BackGround"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 74.0
+offset_right = 46.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 7
+text = "Ingredients"
+
+[node name="Ingredients" type="RichTextLabel" parent="StationHomeMenu/HBoxContainer/DetailsPanel/BackGround"]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 85.0
+offset_right = 106.0
+offset_bottom = 109.0
+theme_override_font_sizes/normal_font_size = 7
+text = "1 x Copper Ore
+1 x Tin Ore"
+fit_content = true
+
+[node name="ClosePanelButton" type="Button" parent="StationHomeMenu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -23.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 17.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "close"
+
+[node name="MaterialsInventoryPanel" type="Panel" parent="StationHomeMenu"]
+layout_mode = 2
+offset_left = 121.0
+offset_top = 51.0
+offset_right = 201.0
+offset_bottom = 124.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WoodInventoryLabel" type="Label" parent="StationHomeMenu/MaterialsInventoryPanel"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 40.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 5
+text = "Available Wood"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="StationHomeMenu/MaterialsInventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 15.0
+offset_right = -2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slots" type="GridContainer" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="InventorySlot" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="StationHomeMenu/MaterialsInventoryPanel/ScrollContainer/Slots" instance=ExtResource("5_vh2ho")]
+layout_mode = 2
+
+[node name="CloseInventoryPanel" type="Button" parent="StationHomeMenu/MaterialsInventoryPanel"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 1.0
+offset_right = 78.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 3
+text = "close"
+
+[node name="CookingProcessPanel" type="ColorRect" parent="StationHomeMenu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -152.0
+offset_right = -6.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.412324, 0.508323, 0.64372, 1)
+
+[node name="DishProcessIcon" type="TextureRect" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -54.5
+offset_right = 20.0
+offset_bottom = -14.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_d825d")
+
+[node name="ProgressBar" type="ProgressBar" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 85.0
+offset_right = 120.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 6
+
+[node name="Cooking" type="Label" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 67.0
+offset_right = 83.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 7
+text = "Cooking..."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 105.0
+offset_right = 126.0
+offset_bottom = 116.0
+theme_override_constants/separation = 14
+
+[node name="Remaining" type="Label" parent="StationHomeMenu/CookingProcessPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Left: 22"
+
+[node name="Succeeded" type="Label" parent="StationHomeMenu/CookingProcessPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Success: 2"
+
+[node name="Failed" type="Label" parent="StationHomeMenu/CookingProcessPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Failed: 1"
+
+[node name="DishTerminateButton" type="Button" parent="StationHomeMenu/CookingProcessPanel"]
+layout_mode = 2
+offset_left = 46.0
+offset_top = 123.0
+offset_right = 79.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 5
+text = "Terminate"
+
+[node name="ProcessPanel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -71.5
+offset_right = 89.5
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.362375, 0.426156, 0.568509, 1)
+
+[node name="ProcessIcon" type="TextureRect" parent="ProcessPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -60.5
+offset_right = 27.0
+offset_bottom = -10.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_u35kq")
+
+[node name="CraftingLabel" type="Label" parent="ProcessPanel/ProcessIcon"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.5
+offset_top = 3.0
+offset_right = 17.5
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 9
+text = "Crafting..."
+
+[node name="ProgressBar" type="ProgressBar" parent="ProcessPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = 9.5
+offset_right = 76.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+max_value = 300.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ProcessPanel"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 101.0
+offset_right = 150.0
+offset_bottom = 113.0
+theme_override_constants/separation = 12
+
+[node name="LeftCount" type="Label" parent="ProcessPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Left: 22"
+
+[node name="SuccessCount" type="Label" parent="ProcessPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Success: 8"
+
+[node name="FailedCount" type="Label" parent="ProcessPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Failed: 2"
+
+[node name="TerminateProcessButton" type="Button" parent="ProcessPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.5
+offset_top = -21.0
+offset_right = 10.5
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 5
+text = "Terminate"
+
+[node name="ResultsPanel" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 113.0
+offset_right = 299.0
+offset_bottom = 181.0
+color = Color(0.621524, 0.621524, 0.621524, 1)
+
+[node name="Title" type="Label" parent="ResultsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.5
+offset_top = 2.0
+offset_right = 15.5
+offset_bottom = 14.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "Results:"
+
+[node name="Results" type="Label" parent="ResultsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 5
+text = "You've gained : 5 *item*(s)
+(With 2 failures)"
+horizontal_alignment = 1
+
+[node name="CloseResultsPanel" type="Button" parent="ResultsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.5
+offset_top = -17.0
+offset_right = 9.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 4
+text = "Close"
+
+[connection signal="gui_input" from="StationHomeMenu/HBoxContainer/MarginContainer/WoodSelectorVBox/WoodPanel/WoodSelector" to="." method="_on_wood_selector_gui_input"]
+[connection signal="button_down" from="StationHomeMenu/HBoxContainer/DetailsPanel/BackGround/StartCraftingButton" to="." method="_on_start_crafting_button_button_down"]
+[connection signal="button_down" from="StationHomeMenu/ClosePanelButton" to="." method="_on_close_panel_button_button_down"]
+[connection signal="button_down" from="StationHomeMenu/MaterialsInventoryPanel/CloseInventoryPanel" to="." method="_on_close_inventory_panel_button_down"]
+[connection signal="button_down" from="StationHomeMenu/CookingProcessPanel/DishTerminateButton" to="." method="_on_dish_terminate_button_button_down"]
+[connection signal="button_down" from="ProcessPanel/TerminateProcessButton" to="." method="_on_terminate_process_button_button_down"]
+[connection signal="button_down" from="ResultsPanel/CloseResultsPanel" to="." method="_on_close_results_panel_button_down"]

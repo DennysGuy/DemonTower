@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://dl7rmwsv5jx2h"]
+
+[ext_resource type="Script" path="res://src/Scripts/Resources/stats.gd" id="1_k7i7e"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_k7i7e")
+name = "DennysGuy"
+max_health = 100.0
+current_health = 100.0
+magic_points = 100
+current_magic_points = 100
+body_type = 1
+skin_color_index = 0
+eye_color = ""
+eye_style_index = 0
+hair_color = ""
+hair_style_index = 0
+equipped_archetype = 0
+str_level = 1
+dex_level = 1
+int_level = 1
+luk_level = 1
+mining_level = 1
+smelting_level = 1
+crafting_level = 1
+wood_cutting_level = 1
+fire_making_level = 5
+cooking_level = 5
+critical_rate = 0.0
+critical_damage = 0.0
+avoidability = 10.0
+smelting_speed = 1.0
+crafting_speed = 1.0
+cooking_speed = 1.0
+accuracy = 10.0
+speed = 120
+jump = 200
+xp_value = 0

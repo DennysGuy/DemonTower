@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpwpjt0s7t27s"]
+
+[sub_resource type="GDScript" id="GDScript_v4pkc"]
+script/source = "extends Node
+
+#everything is necessary for a weapon, but if the weapon doesn't provide those bonuses, value can simply be set to 0
+#meta data
+@export var weapon_name : String
+@export var animation_name : String #selects the corresponding animation in the animation player when equipped
+@export var archetype_class : String #Warrior, Mage, Rogue?
+@export var weapon_class : String #Weapon type under each archetype class
+@export var inventory_icon : Texture2D #texture or sprite?
+@export var drop_icon : Texture2D #this may not be needed in this spot, will change if necessary
+@export var crafting_recipe : Array #will have to think this about this a bit more thoroughly
+@export var active_skills : Array #may need to move will need to think about this more as I go
+@export var passive_skills : Array
+#stats
+@export var weapon_level : int #the level necessary for the player to equip
+@export var weapon_attack : int
+@export var weapon_defense : int
+@export var magic_attack : int
+@export var magic_defense : int
+@export var attack_speed : int #will be calculated into the attack speed amount will need to adjust the animation to some degree - this will probably be turned into an enum for consistency and easy access
+#bonuses
+@export var hp_bonus : int
+@export var mp_bonus : int
+@export var move_speed_bonus : int #this will be added to the base move speed amount
+@export var jump_bonus : int #this will be added to the base jump height
+"
+
+[node name="WoodSwordShield" type="Node"]
+script = SubResource("GDScript_v4pkc")

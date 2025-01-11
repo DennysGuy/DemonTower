@@ -6,9 +6,14 @@ var idle_state: State
 var jump_state: State
 @export
 var fall_state: State
+@export
+var hit_state: State
 func enter() -> void:
 	super()
-	animation_name = "Green_Climb"
+	parent.enable_gravity = false
+	#animation_name = PlayerManager.get_player_color()+"_Climb"
+	parent.set_textures(name)
+	parent.play_animation(1)
 	parent.velocity.x = 0
 	move_speed = 100
 	
@@ -21,8 +26,6 @@ func process_input(_event: InputEvent) -> State:
 	return null
 
 func process_physics(_delta: float) -> State:
-	
-		
 	var input = Input.get_axis("move_up","move_down")
 	var movement = input * move_speed
 
@@ -34,7 +37,10 @@ func process_physics(_delta: float) -> State:
 		parent.animation_player.stop()
 	else:
 		parent.animation_player.play()
-		
+	
+	if parent.was_hit:
+		return hit_state
+	
 	if parent.is_on_floor():
 		return idle_state
 	
