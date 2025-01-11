@@ -142,6 +142,7 @@ func _on_unequip_amulet_button_button_down() -> void:
 		Inventory.add_item("accessories", _equipped_cape, 1)
 		_equipped_cape = null
 		Inventory.inventories["equipped_gear"]["cape"] = null
+		player.cape.texture = null
 	player.set_textures("Idle")
 	
 func _on_unequip_shirt_button_button_down() -> void:
