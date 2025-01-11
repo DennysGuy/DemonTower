@@ -48,26 +48,36 @@ const texture_atlas = {
 			},
 			"Eyes" : {
 				"Green" : { # Green Eyes
-					#Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Idle.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Idle.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Idle.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Idle.png")
 				},
-				"Brown" : {
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Idle.png")
+				"Brown" : { # Brown Eyes
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Idle.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Idle.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Idle.png")
 				},
-				"Blue" : {
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Idle.png")
+				"Blue" : { # Blue Eyes
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Idle.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Idle.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Idle.png")
 				}
 			},
 			"Hair" : {
-				"Black": { #Black Colors
-					#Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Idle.png")
+				"Black": { # Black Colors
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Idle.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Idle.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Idle.png")
 				},
-				"Brown": {
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Idle.png")
+				"Brown": { # Brown Colors
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Idle.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Idle.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Idle.png")
 				},
-				"Blond": {
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Idle.png")
+				"Blond": { # Blond Colors
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Idle.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Idle.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Idle.png")
 				}
 			},
 			"Left Arm" : {
@@ -148,30 +158,36 @@ const texture_atlas = {
 			},
 			"Eyes" : {
 				"Green" : { # Green Eyes
-					#Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Run1.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Run1.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Run1.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Run1.png")
 				},
 				"Brown" : { # Brown Eyes
-					#Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Run1.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Run1.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Run1.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Run1.png")
 				},
 				"Blue" : { # Blue Eyes
-					#Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Run1.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Run1.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Run1.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Run1.png")
 				}
 			},
 			"Hair" : {
 				"Black" : { # Black Hair
-					#Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Run1.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Run1.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Run1.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Run1.png")
 				},
 				"Brown" : { # Brown Hair
-					#Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Run1.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Run1.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Run1.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Run1.png")
 				},
 				"Blond" : { # Blond Hair
-					#Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Run1.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Run1.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Run1.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Run1.png")
 				}
 			},
 			"Left Arm" : {
@@ -275,32 +291,38 @@ const texture_atlas = {
 
 			"Eyes" : {
 				"Green" : { # Green Eyes
-					#Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_Standard.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Jump_Standard.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Jump_Standard.png")
 				},
 				"Brown" : { # Brown Eyes
-					#Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_Standard.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Jump_Standard.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Jump_Standard.png")
 				},
 				"Blue" : { # Blue Eyes
-					#Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_Standard.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Jump_Standard.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Jump_Standard.png")
 				}
 			},
 			"Hair" : {
 				"Black" : { # Black Hair
-					#Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Jump_Standard.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Jump_Standard.png")
 				},
 				"Brown" : { # Brown Hair
-					#Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_Standard.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Jump_Standard.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Jump_Standard.png")
 				},
 				"Blond" : { # Blond Hair
-					#Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_Standard.png"),
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Jump_Standard.png"),
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Jump_Standard.png")
 				}
-		},
+			},
 			
 		"Left Arm" : {
 			# White Skin
@@ -400,34 +422,59 @@ const texture_atlas = {
 				2 : preload("res://Assets/Player/Male/Head_Male/Heads_Male/Head_Dark_Male-Jump_Standard.png"),
 			},
 
-		"Eyes" : {
-			"Green" : { # Green Eyes
-				#Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_Standard.png")
+
+			"Eyes": {
+				"Green": { # Green Eyes
+					# Eyes Style 1
+					0: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_Standard.png"),
+					# Eyes Style 2
+					1: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Jump_Standard.png"),
+					# Eyes Style 3
+					2: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Jump_Standard.png")
+				},
+				"Brown": { # Brown Eyes
+					# Eyes Style 1
+					0: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_Standard.png"),
+					# Eyes Style 2
+					1: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Jump_Standard.png"),
+					# Eyes Style 3
+					2: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Jump_Standard.png")
+				},
+				"Blue": { # Blue Eyes
+					# Eyes Style 1
+					0: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_Standard.png"),
+					# Eyes Style 2
+					1: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Jump_Standard.png"),
+					# Eyes Style 3
+					2: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Jump_Standard.png")
+				}
 			},
-			"Brown" : { # Brown Eyes
-				#Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_Standard.png")
+			"Hair": {
+				"Black": { # Black Hair
+					# Hair Style 1
+					0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png"),
+					# Hair Style 2
+					1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Jump_Standard.png"),
+					# Hair Style 3
+					2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Jump_Standard.png")
+				},
+				"Brown": { # Brown Hair
+					# Hair Style 1
+					0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_Standard.png"),
+					# Hair Style 2
+					1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Jump_Standard.png"),
+					# Hair Style 3
+					2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Jump_Standard.png")
+				},
+				"Blond": { # Blond Hair
+					# Hair Style 1
+					0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_Standard.png"),
+					# Hair Style 2
+					1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Jump_Standard.png"),
+					# Hair Style 3
+					2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Jump_Standard.png")
+				}
 			},
-			"Blue" : { # Blue Eyes
-				#Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_Standard.png")
-			}
-		},
-		"Hair" : {
-			"Black" : { # Black Hair
-				#Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png")
-			},
-			"Brown" : { # Brown Hair
-				#Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_Standard.png")
-			},
-			"Blond" : { # Blond Hair
-				#Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_Standard.png")
-			}
-		},
 			"Left Arm" : {
 				# White Skin
 				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_Standard_White-Jump_Standard.png"),
@@ -521,18 +568,30 @@ const texture_atlas = {
 				# Dark Skin
 				2 : preload("res://Assets/Player/Male/Head_Male/Heads_Male/Head_Dark_Male-ClimbLadder.png"),
 			},
-		"Hair" : {
-			"Black" : { # Black Hair
-				#Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-ClimbLadder.png")
+		"Hair": {
+			"Black": { # Black Hair
+				# Hair Style 1
+				0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-ClimbLadder.png"),
+				# Hair Style 2
+				1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-ClimbLadder.png"),
+				# Hair Style 3
+				2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-ClimbLadder.png")
 			},
-			"Brown" : { # Brown Hair
-				#Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-ClimbLadder.png")
+			"Brown": { # Brown Hair
+				# Hair Style 1
+				0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-ClimbLadder.png"),
+				# Hair Style 2
+				1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-ClimbLadder.png"),
+				# Hair Style 3
+				2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-ClimbLadder.png")
 			},
-			"Blond" : { # Blond Hair
-				#Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-ClimbLadder.png")
+			"Blond": { # Blond Hair
+				# Hair Style 1
+				0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-ClimbLadder.png"),
+				# Hair Style 2
+				1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-ClimbLadder.png"),
+				# Hair Style 3
+				2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-ClimbLadder.png")
 			}
 		},
 		"Torso" : {
@@ -620,32 +679,56 @@ const texture_atlas = {
 				2 : preload("res://Assets/Player/Male/Head_Male/Heads_Male/Head_Dark_Male-Jump_Standard.png"),
 			},
 
-		"Eyes" : {
-			"Green" : { # Green Eyes
-				#Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_Standard.png")
-			},
-			"Brown" : { # Brown Eyes
-				#Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_Standard.png")
-			},
-			"Blue" : { # Blue Eyes
-				#Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_Standard.png")
-			}
+"Eyes": {
+		"Green": { # Green Eyes
+			# Eyes Style 1
+			0: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_Standard.png"),
+			# Eyes Style 2
+			1: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Jump_Standard.png"),
+			# Eyes Style 3
+			2: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Jump_Standard.png")
 		},
-		"Hair" : {
-			"Black" : { # Black Hair
-				#Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png")
+		"Brown": { # Brown Eyes
+			# Eyes Style 1
+			0: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_Standard.png"),
+			# Eyes Style 2
+			1: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Jump_Standard.png"),
+			# Eyes Style 3
+			2: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Jump_Standard.png")
+		},
+		"Blue": { # Blue Eyes
+			# Eyes Style 1
+			0: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_Standard.png"),
+			# Eyes Style 2
+			1: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Jump_Standard.png"),
+			# Eyes Style 3
+			2: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Jump_Standard.png")
+		}
+	},
+		"Hair": {
+			"Black": { # Black Hair
+				# Hair Style 1
+				0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png"),
+				# Hair Style 2
+				1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Jump_Standard.png"),
+				# Hair Style 3
+				2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Jump_Standard.png")
 			},
-			"Brown" : { # Brown Hair
-				#Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_Standard.png")
+			"Brown": { # Brown Hair
+				# Hair Style 1
+				0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_Standard.png"),
+				# Hair Style 2
+				1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Jump_Standard.png"),
+				# Hair Style 3
+				2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Jump_Standard.png")
 			},
-			"Blond" : { # Blond Hair
-				#Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_Standard.png")
+			"Blond": { # Blond Hair
+				# Hair Style 1
+				0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_Standard.png"),
+				# Hair Style 2
+				1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Jump_Standard.png"),
+				# Hair Style 3
+				2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Jump_Standard.png")
 			}
 		},
 			
@@ -752,30 +835,32 @@ const texture_atlas = {
 					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/DeathEyes-Death.png")
 				}
 			},
-			"Hair" : {
-				"Black": { # Black Hair
-					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Death.png")
+			"Hair": {
+					"Black": { # Black Hair
+						# Hair Style 1
+						0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Death.png"),
+						# Hair Style 2
+						1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Death.png"),
+						# Hair Style 3
+						2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Death.png")
+					},
+					"Brown": { # Brown Hair
+						# Hair Style 1
+						0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Death.png"),
+						# Hair Style 2
+						1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Death.png"),
+						# Hair Style 3
+						2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Death.png")
+					},
+					"Blond": { # Blond Hair
+						# Hair Style 1
+						0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Death.png"),
+						# Hair Style 2
+						1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Death.png"),
+						# Hair Style 3
+						2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Death.png")
+					}
 				},
-				"Brown": { # Brown Hair
-					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Death.png")
-				},
-				"Blond": { # Blond Hair
-					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Death.png")
-				}
-			},
-			"Left Arm" : {
-				# White Skin
-				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_Standard_White-Death.png"),
-				
-				# Med Skin
-				1 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_Standard_Med-Death.png"),
-				
-				# Dark Skin
-				2 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_Standard_Dark-Death.png"),
-			},
 
 			"Torso" : {
 				# White Skin
@@ -856,34 +941,58 @@ const texture_atlas = {
 				# Dark Skin
 				2 : preload("res://Assets/Player/Male/Head_Male/Heads_Male/Head_Dark_Male-Idle.png"),
 			},
-			"Eyes" : {
-				"Green" : { # Green Eyes
+		"Eyes": {
+				"Green": { # Green Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Idle.png")
+					0: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Idle.png"),
+					# Eyes Style 2
+					1: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Idle.png"),
+					# Eyes Style 3
+					2: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Idle.png")
 				},
-				"Brown" : { # Brown Eyes
+				"Brown": { # Brown Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Idle.png")
+					0: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Idle.png"),
+					# Eyes Style 2
+					1: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Idle.png"),
+					# Eyes Style 3
+					2: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Idle.png")
 				},
-				"Blue" : { # Blue Eyes
+				"Blue": { # Blue Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Idle.png")
+					0: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Idle.png"),
+					# Eyes Style 2
+					1: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Idle.png"),
+					# Eyes Style 3
+					2: preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Idle.png")
 				}
 			},
-			"Hair" : {
-				"Black": { # Black Hair
-					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Idle.png")
-				},
-				"Brown": { # Brown Hair
-					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Idle.png")
-				},
-				"Blond": { # Blond Hair
-					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Idle.png")
-				}
+		"Hair": {
+			"Black": { # Black Hair
+				# Hair Style 1
+				0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Idle.png"),
+				# Hair Style 2
+				1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Idle.png"),
+				# Hair Style 3
+				2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Idle.png")
 			},
+			"Brown": { # Brown Hair
+				# Hair Style 1
+				0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Idle.png"),
+				# Hair Style 2
+				1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Idle.png"),
+				# Hair Style 3
+				2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Idle.png")
+			},
+			"Blond": { # Blond Hair
+				# Hair Style 1
+				0: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Idle.png"),
+				# Hair Style 2
+				1: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Idle.png"),
+				# Hair Style 3
+				2: preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Idle.png")
+			}
+		},
 
 			"Gloves" : {
 				
@@ -991,34 +1100,58 @@ const texture_atlas = {
 				# Dark Skin
 				2 : preload("res://Assets/Player/Male/Head_Male/Heads_Male/Head_Dark_Male-Run1.png"),
 			},
-			"Eyes" : {
-				"Green" : { # Green Eyes
-					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Run1.png")
-				},
-				"Brown" : { # Brown Eyes
-					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Run1.png")
-				},
-				"Blue" : { # Blue Eyes
-					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Run1.png")
-				}
+		"Eyes" : {
+			"Green" : { # Green Eyes
+				# Eyes Style 1
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Run1.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Run1.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Run1.png")
 			},
-			"Hair" : {
-				"Black": { # Black Hair
-					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Run1.png")
-				},
-				"Brown": { # Brown Hair
-					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Run1.png")
-				},
-				"Blond": { # Blond Hair
-					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Run1.png")
-				}
+			"Brown" : { # Brown Eyes
+				# Eyes Style 1
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Run1.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Run1.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Run1.png")
 			},
+			"Blue" : { # Blue Eyes
+				# Eyes Style 1
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Run1.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Run1.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Run1.png")
+			}
+		},
+		"Hair" : {
+			"Black": { # Black Hair
+				# Hair Style 1
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Run1.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Run1.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Run1.png")
+			},
+			"Brown": { # Brown Hair
+				# Hair Style 1
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Run1.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Run1.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Run1.png")
+			},
+			"Blond": { # Blond Hair
+				# Hair Style 1
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Run1.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Run1.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Run1.png")
+			}
+		},
 			"Left Arm" : {
 				# White Skin
 				0 : preload("res://Assets/Player/Male/LeftArm_Male/LeftArmsMale/White_Skin/LeftArm_SWS_White-Run1.png"),
@@ -1126,29 +1259,53 @@ const texture_atlas = {
 			"Eyes" : {
 				"Green" : { # Green Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_SWS.png"),
+					# Eyes Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Jump_SWS.png"),
+					# Eyes Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Jump_SWS.png")
 				},
 				"Brown" : { # Brown Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_SWS.png"),
+					# Eyes Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Jump_SWS.png"),
+					# Eyes Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Jump_SWS.png")
 				},
 				"Blue" : { # Blue Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_SWS.png"),
+					# Eyes Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Jump_SWS.png"),
+					# Eyes Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Jump_SWS.png")
 				}
 			},
 			"Hair" : {
 				"Black": { # Black Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_SWS.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Jump_SWS.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Jump_SWS.png")
 				},
 				"Brown": { # Brown Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_SWS.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Jump_SWS.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Jump_SWS.png")
 				},
 				"Blond": { # Blond Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_SWS.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Jump_SWS.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Jump_SWS.png")
 				}
 			},
 			"Left Arm" : {
@@ -1263,29 +1420,53 @@ const texture_atlas = {
 			"Eyes" : {
 				"Green" : { # Green Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_SWS.png"),
+					# Eyes Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Jump_SWS.png"),
+					# Eyes Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Jump_SWS.png")
 				},
 				"Brown" : { # Brown Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_SWS.png"),
+					# Eyes Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Jump_SWS.png"),
+					# Eyes Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Jump_SWS.png")
 				},
 				"Blue" : { # Blue Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_SWS.png"),
+					# Eyes Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Jump_SWS.png"),
+					# Eyes Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Jump_SWS.png")
 				}
 			},
 			"Hair" : {
 				"Black": { # Black Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_SWS.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Jump_SWS.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Jump_SWS.png")
 				},
 				"Brown": { # Brown Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_SWS.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Jump_SWS.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Jump_SWS.png")
 				},
 				"Blond": { # Blond Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_SWS.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_SWS.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Jump_SWS.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Jump_SWS.png")
 				}
 			},
 			"Left Arm" : {
@@ -1401,15 +1582,27 @@ const texture_atlas = {
 			"Hair" : {
 				"Black": { # Black Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-ClimbLadder.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-ClimbLadder.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-ClimbLadder.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-ClimbLadder.png")
 				},
 				"Brown": { # Brown Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-ClimbLadder.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-ClimbLadder.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-ClimbLadder.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-ClimbLadder.png")
 				},
 				"Blond": { # Blond Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-ClimbLadder.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-ClimbLadder.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-ClimbLadder.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-ClimbLadder.png")
 				}
 			},
 			"Torso" : {
@@ -1492,29 +1685,53 @@ const texture_atlas = {
 			"Eyes" : {
 				"Green" : { # Green Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Jump_Standard.png"),
+					# Eyes Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Jump_Standard.png"),
+					# Eyes Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Jump_Standard.png")
 				},
 				"Brown" : { # Brown Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Jump_Standard.png"),
+					# Eyes Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Jump_Standard.png"),
+					# Eyes Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Jump_Standard.png")
 				},
 				"Blue" : { # Blue Eyes
 					# Eyes Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Jump_Standard.png"),
+					# Eyes Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Jump_Standard.png"),
+					# Eyes Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Jump_Standard.png")
 				}
 			},
 			"Hair" : {
 				"Black": { # Black Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Jump_Standard.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Jump_Standard.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Jump_Standard.png")
 				},
 				"Brown": { # Brown Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Jump_Standard.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Jump_Standard.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Jump_Standard.png")
 				},
 				"Blond": { # Blond Hair
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_Standard.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Jump_Standard.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Jump_Standard.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Jump_Standard.png")
 				}
 			},
 			"Left Arm" : {
@@ -1612,15 +1829,27 @@ const texture_atlas = {
 			"Hair" : {
 				"Black": { # Black Colors
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Death.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Death.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Death.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Death.png")
 				},
 				"Brown": { # Brown Colors
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Death.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Death.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Death.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Death.png")
 				},
 				"Blond": { # Blond Colors
 					# Hair Style 1
-					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Death.png")
+					0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Death.png"),
+					# Hair Style 2
+					1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Death.png"),
+					# Hair Style 3
+					2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Death.png")
 				}
 			},
 			"Left Arm" : {
@@ -1710,29 +1939,53 @@ const texture_atlas = {
 		"Eyes" : {
 			"Green" : { # Green Eyes
 				# Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Basic_SWS_Attack.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Basic_SWS_Attack.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Basic_SWS_Attack.png")
 			},
 			"Brown" : { # Brown Eyes
 				# Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Basic_SWS_Attack.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Basic_SWS_Attack.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Basic_SWS_Attack.png")
 			},
 			"Blue" : { # Blue Eyes
 				# Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Basic_SWS_Attack.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Basic_SWS_Attack.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Basic_SWS_Attack.png")
 			}
 		},
 		"Hair" : {
 			"Black": { # Black Colors
 				# Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Basic_SWS_Attack.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Basic_SWS_Attack.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Basic_SWS_Attack.png")
 			},
 			"Brown": { # Brown Colors
 				# Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Basic_SWS_Attack.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Basic_SWS_Attack.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Basic_SWS_Attack.png")
 			},
 			"Blond": { # Blond Colors
 				# Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Basic_SWS_Attack.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Basic_SWS_Attack.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Basic_SWS_Attack.png")
 			}
 		},
 		"Left Arm" : {
@@ -1837,29 +2090,53 @@ const texture_atlas = {
 		"Eyes" : {
 			"Green" : { # Green Eyes
 				# Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Basic_SWS_Attack.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Basic_SWS_Attack.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Basic_SWS_Attack.png")
 			},
 			"Brown" : { # Brown Eyes
 				# Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Basic_SWS_Attack.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Basic_SWS_Attack.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Basic_SWS_Attack.png")
 			},
 			"Blue" : { # Blue Eyes
 				# Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Basic_SWS_Attack.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Basic_SWS_Attack.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Basic_SWS_Attack.png")
 			}
 		},
 		"Hair" : {
 			"Black": { # Black Colors
 				# Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Basic_SWS_Attack.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Basic_SWS_Attack.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Basic_SWS_Attack.png")
 			},
 			"Brown": { # Brown Colors
 				# Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Basic_SWS_Attack.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Basic_SWS_Attack.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Basic_SWS_Attack.png")
 			},
 			"Blond": { # Blond Colors
 				# Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Basic_SWS_Attack.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Basic_SWS_Attack.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Basic_SWS_Attack.png")
 			}
 		},
 		"Left Arm" : {
@@ -1964,29 +2241,53 @@ const texture_atlas = {
 		"Eyes" : {
 			"Green" : { # Green Eyes
 				# Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Green-Basic_SWS_Attack.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Green-Basic_SWS_Attack.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Green-Basic_SWS_Attack.png")
 			},
 			"Brown" : { # Brown Eyes
 				# Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Brown-Basic_SWS_Attack.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Brown-Basic_SWS_Attack.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Brown-Basic_SWS_Attack.png")
 			},
 			"Blue" : { # Blue Eyes
 				# Eyes Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes1Blue-Basic_SWS_Attack.png"),
+				# Eyes Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes2Blue-Basic_SWS_Attack.png"),
+				# Eyes Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Eyes_Male/Eyes3Blue-Basic_SWS_Attack.png")
 			}
 		},
 		"Hair" : {
 			"Black": { # Black Colors
 				# Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Black-Basic_SWS_Attack.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Black-Basic_SWS_Attack.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Black-Basic_SWS_Attack.png")
 			},
 			"Brown": { # Brown Colors
 				# Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Brown-Basic_SWS_Attack.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Brown-Basic_SWS_Attack.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Brown-Basic_SWS_Attack.png")
 			},
 			"Blond": { # Blond Colors
 				# Hair Style 1
-				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Basic_SWS_Attack.png")
+				0 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair1Blond-Basic_SWS_Attack.png"),
+				# Hair Style 2
+				1 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair2Blond-Basic_SWS_Attack.png"),
+				# Hair Style 3
+				2 : preload("res://Assets/Player/Male/Head_Male/Hair_Male/Hair3Blond-Basic_SWS_Attack.png")
 			}
 		},
 		"Left Arm" : {

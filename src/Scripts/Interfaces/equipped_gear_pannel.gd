@@ -52,13 +52,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	_equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
-	_equipped_hat = Inventory.inventories["equipped_gear"]["hat"]
-	_equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
-	_equipped_cape = Inventory.inventories["equipped_gear"]["cape"]
-	_equipped_shirt = Inventory.inventories["equipped_gear"]["shirt"]
-	_equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
-	_equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
+	if not hidden:
+		_equipped_weapon = Inventory.inventories["equipped_gear"]["weapon"]
+		_equipped_hat = Inventory.inventories["equipped_gear"]["hat"]
+		_equipped_gloves = Inventory.inventories["equipped_gear"]["gloves"]
+		_equipped_cape = Inventory.inventories["equipped_gear"]["cape"]
+		_equipped_shirt = Inventory.inventories["equipped_gear"]["shirt"]
+		_equipped_pants = Inventory.inventories["equipped_gear"]["pants"]
+		_equipped_shoes = Inventory.inventories["equipped_gear"]["shoes"]
 	
 	if _equipped_weapon:
 		unequip_weapon_button.show()
