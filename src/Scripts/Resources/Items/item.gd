@@ -20,6 +20,7 @@ enum RARITY {
 }
 
 @export var id : int
+@export var texture_index : int
 @export var name : String
 @export var sell_value : int
 @export var shop_value : int

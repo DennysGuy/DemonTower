@@ -13,7 +13,9 @@ var hit_state: State
 
 func enter() -> void:
 	parent.enable_gravity = true
-	animation_name = PlayerManager.get_player_color()+"_Jump"
+	#animation_name = PlayerManager.get_player_color()+"_Jump"
+	parent.set_textures(name)
+	parent.play_animation(5)
 	super()
 	parent.has_jumped = true
 	parent.velocity.y -= 300
@@ -31,7 +33,8 @@ func process_physics(_delta: float) -> State:
 	
 	var movement = Input.get_axis("move_left","move_right") * move_speed
 	if movement != 0:
-		parent.animation_player.flip_h = movement < 0
+		#parent.animation_player.flip_h = movement < 0
+		parent.flip_textures(movement < 0)
 	parent.velocity.x = movement
 	parent.move_and_slide()
 	

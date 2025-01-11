@@ -23,6 +23,8 @@ func enter() -> void:
 	parent.enable_gravity = true
 	parent.hitbox_collision.disabled = true
 	animation_name = PlayerManager.get_player_color()+"_Idle"
+	parent.set_textures(name)
+	parent.play_animation(0)
 	super()
 
 func process_input(_event: InputEvent) -> State:
@@ -36,8 +38,11 @@ func process_input(_event: InputEvent) -> State:
 		return jump_state
 	
 	if Input.is_action_just_pressed("attack"):
-		return attack_state
-	
+		if parent.equipped_weapon:
+			return attack_state
+		else:
+			print("Need to equip a weapon first to attack.")
+		
 	return null
 
 func process_physics(_delta: float) -> State:

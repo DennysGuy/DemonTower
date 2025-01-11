@@ -17,6 +17,8 @@ var timer := $"../../Timer"
 func enter() -> void:
 	parent.enable_gravity = true
 	animation_name = PlayerManager.get_player_color()+"_Attack3"
+	parent.set_textures(name)
+	parent.play_animation(9)
 	move_speed = 10
 	timer.wait_time = 0.5
 	timer.start()

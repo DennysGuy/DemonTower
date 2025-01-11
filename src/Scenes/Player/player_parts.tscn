@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cwgfafi5e6ygt"]
+
+[node name="PlayerParts" type="Node2D"]
+position = Vector2(0, -37)
+
+[node name="Shield" type="Sprite2D" parent="."]
+
+[node name="LeftUpperBody" type="Node2D" parent="."]
+
+[node name="LeftArm" type="Sprite2D" parent="LeftUpperBody"]
+
+[node name="LeftShirtSleeve" type="Sprite2D" parent="LeftUpperBody"]
+
+[node name="LeftGlove" type="Sprite2D" parent="LeftUpperBody"]
+
+[node name="UpperMiddleBody" type="Node2D" parent="."]
+
+[node name="Cape" type="Sprite2D" parent="UpperMiddleBody"]
+
+[node name="Torso" type="Sprite2D" parent="UpperMiddleBody"]
+
+[node name="ShirtTorso" type="Sprite2D" parent="UpperMiddleBody"]
+
+[node name="LowerBody" type="Node2D" parent="."]
+
+[node name="Legs" type="Sprite2D" parent="LowerBody"]
+
+[node name="Pants" type="Sprite2D" parent="LowerBody"]
+
+[node name="Bottoms" type="Sprite2D" parent="LowerBody"]
+
+[node name="RightUpperBody" type="Node2D" parent="."]
+
+[node name="Sword" type="Sprite2D" parent="RightUpperBody"]
+position = Vector2(1, 21)
+
+[node name="RightArm" type="Sprite2D" parent="RightUpperBody"]
+
+[node name="RightShirtSleeve" type="Sprite2D" parent="RightUpperBody"]
+
+[node name="RightGlove" type="Sprite2D" parent="RightUpperBody"]
+
+[node name="UpperBody" type="Node2D" parent="."]
+
+[node name="Head" type="Sprite2D" parent="UpperBody"]
+
+[node name="Eyes" type="Sprite2D" parent="UpperBody"]
+
+[node name="Hair" type="Sprite2D" parent="UpperBody"]
+
+[node name="OnClimb" type="Node2D" parent="."]
+
+[node name="CapeOnClimb" type="Sprite2D" parent="OnClimb"]
+
+[node name="WeaponOnClimb" type="Sprite2D" parent="OnClimb"]
+
+[node name="Effects" type="Sprite2D" parent="."]

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=3 format=3 uid="uid://bwt65vrjlwsa"]
+
+[ext_resource type="Texture2D" uid="uid://usktsr4hyeqp" path="res://Assets/nomad_gloves_icon.png" id="1_thdht"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/accessory.gd" id="1_y5sju"]
+
+[resource]
+script = ExtResource("1_y5sju")
+accessory_type = 1
+level = 1
+crit_damage_bonus = 0
+crit_rate_bonus = 0
+speed_bonus = 0
+jump_bonus = 0
+avoidability_bonus = 0
+accuracy_bonus = 0
+hp_bonus = 0
+mp_bonus = 0
+weapon_defense_bonus = 0
+magic_defense_bonus = 0
+id = 46
+texture_index = 0
+name = "Nomad Gloves"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 2
+rarity = 0
+description = "Gloves that help a nomad stay warm and do laborious tasks"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_thdht")

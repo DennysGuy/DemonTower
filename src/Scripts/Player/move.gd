@@ -16,7 +16,9 @@ var prev_input
 func enter() -> void:
 	parent.was_hit = false
 	parent.enable_gravity = true
-	animation_name = PlayerManager.get_player_color()+"_Run"
+	#animation_name = PlayerManager.get_player_color()+"_Run"
+	parent.set_textures(name)
+	parent.play_animation(4)
 	super()
 	parent.velocity.x = 0
 
@@ -40,7 +42,8 @@ func process_physics(_delta: float) -> State:
 
 	parent.hitbox.position.x = (parent.hit_box_x_pos * input)
 	if movement != 0:
-		parent.animation_player.flip_h = movement < 0
+		#parent.animation_player.flip_h = movement < 0
+		parent.flip_textures(movement < 0)
 	
 	parent.velocity.x = movement
 	#set floor snapping for sloped surfaces

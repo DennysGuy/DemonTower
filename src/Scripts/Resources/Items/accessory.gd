@@ -6,8 +6,8 @@ class_name Accessory extends Item
 # accessories are items that give stat bonuses
 # accessories can provide defense, avoidability
 # number of upgrades
-enum AccessoryType {HAT, GLOVES, AMULET}
-@export_enum("Hat", "Gloves", "Amulet") var accessory_type : int
+enum AccessoryType {HAT, GLOVES, CAPE}
+@export_enum("Hat", "Gloves", "Cape") var accessory_type : int
 @export_group("Item Level")
 @export var level : int
 @export_group("Stats Buffs")
@@ -28,7 +28,7 @@ func get_accessory_type() -> String:
 			return "hat"
 		AccessoryType.GLOVES:
 			return "gloves"
-		AccessoryType.AMULET:
-			return "amulet"
+		AccessoryType.CAPE:
+			return "cape"
 		_:
 			return ""

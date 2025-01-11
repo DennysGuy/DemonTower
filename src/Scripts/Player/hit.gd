@@ -16,6 +16,8 @@ var player : Player = $"../.."
 
 func enter() -> void:
 	animation_name = PlayerManager.get_player_color()+"_Hit"
+	parent.set_textures(name)
+	parent.play_animation(2)
 	timer.wait_time = 0.30
 	timer.start()
 	super()
