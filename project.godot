@@ -26,6 +26,7 @@ StatCalculations="*res://src/Scripts/Utilities/stat_calculations.gd"
 Inventory="*res://src/Scripts/Interfaces/inventory.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PlayerTextures="*res://src/Scripts/Player/player_textures.gd"
+SaveManager="*res://src/Scripts/save_manager.gd"
 
 [dialogic]
 

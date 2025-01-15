@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Drip" load_steps=3 format=3 uid="uid://cnvn0dlor35lr"]
+
+[ext_resource type="Texture2D" uid="uid://dat5db3hdwbqh" path="res://Assets/nomad_pants_red_icon.png" id="1_yqbwb"]
+[ext_resource type="Script" path="res://src/Scripts/Resources/Items/drip.gd" id="2_0rrwg"]
+
+[resource]
+script = ExtResource("2_0rrwg")
+drip_type = 1
+animation_name = ""
+id = 52
+texture_index = 1
+name = "Nomad Pants"
+sell_value = 0
+shop_value = 0
+is_droppable = true
+type = 3
+rarity = 0
+description = "A cozy pair of pants for thet cold times"
+is_stackable = false
+max_stack = 0
+icon = ExtResource("1_yqbwb")

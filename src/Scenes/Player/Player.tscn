@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=3 uid="uid://c3f22551sc137"]
+[gd_scene load_steps=190 format=3 uid="uid://c3f22551sc137"]
 
 [ext_resource type="Script" path="res://src/Scripts/Player/player.gd" id="1_a8xjd"]
 [ext_resource type="Texture2D" uid="uid://dpoghdu45hbx6" path="res://Assets/Player/TempPlayerAssets/green/char_green_1.png" id="2_4c53k"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://src/Scripts/Components/hit_box_component.gd" id="8_75pm8"]
 [ext_resource type="Texture2D" uid="uid://b6k7iam5xadba" path="res://Assets/Player/Male/Shields/WoodenShield-Idle.png" id="9_13tao"]
 [ext_resource type="Script" path="res://src/Scripts/Player/attack_1.gd" id="10_bnlu5"]
+[ext_resource type="PackedScene" uid="uid://cwgfafi5e6ygt" path="res://src/Scenes/Player/player_parts.tscn" id="10_xktms"]
 [ext_resource type="Script" path="res://src/Scripts/Player/attack_2.gd" id="11_0ycbk"]
 [ext_resource type="Script" path="res://src/Scripts/Player/attack_3.gd" id="12_d5uju"]
 [ext_resource type="Script" path="res://src/Scripts/Player/player_name_tag.gd" id="15_cb3mg"]
@@ -6504,77 +6505,53 @@ libraries = {
 "": SubResource("AnimationLibrary_boit3")
 }
 
-[node name="PlayerParts" type="Node2D" parent="."]
-position = Vector2(0, -37)
+[node name="PlayerParts" parent="." instance=ExtResource("10_xktms")]
 
-[node name="Shield" type="Sprite2D" parent="PlayerParts"]
+[node name="Shield" parent="PlayerParts" index="0"]
 texture = ExtResource("9_13tao")
 hframes = 10
 
-[node name="LeftUpperBody" type="Node2D" parent="PlayerParts"]
-
-[node name="LeftArm" type="Sprite2D" parent="PlayerParts/LeftUpperBody"]
+[node name="LeftArm" parent="PlayerParts/LeftUpperBody" index="0"]
 hframes = 10
 
-[node name="LeftShirtSleeve" type="Sprite2D" parent="PlayerParts/LeftUpperBody"]
+[node name="LeftShirtSleeve" parent="PlayerParts/LeftUpperBody" index="1"]
 hframes = 10
 
-[node name="LeftGlove" type="Sprite2D" parent="PlayerParts/LeftUpperBody"]
+[node name="LeftGlove" parent="PlayerParts/LeftUpperBody" index="2"]
 hframes = 10
 
-[node name="UpperMiddleBody" type="Node2D" parent="PlayerParts"]
-
-[node name="Cape" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
+[node name="Cape" parent="PlayerParts/UpperMiddleBody" index="0"]
 hframes = 10
 
-[node name="Torso" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
+[node name="Torso" parent="PlayerParts/UpperMiddleBody" index="1"]
 hframes = 10
 frame = 2
 
-[node name="ShirtTorso" type="Sprite2D" parent="PlayerParts/UpperMiddleBody"]
+[node name="ShirtTorso" parent="PlayerParts/UpperMiddleBody" index="2"]
 hframes = 10
 
-[node name="LowerBody" type="Node2D" parent="PlayerParts"]
-
-[node name="Legs" type="Sprite2D" parent="PlayerParts/LowerBody"]
+[node name="Legs" parent="PlayerParts/LowerBody" index="0"]
 hframes = 10
 
-[node name="Pants" type="Sprite2D" parent="PlayerParts/LowerBody"]
+[node name="Pants" parent="PlayerParts/LowerBody" index="1"]
 hframes = 10
 
-[node name="Bottoms" type="Sprite2D" parent="PlayerParts/LowerBody"]
+[node name="Bottoms" parent="PlayerParts/LowerBody" index="2"]
 hframes = 10
 
-[node name="RightUpperBody" type="Node2D" parent="PlayerParts"]
-
-[node name="Sword" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
-position = Vector2(1, 21)
+[node name="Sword" parent="PlayerParts/RightUpperBody" index="0"]
 hframes = 2
 
-[node name="RightArm" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
+[node name="RightArm" parent="PlayerParts/RightUpperBody" index="1"]
 hframes = 10
 
-[node name="RightShirtSleeve" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
+[node name="RightShirtSleeve" parent="PlayerParts/RightUpperBody" index="2"]
 hframes = 10
 
-[node name="RightGlove" type="Sprite2D" parent="PlayerParts/RightUpperBody"]
+[node name="RightGlove" parent="PlayerParts/RightUpperBody" index="3"]
 hframes = 10
 
-[node name="UpperBody" type="Node2D" parent="PlayerParts"]
-
-[node name="Head" type="Sprite2D" parent="PlayerParts/UpperBody"]
-
-[node name="Eyes" type="Sprite2D" parent="PlayerParts/UpperBody"]
-
-[node name="Hair" type="Sprite2D" parent="PlayerParts/UpperBody"]
-
-[node name="OnClimb" type="Node2D" parent="PlayerParts"]
-
-[node name="CapeOnClimb" type="Sprite2D" parent="PlayerParts/OnClimb"]
-
-[node name="WeaponOnClimb" type="Sprite2D" parent="PlayerParts/OnClimb"]
-
-[node name="Effects" type="Sprite2D" parent="PlayerParts"]
+[node name="Effects" parent="PlayerParts" index="7"]
 hframes = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -6726,3 +6703,5 @@ position = Vector2(27, 37)
 shape = SubResource("RectangleShape2D_2p02l")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+
+[editable path="PlayerParts"]
